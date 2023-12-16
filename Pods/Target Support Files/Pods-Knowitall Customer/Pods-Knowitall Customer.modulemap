@@ -1,0 +1,6 @@
+framework module Pods_Knowitall_Customer {
+  umbrella header "Pods-Knowitall Customer-umbrella.h"
+
+  export *
+  module * { export * }
+}

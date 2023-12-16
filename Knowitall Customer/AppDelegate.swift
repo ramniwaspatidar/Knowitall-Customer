@@ -1,36 +1,173 @@
-//
-//  AppDelegate.swift
-//  Knowitall Customer
-//
-//  Created by Ramniwas Patidar on 30/11/23.
-//
-
 import UIKit
+import CoreLocation
+import FirebaseCore
+import FirebaseAuth
+import FirebaseMessaging
+import SideMenu
 
-@main
-class AppDelegate: UIResponder, UIApplicationDelegate {
-
-
-
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        return true
-    }
-
-    // MARK: UISceneSession Lifecycle
-
-    func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
-        // Called when a new scene session is being created.
-        // Use this method to select a configuration to create the new scene with.
-        return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
-    }
-
-    func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
-        // Called when the user discards a scene session.
-        // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
-        // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
-    }
-
-
+protocol locationDelegateProtocol {
+    func getUserCurrentLocation()
 }
 
+@UIApplicationMain
+class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate {
+    var window: UIWindow?
+    var coordinator: MainCoordinator?
+    var locationManager : CLLocationManager?
+    var currentLocation : CLLocation?
+    var delegate: locationDelegateProtocol? = nil
+    
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        UITabBar.appearance().unselectedItemTintColor = hexStringToUIColor("#393F45")
+        UITabBar.appearance().tintColor = hexStringToUIColor("#E31D7C")
+        
+        UNUserNotificationCenter.current().delegate = self
+        let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+        UNUserNotificationCenter.current().requestAuthorization(
+            options: authOptions) { _, _ in }
+        application.registerForRemoteNotifications()
+        
+        FirebaseApp.configure()
+        
+        
+        autoLogin()
+        return true
+    }
+    
+    fileprivate func tabbarSetting(){
+        UITabBar.appearance().unselectedItemTintColor = hexStringToUIColor("#BABABA")
+        UITabBar.appearance().tintColor = hexStringToUIColor("#E31D7C")
+        
+        // add Shadow
+        UITabBar.appearance().layer.shadowOffset = CGSize(width: 0, height: -3)
+        UITabBar.appearance().layer.shadowRadius = 3
+        UITabBar.appearance().layer.shadowColor = UIColor.black.cgColor
+        UITabBar.appearance().layer.shadowOpacity = 1
+        UITabBar.appearance().layer.applySketchShadow(color: .white, alpha: 1, x: 0, y: -3, blur: 10)
+        
+        //        UITabBar.appearance().clipsToBounds = true
+        UITabBar.appearance().layer.borderWidth = 0
+        UITabBar.appearance().barTintColor = .white
+        
+    }
+    
+    // Mark : get app version
+    
+    public func autoLogin(){
+        
+        
+        
+//        if ((CurrentUserInfo.userId) != nil) {
+//
+//            let navController = UINavigationController()
+//            navController.navigationBar.isHidden = true
+//            coordinator = MainCoordinator(navigationController: navController)
+//            coordinator?.goToHelpView()
+//
+//        }else{
+//            let navController = UINavigationController()
+//            navController.navigationBar.isHidden = true
+//            coordinator = MainCoordinator(navigationController: navController)
+//            coordinator?.goToMobileNUmber()
+//        }
+        
+        let navController = UINavigationController()
+        navController.navigationBar.isHidden = true
+        coordinator = MainCoordinator(navigationController: navController)
+        coordinator?.goToHelpView()
+        
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = coordinator?.navigationController
+        window?.makeKeyAndVisible()
+        
+        if #available(iOS 13.0, *) {
+            window?.overrideUserInterfaceStyle = .light
+        }
+        
+        let sideMenuViewController = SideMenuTableViewController()
+            SideMenuManager.default.leftMenuNavigationController = UISideMenuNavigationController(rootViewController: sideMenuViewController)
+            SideMenuManager.default.addPanGestureToPresent(toView: self.window!)
+            SideMenuManager.default.menuWidth = 350
+
+    }
+    
+}
+
+
+public extension UIWindow {
+    var visibleViewController: UIViewController? {
+        return UIWindow.getVisibleViewControllerFrom(self.rootViewController)
+    }
+    
+    static func getVisibleViewControllerFrom(_ vc: UIViewController?) -> UIViewController? {
+        if let nc = vc as? UINavigationController {
+            return UIWindow.getVisibleViewControllerFrom(nc.visibleViewController)
+        } else if let tc = vc as? UITabBarController {
+            return UIWindow.getVisibleViewControllerFrom(tc.selectedViewController)
+        } else {
+            if let pvc = vc?.presentedViewController {
+                return UIWindow.getVisibleViewControllerFrom(pvc)
+            } else {
+                return vc
+            }
+        }
+    }
+}
+
+func getTopViewController() -> UIViewController? {
+    let appDelegate = UIApplication.shared.delegate
+    if let window = appDelegate!.window {
+        return window?.visibleViewController
+    }
+    return nil
+}
+
+
+
+extension AppDelegate: UNUserNotificationCenterDelegate {
+    func userNotificationCenter(
+        _ center: UNUserNotificationCenter,
+        willPresent notification: UNNotification,
+        withCompletionHandler completionHandler:
+        @escaping (UNNotificationPresentationOptions) -> Void
+    ) {
+        completionHandler([[.sound]])
+    }
+    
+    func userNotificationCenter(
+        _ center: UNUserNotificationCenter,
+        didReceive response: UNNotificationResponse,
+        withCompletionHandler completionHandler: @escaping () -> Void
+    ) {
+        completionHandler()
+    }
+    
+    func application(
+        _ application: UIApplication,
+        didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data
+    ) {
+        Messaging.messaging().apnsToken = deviceToken
+        Auth.auth().setAPNSToken(deviceToken, type: .sandbox)
+        
+    }
+    
+    
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification notification: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        print("\(#function)")
+        if Auth.auth().canHandleNotification(notification) {
+            completionHandler(.noData)
+            return
+        }
+    }
+    
+    func application(_ application: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any]) -> Bool {
+        print("\(#function)")
+        if Auth.auth().canHandle(url) {
+            return true
+        }
+        return false
+    }
+    
+}
