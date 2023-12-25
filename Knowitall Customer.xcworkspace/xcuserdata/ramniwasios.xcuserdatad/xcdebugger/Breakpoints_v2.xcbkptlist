@@ -1,51 +1,439 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Bucket
-   uuid = "84F1AA97-A65D-4EF0-87A8-2CA6248C8FA1"
+   uuid = "91E6377D-B10F-42CC-B501-569482517E2C"
    type = "0"
    version = "2.0">
    <Breakpoints>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "784DCD75-DA14-46F3-8E1C-9117259C0863"
+            uuid = "B1E29A01-F31C-4556-9B1E-7A72703647F3"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Knowitall Customer/Screens/Traking/ArrivalViewControoler.swift"
+            filePath = "Knowitall Customer/Screens/Registry/OTPViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
-            landmarkName = "arrivalButtonAction(_:)"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
+            landmarkName = "verifyOTP(_:_:handler:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "02923D20-602C-48FD-8B76-11B052DD9EE2"
+            uuid = "3C4B651D-E1D7-41C3-87F3-53548107FEB5"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Knowitall Customer/Screens/Traking/ArrivalViewControoler.swift"
+            filePath = "Knowitall Customer/Screens/Registry/OTPViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
-            landmarkName = "arrivalButtonAction(_:)"
+            startingLineNumber = "98"
+            endingLineNumber = "98"
+            landmarkName = "verifyOTP(_:_:handler:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "3C4B651D-E1D7-41C3-87F3-53548107FEB5 - 6901bd17d3598ccc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Dictionary&lt;Swift.String, Any&gt;, Swift.Bool, Swift.String, Swift.Int) -&gt; () in closure #1 (Swift.Dictionary&lt;Swift.String, Any&gt;, Swift.Int) -&gt; () in Knowitall_Customer.OTPViewController.verifyOTP(_: Swift.String, _: Swift.Dictionary&lt;Swift.String, Any&gt;, handler: (Swift.String, Swift.Int) -&gt; ()) -&gt; ()"
+                  moduleName = "Knowitall Customer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ramniwasios/Documents/xcode-projects/Knowitall%20Customer/Knowitall%20Customer/Screens/Registry/OTPViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "98"
+                  endingLineNumber = "98"
+                  offsetFromSymbolStart = "972">
+               </Location>
+               <Location
+                  uuid = "3C4B651D-E1D7-41C3-87F3-53548107FEB5 - e810407ed068340c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 (Swift.Dictionary&lt;Swift.String, Any&gt;, Swift.Bool, Swift.String, Swift.Int) -&gt; () in closure #1 (Swift.Dictionary&lt;Swift.String, Any&gt;, Swift.Int) -&gt; () in Knowitall_Customer.OTPViewController.verifyOTP(_: Swift.String, _: Swift.Dictionary&lt;Swift.String, Any&gt;, handler: (Swift.String, Swift.Int) -&gt; ()) -&gt; ()"
+                  moduleName = "Knowitall Customer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ramniwasios/Documents/xcode-projects/Knowitall%20Customer/Knowitall%20Customer/Screens/Registry/OTPViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "99"
+                  endingLineNumber = "99"
+                  offsetFromSymbolStart = "88">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3F7CA225-7409-44A9-8953-0327829127AD"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Knowitall Customer/Network Manager/NetworkManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
+            landmarkName = "callRequest(_:_:_:method:params:networkHandler:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "59232CEB-714E-4DE0-A1BA-97A42C4BF84B"
+            uuid = "C1C8F2F4-4BAC-49C4-9747-1428210974EA"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            breakpointStackSelectionBehavior = "1"
-            scope = "1"
-            stopOnStyle = "0">
+            filePath = "Knowitall Customer/Network Manager/NetworkManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
+            landmarkName = "callRequest(_:_:_:method:params:networkHandler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "38B6A26F-DD69-49FC-BD26-070314BC5396"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Knowitall Customer/Network Manager/NetworkManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
+            landmarkName = "callRequest(_:_:_:method:params:networkHandler:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "38B6A26F-DD69-49FC-BD26-070314BC5396 - 97771e760def0c0e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Knowitall_Customer.NetworkManager.callRequest(_: Foundation.URL, _: Swift.Bool, _: Swift.String, method: Swift.String, params: Swift.Dictionary&lt;Swift.String, Any&gt;, networkHandler: (Swift.Dictionary&lt;Swift.String, Any&gt;, Swift.Int) -&gt; ()) -&gt; ()"
+                  moduleName = "Knowitall Customer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ramniwasios/Documents/xcode-projects/Knowitall%20Customer/Knowitall%20Customer/Network%20Manager/NetworkManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "79"
+                  endingLineNumber = "79"
+                  offsetFromSymbolStart = "1232">
+               </Location>
+               <Location
+                  uuid = "38B6A26F-DD69-49FC-BD26-070314BC5396 - 198fd7e806dfd0ae"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 () -&gt; () in Knowitall_Customer.NetworkManager.callRequest(_: Foundation.URL, _: Swift.Bool, _: Swift.String, method: Swift.String, params: Swift.Dictionary&lt;Swift.String, Any&gt;, networkHandler: (Swift.Dictionary&lt;Swift.String, Any&gt;, Swift.Int) -&gt; ()) -&gt; ()"
+                  moduleName = "Knowitall Customer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ramniwasios/Documents/xcode-projects/Knowitall%20Customer/Knowitall%20Customer/Network%20Manager/NetworkManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "61"
+                  endingLineNumber = "61"
+                  offsetFromSymbolStart = "448">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A92A15D4-C824-4010-8CE9-8F72FFBD77B3"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Knowitall Customer/Screens/Registry/OTPViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "verifyOTP(_:_:handler:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "A92A15D4-C824-4010-8CE9-8F72FFBD77B3 - 485403b2be98d202"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Knowitall_Customer.OTPViewController.verifyOTP(_: Swift.String, _: Swift.Dictionary&lt;Swift.String, Any&gt;, handler: (Swift.String, Swift.Int) -&gt; ()) -&gt; ()"
+                  moduleName = "Knowitall Customer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ramniwasios/Documents/xcode-projects/Knowitall%20Customer/Knowitall%20Customer/Screens/Registry/OTPViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "85"
+                  endingLineNumber = "85"
+                  offsetFromSymbolStart = "348">
+               </Location>
+               <Location
+                  uuid = "A92A15D4-C824-4010-8CE9-8F72FFBD77B3 - 2ed0f0f1ed67acb8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Dictionary&lt;Swift.String, Any&gt;, Swift.Int) -&gt; () in Knowitall_Customer.OTPViewController.verifyOTP(_: Swift.String, _: Swift.Dictionary&lt;Swift.String, Any&gt;, handler: (Swift.String, Swift.Int) -&gt; ()) -&gt; ()"
+                  moduleName = "Knowitall Customer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ramniwasios/Documents/xcode-projects/Knowitall%20Customer/Knowitall%20Customer/Screens/Registry/OTPViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "86"
+                  endingLineNumber = "86"
+                  offsetFromSymbolStart = "64">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AC384524-1883-4D3C-9503-C25DCA183C52"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Knowitall Customer/Network Manager/NetworkManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
+            landmarkName = "callRequest(_:_:_:method:params:networkHandler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EFF33104-7F9E-4B56-9F0B-2882F85D2486"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Knowitall Customer/Network Manager/NetworkManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "112"
+            endingLineNumber = "112"
+            landmarkName = "callRequest(_:_:_:method:params:networkHandler:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "EFF33104-7F9E-4B56-9F0B-2882F85D2486 - 8dfdff9648f47325"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in closure #2 () -&gt; () in Knowitall_Customer.NetworkManager.callRequest(_: Foundation.URL, _: Swift.Bool, _: Swift.String, method: Swift.String, params: Swift.Dictionary&lt;Swift.String, Any&gt;, networkHandler: (Swift.Dictionary&lt;Swift.String, Any&gt;, Swift.Int) -&gt; ()) -&gt; ()"
+                  moduleName = "Knowitall Customer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ramniwasios/Documents/xcode-projects/Knowitall%20Customer/Knowitall%20Customer/Network%20Manager/NetworkManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "112"
+                  endingLineNumber = "112"
+                  offsetFromSymbolStart = "1636">
+               </Location>
+               <Location
+                  uuid = "EFF33104-7F9E-4B56-9F0B-2882F85D2486 - b19730ef2705845c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 () -&gt; () in closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in closure #2 () -&gt; () in Knowitall_Customer.NetworkManager.callRequest(_: Foundation.URL, _: Swift.Bool, _: Swift.String, method: Swift.String, params: Swift.Dictionary&lt;Swift.String, Any&gt;, networkHandler: (Swift.Dictionary&lt;Swift.String, Any&gt;, Swift.Int) -&gt; ()) -&gt; ()"
+                  moduleName = "Knowitall Customer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ramniwasios/Documents/xcode-projects/Knowitall%20Customer/Knowitall%20Customer/Network%20Manager/NetworkManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "114"
+                  endingLineNumber = "114"
+                  offsetFromSymbolStart = "108">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "055D9EB5-63D0-4FFE-B6AF-526BD8EB1909"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Knowitall Customer/Network Manager/NetworkManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
+            landmarkName = "callRequest(_:_:_:method:params:networkHandler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "296D3ED1-9BDC-4D10-A971-6B14E8439792"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Knowitall Customer/Screens/Registry/OTPViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
+            landmarkName = "verifyOTP(_:_:handler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "70F0A44B-2149-46DE-8784-8B6B1AC80FE3"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Knowitall Customer/Screens/Registry/OTPViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
+            landmarkName = "verifyOTP(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "09DEFE7F-DCA8-4A9C-876A-582BD3977AC4"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Knowitall Customer/Screens/Registry/OTPViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
+            landmarkName = "verifyOTP(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5468FE96-F2AA-4A33-95CB-50CF2482BEBD"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Knowitall Customer/Screens/Registry/OTPViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "verifyOTP(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "5468FE96-F2AA-4A33-95CB-50CF2482BEBD - 2459f9460ec5f359"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Knowitall_Customer.OTPViewController.verifyOTP(Swift.String) -&gt; ()"
+                  moduleName = "Knowitall Customer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ramniwasios/Documents/xcode-projects/Knowitall%20Customer/Knowitall%20Customer/Screens/Registry/OTPViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "48"
+                  endingLineNumber = "48"
+                  offsetFromSymbolStart = "424">
+               </Location>
+               <Location
+                  uuid = "5468FE96-F2AA-4A33-95CB-50CF2482BEBD - 2a643c08338f0d1d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRAuthDataResult&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Knowitall_Customer.OTPViewController.verifyOTP(Swift.String) -&gt; ()"
+                  moduleName = "Knowitall Customer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ramniwasios/Documents/xcode-projects/Knowitall%20Customer/Knowitall%20Customer/Screens/Registry/OTPViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "49"
+                  endingLineNumber = "49"
+                  offsetFromSymbolStart = "88">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DC8C4E2F-07D7-427C-B156-3B0AB1CA7F64"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Knowitall Customer/Screens/Registry/OTPViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "verifyOTP(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8F9D8F77-3CB9-47F6-9F9D-3878FFD88E8B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Knowitall Customer/Screens/Registry/OTPViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
+            landmarkName = "verifyOTP(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "8F9D8F77-3CB9-47F6-9F9D-3878FFD88E8B - 2137705794ef2326"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.String&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in closure #1 (Swift.Optional&lt;__C.FIRAuthDataResult&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Knowitall_Customer.OTPViewController.verifyOTP(Swift.String) -&gt; ()"
+                  moduleName = "Knowitall Customer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ramniwasios/Documents/xcode-projects/Knowitall%20Customer/Knowitall%20Customer/Screens/Registry/OTPViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "70"
+                  endingLineNumber = "70"
+                  offsetFromSymbolStart = "1460">
+               </Location>
+               <Location
+                  uuid = "8F9D8F77-3CB9-47F6-9F9D-3878FFD88E8B - 5d2b8c2b2db06ded"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.String, Swift.Int) -&gt; () in closure #1 (Swift.Optional&lt;Swift.String&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in closure #1 (Swift.Optional&lt;__C.FIRAuthDataResult&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Knowitall_Customer.OTPViewController.verifyOTP(Swift.String) -&gt; ()"
+                  moduleName = "Knowitall Customer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ramniwasios/Documents/xcode-projects/Knowitall%20Customer/Knowitall%20Customer/Screens/Registry/OTPViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "71"
+                  endingLineNumber = "71"
+                  offsetFromSymbolStart = "200">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
