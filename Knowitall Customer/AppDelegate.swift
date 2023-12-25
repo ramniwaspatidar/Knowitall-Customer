@@ -57,24 +57,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         
         
         
-//        if ((CurrentUserInfo.userId) != nil) {
-//
-//            let navController = UINavigationController()
-//            navController.navigationBar.isHidden = true
-//            coordinator = MainCoordinator(navigationController: navController)
-//            coordinator?.goToHelpView()
-//
-//        }else{
-//            let navController = UINavigationController()
-//            navController.navigationBar.isHidden = true
-//            coordinator = MainCoordinator(navigationController: navController)
-//            coordinator?.goToMobileNUmber()
-//        }
+        if ((CurrentUserInfo.userId) != nil) {
+
+            let navController = UINavigationController()
+            navController.navigationBar.isHidden = true
+            coordinator = MainCoordinator(navigationController: navController)
+            coordinator?.goToHelpView()
+
+        }else{
+            let navController = UINavigationController()
+            navController.navigationBar.isHidden = true
+            coordinator = MainCoordinator(navigationController: navController)
+            coordinator?.goToMobileNUmber()
+        }
         
-        let navController = UINavigationController()
-        navController.navigationBar.isHidden = true
-        coordinator = MainCoordinator(navigationController: navController)
-        coordinator?.goToHelpView()
+//        let navController = UINavigationController()
+//        navController.navigationBar.isHidden = true
+//        coordinator = MainCoordinator(navigationController: navController)
+//        coordinator?.goToHelpView()
         
         
         window = UIWindow(frame: UIScreen.main.bounds)
