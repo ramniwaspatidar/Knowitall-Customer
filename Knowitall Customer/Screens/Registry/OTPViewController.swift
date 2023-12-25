@@ -10,9 +10,9 @@ class OTPViewController: UIViewController,Storyboarded {
     var coordinator: MainCoordinator?
     var verificationID : String?
     var mobileNumber : String?
-    var numberTextField: CustomTextField!
     var countdownTimer: Timer!
     var totalTime = 30
+    var varificationCode : String = ""
     
     
     @IBOutlet var otpTextFieldView: OTPFieldView!
@@ -36,9 +36,14 @@ class OTPViewController: UIViewController,Storyboarded {
         self.otpTextFieldView.delegate = self
         self.otpTextFieldView.initializeUI()
     }
-  
+    
     @IBAction func otpVerifyButton(_ sender: Any) {
-        self.coordinator?.goToHelpView()
+        
+        if(self.varificationCode.count > 5){
+            self.verifyOTP(varificationCode)
+        }else{
+            Alert(title: "", message: "Invalid verification code", vc: RootViewController.controller!)
+        }
     }
     
     func verifyOTP(_ code : String){
@@ -48,7 +53,7 @@ class OTPViewController: UIViewController,Storyboarded {
         Auth.auth().signIn(with: credential) { (authResult, error) in
             if let error = error {
                 let authError = error as NSError
-                print(authError.description)
+                Alert(title: "", message: "Invalid verification code", vc: RootViewController.controller!)
                 return
             }
             
@@ -58,14 +63,15 @@ class OTPViewController: UIViewController,Storyboarded {
                 user.getIDTokenForcingRefresh(true) { (idToken, error) in
                     if let error = error {
                         print("Error getting ID token: \(error.localizedDescription)")
+                        Alert(title: "", message: "Invalid verification token", vc: RootViewController.controller!)
+                        
+                        
                         return
                     }
                     if let accessToken = idToken {
-                        CurrentUserInfo.accessToken = accessToken
-                        
                         var dictParam = [String : String]()
                         dictParam["countryCode"] = "+1"
-                        dictParam["phoneNumber"] = "9968736373"
+                        dictParam["phoneNumber"] = self.mobileNumber
                         
                         self.verifyOTP(APIsEndPoints.ksignupUser.rawValue,dictParam, handler: {(mmessage,statusCode)in
                             DispatchQueue.main.async {
@@ -90,9 +96,9 @@ class OTPViewController: UIViewController,Storyboarded {
                     let number = payload["fullNumber"] as? String
                     CurrentUserInfo.userId = customerId
                     CurrentUserInfo.phone = number
-
+                    
                     handler(message,0)
-
+                    
                 }
                 else{
                     DispatchQueue.main.async {
@@ -117,9 +123,7 @@ extension OTPViewController: OTPFieldViewDelegate {
     
     func enteredOTP(otp otpString: String) {
         
-        if(otpString.count > 5){
-            self.verifyOTP(otpString)
-        }
+        self.varificationCode = otpString
         print("OTPString: \(otpString)")
     }
 }

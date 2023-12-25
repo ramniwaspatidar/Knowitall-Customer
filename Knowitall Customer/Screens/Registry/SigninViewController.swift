@@ -60,6 +60,8 @@ class SigninViewController: UIViewController,Storyboarded  {
                 PhoneAuthProvider.provider().verifyPhoneNumber("+1\(str)" , uiDelegate: nil) { (verificationID, error) in
                     if let error = error {
                         print(error.localizedDescription)
+                        Alert(title: "Alert", message: "Invalid phone number", vc: self)
+
                         return
                     }
                     guard let temId = verificationID else {return }
