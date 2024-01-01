@@ -35,30 +35,33 @@ class MainCoordinator : Coordinator{
         navigationController.pushViewController(vc, animated: false)
     }
     
-    func goToLocationRequest(addressArray : [AddressTypeModel]) {
+    func goToLocationRequest(_ addressArray : [AddressTypeModel]) {
         let vc = RequestViewController.instantiate()
         vc.coordinator = self
         vc.viewModel.addressInfo = addressArray
-
         navigationController.pushViewController(vc, animated: false)
     }
     
-    func goToAddressView(addressArray : [AddressTypeModel]) {
+    func goToAddressView(addressArray : [AddressTypeModel],delegate : AddressChangeDelegate) {
         let vc = AddressViewController.instantiate()
         vc.coordinator = self
         vc.viewModel.infoArray = addressArray
+        vc.addressDelegate = delegate
         navigationController.pushViewController(vc, animated: false)
     }
     
-    func goToTrackingView() {
+    func goToTrackingView(_ dict : RequestListModal,_ isMenu : Bool = false) {
         let vc = TrackingViewController.instantiate()
         vc.coordinator = self
+        vc.viewModel.dictRequest = dict
+        vc.viewModel.isMenu = isMenu
         navigationController.pushViewController(vc, animated: false)
     }
     
-    func goToArrivalView() {
+    func goToArrivalView(_ dictRequest : RequestListModal) {
         let vc = ArrivalViewControoler.instantiate()
         vc.coordinator = self
+        vc.dictRequest = dictRequest
         navigationController.pushViewController(vc, animated: false)
     }
     
@@ -72,19 +75,24 @@ class MainCoordinator : Coordinator{
         vc.coordinator = self
         navigationController.pushViewController(vc, animated: false)
     }
-    func goToSideMenu(window : UIWindow) {
-        
-        
-        let vc = SideMenuTableViewController.instantiate()
+    
+    func goToRequest() {
+        let vc = RequestListViewController.instantiate()
         vc.coordinator = self
-
-            SideMenuManager.default.leftMenuNavigationController = UISideMenuNavigationController(rootViewController: vc)
-            SideMenuManager.default.addPanGestureToPresent(toView: window)
-            SideMenuManager.default.menuWidth = 350
-        
-        
-
+        navigationController.pushViewController(vc, animated: false)
     }
+//    func goToSideMenu(window : UIWindow) {
+//        
+//        let vc = SideMenuTableViewController.instantiate()
+//        vc.coordinator = self
+//
+//            SideMenuManager.default.leftMenuNavigationController = UISideMenuNavigationController(rootViewController: vc)
+//            SideMenuManager.default.addPanGestureToPresent(toView: window)
+//            SideMenuManager.default.menuWidth = 350
+//        
+//        
+//
+//    }
     
     
 }

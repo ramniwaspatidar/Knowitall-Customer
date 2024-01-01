@@ -68,6 +68,11 @@
 		1A9C8AA82B2CC122000B1E7F /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9C8AA62B2CC121000B1E7F /* SettingCell.swift */; };
 		1A9C8AA92B2CC122000B1E7F /* SettingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A9C8AA72B2CC122000B1E7F /* SettingCell.xib */; };
 		1A9C8AAB2B2CC15F000B1E7F /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9C8AAA2B2CC15F000B1E7F /* SettingViewModel.swift */; };
+		1AA8137E2B426AEA00F83DDA /* ArrivalViewModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA8137D2B426AEA00F83DDA /* ArrivalViewModal.swift */; };
+		1AC834D52B3D372E00AD0CA6 /* RequestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC834D32B3D372E00AD0CA6 /* RequestCell.swift */; };
+		1AC834D62B3D372E00AD0CA6 /* RequestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AC834D42B3D372E00AD0CA6 /* RequestCell.xib */; };
+		1AC834D82B3D39C500AD0CA6 /* RequestListViewModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC834D72B3D39C500AD0CA6 /* RequestListViewModal.swift */; };
+		1AC834DA2B3D3BBE00AD0CA6 /* RequestListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC834D92B3D3BBE00AD0CA6 /* RequestListViewController.swift */; };
 		1AD6374C2B2810D30076EAD3 /* ReggaeOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1AD6374B2B2810D30076EAD3 /* ReggaeOne-Regular.ttf */; };
 		1AD637502B28B1160076EAD3 /* TrackingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD6374E2B28B1160076EAD3 /* TrackingCell.swift */; };
 		1AD637512B28B1160076EAD3 /* TrackingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AD6374F2B28B1160076EAD3 /* TrackingCell.xib */; };
@@ -144,6 +149,11 @@
 		1A9C8AA62B2CC121000B1E7F /* SettingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
 		1A9C8AA72B2CC122000B1E7F /* SettingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingCell.xib; sourceTree = "<group>"; };
 		1A9C8AAA2B2CC15F000B1E7F /* SettingViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
+		1AA8137D2B426AEA00F83DDA /* ArrivalViewModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrivalViewModal.swift; sourceTree = "<group>"; };
+		1AC834D32B3D372E00AD0CA6 /* RequestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestCell.swift; sourceTree = "<group>"; };
+		1AC834D42B3D372E00AD0CA6 /* RequestCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RequestCell.xib; sourceTree = "<group>"; };
+		1AC834D72B3D39C500AD0CA6 /* RequestListViewModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestListViewModal.swift; sourceTree = "<group>"; };
+		1AC834D92B3D3BBE00AD0CA6 /* RequestListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestListViewController.swift; sourceTree = "<group>"; };
 		1AD6374B2B2810D30076EAD3 /* ReggaeOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ReggaeOne-Regular.ttf"; sourceTree = "<group>"; };
 		1AD6374E2B28B1160076EAD3 /* TrackingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingCell.swift; sourceTree = "<group>"; };
 		1AD6374F2B28B1160076EAD3 /* TrackingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrackingCell.xib; sourceTree = "<group>"; };
@@ -235,6 +245,8 @@
 				1A99CE6E2B1E38C4004E0574 /* RequestViewModel.swift */,
 				1A4262D22B2449B7008D0E0D /* AddressViewModel.swift */,
 				1AD637552B28B71D0076EAD3 /* TrackingViewModel.swift */,
+				1AC834D72B3D39C500AD0CA6 /* RequestListViewModal.swift */,
+				1AA8137D2B426AEA00F83DDA /* ArrivalViewModal.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -293,6 +305,7 @@
 				1A99CE682B1E24C3004E0574 /* LocationViewController.swift */,
 				1A99CE6C2B1E3301004E0574 /* RequestViewController.swift */,
 				1A4262D02B2446B9008D0E0D /* AddressViewController.swift */,
+				1AC834D92B3D3BBE00AD0CA6 /* RequestListViewController.swift */,
 			);
 			path = Registry;
 			sourceTree = "<group>";
@@ -342,6 +355,7 @@
 		1A55ABE22B184AED001AEEBF /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				1AC834D02B3D36DB00AD0CA6 /* RequestCell */,
 				1A9C8AA52B2CC0FD000B1E7F /* MenuCell */,
 				1AD6374D2B28B0DE0076EAD3 /* TrackingCell */,
 				1A6910772B1A3FD9009ACD06 /* UserNameCell */,
@@ -382,6 +396,15 @@
 				1A9C8AA72B2CC122000B1E7F /* SettingCell.xib */,
 			);
 			path = MenuCell;
+			sourceTree = "<group>";
+		};
+		1AC834D02B3D36DB00AD0CA6 /* RequestCell */ = {
+			isa = PBXGroup;
+			children = (
+				1AC834D32B3D372E00AD0CA6 /* RequestCell.swift */,
+				1AC834D42B3D372E00AD0CA6 /* RequestCell.xib */,
+			);
+			path = RequestCell;
 			sourceTree = "<group>";
 		};
 		1AD6374D2B28B0DE0076EAD3 /* TrackingCell */ = {
@@ -484,6 +507,7 @@
 				1A55ABDD2B184A77001AEEBF /* Poppins-Thin.ttf in Resources */,
 				1A4262D92B24BAAD008D0E0D /* RTCustomAlert.xib in Resources */,
 				1AD637512B28B1160076EAD3 /* TrackingCell.xib in Resources */,
+				1AC834D62B3D372E00AD0CA6 /* RequestCell.xib in Resources */,
 				1A558C722B18F3640013BD30 /* Main.storyboard in Resources */,
 				1A55ABD22B1849C7001AEEBF /* GoogleService-Info.plist in Resources */,
 				1A55ABDF2B184A77001AEEBF /* Poppins-ExtraLight.ttf in Resources */,
@@ -562,12 +586,15 @@
 				1A99CE692B1E24C3004E0574 /* LocationViewController.swift in Sources */,
 				1A55ABC82B184957001AEEBF /* Constants.swift in Sources */,
 				1A55ABE62B184B0D001AEEBF /* SigninCell.swift in Sources */,
+				1AC834DA2B3D3BBE00AD0CA6 /* RequestListViewController.swift in Sources */,
 				1A558C662B18F0220013BD30 /* CustomButton+Extention.swift in Sources */,
 				1A99CE6F2B1E38C4004E0574 /* RequestViewModel.swift in Sources */,
 				1A558C6D2B18F1050013BD30 /* SigninInfoModel.swift in Sources */,
 				1A55ABB42B1848B7001AEEBF /* OTPViewController.swift in Sources */,
 				1A55AB972B1847DE001AEEBF /* AppDelegate.swift in Sources */,
+				1AC834D52B3D372E00AD0CA6 /* RequestCell.swift in Sources */,
 				1A558C672B18F0220013BD30 /* String+Extensions.swift in Sources */,
+				1AA8137E2B426AEA00F83DDA /* ArrivalViewModal.swift in Sources */,
 				1A558C502B18EE030013BD30 /* Coordinator.swift in Sources */,
 				1A99CE6B2B1E27AC004E0574 /* HelpViewController.swift in Sources */,
 				1A558C512B18EE030013BD30 /* Storyboarded.swift in Sources */,
@@ -594,6 +621,7 @@
 				1A55ABCA2B184957001AEEBF /* Text+Attributed.swift in Sources */,
 				1AD6375A2B2AA1B20076EAD3 /* MainViewController.swift in Sources */,
 				1AD6375E2B2AA1D20076EAD3 /* PresentedViewController.swift in Sources */,
+				1AC834D82B3D39C500AD0CA6 /* RequestListViewModal.swift in Sources */,
 				1AD637542B28B3F20076EAD3 /* TrackingViewController.swift in Sources */,
 				1A9C8AA82B2CC122000B1E7F /* SettingCell.swift in Sources */,
 				1A558C692B18F0220013BD30 /* CustomLabel+Extention.swift in Sources */,
@@ -743,6 +771,7 @@
 				DEVELOPMENT_TEAM = M7R9VCD492;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Knowitall Customer/Info.plist";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Your precise location is used to show your position on the map, get directions, estimate travel times and improve search results";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -773,6 +802,7 @@
 				DEVELOPMENT_TEAM = M7R9VCD492;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Knowitall Customer/Info.plist";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Your precise location is used to show your position on the map, get directions, estimate travel times and improve search results";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

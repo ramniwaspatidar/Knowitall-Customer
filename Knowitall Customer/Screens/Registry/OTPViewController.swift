@@ -75,6 +75,7 @@ class OTPViewController: UIViewController,Storyboarded {
                         
                         self.verifyOTP(APIsEndPoints.ksignupUser.rawValue,dictParam, handler: {(mmessage,statusCode)in
                             DispatchQueue.main.async {
+                                CurrentUserInfo.phone = self.mobileNumber
                                 self.coordinator?.goToHelpView()
                             }
                         })

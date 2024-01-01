@@ -7,9 +7,7 @@ import FirebaseFirestore
 import OTPFieldView
 
 class ArrivalViewControoler: BaseViewController,Storyboarded {
-   
     
-   
     var coordinator: MainCoordinator?
     @IBOutlet weak var tblView: UITableView!
     @IBOutlet weak var arrivalButton: UIView!
@@ -19,53 +17,63 @@ class ArrivalViewControoler: BaseViewController,Storyboarded {
     @IBOutlet weak var animationView: UIView!
     @IBOutlet weak var confirmView: UIView!
     
+    var dictRequest : RequestListModal?
+    var arrivalCode : String = ""
+    
+    
+    var viewModel : ArrivalViewModal = {
+        let model = ArrivalViewModal()
+        return model
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setNavWithOutView(ButtonType.back,otpView)
         setupOtpView()
         
         bgView.isHidden = true
         animationView.isHidden = true
         confirmView.isHidden = true
-
+        
         
     }
     
     func setupOtpView(){
-            self.otpTextFieldView.fieldsCount = 6
-            self.otpTextFieldView.fieldBorderWidth = 2
-            self.otpTextFieldView.filledBorderColor = hexStringToUIColor("#36D91B")
-            self.otpTextFieldView.defaultBorderColor = hexStringToUIColor("#9CD4FC")
-            self.otpTextFieldView.cursorColor =  hexStringToUIColor("#36D91B")
-            self.otpTextFieldView.displayType = .underlinedBottom
-            self.otpTextFieldView.fieldSize = 40
-            self.otpTextFieldView.separatorSpace = 8
-            self.otpTextFieldView.tintColor = hexStringToUIColor("#36D91B")
-            self.otpTextFieldView.shouldAllowIntermediateEditing = false
-            self.otpTextFieldView.delegate = self
-            self.otpTextFieldView.initializeUI()
-        }
-
-    @IBAction func arrivalButtonAction
-    (_ sender: Any) {
+        self.otpTextFieldView.fieldsCount = 4
+        self.otpTextFieldView.fieldBorderWidth = 2
+        self.otpTextFieldView.filledBorderColor = .yellow
+        self.otpTextFieldView.defaultBorderColor = .red
+        self.otpTextFieldView.cursorColor =  .white
+        self.otpTextFieldView.displayType = .underlinedBottom
+        self.otpTextFieldView.fieldSize = 40
+        self.otpTextFieldView.separatorSpace = 8
+        self.otpTextFieldView.shouldAllowIntermediateEditing = false
+        self.otpTextFieldView.delegate = self
+        self.otpTextFieldView.initializeUI()
+    }
+    
+    @IBAction func arrivalButtonAction(_ sender: Any) {
+        self.getConfirmArrival()
+    }
+    
+    func getConfirmArrival(){
         
-        bgView.isHidden = false
-        animationView.isHidden = false
+        self.bgView.isHidden = false
+        self.animationView.isHidden = false
         self.confirmView.isHidden = true
-
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+        var param = [String : Any]()
+        param["arrivalCode"] = arrivalCode
+        
+        viewModel.confirmArrival(APIsEndPoints.kConfirmArrival.rawValue + (dictRequest?.requestId ?? ""), param) { response, code in
             self.animationView.isHidden = true
             self.confirmView.isHidden = false
             self.bgView.isHidden = true
-
-
-
         }
-        
-        
     }
-   
+    
     @IBAction func thanksButtonAction(_ sender: Any) {
+        self.navigationController?.popToRootViewController(animated: false)
     }
 }
 extension ArrivalViewControoler: OTPFieldViewDelegate {
@@ -80,8 +88,6 @@ extension ArrivalViewControoler: OTPFieldViewDelegate {
     
     func enteredOTP(otp otpString: String) {
         
-        if(otpString.count > 5){
-//            self.verifyOTP(otpString)
-        }
+        self.arrivalCode = otpString
     }
 }

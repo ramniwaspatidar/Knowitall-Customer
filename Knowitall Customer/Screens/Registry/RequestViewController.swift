@@ -5,9 +5,9 @@ import Firebase
 import FirebaseDatabase
 import FirebaseFirestore
 
-class RequestViewController: BaseViewController,Storyboarded, RTCustomAlertDelegate {
+class RequestViewController: BaseViewController,Storyboarded, RTCustomAlertDelegate ,AddressChangeDelegate{
+
     var coordinator: MainCoordinator?
-    
     
     @IBOutlet weak var tblView: UITableView!
     @IBOutlet weak var viewRequestType: UIView!
@@ -15,6 +15,13 @@ class RequestViewController: BaseViewController,Storyboarded, RTCustomAlertDeleg
     @IBOutlet weak var serviceTypleLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var viewBG: UIView!
+    @IBOutlet weak var switchButton: UISwitch!
+    @IBOutlet weak var editAddressButton: UIButton!
+    @IBOutlet weak var mainBG: UIView!
+    @IBOutlet weak var requestView: UIView!
+    @IBOutlet weak var addAddressButton: UIButton!
+    
+    var isChecked = true
     
     var username: CustomTextField!
     var name: CustomTextField!
@@ -39,6 +46,9 @@ class RequestViewController: BaseViewController,Storyboarded, RTCustomAlertDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.setNavWithOutView(.menu,mainBG)
+
+
         serviceTypleLabel.alpha = 1;
         serviceTypleLabel.textColor = UIColor.white
         
@@ -52,20 +62,35 @@ class RequestViewController: BaseViewController,Storyboarded, RTCustomAlertDeleg
         
         situationLabel.text = "Type..."
         
+        
         setupUI()
     }
     
     // SsetupUI
     fileprivate func setupUI(){
+        editAddressButton.isHidden = true
+        
+        if( CurrentUserInfo.latitude != nil && CurrentUserInfo.longitude != nil){
+            switchButton.isOn = false
+            addAddressButton.isHidden = true
+        }else{
+            switchButton.isOn = true
+            addAddressButton.isHidden = false
+        }
         SigninCell.registerWithTable(tblView)
         viewModel.infoArray = (self.viewModel.prepareInfo(dictInfo: viewModel.dictInfo))
-        self.addressLabel.text = viewModel.addressInfo?[4].value
-//        self.viewModel.addressInfo?[3].value = CurrentUserInfo.phone
-//        self.tblView.reloadData()
-
-
+        self.addressLabel.text = viewModel.addressInfo?[6].value
+        
     }
     
+    @IBAction func addAddressAction(_ sender: Any) {
+        coordinator?.goToAddressView(addressArray: self.viewModel.addressInfo!,delegate: self)
+    }
+    
+    @IBAction func editAddressAction(_ sender: Any) {
+        coordinator?.goToAddressView(addressArray: self.viewModel.addressInfo!,delegate: self)
+
+    }
     @IBAction func requestButton(_ sender: Any) {
         RPicker.selectOption(dataArray: typeOfService) { [weak self](str, selectedIndex) in
             self?.viewModel.infoArray[0].value = str
@@ -75,7 +100,24 @@ class RequestViewController: BaseViewController,Storyboarded, RTCustomAlertDeleg
     }
   
     @IBAction func switchAction(_ sender: Any) {
-        coordinator?.goToAddressView(addressArray: self.viewModel.addressInfo!)
+                
+        let switchButton: UISwitch = sender as! UISwitch
+        
+        if(switchButton.isOn == true){
+            editAddressButton.isHidden = false
+        }else{
+            editAddressButton.isHidden = true
+        }
+
+    }
+    
+    func addressChangeAction(infoArray: [AddressTypeModel]) {
+        self.viewModel.addressInfo = infoArray
+        self.switchButton.isOn = false
+        self.editAddressButton.isHidden = true
+        self.addressLabel.text = infoArray[6].value
+        self.tblView.reloadData()
+        
     }
     
     func onClickSubmit(_ alert: RTCustomAlert, alertTag: Int) {
@@ -93,7 +135,7 @@ class RequestViewController: BaseViewController,Storyboarded, RTCustomAlertDeleg
             customAlert.delegate = self
             customAlert.show()
         }else{
-            coordinator?.goToTrackingView()
+            coordinator?.goToTrackingView(self.viewModel.requestData!)
         }
     }
     
@@ -103,11 +145,41 @@ class RequestViewController: BaseViewController,Storyboarded, RTCustomAlertDeleg
         viewModel.validateFields(dataStore: viewModel.infoArray) { (dict, msg, isSucess) in
             if isSucess {
                 
-                self.tblView.isHidden = true
-                let customAlert = RTCustomAlert()
-                customAlert.alertTag = 0
-                customAlert.delegate = self
-                customAlert.show()
+                var dictParam = [String : Any]()
+                
+                let lat = NSString(string: CurrentUserInfo.latitude ?? "0")
+                let lng = NSString(string: CurrentUserInfo.longitude ?? "0")
+
+                
+                dictParam["typeOfService"] = self.viewModel.infoArray[0].value
+                dictParam["desc"] = self.viewModel.infoArray[1].value
+                dictParam["name"] =  self.viewModel.infoArray[2].value
+                dictParam["phoneNumber"] = "+1\(self.viewModel.infoArray[3].value)"
+                
+                dictParam["latitude"] = lat.doubleValue
+                dictParam["longitude"] = lng.doubleValue
+                dictParam["address"] = self.viewModel.addressInfo?[0].value ?? ""
+                dictParam["address1"] = self.viewModel.addressInfo?[1].value ?? ""
+
+                dictParam["city"] = self.viewModel.addressInfo?[2].value
+                dictParam["state"] = self.viewModel.addressInfo?[3].value
+                dictParam["postalCode"] = self.viewModel.addressInfo?[4].value
+                dictParam["country"] =  self.viewModel.addressInfo?[5].value
+
+                
+                self.viewModel.sendRequest(APIsEndPoints.krequest.rawValue,dictParam, handler: {(response,statusCode)in
+                    DispatchQueue.main.async {
+                        self.requestView.isHidden = true
+                        self.tblView.isHidden = true
+                        self.viewModel.requestData = response
+                        let customAlert = RTCustomAlert()
+                        customAlert.alertTag = 0
+                        customAlert.delegate = self
+                        customAlert.show()
+                    }
+                })
+                
+               
                                 
             }
             else {
@@ -117,6 +189,8 @@ class RequestViewController: BaseViewController,Storyboarded, RTCustomAlertDeleg
             }
         }
     }
+    
+    
       
     
 }

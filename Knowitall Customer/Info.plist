@@ -44,9 +44,6 @@
 	<array>
 		<string>fetch</string>
 		<string>processing</string>
-		<string>remote-notification</string>
 	</array>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Your precise location is used to show your position on the map, get directions, estimate travel times and improve search results</string>
 </dict>
 </plist>

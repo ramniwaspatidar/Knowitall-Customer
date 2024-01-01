@@ -19,9 +19,9 @@ class LocationViewController: UIViewController,Storyboarded {
     override func viewDidLoad() {
         super.viewDidLoad()
         locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
         viewModel.infoArray = (self.viewModel.prepareInfo(dictInfo: viewModel.dictInfo))
-
-
     }
     
     
@@ -33,76 +33,13 @@ class LocationViewController: UIViewController,Storyboarded {
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
         SVProgressHUD.show()
-
-
+        
     }
     
     @IBAction func skipButtonAction(_ sender: Any) {
-        coordinator?.goToLocationRequest(addressArray: self.viewModel.infoArray)
-
+        coordinator?.goToLocationRequest(self.viewModel.infoArray)
     }
     
-    func getAddressFromLatLon(latitude: String, withLongitude longitude: String) {
-            var center : CLLocationCoordinate2D = CLLocationCoordinate2D()
-            let lat: Double = Double("\(latitude)")!
-            let lon: Double = Double("\(longitude)")!
-            let ceo: CLGeocoder = CLGeocoder()
-            center.latitude = lat
-            center.longitude = lon
-
-            let loc: CLLocation = CLLocation(latitude:center.latitude, longitude: center.longitude)
-
-
-            ceo.reverseGeocodeLocation(loc, completionHandler:
-                {(placemarks, error) in
-                    if (error != nil)
-                    {
-                        print("reverse geodcode fail: \(error!.localizedDescription)")
-                    }
-                    let pm = placemarks! as [CLPlacemark]
-
-                    if pm.count > 0 {
-                        let pm = placemarks![0]
-                   
-                        var addressString : String = ""
-                        if pm.subLocality != nil {
-                            addressString = addressString + pm.subLocality! + ", "
-                            self.viewModel.infoArray[0].value = addressString
-                        }
-                        if pm.thoroughfare != nil {
-                            addressString = addressString + pm.thoroughfare! + ", "
-                            self.viewModel.infoArray[1].value = pm.thoroughfare!
-
-                        }
-                        if pm.locality != nil {
-                            addressString = addressString + pm.locality! + ", "
-                            self.viewModel.infoArray[2].value = pm.locality!
-
-                        }
-                        
-                        if pm.administrativeArea != nil {
-                            addressString = addressString + pm.administrativeArea! + ", "
-
-                        }
-                        
-                        
-                        if pm.country != nil {
-                            addressString = addressString + pm.country! + ", "
-                            self.viewModel.infoArray[3].value = pm.locality!
-
-                        }
-                        if pm.postalCode != nil {
-                            addressString = addressString + pm.postalCode! + " "
-                        }
-                        SVProgressHUD.dismiss()
-                        self.viewModel.infoArray[4].value = addressString
-                        self.coordinator?.goToLocationRequest(addressArray: self.viewModel.infoArray)
-
-
-                  }
-            })
-
-        }
     
     
 }
@@ -115,13 +52,16 @@ extension LocationViewController: CLLocationManagerDelegate {
         print("location: \(userLocation.coordinate.latitude), \(userLocation.coordinate.longitude)")
         locationManager.stopUpdatingLocation()
         
-        self.getAddressFromLatLon(latitude: "\(userLocation.coordinate.latitude)", withLongitude: "\(userLocation.coordinate.longitude)")
+        self.viewModel.getAddressFromLatLon(latitude: "\(userLocation.coordinate.latitude)", withLongitude: "\(userLocation.coordinate.longitude)",handler: {address in
+            self.coordinator?.goToLocationRequest(self.viewModel.infoArray)
 
+        })
+        
     }
     
     func locationManager(_ manager: CLLocationManager,
                          didFailWithError error: Error) {
-//        Alert(title: "Error", message: error.localizedDescription, vc: self)
+        //        Alert(title: "Error", message: error.localizedDescription, vc: self)
         
     }
 }

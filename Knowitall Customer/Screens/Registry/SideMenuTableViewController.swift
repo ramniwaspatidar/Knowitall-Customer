@@ -104,6 +104,17 @@ extension SideMenuTableViewController: UITableViewDataSource,UITableViewDelegate
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
-        //        navigateUserTo(index: indexPath.row)
+        if(indexPath.row == 0){
+         coordinator?.goToHelpView()
+            
+        }else if(indexPath.row == 1){
+            coordinator?.goToRequest()
+            
+        }else if(indexPath.row == 2){
+            
+        }
+        
+        dismiss(animated: true, completion: nil)
+      
     }
 }

@@ -36,8 +36,21 @@ class RequestViewModel {
     var addressInfo : [AddressTypeModel]?
     let defaultCellHeight = 95
     
+    var requestData : RequestListModal?
+    
     
     func prepareInfo(dictInfo : [String :String])-> [RequestTypeModel]  {
+        
+        let phoneNumber = requestData?.phoneNumber?.components(separatedBy: "+")
+        var number = CurrentUserInfo.phone ?? ""
+        
+        
+        if(phoneNumber?.count ?? 0 > 1){
+            number = phoneNumber?[1] ?? CurrentUserInfo.phone
+        }else if (requestData != nil){
+            number = requestData?.phoneNumber ?? CurrentUserInfo.phone
+        }
+        
         
         infoArray.append(RequestTypeModel(type: .service, placeholder: NSLocalizedString("Type of service request", comment: ""), value: requestModel?.requestType ?? "", header: "Type of service requested"))
         
@@ -45,11 +58,8 @@ class RequestViewModel {
         
         infoArray.append(RequestTypeModel(type: .name, placeholder: NSLocalizedString("Enter name", comment: ""), value: requestModel?.name ?? "", header: "Your Name"))
         
-        infoArray.append(RequestTypeModel(type: .mobile, placeholder: NSLocalizedString("Enter mobile number", comment: ""), value: requestModel?.phone ?? CurrentUserInfo.phone ?? "", header: "Your Phone"))
+        infoArray.append(RequestTypeModel(type: .mobile, placeholder: NSLocalizedString("Enter mobile number", comment: ""), value:number, header: "Your Phone"))
         
-       
-        
-       
         return infoArray
     }
     
@@ -96,5 +106,25 @@ class RequestViewModel {
         
         validHandler(dictParam, "", true)
     }
+    
+    
+    func sendRequest(_ apiEndPoint: String,_ param : [String : Any], handler: @escaping (RequestListModal,Int) -> Void) {
+        
+        guard let url = URL(string: Configuration().environment.baseURL + apiEndPoint) else {return}
+        NetworkManager.shared.postRequest(url, true, "", params: param, networkHandler: {(responce,statusCode) in
+            APIHelper.parseObject(responce, true) { payload, status, message, code in
+                if status {
+                    let dictResponce =  Mapper<RequestListModal>().map(JSON: payload)
+                    handler(dictResponce!,0)
+                }
+                else{
+                    DispatchQueue.main.async {
+                        Alert(title: "", message: message, vc: RootViewController.controller!)
+                    }
+                }
+            }
+        })
+    }
+
     
 }
