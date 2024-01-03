@@ -23,6 +23,11 @@ class MainCoordinator : Coordinator{
         vc.mobileNumber = mobileNumber
         navigationController.pushViewController(vc, animated: false)
     }
+    func goToPDFView() {
+        let vc = PDFViewController.instantiate()
+        vc.coordinator = self
+        navigationController.pushViewController(vc, animated: false)
+    }
     
     func goToMobileNUmber() {
         let vc = SigninViewController.instantiate()

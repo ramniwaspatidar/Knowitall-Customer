@@ -56,8 +56,9 @@ class HelpViewController: BaseViewController,Storyboarded {
             })
         }else{
             locationManager.delegate = self
+            locationManager.requestAlwaysAuthorization()
             locationManager.requestWhenInUseAuthorization()
-            locationManager.startUpdatingLocation()
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
             SVProgressHUD.show()
         }
     }
@@ -109,6 +110,28 @@ extension HelpViewController: CLLocationManagerDelegate {
         })
         
     }
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        
+        SVProgressHUD.dismiss()
+
+        switch status {
+
+        case .restricted, .denied:
+            coordinator?.goToLocationRequest(self.viewModel.infoArray)
+            manager.stopUpdatingLocation()
+            break
+            
+        case .authorizedWhenInUse,.authorizedAlways,.notDetermined:
+            manager.startUpdatingLocation()
+            break
+     
+        default:
+            break
+        }
+    }
+    
+  
     
     func locationManager(_ manager: CLLocationManager,
                          didFailWithError error: Error) {

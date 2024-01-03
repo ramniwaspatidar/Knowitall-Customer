@@ -116,6 +116,11 @@ class TrackingViewController: BaseViewController,Storyboarded {
         coordinator?.goToArrivalView(viewModel.dictRequest!)
     }
     
+    @IBAction func pdfButtonAction(_ sender: Any) {
+        coordinator?.goToPDFView()
+    }
+    
+    
     @IBAction func moreButtonActrion(_ sender: Any) {
         let alertController = UIAlertController(title: "Booking Action", message: "", preferredStyle: .actionSheet)
         alertController.view.subviews.first?.subviews.first?.subviews.first?.backgroundColor = hexStringToUIColor("#F4CC9E")

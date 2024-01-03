@@ -6,7 +6,7 @@ import FirebaseDatabase
 import FirebaseFirestore
 
 class RequestViewController: BaseViewController,Storyboarded, RTCustomAlertDelegate ,AddressChangeDelegate{
-
+    
     var coordinator: MainCoordinator?
     
     @IBOutlet weak var tblView: UITableView!
@@ -27,7 +27,7 @@ class RequestViewController: BaseViewController,Storyboarded, RTCustomAlertDeleg
     var name: CustomTextField!
     var mobile: CustomTextField!
     var alertTag = 0
-
+    
     
     
     fileprivate let typeOfService = ["Accident","Emergency","Help"]
@@ -47,8 +47,8 @@ class RequestViewController: BaseViewController,Storyboarded, RTCustomAlertDeleg
         super.viewDidLoad()
         
         self.setNavWithOutView(.menu,mainBG)
-
-
+        
+        
         serviceTypleLabel.alpha = 1;
         serviceTypleLabel.textColor = UIColor.white
         
@@ -70,16 +70,23 @@ class RequestViewController: BaseViewController,Storyboarded, RTCustomAlertDeleg
     fileprivate func setupUI(){
         editAddressButton.isHidden = true
         
-        if( CurrentUserInfo.latitude != nil && CurrentUserInfo.longitude != nil){
-            switchButton.isOn = false
-            addAddressButton.isHidden = true
-        }else{
+        if( CurrentUserInfo.latitude == nil && CurrentUserInfo.longitude == nil){
             switchButton.isOn = true
             addAddressButton.isHidden = false
+            addAddressButton.setTitle("Add Address", for: .normal)
+        }else{
+            switchButton.isOn = false
+            addAddressButton.isHidden = true
         }
         SigninCell.registerWithTable(tblView)
         viewModel.infoArray = (self.viewModel.prepareInfo(dictInfo: viewModel.dictInfo))
         self.addressLabel.text = viewModel.addressInfo?[6].value
+        
+        if(viewModel.addressInfo?[6].value == "" || viewModel.addressInfo?[6].value == nil){
+            editAddressButton.isHidden = true
+        }else{
+            editAddressButton.isHidden = false
+        }
         
     }
     
@@ -89,33 +96,39 @@ class RequestViewController: BaseViewController,Storyboarded, RTCustomAlertDeleg
     
     @IBAction func editAddressAction(_ sender: Any) {
         coordinator?.goToAddressView(addressArray: self.viewModel.addressInfo!,delegate: self)
-
+        
     }
     @IBAction func requestButton(_ sender: Any) {
         RPicker.selectOption(dataArray: typeOfService) { [weak self](str, selectedIndex) in
             self?.viewModel.infoArray[0].value = str
             self!.serviceTypleLabel.text = str
-//            self?.tblView.reloadData()
+            //            self?.tblView.reloadData()
         }
-    }
-  
-    @IBAction func switchAction(_ sender: Any) {
-                
-        let switchButton: UISwitch = sender as! UISwitch
-        
-        if(switchButton.isOn == true){
-            editAddressButton.isHidden = false
-        }else{
-            editAddressButton.isHidden = true
-        }
-
     }
     
+    @IBAction func switchAction(_ sender: Any) {
+        
+        let switchButton: UISwitch = sender as! UISwitch
+        
+        //        if(switchButton.isOn == true){
+        //            editAddressButton.isHidden = false
+        //        }else{
+        //            editAddressButton.isHidden = true
+        //        }
+        
+    }
+  
     func addressChangeAction(infoArray: [AddressTypeModel]) {
         self.viewModel.addressInfo = infoArray
         self.switchButton.isOn = false
         self.editAddressButton.isHidden = true
         self.addressLabel.text = infoArray[6].value
+        
+        if(viewModel.addressInfo?[6].value == "" || viewModel.addressInfo?[6].value == nil){
+            editAddressButton.isHidden = true
+        }else{
+            editAddressButton.isHidden = false
+        }
         self.tblView.reloadData()
         
     }
@@ -139,7 +152,7 @@ class RequestViewController: BaseViewController,Storyboarded, RTCustomAlertDeleg
         }
     }
     
- 
+    
     
     @IBAction func saveButtonAction(_ sender: Any) {
         viewModel.validateFields(dataStore: viewModel.infoArray) { (dict, msg, isSucess) in
@@ -149,7 +162,7 @@ class RequestViewController: BaseViewController,Storyboarded, RTCustomAlertDeleg
                 
                 let lat = NSString(string: CurrentUserInfo.latitude ?? "0")
                 let lng = NSString(string: CurrentUserInfo.longitude ?? "0")
-
+                
                 
                 dictParam["typeOfService"] = self.viewModel.infoArray[0].value
                 dictParam["desc"] = self.viewModel.infoArray[1].value
@@ -160,12 +173,12 @@ class RequestViewController: BaseViewController,Storyboarded, RTCustomAlertDeleg
                 dictParam["longitude"] = lng.doubleValue
                 dictParam["address"] = self.viewModel.addressInfo?[0].value ?? ""
                 dictParam["address1"] = self.viewModel.addressInfo?[1].value ?? ""
-
+                
                 dictParam["city"] = self.viewModel.addressInfo?[2].value
                 dictParam["state"] = self.viewModel.addressInfo?[3].value
                 dictParam["postalCode"] = self.viewModel.addressInfo?[4].value
                 dictParam["country"] =  self.viewModel.addressInfo?[5].value
-
+                
                 
                 self.viewModel.sendRequest(APIsEndPoints.krequest.rawValue,dictParam, handler: {(response,statusCode)in
                     DispatchQueue.main.async {
@@ -179,8 +192,8 @@ class RequestViewController: BaseViewController,Storyboarded, RTCustomAlertDeleg
                     }
                 })
                 
-               
-                                
+                
+                
             }
             else {
                 DispatchQueue.main.async {
@@ -191,7 +204,7 @@ class RequestViewController: BaseViewController,Storyboarded, RTCustomAlertDeleg
     }
     
     
-      
+    
     
 }
 // UITableViewDataSource
@@ -211,7 +224,7 @@ extension RequestViewController: UITableViewDataSource {
         cell.textFiled.attributedPlaceholder = NSAttributedString(string: "", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
         
         switch indexPath.row {
-       
+            
         case 0:
             name = cell.textFiled
             name.delegate = self
@@ -271,12 +284,12 @@ extension RequestViewController: UITextFieldDelegate {
 }
 
 extension RequestViewController: UITextViewDelegate {
-
+    
     func textViewDidBeginEditing(_ textView: UITextView) {
         textView.text = ""
         textView.textColor = .white
     }
-
+    
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.isEmpty {
             textView.text = "Type..."
