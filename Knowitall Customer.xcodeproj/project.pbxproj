@@ -165,6 +165,7 @@
 		1AD6375D2B2AA1D20076EAD3 /* PresentedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentedViewController.swift; sourceTree = "<group>"; };
 		85CF5BA23C65DA1AE1145F16 /* Pods-Knowitall Customer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Knowitall Customer.debug.xcconfig"; path = "Target Support Files/Pods-Knowitall Customer/Pods-Knowitall Customer.debug.xcconfig"; sourceTree = "<group>"; };
 		BE2A071600CA615012A0E431 /* Pods_Knowitall_Customer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Knowitall_Customer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BFA17E952B4584DF00FED6BD /* Knowitall Customer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Knowitall Customer.entitlements"; sourceTree = "<group>"; };
 		E83766E9BD9AE3030DB5C641 /* Pods-Knowitall Customer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Knowitall Customer.release.xcconfig"; path = "Target Support Files/Pods-Knowitall Customer/Pods-Knowitall Customer.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -272,6 +273,7 @@
 		1A55AB952B1847DE001AEEBF /* Knowitall Customer */ = {
 			isa = PBXGroup;
 			children = (
+				BFA17E952B4584DF00FED6BD /* Knowitall Customer.entitlements */,
 				1A558C6E2B18F1130013BD30 /* ViewModel */,
 				1A558C6A2B18F0CC0013BD30 /* Model */,
 				1A558C532B18EFE70013BD30 /* Extension */,
@@ -766,9 +768,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_ENTITLEMENTS = "Knowitall Customer/Knowitall Customer.entitlements";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = M7R9VCD492;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = ZV498993S5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Knowitall Customer/Info.plist";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Your precise location is used to show your position on the map, get directions, estimate travel times and improve search results";
@@ -785,6 +790,8 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.knowitall.customer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = KTACustomerDev;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -797,9 +804,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_ENTITLEMENTS = "Knowitall Customer/Knowitall Customer.entitlements";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = M7R9VCD492;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = ZV498993S5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Knowitall Customer/Info.plist";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Your precise location is used to show your position on the map, get directions, estimate travel times and improve search results";
@@ -816,6 +826,8 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.knowitall.customer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = KTACustomerDev;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
