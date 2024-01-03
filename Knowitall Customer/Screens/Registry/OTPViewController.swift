@@ -4,6 +4,7 @@ import UIKit
 import FirebaseAuth
 import FirebaseFirestore
 import OTPFieldView
+import FirebaseMessaging
 
 class OTPViewController: UIViewController,Storyboarded {
     
@@ -75,8 +76,20 @@ class OTPViewController: UIViewController,Storyboarded {
                         
                         self.verifyOTP(APIsEndPoints.ksignupUser.rawValue,dictParam, handler: {(mmessage,statusCode)in
                             DispatchQueue.main.async {
+                                
                                 CurrentUserInfo.phone = self.mobileNumber
-                                self.coordinator?.goToHelpView()
+                                Messaging.messaging().subscribe(toTopic: CurrentUserInfo.userId) { error in
+                                    if let error = error {
+                                        print("Error unsubscribing from topic: \(error.localizedDescription)")
+                                        self.coordinator?.goToHelpView()
+                                    } else {
+                                        print("Successfully unsubscribed from topic!")
+                                        self.coordinator?.goToHelpView()
+
+
+                                    }
+                                }
+                            
                             }
                         })
                         

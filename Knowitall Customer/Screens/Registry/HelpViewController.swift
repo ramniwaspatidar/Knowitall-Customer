@@ -2,6 +2,9 @@
 
 import UIKit
 import SideMenu
+import CoreLocation
+import SVProgressHUD
+
 class HelpViewController: BaseViewController,Storyboarded {
     
     var coordinator: MainCoordinator?
@@ -10,6 +13,8 @@ class HelpViewController: BaseViewController,Storyboarded {
         return model
     }()
     
+    let locationManager = CLLocationManager()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +24,8 @@ class HelpViewController: BaseViewController,Storyboarded {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        
+        
         
     }
     @IBAction func socialAction(_ sender: Any) {
@@ -48,7 +55,10 @@ class HelpViewController: BaseViewController,Storyboarded {
                 coordinator?.goToLocationRequest(self.viewModel.infoArray)
             })
         }else{
-            coordinator?.goToLocation()
+            locationManager.delegate = self
+            locationManager.requestWhenInUseAuthorization()
+            locationManager.startUpdatingLocation()
+            SVProgressHUD.show()
         }
     }
     
@@ -80,5 +90,29 @@ extension HelpViewController: SideMenuNavigationControllerDelegate {
     
     func sideMenuDidDisappear(menu: SideMenuNavigationController, animated: Bool) {
         print("SideMenu Disappeared! (animated: \(animated))")
+    }
+}
+
+extension HelpViewController: CLLocationManagerDelegate {
+    
+    func locationManager(_ manager: CLLocationManager,
+                         didUpdateLocations locations: [CLLocation]) {
+        
+        let userLocation: CLLocation = locations[0] // The first location in the array
+        print("location: \(userLocation.coordinate.latitude), \(userLocation.coordinate.longitude)")
+        locationManager.stopUpdatingLocation()
+        SVProgressHUD.dismiss()
+        
+        self.viewModel.getAddressFromLatLon(latitude: "\(userLocation.coordinate.latitude)", withLongitude: "\(userLocation.coordinate.longitude)",handler: {address in
+            self.coordinator?.goToLocationRequest(self.viewModel.infoArray)
+
+        })
+        
+    }
+    
+    func locationManager(_ manager: CLLocationManager,
+                         didFailWithError error: Error) {
+        
+        SVProgressHUD.dismiss()
     }
 }
