@@ -17,6 +17,8 @@ class PDFViewController: BaseViewController, Storyboarded {
         
         pdfView.frame = CGRect(x:0, y: 0, width: bgView.frame.size.width, height: bgView.frame.size.height)
                 pdfView.autoScales = true
+        
+        pdfView.layer.cornerRadius = 8
              bgView.addSubview(pdfView)
 
                 // Load PDF document

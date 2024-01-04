@@ -5,6 +5,7 @@ import FirebaseAuth
 import FirebaseFirestore
 import OTPFieldView
 import FirebaseMessaging
+import SVProgressHUD
 
 class OTPViewController: UIViewController,Storyboarded {
     
@@ -49,10 +50,14 @@ class OTPViewController: UIViewController,Storyboarded {
     
     func verifyOTP(_ code : String){
         
+        
+        SVProgressHUD.show()
         let credential = PhoneAuthProvider.provider().credential(withVerificationID: self.verificationID!, verificationCode: code)
         
         Auth.auth().signIn(with: credential) { (authResult, error) in
             if let error = error {
+                SVProgressHUD.dismiss()
+
                 let authError = error as NSError
                 Alert(title: "", message: "Invalid verification code", vc: RootViewController.controller!)
                 return
@@ -63,6 +68,8 @@ class OTPViewController: UIViewController,Storyboarded {
                 // Get the Firebase ID token (access token)
                 user.getIDTokenForcingRefresh(true) { (idToken, error) in
                     if let error = error {
+                        SVProgressHUD.dismiss()
+
                         print("Error getting ID token: \(error.localizedDescription)")
                         Alert(title: "", message: "Invalid verification token", vc: RootViewController.controller!)
                         
@@ -76,15 +83,18 @@ class OTPViewController: UIViewController,Storyboarded {
                         
                         self.verifyOTP(APIsEndPoints.ksignupUser.rawValue,dictParam, handler: {(mmessage,statusCode)in
                             DispatchQueue.main.async {
-                                
+                                SVProgressHUD.dismiss()
+
                                 CurrentUserInfo.phone = self.mobileNumber
                                 Messaging.messaging().subscribe(toTopic: CurrentUserInfo.userId) { error in
+                                    
+                                    let appDelegate = UIApplication.shared.delegate as? AppDelegate
+                                    appDelegate?.autoLogin()
+
                                     if let error = error {
-                                        print("Error unsubscribing from topic: \(error.localizedDescription)")
-                                        self.coordinator?.goToHelpView()
+                                        print("Error subscribing from topic: \(error.localizedDescription)")
                                     } else {
-                                        print("Successfully unsubscribed from topic!")
-                                        self.coordinator?.goToHelpView()
+                                        print("Successfully subscribed from topic!")
 
 
                                     }

@@ -5,6 +5,7 @@ import Firebase
 import FirebaseDatabase
 import FirebaseFirestore
 import CoreLocation
+import SVProgressHUD
 
 protocol AddressChangeDelegate: AnyObject {
     func addressChangeAction(infoArray: [AddressTypeModel])
@@ -19,7 +20,7 @@ class AddressViewController: BaseViewController,Storyboarded {
     @IBOutlet weak var viewRequestType: UIView!
     @IBOutlet weak var landmarkTextView: UITextView!
     @IBOutlet weak var serviceTypleLabel: UILabel!
-
+    
     @IBOutlet weak var mainBG: UIView!
     
     var addressField1: CustomTextField!
@@ -28,7 +29,8 @@ class AddressViewController: BaseViewController,Storyboarded {
     var stateField: CustomTextField!
     var landMarkField: CustomTextField!
     var postalCodeField: CustomTextField!
-
+    let locationManager = CLLocationManager()
+    
     
     var addressDelegate : AddressChangeDelegate?
     @IBOutlet weak var viewBG: UIView!
@@ -52,13 +54,9 @@ class AddressViewController: BaseViewController,Storyboarded {
         super.viewDidLoad()
         self.setNavWithOutView(.back,mainBG)
         
-        
         viewBG.layer.borderWidth = 1
         viewBG.layer.borderColor = UIColor.black.cgColor
         viewBG.layer.cornerRadius = 8
-        landmarkTextView.text = "Type..."
-        
-       
         
         setupUI()
     }
@@ -66,7 +64,8 @@ class AddressViewController: BaseViewController,Storyboarded {
     // SsetupUI
     fileprivate func setupUI(){
         SigninCell.registerWithTable(tblView)
-//        viewModel.infoArray = (self.viewModel.prepareInfo(dictInfo: viewModel.dictInfo))
+        landmarkTextView.text = self.viewModel.infoArray[7].value != "" ? self.viewModel.infoArray[7].value : "Type..."
+
     }
     
     func stateActionButton() {
@@ -75,7 +74,7 @@ class AddressViewController: BaseViewController,Storyboarded {
             self?.tblView.reloadData()
         }
     }
-  
+    
     @IBAction func saveButtonAction(_ sender: Any) {
         
         viewModel.validateFields(dataStore: viewModel.infoArray) { [self] (dict, msg, isSucess) in
@@ -86,9 +85,9 @@ class AddressViewController: BaseViewController,Storyboarded {
                 let values = viewModel.infoArray.map {$0.value}
                 let tempAddress  = values.joined(separator: (", "))
                 viewModel.infoArray[6].value = tempAddress
-
+                
                 self.getLatLongfromAddress(tempAddress)
-        
+                
             }
             else {
                 DispatchQueue.main.async {
@@ -99,9 +98,17 @@ class AddressViewController: BaseViewController,Storyboarded {
     }
     
     
+    @IBAction func currentLocationButtion(_ sender: Any) {
+        locationManager.requestAlwaysAuthorization()
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.delegate = self
+        locationManager.startUpdatingLocation()
+        
+    }
     
     func getLatLongfromAddress(_ address : String){
-
+        
         let geoCoder = CLGeocoder()
         geoCoder.geocodeAddressString(address) { (placemarks, error) in
             guard
@@ -117,14 +124,6 @@ class AddressViewController: BaseViewController,Storyboarded {
             
             self.addressDelegate?.addressChangeAction(infoArray: self.viewModel.infoArray)
             self.navigationController?.popViewController(animated: false)
-            
-//            self.viewModel.getAddressFromLatLon(latitude: "\(location.coordinate.latitude)", withLongitude: "\(location.coordinate.longitude)",handler: {address in
-//                
-//                self.addressDelegate?.addressChangeAction(infoArray: self.viewModel.infoArray)
-//                self.navigationController?.popViewController(animated: false)
-//            })
-            
-          
             
         }
     }
@@ -142,7 +141,7 @@ extension AddressViewController: UITableViewDataSource {
         cell.selectionStyle = .none
         
         switch indexPath.row {
-       
+            
         case 0:
             addressField1 = cell.textFiled
             addressField1.delegate = self
@@ -155,26 +154,21 @@ extension AddressViewController: UITableViewDataSource {
             addressField2.delegate = self
             addressField2.returnKeyType = .next
             addressField2.text = viewModel.infoArray[1].value
-//            addressField2.keyboardType = .numberPad
-        
+            
         case 2:
             cityField = cell.textFiled
             cityField.delegate = self
             cityField.returnKeyType = .next
             cityField.text = viewModel.infoArray[2].value
-//            cityField.keyboardType = .numberPad
             
         case 3:
             stateField = cell.textFiled
-//            stateField.isUserInteractionEnabled = false
             stateField.delegate = self
             stateField.returnKeyType = .next
             stateField.text = viewModel.infoArray[3].value
-//            stateField.keyboardType = .numberPad
             
         case 4:
             postalCodeField = cell.textFiled
-//            stateField.isUserInteractionEnabled = false
             postalCodeField.delegate = self
             postalCodeField.returnKeyType = .next
             postalCodeField.text = viewModel.infoArray[4].value
@@ -198,9 +192,9 @@ extension AddressViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         
-//        if (indexPath.row == 3){
-//            self.stateActionButton()
-//        }
+        //        if (indexPath.row == 3){
+        //            self.stateActionButton()
+        //        }
     }
 }
 
@@ -211,7 +205,7 @@ extension AddressViewController: UITextFieldDelegate {
             addressField2.becomeFirstResponder()
         }
         
-       else if textField == addressField2{
+        else if textField == addressField2{
             cityField.becomeFirstResponder()
         }
         else if textField == cityField{
@@ -238,20 +232,77 @@ extension AddressViewController: UITextFieldDelegate {
 }
 
 extension AddressViewController: UITextViewDelegate {
-
+    
     func textViewDidBeginEditing(_ textView: UITextView) {
         textView.text = ""
         textView.textColor = .white
     }
-
+    
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.isEmpty {
             textView.text = "Type..."
             textView.textColor = UIColor.white
         }
-        self.viewModel.infoArray[6].value = textView.text
+        self.viewModel.infoArray[7].value = textView.text
     }
 }
 
 
 
+extension AddressViewController: CLLocationManagerDelegate {
+    
+    func locationManager(_ manager: CLLocationManager,
+                         didUpdateLocations locations: [CLLocation]) {
+        
+        let userLocation: CLLocation = locations[0]
+        print("location: \(userLocation.coordinate.latitude), \(userLocation.coordinate.longitude)")
+        manager.stopUpdatingLocation()
+        SVProgressHUD.dismiss()
+        
+        self.viewModel.getAddressFromLatLon(latitude: "\(userLocation.coordinate.latitude)", withLongitude: "\(userLocation.coordinate.longitude)",handler: {address in
+            
+            self.tblView.reloadData()
+        })
+        
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        SVProgressHUD.dismiss()
+        
+        switch status {
+            
+        case .restricted, .denied:
+            let alert = UIAlertController(title: "Allow Location Access", message: "Driver App needs access to your location. Turn on Location Services in your device settings.", preferredStyle: UIAlertController.Style.alert)
+            
+            // Button to Open Settings
+            alert.addAction(UIAlertAction(title: "Settings", style: UIAlertAction.Style.default, handler: { action in
+                guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
+                    return
+                }
+                if UIApplication.shared.canOpenURL(settingsUrl) {
+                    UIApplication.shared.open(settingsUrl, completionHandler: { (success) in
+                        print("Settings opened: \(success)")
+                    })
+                }
+            }))
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            manager.stopUpdatingLocation()
+            break
+            
+        case .authorizedWhenInUse,.authorizedAlways,.notDetermined:
+            manager.startUpdatingLocation()
+            break
+            
+        default:
+            break
+        }
+    }
+    
+    
+    
+    func locationManager(_ manager: CLLocationManager,
+                         didFailWithError error: Error) {
+        SVProgressHUD.dismiss()
+    }
+}

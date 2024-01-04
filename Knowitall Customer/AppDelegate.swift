@@ -89,7 +89,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
             SideMenuManager.default.leftMenuNavigationController = UISideMenuNavigationController(rootViewController: sideMenuViewController)
         sideMenuViewController.coordinator = coordinator
             SideMenuManager.default.addPanGestureToPresent(toView: self.window!)
-            SideMenuManager.default.menuWidth = 350
+        SideMenuManager.default.menuWidth = (self.window?.frame.size.width ?? 350) - 100
 
     }
     

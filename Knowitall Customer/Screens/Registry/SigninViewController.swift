@@ -22,9 +22,7 @@ class SigninViewController: UIViewController,Storyboarded  {
  
     override func viewDidLoad() {
         
-        SideMenuManager.default.leftMenuNavigationController = storyboard?.instantiateViewController(withIdentifier: "LeftMenuNavigationController") as? SideMenuNavigationController
-        SideMenuManager.default.addPanGestureToPresent(toView: navigationController!.navigationBar)
-        SideMenuManager.default.addScreenEdgePanGesturesToPresent(toView: view)
+        SideMenuManager.default.leftMenuNavigationController = nil
         
         super.viewDidLoad()
         UISetup()

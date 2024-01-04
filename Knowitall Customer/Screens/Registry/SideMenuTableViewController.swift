@@ -44,7 +44,7 @@ class SideMenuTableViewController: UIViewController, Storyboarded  {
         
         let imageView = UIImageView(image: UIImage(named: "logo"))
                imageView.contentMode = .scaleAspectFit // Adjust content mode as needed
-               imageView.frame = CGRect(x: view.frame.width - 200, y: 0, width: 200, height: 200)
+               imageView.frame = CGRect(x: (view.frame.width - 175)/2, y: 0, width: 175, height: 175)
                tableView.tableHeaderView = imageView
         
         
@@ -52,11 +52,11 @@ class SideMenuTableViewController: UIViewController, Storyboarded  {
         button.setTitle("Sign Out", for: .normal)
         button.setTitleColor(.black, for: .normal)
         button.contentHorizontalAlignment = UIControl.ContentHorizontalAlignment.left
-        button.addTarget(self, action: #selector(self.buttonTapped), for: .touchUpInside)
-        tableView.tableFooterView = button
+//        button.addTarget(self, action: #selector(self.buttonTapped), for: .touchUpInside)
+//        tableView.tableFooterView = button
     }
     
-    @objc func buttonTapped(sender : UIButton) {
+    func buttonTapped() {
         
         do{
             try Auth.auth().signOut()
@@ -119,8 +119,8 @@ extension SideMenuTableViewController: UITableViewDataSource,UITableViewDelegate
         }else if(indexPath.row == 1){
             coordinator?.goToRequest()
             
-        }else if(indexPath.row == 2){
-            
+        }else if(indexPath.row == 6){
+            self.buttonTapped()
         }
         
         dismiss(animated: true, completion: nil)

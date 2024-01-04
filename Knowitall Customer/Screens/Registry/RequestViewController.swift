@@ -15,7 +15,6 @@ class RequestViewController: BaseViewController,Storyboarded, RTCustomAlertDeleg
     @IBOutlet weak var serviceTypleLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var viewBG: UIView!
-    @IBOutlet weak var switchButton: UISwitch!
     @IBOutlet weak var editAddressButton: UIButton!
     @IBOutlet weak var mainBG: UIView!
     @IBOutlet weak var requestView: UIView!
@@ -71,11 +70,9 @@ class RequestViewController: BaseViewController,Storyboarded, RTCustomAlertDeleg
         editAddressButton.isHidden = true
         
         if( CurrentUserInfo.latitude == nil && CurrentUserInfo.longitude == nil){
-            switchButton.isOn = true
             addAddressButton.isHidden = false
             addAddressButton.setTitle("Add Address", for: .normal)
         }else{
-            switchButton.isOn = false
             addAddressButton.isHidden = true
         }
         SigninCell.registerWithTable(tblView)
@@ -105,22 +102,10 @@ class RequestViewController: BaseViewController,Storyboarded, RTCustomAlertDeleg
             //            self?.tblView.reloadData()
         }
     }
-    
-    @IBAction func switchAction(_ sender: Any) {
-        
-        let switchButton: UISwitch = sender as! UISwitch
-        
-        //        if(switchButton.isOn == true){
-        //            editAddressButton.isHidden = false
-        //        }else{
-        //            editAddressButton.isHidden = true
-        //        }
-        
-    }
+ 
   
     func addressChangeAction(infoArray: [AddressTypeModel]) {
         self.viewModel.addressInfo = infoArray
-        self.switchButton.isOn = false
         self.editAddressButton.isHidden = true
         self.addressLabel.text = infoArray[6].value
         
@@ -178,6 +163,8 @@ class RequestViewController: BaseViewController,Storyboarded, RTCustomAlertDeleg
                 dictParam["state"] = self.viewModel.addressInfo?[3].value
                 dictParam["postalCode"] = self.viewModel.addressInfo?[4].value
                 dictParam["country"] =  self.viewModel.addressInfo?[5].value
+                dictParam["landMark"] =  self.viewModel.addressInfo?[7].value
+
                 
                 
                 self.viewModel.sendRequest(APIsEndPoints.krequest.rawValue,dictParam, handler: {(response,statusCode)in
@@ -191,8 +178,6 @@ class RequestViewController: BaseViewController,Storyboarded, RTCustomAlertDeleg
                         customAlert.show()
                     }
                 })
-                
-                
                 
             }
             else {

@@ -45,5 +45,9 @@
 		<string>fetch</string>
 		<string>processing</string>
 	</array>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>To get the nearby studio</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>To get the nearby studio</string>
 </dict>
 </plist>

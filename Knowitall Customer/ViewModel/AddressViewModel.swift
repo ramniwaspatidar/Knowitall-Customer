@@ -48,15 +48,17 @@ class AddressViewModel {
         
         infoArray.append(AddressTypeModel(type: .address2, placeholder: NSLocalizedString("Enter", comment: ""), value: addressModel?.address2 ?? "", header: "Address Line 2"))
         
-        infoArray.append(AddressTypeModel(type: .city, placeholder: NSLocalizedString("Enter", comment: ""), value: addressModel?.address1 ?? "", header: "City"))
+        infoArray.append(AddressTypeModel(type: .city, placeholder: NSLocalizedString("Enter", comment: ""), value: addressModel?.city ?? "", header: "City"))
         
-        infoArray.append(AddressTypeModel(type: .state, placeholder: NSLocalizedString("Select", comment: ""), value: addressModel?.address1 ?? "", header: "State"))
+        infoArray.append(AddressTypeModel(type: .state, placeholder: NSLocalizedString("Select", comment: ""), value: addressModel?.state ?? "", header: "State"))
         
-        infoArray.append(AddressTypeModel(type: .postalCode, placeholder: NSLocalizedString("Enter", comment: ""), value: addressModel?.address1 ?? "", header: "Postal Code"))
+        infoArray.append(AddressTypeModel(type: .postalCode, placeholder: NSLocalizedString("Enter", comment: ""), value: "", header: "Postal Code"))
         
-        infoArray.append(AddressTypeModel(type: .country, placeholder: NSLocalizedString("Enter", comment: ""), value: addressModel?.address1 ?? "", header: "Country"))
+        infoArray.append(AddressTypeModel(type: .country, placeholder: NSLocalizedString("Enter", comment: ""), value: "", header: "Country"))
         
-        infoArray.append(AddressTypeModel(type: .landMark, placeholder: NSLocalizedString("Enter", comment: ""), value: addressModel?.address1 ?? "", header: "Land Mark"))
+        infoArray.append(AddressTypeModel(type: .fullAddress, placeholder: NSLocalizedString("Enter", comment: ""), value:  "", header: "Full Address"))
+        
+        infoArray.append(AddressTypeModel(type: .landMark, placeholder: NSLocalizedString("Enter", comment: ""), value: "", header: "Land Mark"))
         
 
         return infoArray

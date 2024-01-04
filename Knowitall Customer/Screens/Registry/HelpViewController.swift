@@ -17,6 +17,11 @@ class HelpViewController: BaseViewController,Storyboarded {
 
     
     override func viewDidLoad() {
+        
+        SideMenuManager.default.leftMenuNavigationController = storyboard?.instantiateViewController(withIdentifier: "LeftMenuNavigationController") as? SideMenuNavigationController
+        SideMenuManager.default.addPanGestureToPresent(toView: navigationController!.navigationBar)
+        SideMenuManager.default.addScreenEdgePanGesturesToPresent(toView: view)
+        
         super.viewDidLoad()
         self.setNavWithOutView(.menu,self.view)
         viewModel.infoArray = (self.viewModel.prepareInfo(dictInfo: viewModel.dictInfo))
