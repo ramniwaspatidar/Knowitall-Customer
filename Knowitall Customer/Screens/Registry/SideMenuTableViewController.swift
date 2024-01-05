@@ -113,6 +113,8 @@ extension SideMenuTableViewController: UITableViewDataSource,UITableViewDelegate
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+        coordinator = MainCoordinator(navigationController: self.navigationController!)
+
         if(indexPath.row == 0){
          coordinator?.goToHelpView()
             

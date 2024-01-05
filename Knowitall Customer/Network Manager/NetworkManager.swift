@@ -1,8 +1,6 @@
 
 import Foundation
-import Alamofire
 import SVProgressHUD
-import JWTDecode
 import FirebaseAuth
 
 class NetworkManager {
@@ -100,7 +98,6 @@ class NetworkManager {
             #if DEBUG
             print("URL",  url)
             print("URL PARAM",  params)
-            print("URL Headers:- ", request.headers)
             print("URL :- ", request)
             #endif
             let session = URLSession.shared
