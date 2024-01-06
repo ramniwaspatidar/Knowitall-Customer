@@ -23,7 +23,7 @@ class TrackingCell: ReusableTableViewCell {
     func commiInit<T>(_ dictionary :T){
         if let dict = dictionary as? TrackingModel{
             trakingLabel.text = dict.value
-            trakingLabel.textColor = hexStringToUIColor(dict.color)
+            etaLabel.textColor = hexStringToUIColor(dict.color)
             etaLabel.text = dict.eta
             if(dict.status == "pending"){
                 checkImage.image = UIImage(named: "uncheck")

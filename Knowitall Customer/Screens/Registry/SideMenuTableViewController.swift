@@ -123,6 +123,13 @@ extension SideMenuTableViewController: UITableViewDataSource,UITableViewDelegate
             coordinator?.goToRequest()
             
         }
+        else if(indexPath.row == 2){
+            guard let url = URL(string: "telprompt://+14438269314"),
+                  UIApplication.shared.canOpenURL(url) else {
+                return
+            }
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
         else if(indexPath.row == 4){
             coordinator?.goToWebview(type: .TC)
         }

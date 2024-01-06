@@ -133,7 +133,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         withCompletionHandler completionHandler:
         @escaping (UNNotificationPresentationOptions) -> Void
     ) {
-        completionHandler([[.sound]])
+        completionHandler([[.alert, .sound]])
     }
     
     func userNotificationCenter(
@@ -149,7 +149,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data
     ) {
         Messaging.messaging().apnsToken = deviceToken
-        Auth.auth().setAPNSToken(deviceToken, type: .prod)
+        Auth.auth().setAPNSToken(deviceToken, type: .sandbox)
         
     }
         

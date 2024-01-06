@@ -19,6 +19,9 @@ class TrackingViewController: BaseViewController,Storyboarded {
     @IBOutlet weak var dotButton: UIButton!
     @IBOutlet weak var dotHeight: NSLayoutConstraint!
     
+    var timer : Timer?
+
+    
     var viewModel : TrackingViewModel = {
         let model = TrackingViewModel()
         return model
@@ -36,18 +39,44 @@ class TrackingViewController: BaseViewController,Storyboarded {
         
         self.viewModel.infoArray.removeAll()
         self.viewModel.infoArray = self.viewModel.prepareInfo()
-        
+        self.getRequestDetails()
+
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.getRequestDetails()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        self.timer?.invalidate()
+        self.timer = nil
+    }
+    
+    
+    func getRequestDetails(){
         viewModel.getRequestData(APIsEndPoints.kGetCustor.rawValue + (viewModel.dictRequest?.requestId ?? "")) { response, code in
             self.viewModel.dictRequest = response
             self.viewModel.infoArray.removeAll()
             self.viewModel.infoArray = self.viewModel.prepareInfo()
             self.updateUI()
+            
+            let runTimer = response.confirmArrival == true || response.markNoShow == true || response.cancelled == true
+            
+            if (!runTimer){
+                self.startTimer()
+            }
         }
+    }
+    
+    func startTimer(){
+        self.timer = Timer.scheduledTimer(withTimeInterval: 30, repeats: true, block: { _ in
+            self.getRequestDetails()
+        })
     }
     
     fileprivate func setupUI(){
         TrackingCell.registerWithTable(tblView)
-        requestId.text = "\(viewModel.dictRequest?.requestId ?? "")"
+        requestId.text = "\(viewModel.dictRequest?.reqDispId ?? "")"
     }
     
     fileprivate func updateUI(){
@@ -63,44 +92,65 @@ class TrackingViewController: BaseViewController,Storyboarded {
             self.confirmButton.alpha = 1
         }
         
-        let currentUserLat = NSString(string: CurrentUserInfo.latitude ?? "0")
-        let currentUserLng = NSString(string: CurrentUserInfo.longitude ?? "0")
+        let jobDone = viewModel.dictRequest?.confirmArrival == true || viewModel.dictRequest?.markNoShow == true || viewModel.dictRequest?.cancelled == true
+
         
+        if(!jobDone && viewModel.dictRequest?.accepted == true){
+            self.getETA()
+        }else{
+            self.viewModel.infoArray[2].eta = "ETA: NA"
+        }
+       
+    }
+    
+    
+    func getETA(){
         
+        self.viewModel.infoArray[2].eta = "ETA: ..."
+
         let lat = viewModel.dictRequest?.latitude ?? 0
         let lng = viewModel.dictRequest?.longitude ?? 0
-                
-        let destinationLocation = CLLocationCoordinate2D(latitude: currentUserLat.doubleValue, longitude:  currentUserLng.doubleValue)
         
-        let source = CLLocationCoordinate2D(latitude: lat, longitude:  lng)
+        let driverlat = viewModel.dictRequest?.driverLocation?.latitude ?? 0
+        let driverlng =  viewModel.dictRequest?.driverLocation?.longitude ?? 0
         
-        let sourcePlacemark = MKPlacemark(coordinate: source, addressDictionary: nil)
-        let destinationPlacemark = MKPlacemark(coordinate: destinationLocation, addressDictionary: nil)
         
-        let sourceMapItem = MKMapItem(placemark: destinationPlacemark)
-        let destinationMapItem = MKMapItem(placemark: sourcePlacemark)
-        
-        let directionRequest = MKDirections.Request()
-        directionRequest.source = sourceMapItem
-        directionRequest.destination = destinationMapItem
-        directionRequest.transportType = .automobile
-        
-        let directions = MKDirections(request: directionRequest)
-        
-        directions.calculate { (response, error) in
-            guard let response = response else {
-                if let error = error {
-                    print("Error getting directions: \(error.localizedDescription)")
+        if(driverlat == 0 && driverlng == 0){
+            self.viewModel.infoArray[2].eta = "ETA: NA"
+        }
+        else{
+            
+            let destinationLocation = CLLocationCoordinate2D(latitude: lat, longitude:  lng)
+            let source = CLLocationCoordinate2D(latitude:driverlat, longitude: driverlng)
+            
+            let sourcePlacemark = MKPlacemark(coordinate: source, addressDictionary: nil)
+            let destinationPlacemark = MKPlacemark(coordinate: destinationLocation, addressDictionary: nil)
+            
+            let sourceMapItem = MKMapItem(placemark: destinationPlacemark)
+            let destinationMapItem = MKMapItem(placemark: sourcePlacemark)
+            
+            let directionRequest = MKDirections.Request()
+            directionRequest.source = sourceMapItem
+            directionRequest.destination = destinationMapItem
+            directionRequest.transportType = .automobile
+            
+            let directions = MKDirections(request: directionRequest)
+            
+            directions.calculate { (response, error) in
+                guard let response = response else {
+                    if let error = error {
+                        print("Error getting directions: \(error.localizedDescription)")
+                    }
+                    return
                 }
-                return
+                
+                let route = response.routes[0]
+                
+                var expectedTravelTime = response.routes[0].expectedTravelTime
+                let convertedTime = self.convertTimeIntervalToHoursMinutes(seconds: expectedTravelTime)
+                self.viewModel.infoArray[2].eta = "ETA : \(convertedTime.hours):\(convertedTime.minutes):00"
+                self.tblView.reloadData()
             }
-            
-            let route = response.routes[0]
-            
-            var expectedTravelTime = response.routes[0].expectedTravelTime
-            let convertedTime = self.convertTimeIntervalToHoursMinutes(seconds: expectedTravelTime)
-            self.viewModel.infoArray[2].eta = "ETA : \(convertedTime.hours):\(convertedTime.minutes):00"
-            self.tblView.reloadData()
         }
     }
     
@@ -135,15 +185,15 @@ class TrackingViewController: BaseViewController,Storyboarded {
             self.viewModel.cancelRequest(APIsEndPoints.kCancelRequest.rawValue + (self.viewModel.dictRequest?.requestId ?? ""), param) { response, code in
                 
                 Alert(title: "Cancel Request", message: "Your request cancel successfully", vc: self)
-                self.navigationController?.popToRootViewController(animated: true)
+                self.navigationController?.popViewController(animated: true)
             }
         }
         let callDriver = UIAlertAction(title: "Call Driver", style: .default) { action in
             print("Call Driver")
             
-            if(self.viewModel.dictRequest?.accepted == true && self.viewModel.dictRequest?.phoneNumber != nil){
+            if(self.viewModel.dictRequest?.accepted == true && self.viewModel.dictRequest?.driverPhoneNumber != nil){
                 
-                guard let url = URL(string: "telprompt://\(self.viewModel.dictRequest?.phoneNumber ?? "")"),
+                guard let url = URL(string: "telprompt://\(self.viewModel.dictRequest?.driverPhoneNumber ?? "")"),
                       UIApplication.shared.canOpenURL(url) else {
                     return
                 }

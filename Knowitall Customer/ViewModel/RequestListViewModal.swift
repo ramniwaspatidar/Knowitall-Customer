@@ -28,7 +28,12 @@ struct RequestListModal : Mappable {
     var  confirmArrival : Bool?
     var confrimArrivalDate : Double?
     var requestAcceptDate : Double?
-    
+    var reqDispId : String?
+    var driverLocation : DriverLocation?
+    var cancelled : Bool?
+    var markNoShow : Bool?
+    var driverPhoneNumber : String?
+
     init?(map: Map) {
         
     }
@@ -55,9 +60,16 @@ struct RequestListModal : Mappable {
         confirmArrival <- map["confirmArrival"]
         confrimArrivalDate <- map["confrimArrivalDate"]
         requestAcceptDate <- map["requestAcceptDate"]
+        reqDispId <- map["reqDispId"]
+        driverLocation <- map["driverLocation"]
+        cancelled <- map["cancelled"]
+        markNoShow <- map["markNoShow"]
+        driverPhoneNumber <- map["driverPhoneNumber"]
+
     
     }
 }
+
 struct DeclineDrivers : Mappable {
     
     var  driverId : String?
@@ -70,6 +82,21 @@ struct DeclineDrivers : Mappable {
     mutating func mapping(map: Map) {
         driverId <- map["driverId"]
         date <- map["date"]
+    }
+}
+
+struct DriverLocation : Mappable {
+    
+    var  latitude : Double?
+    var longitude : Double?
+    
+    init?(map: Map) {
+        
+    }
+    
+    mutating func mapping(map: Map) {
+        latitude <- map["latitude"]
+        longitude <- map["longitude"]
     }
 }
 

@@ -89,6 +89,7 @@
 		0C876A7D9C76807951FC17B0 /* Pods-Knowitall Customer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Knowitall Customer.debug.xcconfig"; path = "Target Support Files/Pods-Knowitall Customer/Pods-Knowitall Customer.debug.xcconfig"; sourceTree = "<group>"; };
 		1A1E46BB2B1C24EC0046A758 /* SigninViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SigninViewController.swift; sourceTree = "<group>"; };
 		1A1E46C52B1C5F070046A758 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1A38EF052B49EA8400C37DCE /* Location.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Location.gpx; sourceTree = "<group>"; };
 		1A4262D02B2446B9008D0E0D /* AddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressViewController.swift; sourceTree = "<group>"; };
 		1A4262D22B2449B7008D0E0D /* AddressViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressViewModel.swift; sourceTree = "<group>"; };
 		1A4262D52B24BAAB008D0E0D /* RTCustomAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RTCustomAlert.swift; sourceTree = "<group>"; };
@@ -285,6 +286,7 @@
 				1A55AB962B1847DE001AEEBF /* AppDelegate.swift */,
 				1A55AB9F2B1847E0001AEEBF /* Assets.xcassets */,
 				1A1E46C52B1C5F070046A758 /* Info.plist */,
+				1A38EF052B49EA8400C37DCE /* Location.gpx */,
 				1A55ABD12B1849C7001AEEBF /* GoogleService-Info.plist */,
 				1AA813932B45DD7600F83DDA /* PTP.pdf */,
 				1A558C712B18F3640013BD30 /* Main.storyboard */,

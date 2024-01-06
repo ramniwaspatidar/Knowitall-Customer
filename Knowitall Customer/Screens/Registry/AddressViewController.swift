@@ -107,6 +107,8 @@ class AddressViewController: BaseViewController,Storyboarded {
         locationManager.requestAlwaysAuthorization()
         locationManager.requestWhenInUseAuthorization()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        SVProgressHUD.show()
+        
         
     }
     

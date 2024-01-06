@@ -35,12 +35,14 @@ class TrackingViewModel {
         let accepted = dictRequest?.accepted ?? false
         let driverArrived = dictRequest?.driverArrived ?? false
         let confirmArrival = dictRequest?.confirmArrival ?? false
+        let cancel = dictRequest?.cancelled ?? false
+
         
         
-        infoArray.append(TrackingModel(eta: requestTime, value: "Request Submitted", color: "#F4CC9E", status: "done"))
-        infoArray.append(TrackingModel(eta: accepted ? "Driver Coming" : "Waiting for Acceptance", value: "Driver Response ", color: "#F4CC9E", status: accepted ? "done" : "pending"))
-        infoArray.append(TrackingModel(eta: "", value: "Help is on the way", color: "#09C655", status: accepted ? "done":"pending"))
-        infoArray.append(TrackingModel(eta: confirmArrival ? "Completed": "Pending", value: "Help Reached", color: "#DDDBD4", status: confirmArrival ? "done" : "pending"))
+        infoArray.append(TrackingModel(eta: requestTime, value:  cancel ? "Request Cancelled" : "Request Submitted", color: cancel ? "#FF004F" : "#F4CC9E", status: "done"))
+        infoArray.append(TrackingModel(eta: accepted ? "Driver Coming" : "Waiting for Acceptance", value: "Driver Response ", color: accepted ? "#09C655" : "#F4CC9E", status: accepted ? "done" : "pending"))
+        infoArray.append(TrackingModel(eta: "", value: "Help is on the way",  color: accepted ? "#09C655" : "#F4CC9E", status: accepted ? "done":"pending"))
+        infoArray.append(TrackingModel(eta: confirmArrival ? "Completed": "Pending", value: "Help Reached", color: confirmArrival ? "#09C655" : "#F4CC9E", status: confirmArrival ? "done" : "pending"))
 
         return infoArray
     }
@@ -48,7 +50,7 @@ class TrackingViewModel {
     func getRequestData(_ apiEndPoint: String, handler: @escaping (RequestListModal,Int) -> Void) {
         
         guard let url = URL(string: Configuration().environment.baseURL + apiEndPoint) else {return}
-        NetworkManager.shared.getRequest(url, true, "", networkHandler: {(responce,statusCode) in
+        NetworkManager.shared.getRequest(url, false, "", networkHandler: {(responce,statusCode) in
             APIHelper.parseObject(responce, true) { payload, status, message, code in
                 if status {
                     let dictResponce =  Mapper<RequestListModal>().map(JSON: payload)
@@ -66,7 +68,7 @@ class TrackingViewModel {
     func cancelRequest(_ apiEndPoint: String,_ param : [String : Any], handler: @escaping (RequestListModal,Int) -> Void) {
         
         guard let url = URL(string: Configuration().environment.baseURL + apiEndPoint) else {return}
-        NetworkManager.shared.postRequest(url, false, "", params: param, networkHandler: {(responce,statusCode) in
+        NetworkManager.shared.postRequest(url, true, "", params: param, networkHandler: {(responce,statusCode) in
             APIHelper.parseObject(responce, true) { payload, status, message, code in
                 if status {
                     let dictResponce =  Mapper<RequestListModal>().map(JSON: payload)

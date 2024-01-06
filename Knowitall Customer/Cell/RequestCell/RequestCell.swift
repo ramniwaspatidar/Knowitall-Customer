@@ -26,12 +26,18 @@ class RequestCell: ReusableTableViewCell {
     }
     
     func commonInit(_ dict : RequestListModal){
-        requestLabel.text = "Request ID : \(dict.requestId ?? "")"
+        requestLabel.text = "Request ID : \(dict.reqDispId ?? "")"
         dateLabel.text = AppUtility.getDateFromTimeEstime(dict.requestDate ?? 0.0)
         
         if(dict.confirmArrival == true){
             statusLabel.text = "Completed"
             statusLabel.textColor = .green
+        }
+        
+        else if(dict.cancelled == true){
+            statusLabel.text = "Cancelled"
+            statusLabel.textColor = .red
+
         }
        else if(dict.driverArrived == true){
             statusLabel.text = "Arrived"
