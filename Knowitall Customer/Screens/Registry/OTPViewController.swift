@@ -7,7 +7,7 @@ import OTPFieldView
 import FirebaseMessaging
 import SVProgressHUD
 
-class OTPViewController: UIViewController,Storyboarded {
+class OTPViewController: BaseViewController,Storyboarded {
     
     var coordinator: MainCoordinator?
     var verificationID : String?
@@ -15,6 +15,7 @@ class OTPViewController: UIViewController,Storyboarded {
     var countdownTimer: Timer!
     var totalTime = 30
     var varificationCode : String = ""
+    @IBOutlet weak var headerText: UILabel!
     
     
     @IBOutlet var otpTextFieldView: OTPFieldView!
@@ -22,6 +23,9 @@ class OTPViewController: UIViewController,Storyboarded {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setNavWithOutView(.back, self.view)
+        
+        headerText.text = "We have sent a verification code to +91 \(mobileNumber ?? ""), please enter below to verify and continue "
         setupOtpView()
     }
     
@@ -78,7 +82,7 @@ class OTPViewController: UIViewController,Storyboarded {
                     }
                     if let accessToken = idToken {
                         var dictParam = [String : String]()
-                        dictParam["countryCode"] = "+1"
+                        dictParam["countryCode"] = "+91"
                         dictParam["phoneNumber"] = self.mobileNumber
                         
                         self.verifyOTP(APIsEndPoints.ksignupUser.rawValue,dictParam, handler: {(mmessage,statusCode)in

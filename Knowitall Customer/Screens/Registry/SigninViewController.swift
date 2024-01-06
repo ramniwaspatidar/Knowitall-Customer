@@ -3,6 +3,7 @@
 import UIKit
 import FirebaseAuth
 import SideMenu
+import SVProgressHUD
 class SigninViewController: UIViewController,Storyboarded  {
    
     
@@ -37,6 +38,8 @@ class SigninViewController: UIViewController,Storyboarded  {
         mobileField.layer.borderColor = UIColor.black.cgColor
         mobileField.layer.cornerRadius = 8
         
+        mobileField.becomeFirstResponder()
+        
         mobileField.delegate = self;
         viewModel.infoArray = (self.viewModel.prepareInfo(dictInfo: viewModel.dictInfo))
         
@@ -53,9 +56,13 @@ class SigninViewController: UIViewController,Storyboarded  {
         
         let str =  self.mobileField.text ?? ""
         
+        SVProgressHUD.show()
+        
         viewModel.validateFields(dataStore: viewModel.infoArray) { (dict, msg, isSucess) in
             if isSucess {
-                PhoneAuthProvider.provider().verifyPhoneNumber("+1\(str)" , uiDelegate: nil) { (verificationID, error) in
+                PhoneAuthProvider.provider().verifyPhoneNumber("+91\(str)" , uiDelegate: nil) { (verificationID, error) in
+                    SVProgressHUD.dismiss()
+
                     if let error = error {
                         print(error.localizedDescription)
                         Alert(title: "Alert", message: "Invalid phone number", vc: self)
@@ -68,6 +75,7 @@ class SigninViewController: UIViewController,Storyboarded  {
             }
             else {
                 DispatchQueue.main.async {
+                    SVProgressHUD.dismiss()
                     Alert(title: "Alert", message: msg, vc: self)
                 }
             }

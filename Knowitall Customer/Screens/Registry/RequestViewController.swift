@@ -29,7 +29,7 @@ class RequestViewController: BaseViewController,Storyboarded, RTCustomAlertDeleg
     
     
     
-    fileprivate let typeOfService = ["Accident","Emergency","Help"]
+    fileprivate let typeOfService = ["Accident","Battery","Fuel","Tow","Lockout","Winch","Flat Tire","Other"]
     
     enum SignupCellType : Int{
         case username = 0
@@ -61,8 +61,10 @@ class RequestViewController: BaseViewController,Storyboarded, RTCustomAlertDeleg
         
         situationLabel.text = "Type..."
         
+        situationLabel.contentInset = UIEdgeInsets(top: 0, left: 12, bottom: 0, right: 12)
         
         setupUI()
+
     }
     
     // SsetupUI
@@ -152,7 +154,7 @@ class RequestViewController: BaseViewController,Storyboarded, RTCustomAlertDeleg
                 dictParam["typeOfService"] = self.viewModel.infoArray[0].value
                 dictParam["desc"] = self.viewModel.infoArray[1].value
                 dictParam["name"] =  self.viewModel.infoArray[2].value
-                dictParam["phoneNumber"] = "+1\(self.viewModel.infoArray[3].value)"
+                dictParam["phoneNumber"] = "+91\(self.viewModel.infoArray[3].value)"
                 
                 dictParam["latitude"] = lat.doubleValue
                 dictParam["longitude"] = lng.doubleValue

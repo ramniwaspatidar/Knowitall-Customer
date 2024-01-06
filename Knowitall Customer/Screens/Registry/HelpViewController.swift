@@ -26,6 +26,9 @@ class HelpViewController: BaseViewController,Storyboarded {
         self.setNavWithOutView(.menu,self.view)
         viewModel.infoArray = (self.viewModel.prepareInfo(dictInfo: viewModel.dictInfo))
         
+        coordinator = MainCoordinator(navigationController: self.navigationController!)
+
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {

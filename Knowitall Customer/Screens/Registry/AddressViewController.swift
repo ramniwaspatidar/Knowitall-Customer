@@ -29,7 +29,7 @@ class AddressViewController: BaseViewController,Storyboarded {
     var stateField: CustomTextField!
     var landMarkField: CustomTextField!
     var postalCodeField: CustomTextField!
-    let locationManager = CLLocationManager()
+    var locationManager = CLLocationManager()
     
     
     var addressDelegate : AddressChangeDelegate?
@@ -57,6 +57,9 @@ class AddressViewController: BaseViewController,Storyboarded {
         viewBG.layer.borderWidth = 1
         viewBG.layer.borderColor = UIColor.black.cgColor
         viewBG.layer.cornerRadius = 8
+        
+        landmarkTextView.contentInset = UIEdgeInsets(top: 0, left: 12, bottom: 0, right: 12)
+
         
         setupUI()
     }
@@ -99,11 +102,11 @@ class AddressViewController: BaseViewController,Storyboarded {
     
     
     @IBAction func currentLocationButtion(_ sender: Any) {
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
         locationManager.requestWhenInUseAuthorization()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.delegate = self
-        locationManager.startUpdatingLocation()
         
     }
     

@@ -113,6 +113,7 @@ extension SideMenuTableViewController: UITableViewDataSource,UITableViewDelegate
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+        
         coordinator = MainCoordinator(navigationController: self.navigationController!)
 
         if(indexPath.row == 0){
@@ -121,7 +122,14 @@ extension SideMenuTableViewController: UITableViewDataSource,UITableViewDelegate
         }else if(indexPath.row == 1){
             coordinator?.goToRequest()
             
-        }else if(indexPath.row == 6){
+        }
+        else if(indexPath.row == 4){
+            coordinator?.goToWebview(type: .TC)
+        }
+        else if(indexPath.row == 5){
+            coordinator?.goToWebview(type: .FAQ)
+        }
+        else if(indexPath.row == 6){
             self.buttonTapped()
         }
         

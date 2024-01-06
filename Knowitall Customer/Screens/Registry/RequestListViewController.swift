@@ -18,6 +18,8 @@ class RequestListViewController: BaseViewController,Storyboarded{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        coordinator = MainCoordinator(navigationController: self.navigationController!)
+
         self.setNavWithOutView(.menu, self.view)
         
         viewModel.sendRequest(APIsEndPoints.kRequestList.rawValue) { response, code in

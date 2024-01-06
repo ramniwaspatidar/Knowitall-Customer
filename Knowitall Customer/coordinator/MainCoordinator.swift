@@ -86,6 +86,13 @@ class MainCoordinator : Coordinator{
         vc.coordinator = self
         navigationController.pushViewController(vc, animated: false)
     }
+    
+    func goToWebview(type : WebViewType){
+        let vc = WKWebViewController.instantiate()
+        vc.coordinator = self
+        vc.webViewType = type
+        navigationController.pushViewController(vc, animated: false)
+    }
 //    func goToSideMenu(window : UIWindow) {
 //        
 //        let vc = SideMenuTableViewController.instantiate()
