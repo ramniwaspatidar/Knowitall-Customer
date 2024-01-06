@@ -2,7 +2,6 @@
 
 import UIKit
 import FirebaseAuth
-import FirebaseFirestore
 import OTPFieldView
 import FirebaseMessaging
 import SVProgressHUD

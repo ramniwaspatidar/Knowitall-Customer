@@ -2,8 +2,8 @@
 import UIKit
 import FirebaseAuth
 import Firebase
-import FirebaseDatabase
-import FirebaseFirestore
+//import FirebaseDatabase
+//import FirebaseFirestore
 import CoreLocation
 import SVProgressHUD
 

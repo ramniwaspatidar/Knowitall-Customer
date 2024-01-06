@@ -65,7 +65,7 @@ class SigninViewController: UIViewController,Storyboarded  {
 
                     if let error = error {
                         print(error.localizedDescription)
-                        Alert(title: "Alert", message: "Invalid phone number", vc: self)
+                        Alert(title: "Alert", message: "Invalid phone number +91\(str) \(error.localizedDescription)" , vc: self)
 
                         return
                     }

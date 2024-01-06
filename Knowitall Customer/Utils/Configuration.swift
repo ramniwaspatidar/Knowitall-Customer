@@ -27,15 +27,6 @@ public enum Environment: String {
         }
     }
     
-    var paymentMode: Bool {
-        switch self {
-        case .Staging: return true
-        case .Production: return false
-        case .StagingV2: return true
-
-        }
-    }
-    
     var isProductionaENV: Bool {
           switch self {
           case .Staging: return false

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		1A1E46BC2B1C24EC0046A758 /* SigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1E46BB2B1C24EC0046A758 /* SigninViewController.swift */; };
-		1A1E46C22B1C259C0046A758 /* UserNameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1E46C12B1C259C0046A758 /* UserNameModel.swift */; };
 		1A4262D12B2446B9008D0E0D /* AddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4262D02B2446B9008D0E0D /* AddressViewController.swift */; };
 		1A4262D32B2449B7008D0E0D /* AddressViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4262D22B2449B7008D0E0D /* AddressViewModel.swift */; };
 		1A4262D82B24BAAD008D0E0D /* RTCustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4262D52B24BAAB008D0E0D /* RTCustomAlert.swift */; };
@@ -58,7 +57,6 @@
 		1A55ABE12B184A77001AEEBF /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1A55ABDA2B184A77001AEEBF /* Poppins-SemiBold.ttf */; };
 		1A55ABE62B184B0D001AEEBF /* SigninCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A55ABE42B184B0D001AEEBF /* SigninCell.swift */; };
 		1A55ABE72B184B0D001AEEBF /* SigninCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A55ABE52B184B0D001AEEBF /* SigninCell.xib */; };
-		1A6910742B1A3C26009ACD06 /* UsernameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A6910732B1A3C26009ACD06 /* UsernameViewController.swift */; };
 		1A69107A2B1A4039009ACD06 /* UserNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A6910782B1A4038009ACD06 /* UserNameCell.swift */; };
 		1A69107B2B1A4039009ACD06 /* UserNameCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A6910792B1A4039009ACD06 /* UserNameCell.xib */; };
 		1A99CE692B1E24C3004E0574 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A99CE682B1E24C3004E0574 /* LocationViewController.swift */; };
@@ -84,12 +82,12 @@
 		1AD6375A2B2AA1B20076EAD3 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD637592B2AA1B20076EAD3 /* MainViewController.swift */; };
 		1AD6375C2B2AA1C40076EAD3 /* SideMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD6375B2B2AA1C40076EAD3 /* SideMenuTableViewController.swift */; };
 		1AD6375E2B2AA1D20076EAD3 /* PresentedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD6375D2B2AA1D20076EAD3 /* PresentedViewController.swift */; };
-		5FF5115D3FCB88DA28951982 /* Pods_Knowitall_Customer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE2A071600CA615012A0E431 /* Pods_Knowitall_Customer.framework */; };
+		613609385E74062720AC9568 /* Pods_Knowitall_Customer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5174AA0CACF35D5EF77D6AE /* Pods_Knowitall_Customer.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0C876A7D9C76807951FC17B0 /* Pods-Knowitall Customer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Knowitall Customer.debug.xcconfig"; path = "Target Support Files/Pods-Knowitall Customer/Pods-Knowitall Customer.debug.xcconfig"; sourceTree = "<group>"; };
 		1A1E46BB2B1C24EC0046A758 /* SigninViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SigninViewController.swift; sourceTree = "<group>"; };
-		1A1E46C12B1C259C0046A758 /* UserNameModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserNameModel.swift; sourceTree = "<group>"; };
 		1A1E46C52B1C5F070046A758 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1A4262D02B2446B9008D0E0D /* AddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressViewController.swift; sourceTree = "<group>"; };
 		1A4262D22B2449B7008D0E0D /* AddressViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressViewModel.swift; sourceTree = "<group>"; };
@@ -141,7 +139,6 @@
 		1A55ABDA2B184A77001AEEBF /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
 		1A55ABE42B184B0D001AEEBF /* SigninCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SigninCell.swift; sourceTree = "<group>"; };
 		1A55ABE52B184B0D001AEEBF /* SigninCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SigninCell.xib; sourceTree = "<group>"; };
-		1A6910732B1A3C26009ACD06 /* UsernameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsernameViewController.swift; sourceTree = "<group>"; };
 		1A6910782B1A4038009ACD06 /* UserNameCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserNameCell.swift; sourceTree = "<group>"; };
 		1A6910792B1A4039009ACD06 /* UserNameCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserNameCell.xib; sourceTree = "<group>"; };
 		1A99CE682B1E24C3004E0574 /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
@@ -167,10 +164,9 @@
 		1AD637592B2AA1B20076EAD3 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		1AD6375B2B2AA1C40076EAD3 /* SideMenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewController.swift; sourceTree = "<group>"; };
 		1AD6375D2B2AA1D20076EAD3 /* PresentedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentedViewController.swift; sourceTree = "<group>"; };
-		85CF5BA23C65DA1AE1145F16 /* Pods-Knowitall Customer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Knowitall Customer.debug.xcconfig"; path = "Target Support Files/Pods-Knowitall Customer/Pods-Knowitall Customer.debug.xcconfig"; sourceTree = "<group>"; };
-		BE2A071600CA615012A0E431 /* Pods_Knowitall_Customer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Knowitall_Customer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFA17E952B4584DF00FED6BD /* Knowitall Customer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Knowitall Customer.entitlements"; sourceTree = "<group>"; };
-		E83766E9BD9AE3030DB5C641 /* Pods-Knowitall Customer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Knowitall Customer.release.xcconfig"; path = "Target Support Files/Pods-Knowitall Customer/Pods-Knowitall Customer.release.xcconfig"; sourceTree = "<group>"; };
+		ECB7D8AB639A40F212590E78 /* Pods-Knowitall Customer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Knowitall Customer.release.xcconfig"; path = "Target Support Files/Pods-Knowitall Customer/Pods-Knowitall Customer.release.xcconfig"; sourceTree = "<group>"; };
+		F5174AA0CACF35D5EF77D6AE /* Pods_Knowitall_Customer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Knowitall_Customer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,7 +174,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5FF5115D3FCB88DA28951982 /* Pods_Knowitall_Customer.framework in Frameworks */,
+				613609385E74062720AC9568 /* Pods_Knowitall_Customer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -245,7 +241,6 @@
 			isa = PBXGroup;
 			children = (
 				1A9C8AAA2B2CC15F000B1E7F /* SettingViewModel.swift */,
-				1A1E46C12B1C259C0046A758 /* UserNameModel.swift */,
 				1A558C6F2B18F1220013BD30 /* SigninViewModel.swift */,
 				1A99CE6E2B1E38C4004E0574 /* RequestViewModel.swift */,
 				1A4262D22B2449B7008D0E0D /* AddressViewModel.swift */,
@@ -262,7 +257,7 @@
 				1A55AB952B1847DE001AEEBF /* Knowitall Customer */,
 				1A55AB942B1847DE001AEEBF /* Products */,
 				D0C39C768280004B8449CEAE /* Pods */,
-				D446962B420E8126C368D753 /* Frameworks */,
+				9A58D8B1578F4C9113D8170C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -306,7 +301,6 @@
 				1AD637592B2AA1B20076EAD3 /* MainViewController.swift */,
 				1A1E46BB2B1C24EC0046A758 /* SigninViewController.swift */,
 				1A55ABB02B1848B7001AEEBF /* OTPViewController.swift */,
-				1A6910732B1A3C26009ACD06 /* UsernameViewController.swift */,
 				1A55ABAD2B1848B7001AEEBF /* WKWebViewController.swift */,
 				1A99CE6A2B1E27AC004E0574 /* HelpViewController.swift */,
 				1A99CE682B1E24C3004E0574 /* LocationViewController.swift */,
@@ -433,21 +427,21 @@
 			path = Traking;
 			sourceTree = "<group>";
 		};
+		9A58D8B1578F4C9113D8170C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F5174AA0CACF35D5EF77D6AE /* Pods_Knowitall_Customer.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D0C39C768280004B8449CEAE /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				85CF5BA23C65DA1AE1145F16 /* Pods-Knowitall Customer.debug.xcconfig */,
-				E83766E9BD9AE3030DB5C641 /* Pods-Knowitall Customer.release.xcconfig */,
+				0C876A7D9C76807951FC17B0 /* Pods-Knowitall Customer.debug.xcconfig */,
+				ECB7D8AB639A40F212590E78 /* Pods-Knowitall Customer.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		D446962B420E8126C368D753 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				BE2A071600CA615012A0E431 /* Pods_Knowitall_Customer.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -457,11 +451,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1A55ABA72B1847E0001AEEBF /* Build configuration list for PBXNativeTarget "Knowitall Customer" */;
 			buildPhases = (
-				256BA3EB4D46831870BED363 /* [CP] Check Pods Manifest.lock */,
+				1107C1CDA4918016C3A78DC4 /* [CP] Check Pods Manifest.lock */,
 				1A55AB8F2B1847DE001AEEBF /* Sources */,
 				1A55AB902B1847DE001AEEBF /* Frameworks */,
 				1A55AB912B1847DE001AEEBF /* Resources */,
-				1DC29F7EDA16715C897C2C83 /* [CP] Embed Pods Frameworks */,
+				CE498C06D013F5EDD4F52027 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -535,24 +529,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1DC29F7EDA16715C897C2C83 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Knowitall Customer/Pods-Knowitall Customer-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Knowitall Customer/Pods-Knowitall Customer-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Knowitall Customer/Pods-Knowitall Customer-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		256BA3EB4D46831870BED363 /* [CP] Check Pods Manifest.lock */ = {
+		1107C1CDA4918016C3A78DC4 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -574,6 +551,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		CE498C06D013F5EDD4F52027 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Knowitall Customer/Pods-Knowitall Customer-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Knowitall Customer/Pods-Knowitall Customer-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Knowitall Customer/Pods-Knowitall Customer-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -581,7 +575,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1A6910742B1A3C26009ACD06 /* UsernameViewController.swift in Sources */,
 				1A558C632B18F0220013BD30 /* UIImageView+Extensions.swift in Sources */,
 				1A55ABCB2B184957001AEEBF /* Utility.swift in Sources */,
 				1A4262D82B24BAAD008D0E0D /* RTCustomAlert.swift in Sources */,
@@ -620,7 +613,6 @@
 				1A558C622B18F0220013BD30 /* UITableView+Additions.swift in Sources */,
 				1A55ABBC2B1848FF001AEEBF /* APIHelper.swift in Sources */,
 				1A558C5F2B18F0220013BD30 /* Extension.swift in Sources */,
-				1A1E46C22B1C259C0046A758 /* UserNameModel.swift in Sources */,
 				1A558C702B18F1220013BD30 /* SigninViewModel.swift in Sources */,
 				1A4262D12B2446B9008D0E0D /* AddressViewController.swift in Sources */,
 				1A4262D32B2449B7008D0E0D /* AddressViewModel.swift in Sources */,
@@ -772,25 +764,25 @@
 		};
 		1A55ABA82B1847E0001AEEBF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 85CF5BA23C65DA1AE1145F16 /* Pods-Knowitall Customer.debug.xcconfig */;
+			baseConfigurationReference = 0C876A7D9C76807951FC17B0 /* Pods-Knowitall Customer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Knowitall Customer/Knowitall Customer.entitlements";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 1.0.01;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = ZV498993S5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Knowitall Customer/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Mr Know It All";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Your precise location is used to show your position on the map, get directions, estimate travel times and improve search results";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "To get current location";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "To get current location";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -799,7 +791,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.knowitall.customer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = KTACustomerDev;
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = KTACustomerDev;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -809,25 +801,26 @@
 		};
 		1A55ABA92B1847E0001AEEBF /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E83766E9BD9AE3030DB5C641 /* Pods-Knowitall Customer.release.xcconfig */;
+			baseConfigurationReference = ECB7D8AB639A40F212590E78 /* Pods-Knowitall Customer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Knowitall Customer/Knowitall Customer.entitlements";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 1.0.01;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = ZV498993S5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Knowitall Customer/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Mr Know It All";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Your precise location is used to show your position on the map, get directions, estimate travel times and improve search results";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "To get current location";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "To get current location";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -836,8 +829,8 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.knowitall.customer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = KTACustomerDev;
+				PROVISIONING_PROFILE_SPECIFIER = KTACustomerDist;
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = KTACustomerDist;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
