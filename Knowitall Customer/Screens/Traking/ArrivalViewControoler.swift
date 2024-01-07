@@ -41,7 +41,7 @@ class ArrivalViewControoler: BaseViewController,Storyboarded {
     func setupOtpView(){
         self.otpTextFieldView.fieldsCount = 4
         self.otpTextFieldView.fieldBorderWidth = 2
-        self.otpTextFieldView.filledBorderColor = .yellow
+        self.otpTextFieldView.filledBorderColor = hexStringToUIColor("FF004F")
         self.otpTextFieldView.defaultBorderColor = .black
         self.otpTextFieldView.cursorColor =  .black
         self.otpTextFieldView.displayType = .underlinedBottom
