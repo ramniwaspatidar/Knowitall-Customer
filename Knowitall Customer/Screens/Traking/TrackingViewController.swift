@@ -44,6 +44,8 @@ class TrackingViewController: BaseViewController,Storyboarded {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        self.timer?.invalidate()
+        self.timer = nil
         self.getRequestDetails()
     }
     
@@ -61,8 +63,9 @@ class TrackingViewController: BaseViewController,Storyboarded {
             self.updateUI()
             
             let runTimer = response.confirmArrival == true || response.markNoShow == true || response.cancelled == true
+
             
-            if (!runTimer){
+            if (!runTimer && self.timer == nil){
                 self.startTimer()
             }
         }
@@ -79,28 +82,28 @@ class TrackingViewController: BaseViewController,Storyboarded {
         requestId.text = "\(viewModel.dictRequest?.reqDispId ?? "")"
     }
     
+    
     fileprivate func updateUI(){
         
        
 
-        if(self.viewModel.dictRequest?.confirmArrival == true){
-            self.confirmButton.isHidden = true
-            self.dotButton.isHidden = true
-        }
-        else if(self.viewModel.dictRequest?.driverArrived == true){
+        if(self.viewModel.dictRequest?.driverArrived == true){
             self.confirmButton.isUserInteractionEnabled = true
             self.confirmButton.alpha = 1
         }
-        
-        let jobDone = viewModel.dictRequest?.confirmArrival == true || viewModel.dictRequest?.markNoShow == true || viewModel.dictRequest?.cancelled == true
-
-        
-        if(!jobDone && viewModel.dictRequest?.accepted == true){
-            self.getETA()
-        }else{
-            self.viewModel.infoArray[2].eta = "ETA: NA"
-        }
        
+            let jobDone = viewModel.dictRequest?.confirmArrival == true || viewModel.dictRequest?.markNoShow == true || viewModel.dictRequest?.cancelled == true
+            
+            if(!jobDone && viewModel.dictRequest?.accepted == true){
+                self.getETA()
+                self.confirmButton.isHidden = false
+                self.dotButton.isHidden = false
+                
+            }else{
+                self.viewModel.infoArray[2].eta = "ETA: NA"
+                self.confirmButton.isHidden = true
+                self.dotButton.isHidden = true
+            }
     }
     
     
@@ -184,8 +187,9 @@ class TrackingViewController: BaseViewController,Storyboarded {
 
             self.viewModel.cancelRequest(APIsEndPoints.kCancelRequest.rawValue + (self.viewModel.dictRequest?.requestId ?? ""), param) { response, code in
                 
+                self.getRequestDetails()
                 Alert(title: "Cancel Request", message: "Your request cancel successfully", vc: self)
-                self.navigationController?.popViewController(animated: true)
+                
             }
         }
         let callDriver = UIAlertAction(title: "Call Driver", style: .default) { action in

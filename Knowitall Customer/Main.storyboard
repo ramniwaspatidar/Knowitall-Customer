@@ -1336,7 +1336,7 @@ Need a Tow?</string>
                                                                 <constraint firstAttribute="width" constant="5" id="ttd-bY-DrY"/>
                                                             </constraints>
                                                         </view>
-                                                        <button opaque="NO" userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iOM-Ig-M8X">
+                                                        <button hidden="YES" opaque="NO" userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iOM-Ig-M8X">
                                                             <rect key="frame" x="52" y="12" width="220" height="50"/>
                                                             <color key="backgroundColor" red="0.96862745100000003" green="0.83921568629999999" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
@@ -1356,7 +1356,7 @@ Need a Tow?</string>
                                                                 <action selector="confirmButtonAction:" destination="pBI-6M-DYc" eventType="touchUpInside" id="67V-uj-3Mo"/>
                                                             </connections>
                                                         </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hmZ-Av-j2w">
+                                                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hmZ-Av-j2w">
                                                             <rect key="frame" x="282" y="13" width="61" height="48"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
@@ -1527,6 +1527,15 @@ Need a Tow?</string>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="clS-nL-Igd">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E7j-Xa-f4h">
+                                <rect key="frame" x="16" y="379" width="361" height="439"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="12"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ONH-ap-HTh">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                                 <subviews>
@@ -1798,8 +1807,11 @@ Need a Tow?</string>
                             <constraint firstItem="L1Q-yj-fwO" firstAttribute="top" secondItem="ru4-Yk-vpq" secondAttribute="top" id="7YP-3a-4zQ"/>
                             <constraint firstItem="OuY-Lg-A16" firstAttribute="leading" secondItem="bsT-AW-NuC" secondAttribute="leading" id="7mg-d3-k9H"/>
                             <constraint firstItem="L1Q-yj-fwO" firstAttribute="leading" secondItem="bsT-AW-NuC" secondAttribute="leading" id="999-Fw-vQ2"/>
+                            <constraint firstItem="E7j-Xa-f4h" firstAttribute="bottom" secondItem="bsT-AW-NuC" secondAttribute="bottom" id="BIc-Id-bT7"/>
                             <constraint firstItem="L1Q-yj-fwO" firstAttribute="trailing" secondItem="bsT-AW-NuC" secondAttribute="trailing" id="Ged-X6-eVa"/>
                             <constraint firstItem="L1Q-yj-fwO" firstAttribute="leading" secondItem="bsT-AW-NuC" secondAttribute="leading" id="JlW-fe-YQs"/>
+                            <constraint firstItem="E7j-Xa-f4h" firstAttribute="top" secondItem="bsT-AW-NuC" secondAttribute="top" constant="320" id="KEb-Nc-LgS"/>
+                            <constraint firstItem="E7j-Xa-f4h" firstAttribute="leading" secondItem="bsT-AW-NuC" secondAttribute="leading" constant="16" id="MPi-AW-OaE"/>
                             <constraint firstItem="OuY-Lg-A16" firstAttribute="trailing" secondItem="bsT-AW-NuC" secondAttribute="trailing" id="Ogl-qh-L3y"/>
                             <constraint firstItem="clS-nL-Igd" firstAttribute="top" secondItem="ru4-Yk-vpq" secondAttribute="top" id="OzN-IW-fgp"/>
                             <constraint firstItem="L1Q-yj-fwO" firstAttribute="leading" secondItem="bsT-AW-NuC" secondAttribute="leading" id="QYk-hC-WvE"/>
@@ -1814,6 +1826,7 @@ Need a Tow?</string>
                             <constraint firstAttribute="bottom" secondItem="L1Q-yj-fwO" secondAttribute="bottom" id="hGm-M5-7OB"/>
                             <constraint firstAttribute="bottom" secondItem="ONH-ap-HTh" secondAttribute="bottom" id="hvI-wK-6N7"/>
                             <constraint firstItem="clS-nL-Igd" firstAttribute="leading" secondItem="bsT-AW-NuC" secondAttribute="leading" id="mHg-G0-12e"/>
+                            <constraint firstItem="bsT-AW-NuC" firstAttribute="trailing" secondItem="E7j-Xa-f4h" secondAttribute="trailing" constant="16" id="qI3-PD-0Gm"/>
                             <constraint firstItem="L1Q-yj-fwO" firstAttribute="top" secondItem="ru4-Yk-vpq" secondAttribute="top" id="vDi-vL-iTr"/>
                             <constraint firstAttribute="bottom" secondItem="clS-nL-Igd" secondAttribute="bottom" id="wNQ-h4-cLG"/>
                         </constraints>
@@ -2143,7 +2156,7 @@ Need a Tow?</string>
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemMintColor">
-            <color red="0.0" green="0.7803921568627451" blue="0.74509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.78039215689999997" blue="0.74509803919999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

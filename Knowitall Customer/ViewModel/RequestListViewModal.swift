@@ -24,14 +24,14 @@ struct RequestListModal : Mappable {
     var arrivalCode : Int?
     var declineDrivers :[DeclineDrivers]?
     var driverId : String?
-    var driverArrived : Bool?
-    var  confirmArrival : Bool?
+    var driverArrived : Bool = false
+    var  confirmArrival : Bool = false
     var confrimArrivalDate : Double?
     var requestAcceptDate : Double?
     var reqDispId : String?
     var driverLocation : DriverLocation?
-    var cancelled : Bool?
-    var markNoShow : Bool?
+    var cancelled : Bool = false
+    var markNoShow : Bool = false
     var driverPhoneNumber : String?
 
     init?(map: Map) {

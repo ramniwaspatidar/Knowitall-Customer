@@ -36,14 +36,22 @@ class TrackingViewModel {
         let driverArrived = dictRequest?.driverArrived ?? false
         let confirmArrival = dictRequest?.confirmArrival ?? false
         let cancel = dictRequest?.cancelled ?? false
-
         
         
-        infoArray.append(TrackingModel(eta: requestTime, value:  cancel ? "Request Cancelled" : "Request Submitted", color: cancel ? "#FF004F" : "#F4CC9E", status: "done"))
-        infoArray.append(TrackingModel(eta: accepted ? "Driver Coming" : "Waiting for Acceptance", value: "Driver Response ", color: accepted ? "#09C655" : "#F4CC9E", status: accepted ? "done" : "pending"))
-        infoArray.append(TrackingModel(eta: "", value: "Help is on the way",  color: accepted ? "#09C655" : "#F4CC9E", status: accepted ? "done":"pending"))
-        infoArray.append(TrackingModel(eta: confirmArrival ? "Completed": "Pending", value: "Help Reached", color: confirmArrival ? "#09C655" : "#F4CC9E", status: confirmArrival ? "done" : "pending"))
+        if(cancel == true){
+            infoArray.append(TrackingModel(eta: requestTime, value: "Request Cancelled" , color: "#FF004F" , status: "done"))
+            infoArray.append(TrackingModel(eta:"Driver Coming", value: "Driver Response ", color:  "#F4CC9E", status: "pending"))
+            infoArray.append(TrackingModel(eta: "NA", value: "Help is on the way",  color:"#F4CC9E", status: "pending"))
+            infoArray.append(TrackingModel(eta: "Request has been cancelled", value: "Help Reached", color:  "#FF004F", status: "pending"))
+        }
+       
+        else{
+            infoArray.append(TrackingModel(eta: requestTime, value: "Request Submitted" , color: "#F4CC9E" , status: "done"))
 
+            infoArray.append(TrackingModel(eta: confirmArrival ? "Driver Arrieved" : accepted ? "Driver Coming" : "Waiting for Acceptance", value: "Driver Response ", color:  "#F4CC9E", status: accepted ? "done" : "pending"))
+            infoArray.append(TrackingModel(eta: "NA", value: "Help is on the way",  color: "#F4CC9E", status: accepted ? "done":"pending"))
+            infoArray.append(TrackingModel(eta: confirmArrival ? "Completed": "Pending", value: "Help Reached", color: confirmArrival ? "#09C655" : "#F4CC9E", status: confirmArrival ? "done" : "pending"))
+        }
         return infoArray
     }
     
