@@ -10,7 +10,7 @@ protocol locationDelegateProtocol {
 }
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate, MessagingDelegate {
     var window: UIWindow?
     var coordinator: MainCoordinator?
     var locationManager : CLLocationManager?
@@ -20,15 +20,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         UITabBar.appearance().unselectedItemTintColor = hexStringToUIColor("#393F45")
         UITabBar.appearance().tintColor = hexStringToUIColor("#E31D7C")
-        
+        FirebaseApp.configure()
         UNUserNotificationCenter.current().delegate = self
+        Messaging.messaging().delegate = self
+
         let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
         UNUserNotificationCenter.current().requestAuthorization(
             options: authOptions) { _, _ in }
         application.registerForRemoteNotifications()
         
-        FirebaseApp.configure()
-        
+
         
         autoLogin()
         return true
@@ -54,10 +55,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     // Mark : get app version
     
     public func autoLogin(){
-        
-        
-        
-        if ((CurrentUserInfo.userId) != nil) {
+        if let currentUser = Auth.auth().currentUser {
+            CurrentUserInfo.userId = currentUser.uid
             Messaging.messaging().subscribe(toTopic: CurrentUserInfo.userId) { error in
                 if let error = error {
                     print("Error subscribing from topic: \(error.localizedDescription)")
@@ -99,6 +98,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
 
     }
     
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
+            print("FCM Token:", fcmToken ?? "")
+            // Send the FCM token to your server if needed
+        }
 }
 
 

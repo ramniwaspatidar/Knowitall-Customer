@@ -99,6 +99,7 @@ class NetworkManager {
             print("URL",  url)
             print("URL PARAM",  params)
             print("URL :- ", request)
+            print("Http headers :- ", request.allHTTPHeaderFields as Any)
             #endif
             let session = URLSession.shared
             let task = session.dataTask(with: request, completionHandler: { data, response, error -> Void in
