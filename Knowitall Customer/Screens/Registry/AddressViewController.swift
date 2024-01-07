@@ -29,7 +29,7 @@ class AddressViewController: BaseViewController,Storyboarded {
     var stateField: CustomTextField!
     var landMarkField: CustomTextField!
     var postalCodeField: CustomTextField!
-    var locationManager = CLLocationManager()
+    var locationManager:CLLocationManager? = nil
     
     
     var addressDelegate : AddressChangeDelegate?
@@ -79,16 +79,29 @@ class AddressViewController: BaseViewController,Storyboarded {
     }
     
     @IBAction func saveButtonAction(_ sender: Any) {
-        
+        addressField1.resignFirstResponder()
+        addressField2.resignFirstResponder()
+        cityField.resignFirstResponder()
+        stateField.resignFirstResponder()
+        landmarkTextView.resignFirstResponder()
+        postalCodeField.resignFirstResponder()
         viewModel.validateFields(dataStore: viewModel.infoArray) { [self] (dict, msg, isSucess) in
             if isSucess {
                 
                 viewModel.infoArray[6].value = ""
-                
-                let values = viewModel.infoArray.map {$0.value}
+//                let values = viewModel.infoArray.map {$0.value}
+                var values = [String]()
+                for i in 0..<6 {
+                    var stringValue = viewModel.infoArray[i].value
+                    if(stringValue != nil){
+                        stringValue = stringValue.trimmingCharacters(in: .whitespacesAndNewlines.union(CharacterSet(charactersIn: ",")))
+                    }
+                    if !stringValue.isEmpty {
+                        values.append(stringValue)
+                    }
+                }
                 let tempAddress  = values.joined(separator: (", "))
                 viewModel.infoArray[6].value = tempAddress
-                
                 self.getLatLongfromAddress(tempAddress)
                 
             }
@@ -102,18 +115,45 @@ class AddressViewController: BaseViewController,Storyboarded {
     
     
     @IBAction func currentLocationButtion(_ sender: Any) {
-        locationManager = CLLocationManager()
-        locationManager.delegate = self
-        locationManager.requestAlwaysAuthorization()
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        SVProgressHUD.show()
-        
-        
+        if(locationManager == nil){
+            locationManager = CLLocationManager()
+        }
+        locationManager!.delegate = nil
+        locationManager!.desiredAccuracy = kCLLocationAccuracyBest
+        let status = CLLocationManager.authorizationStatus()
+        switch status {
+        case .notDetermined:
+            locationManager!.delegate = self
+            locationManager!.requestWhenInUseAuthorization()
+        case .restricted, .denied:
+            let alert = UIAlertController(title: "Allow Location Access", message: "Driver App needs access to your location. Turn on Location Services in your device settings.", preferredStyle: UIAlertController.Style.alert)
+            
+            // Button to Open Settings
+            alert.addAction(UIAlertAction(title: "Settings", style: UIAlertAction.Style.default, handler: { action in
+                guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
+                    return
+                }
+                if UIApplication.shared.canOpenURL(settingsUrl) {
+                    UIApplication.shared.open(settingsUrl, completionHandler: { (success) in
+                        print("Settings opened: \(success)")
+                    })
+                }
+            }))
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            break
+            
+        case .authorizedWhenInUse,.authorizedAlways:
+            SVProgressHUD.show()
+            locationManager!.delegate = self
+            locationManager!.startUpdatingLocation()
+            break
+        default:
+            break
+        }
     }
     
     func getLatLongfromAddress(_ address : String){
-        
         let geoCoder = CLGeocoder()
         geoCoder.geocodeAddressString(address) { (placemarks, error) in
             guard
@@ -252,54 +292,42 @@ extension AddressViewController: UITextViewDelegate {
     }
 }
 
-
-
 extension AddressViewController: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager,
                          didUpdateLocations locations: [CLLocation]) {
-        
-        let userLocation: CLLocation = locations[0]
+        let userLocation: CLLocation = locations.last!
         print("location: \(userLocation.coordinate.latitude), \(userLocation.coordinate.longitude)")
-        manager.stopUpdatingLocation()
-        SVProgressHUD.dismiss()
+        if(locationManager != nil){
+            locationManager!.stopUpdatingLocation()
+            locationManager = nil
+        }
         
         self.viewModel.getAddressFromLatLon(latitude: "\(userLocation.coordinate.latitude)", withLongitude: "\(userLocation.coordinate.longitude)",handler: {address in
-            
+            SVProgressHUD.dismiss()
             self.tblView.reloadData()
         })
         
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        SVProgressHUD.dismiss()
-        
         switch status {
-            
+        case .notDetermined:
+            break
         case .restricted, .denied:
-            let alert = UIAlertController(title: "Allow Location Access", message: "Driver App needs access to your location. Turn on Location Services in your device settings.", preferredStyle: UIAlertController.Style.alert)
-            
-            // Button to Open Settings
-            alert.addAction(UIAlertAction(title: "Settings", style: UIAlertAction.Style.default, handler: { action in
-                guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
-                    return
-                }
-                if UIApplication.shared.canOpenURL(settingsUrl) {
-                    UIApplication.shared.open(settingsUrl, completionHandler: { (success) in
-                        print("Settings opened: \(success)")
-                    })
-                }
-            }))
-            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-            manager.stopUpdatingLocation()
+            SVProgressHUD.dismiss()
+            if(locationManager != nil){
+                locationManager!.stopUpdatingLocation()
+                locationManager = nil
+            }
             break
             
-        case .authorizedWhenInUse,.authorizedAlways,.notDetermined:
+        case .authorizedWhenInUse,.authorizedAlways:
             manager.startUpdatingLocation()
             break
             
         default:
+            SVProgressHUD.dismiss()
             break
         }
     }
@@ -309,5 +337,9 @@ extension AddressViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager,
                          didFailWithError error: Error) {
         SVProgressHUD.dismiss()
+        if(locationManager != nil){
+            locationManager!.stopUpdatingLocation()
+            locationManager = nil
+        }
     }
 }

@@ -58,7 +58,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         
         
         if ((CurrentUserInfo.userId) != nil) {
-
+            Messaging.messaging().subscribe(toTopic: CurrentUserInfo.userId) { error in
+                if let error = error {
+                    print("Error subscribing from topic: \(error.localizedDescription)")
+                } else {
+                    print("Successfully subscribed from topic!")
+                }
+            }
             let navController = UINavigationController()
             navController.navigationBar.isHidden = true
             coordinator = MainCoordinator(navigationController: navController)
@@ -150,7 +156,6 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     ) {
         Messaging.messaging().apnsToken = deviceToken
         Auth.auth().setAPNSToken(deviceToken, type: .sandbox)
-        
     }
         
     func application(_ application: UIApplication, didReceiveRemoteNotification notification: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {

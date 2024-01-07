@@ -21,6 +21,8 @@
 	</array>
 	<key>FirebaseAppDelegateProxyEnabled</key>
 	<false/>
+	<key>FirebaseAutomaticScreenReportingEnabled</key>
+	<false/>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
@@ -43,9 +45,9 @@
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>fetch</string>
+		<string>location</string>
 		<string>processing</string>
+		<string>remote-notification</string>
 	</array>
-	<key>FirebaseAutomaticScreenReportingEnabled</key>
-	<false/>
 </dict>
 </plist>

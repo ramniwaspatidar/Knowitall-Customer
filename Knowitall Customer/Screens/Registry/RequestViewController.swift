@@ -25,8 +25,6 @@ class RequestViewController: BaseViewController,Storyboarded, RTCustomAlertDeleg
     var mobile: CustomTextField!
     var alertTag = 0
     
-    
-    
     fileprivate let typeOfService = ["Accident","Battery","Fuel","Tow","Lockout","Winch","Flat Tire","Other"]
     
     enum SignupCellType : Int{
@@ -44,7 +42,6 @@ class RequestViewController: BaseViewController,Storyboarded, RTCustomAlertDeleg
         super.viewDidLoad()
         
         self.setNavWithOutView(.menu,mainBG)
-        
         
         serviceTypleLabel.alpha = 1;
         serviceTypleLabel.textColor = UIColor.white
@@ -103,7 +100,6 @@ class RequestViewController: BaseViewController,Storyboarded, RTCustomAlertDeleg
         }
     }
  
-  
     func addressChangeAction(infoArray: [AddressTypeModel]) {
         self.viewModel.addressInfo = infoArray
         self.editAddressButton.isHidden = true
@@ -136,8 +132,6 @@ class RequestViewController: BaseViewController,Storyboarded, RTCustomAlertDeleg
             coordinator?.goToTrackingView(self.viewModel.requestData!)
         }
     }
-    
-    
     
     @IBAction func saveButtonAction(_ sender: Any) {
         viewModel.validateFields(dataStore: viewModel.infoArray) { (dict, msg, isSucess) in
@@ -187,10 +181,6 @@ class RequestViewController: BaseViewController,Storyboarded, RTCustomAlertDeleg
             }
         }
     }
-    
-    
-    
-    
 }
 // UITableViewDataSource
 extension RequestViewController: UITableViewDataSource {

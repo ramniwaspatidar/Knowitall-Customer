@@ -60,7 +60,6 @@ class OTPViewController: BaseViewController,Storyboarded {
         Auth.auth().signIn(with: credential) { (authResult, error) in
             if let error = error {
                 SVProgressHUD.dismiss()
-
                 let authError = error as NSError
                 Alert(title: "", message: "Invalid verification code", vc: RootViewController.controller!)
                 return
@@ -68,52 +67,23 @@ class OTPViewController: BaseViewController,Storyboarded {
             
             
             if let user = authResult?.user {
-                // Get the Firebase ID token (access token)
-                user.getIDTokenForcingRefresh(true) { (idToken, error) in
-                    if let error = error {
+                var dictParam = [String : String]()
+                dictParam["countryCode"] = "+91"
+                dictParam["phoneNumber"] = self.mobileNumber
+                
+                self.verifyOTP(APIsEndPoints.ksignupUser.rawValue,dictParam, handler: {(mmessage,statusCode)in
+                    DispatchQueue.main.async {
                         SVProgressHUD.dismiss()
-
-                        print("Error getting ID token: \(error.localizedDescription)")
-                        Alert(title: "", message: "Invalid verification token", vc: RootViewController.controller!)
-                        
-                        
-                        return
+                        CurrentUserInfo.phone = self.mobileNumber
+                        let appDelegate = UIApplication.shared.delegate as? AppDelegate
+                        appDelegate?.autoLogin()
                     }
-                    if let accessToken = idToken {
-                        var dictParam = [String : String]()
-                        dictParam["countryCode"] = "+91"
-                        dictParam["phoneNumber"] = self.mobileNumber
-                        
-                        self.verifyOTP(APIsEndPoints.ksignupUser.rawValue,dictParam, handler: {(mmessage,statusCode)in
-                            DispatchQueue.main.async {
-                                SVProgressHUD.dismiss()
-
-                                CurrentUserInfo.phone = self.mobileNumber
-                                Messaging.messaging().subscribe(toTopic: CurrentUserInfo.userId) { error in
-                                    
-                                    let appDelegate = UIApplication.shared.delegate as? AppDelegate
-                                    appDelegate?.autoLogin()
-
-                                    if let error = error {
-                                        print("Error subscribing from topic: \(error.localizedDescription)")
-                                    } else {
-                                        print("Successfully subscribed from topic!")
-
-
-                                    }
-                                }
-                            
-                            }
-                        })
-                        
-                    }
-                }
+                })
             }
         }
     }
     
     func verifyOTP(_ apiEndPoint: String,_ param : [String : Any], handler: @escaping (String,Int) -> Void) {
-        
         guard let url = URL(string: Configuration().environment.baseURL + apiEndPoint) else {return}
         NetworkManager.shared.postRequest(url, true, "", params: param, networkHandler: {(responce,statusCode) in
             APIHelper.parseObject(responce, true) { payload, status, message, code in

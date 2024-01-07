@@ -82,6 +82,7 @@
 		1AD6375A2B2AA1B20076EAD3 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD637592B2AA1B20076EAD3 /* MainViewController.swift */; };
 		1AD6375C2B2AA1C40076EAD3 /* SideMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD6375B2B2AA1C40076EAD3 /* SideMenuTableViewController.swift */; };
 		1AD6375E2B2AA1D20076EAD3 /* PresentedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD6375D2B2AA1D20076EAD3 /* PresentedViewController.swift */; };
+		44162B2A2B4A8296000FE68B /* Location1.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 44162B292B4A8296000FE68B /* Location1.gpx */; };
 		613609385E74062720AC9568 /* Pods_Knowitall_Customer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5174AA0CACF35D5EF77D6AE /* Pods_Knowitall_Customer.framework */; };
 /* End PBXBuildFile section */
 
@@ -165,6 +166,7 @@
 		1AD637592B2AA1B20076EAD3 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		1AD6375B2B2AA1C40076EAD3 /* SideMenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewController.swift; sourceTree = "<group>"; };
 		1AD6375D2B2AA1D20076EAD3 /* PresentedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentedViewController.swift; sourceTree = "<group>"; };
+		44162B292B4A8296000FE68B /* Location1.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Location1.gpx; sourceTree = "<group>"; };
 		BFA17E952B4584DF00FED6BD /* Knowitall Customer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Knowitall Customer.entitlements"; sourceTree = "<group>"; };
 		ECB7D8AB639A40F212590E78 /* Pods-Knowitall Customer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Knowitall Customer.release.xcconfig"; path = "Target Support Files/Pods-Knowitall Customer/Pods-Knowitall Customer.release.xcconfig"; sourceTree = "<group>"; };
 		F5174AA0CACF35D5EF77D6AE /* Pods_Knowitall_Customer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Knowitall_Customer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -273,6 +275,7 @@
 		1A55AB952B1847DE001AEEBF /* Knowitall Customer */ = {
 			isa = PBXGroup;
 			children = (
+				44162B292B4A8296000FE68B /* Location1.gpx */,
 				BFA17E952B4584DF00FED6BD /* Knowitall Customer.entitlements */,
 				1A558C6E2B18F1130013BD30 /* ViewModel */,
 				1A558C6A2B18F0CC0013BD30 /* Model */,
@@ -518,6 +521,7 @@
 				1A55ABDE2B184A77001AEEBF /* Poppins-Bold.ttf in Resources */,
 				1AA813942B45DD7600F83DDA /* PTP.pdf in Resources */,
 				1A9C8AA92B2CC122000B1E7F /* SettingCell.xib in Resources */,
+				44162B2A2B4A8296000FE68B /* Location1.gpx in Resources */,
 				1A55ABE72B184B0D001AEEBF /* SigninCell.xib in Resources */,
 				1A55ABA32B1847E0001AEEBF /* LaunchScreen.storyboard in Resources */,
 				1AD6374C2B2810D30076EAD3 /* ReggaeOne-Regular.ttf in Resources */,
@@ -771,7 +775,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Knowitall Customer/Knowitall Customer.entitlements";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1.0.01;
 				DEVELOPMENT_TEAM = "";
@@ -779,8 +783,9 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Knowitall Customer/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Mr Know It All";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We will use current location to create request for service";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "To get current location";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "To get current location";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We will use current location to create request for service";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -809,7 +814,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Knowitall Customer/Knowitall Customer.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1.0.01;
 				DEVELOPMENT_TEAM = "";
@@ -817,8 +822,9 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Knowitall Customer/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Mr Know It All";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We will use current location to create request for service";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "To get current location";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "To get current location";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We will use current location to create request for service";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
