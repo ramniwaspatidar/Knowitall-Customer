@@ -52,12 +52,18 @@ class RTCustomAlert: UIViewController {
     }
     
     @IBAction func requestButtonAction(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: false, completion: nil)
         delegate?.onClickSubmit(self, alertTag: alertTag)
     }
     
     @objc private func dismissView() {
-        self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: false, completion: nil)
+        delegate?.onClickSubmit(self, alertTag: alertTag)
+
+        }
+    
+    func dismissedView() {
+        self.dismiss(animated: false, completion: nil)
         delegate?.onClickSubmit(self, alertTag: alertTag)
 
         }
@@ -72,7 +78,7 @@ class RTCustomAlert: UIViewController {
     
    
     @IBAction func  onClickSubmit(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: false, completion: nil)
         delegate?.onClickSubmit(self, alertTag: alertTag)
     }
    

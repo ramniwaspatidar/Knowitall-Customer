@@ -170,6 +170,9 @@ class RequestViewController: BaseViewController,Storyboarded, RTCustomAlertDeleg
                         customAlert.alertTag = 0
                         customAlert.delegate = self
                         customAlert.show()
+                        Timer.scheduledTimer(withTimeInterval: 5, repeats: false, block: { _ in
+                            customAlert.dismissedView()
+                        })
                     }
                 })
                 
