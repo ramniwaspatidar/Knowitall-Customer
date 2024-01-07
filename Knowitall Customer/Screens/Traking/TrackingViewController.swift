@@ -56,7 +56,7 @@ class TrackingViewController: BaseViewController,Storyboarded {
     func getRequestDetails(){
         viewModel.getRequestData(APIsEndPoints.kGetCustor.rawValue + (viewModel.requestId )) { response, code in
             
-            if (CurrentUserInfo.userId == response.customerId){
+            if (CurrentUserInfo.userId == response.customerId && response.requestId != nil){
                 self.viewModel.dictRequest = response
                 self.viewModel.infoArray.removeAll()
                 self.viewModel.infoArray = self.viewModel.prepareInfo()
@@ -69,6 +69,7 @@ class TrackingViewController: BaseViewController,Storyboarded {
                 }
             }
             else{
+                self.navigationController?.popViewController(animated: false)
                 Alert(title: "Error", message: "Request not found", vc: self)
             }
             

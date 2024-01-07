@@ -42,14 +42,17 @@ class ArrivalViewControoler: BaseViewController,Storyboarded {
         self.otpTextFieldView.fieldsCount = 4
         self.otpTextFieldView.fieldBorderWidth = 2
         self.otpTextFieldView.filledBorderColor = .yellow
-        self.otpTextFieldView.defaultBorderColor = .red
-        self.otpTextFieldView.cursorColor =  .white
+        self.otpTextFieldView.defaultBorderColor = .black
+        self.otpTextFieldView.cursorColor =  .black
         self.otpTextFieldView.displayType = .underlinedBottom
         self.otpTextFieldView.fieldSize = 40
         self.otpTextFieldView.separatorSpace = 8
         self.otpTextFieldView.shouldAllowIntermediateEditing = false
         self.otpTextFieldView.delegate = self
         self.otpTextFieldView.initializeUI()
+        self.otpTextFieldView.backgroundColor = .white
+        self.otpTextFieldView.tintColor = .white
+        
     }
     
     @IBAction func arrivalButtonAction(_ sender: Any) {
