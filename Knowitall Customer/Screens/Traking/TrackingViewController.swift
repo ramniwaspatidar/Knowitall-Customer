@@ -36,18 +36,15 @@ class TrackingViewController: BaseViewController,Storyboarded {
             self.setNavWithOutView(.back, self.view)
         }
         setupUI()
-        
-        
-        
+         
     }
     
     override func viewDidAppear(_ animated: Bool) {
         self.timer?.invalidate()
         self.timer = nil
-        //        self.getRequestDetails()
         
         self.viewModel.infoArray.removeAll()
-        self.viewModel.infoArray = self.viewModel.prepareInfo()
+//        self.viewModel.infoArray = self.viewModel.prepareInfo()
         self.getRequestDetails()
     }
     
@@ -108,6 +105,8 @@ class TrackingViewController: BaseViewController,Storyboarded {
             
         }else{
             self.viewModel.infoArray[2].eta = "ETA: NA"
+            self.tblView.reloadData()
+
         }
     }
     
