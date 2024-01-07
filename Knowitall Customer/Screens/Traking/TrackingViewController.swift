@@ -89,7 +89,7 @@ class TrackingViewController: BaseViewController,Storyboarded {
     
     
     fileprivate func updateUI(){
-        
+        setupUI()
         if(self.viewModel.dictRequest?.confirmArrival == true){
             self.confirmButton.isHidden = true
             self.dotButton.isHidden = true
@@ -128,8 +128,8 @@ class TrackingViewController: BaseViewController,Storyboarded {
         }
         else{
             
-            let destinationLocation = CLLocationCoordinate2D(latitude: lat, longitude:  lng)
-            let source = CLLocationCoordinate2D(latitude:driverlat, longitude: driverlng)
+            let source = CLLocationCoordinate2D(latitude: lat, longitude:  lng)
+            let destinationLocation = CLLocationCoordinate2D(latitude:driverlat, longitude: driverlng)
             
             let sourcePlacemark = MKPlacemark(coordinate: source, addressDictionary: nil)
             let destinationPlacemark = MKPlacemark(coordinate: destinationLocation, addressDictionary: nil)
@@ -154,9 +154,9 @@ class TrackingViewController: BaseViewController,Storyboarded {
                 
                 let route = response.routes[0]
                 
-                var expectedTravelTime = response.routes[0].expectedTravelTime
+                let expectedTravelTime = route.expectedTravelTime
                 let convertedTime = self.convertTimeIntervalToHoursMinutes(seconds: expectedTravelTime)
-                self.viewModel.infoArray[2].eta = "ETA : \(convertedTime.hours):\(convertedTime.minutes):00"
+                self.viewModel.infoArray[2].eta = "ETA : \(String(format: "%02d", convertedTime.hours)):\(String(format: "%02d", convertedTime.minutes)) minutes"
                 self.tblView.reloadData()
             }
         }
@@ -168,7 +168,7 @@ class TrackingViewController: BaseViewController,Storyboarded {
         let hours = Int(seconds / 3600)
         
         if(minutes <= 1 && hours == 0){
-            minutes = 1
+            minutes = 2
         }
         
         return (hours, minutes)
