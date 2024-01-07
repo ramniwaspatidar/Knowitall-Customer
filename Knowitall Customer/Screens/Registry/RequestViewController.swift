@@ -129,7 +129,7 @@ class RequestViewController: BaseViewController,Storyboarded, RTCustomAlertDeleg
             customAlert.delegate = self
             customAlert.show()
         }else{
-            coordinator?.goToTrackingView(self.viewModel.requestData!)
+            coordinator?.goToTrackingView(self.viewModel.requestData?.requestId ?? "")
         }
     }
     

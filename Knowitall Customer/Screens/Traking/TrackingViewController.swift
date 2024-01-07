@@ -20,7 +20,7 @@ class TrackingViewController: BaseViewController,Storyboarded {
     @IBOutlet weak var dotHeight: NSLayoutConstraint!
     
     var timer : Timer?
-
+    
     
     var viewModel : TrackingViewModel = {
         let model = TrackingViewModel()
@@ -37,15 +37,17 @@ class TrackingViewController: BaseViewController,Storyboarded {
         }
         setupUI()
         
-        self.viewModel.infoArray.removeAll()
-        self.viewModel.infoArray = self.viewModel.prepareInfo()
-        self.getRequestDetails()
-
+        
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         self.timer?.invalidate()
         self.timer = nil
+        //        self.getRequestDetails()
+        
+        self.viewModel.infoArray.removeAll()
+        self.viewModel.infoArray = self.viewModel.prepareInfo()
         self.getRequestDetails()
     }
     
@@ -54,20 +56,25 @@ class TrackingViewController: BaseViewController,Storyboarded {
         self.timer = nil
     }
     
-    
     func getRequestDetails(){
-        viewModel.getRequestData(APIsEndPoints.kGetCustor.rawValue + (viewModel.dictRequest?.requestId ?? "")) { response, code in
-            self.viewModel.dictRequest = response
-            self.viewModel.infoArray.removeAll()
-            self.viewModel.infoArray = self.viewModel.prepareInfo()
-            self.updateUI()
+        viewModel.getRequestData(APIsEndPoints.kGetCustor.rawValue + (viewModel.requestId )) { response, code in
             
-            let runTimer = response.confirmArrival == true || response.markNoShow == true || response.cancelled == true
-
-            
-            if (!runTimer && self.timer == nil){
-                self.startTimer()
+            if (CurrentUserInfo.userId == response.customerId){
+                self.viewModel.dictRequest = response
+                self.viewModel.infoArray.removeAll()
+                self.viewModel.infoArray = self.viewModel.prepareInfo()
+                self.updateUI()
+                
+                let runTimer = response.confirmArrival == true || response.markNoShow == true || response.cancelled == true
+                
+                if (!runTimer && self.timer == nil){
+                    self.startTimer()
+                }
             }
+            else{
+                Alert(title: "Error", message: "Request not found", vc: self)
+            }
+            
         }
     }
     
@@ -85,32 +92,30 @@ class TrackingViewController: BaseViewController,Storyboarded {
     
     fileprivate func updateUI(){
         
-       
-
-        if(self.viewModel.dictRequest?.driverArrived == true){
+        if(self.viewModel.dictRequest?.confirmArrival == true){
+            self.confirmButton.isHidden = true
+            self.dotButton.isHidden = true
+        }
+        else if(self.viewModel.dictRequest?.driverArrived == true){
             self.confirmButton.isUserInteractionEnabled = true
             self.confirmButton.alpha = 1
         }
-       
-            let jobDone = viewModel.dictRequest?.confirmArrival == true || viewModel.dictRequest?.markNoShow == true || viewModel.dictRequest?.cancelled == true
+        
+        let jobDone = viewModel.dictRequest?.confirmArrival == true || viewModel.dictRequest?.markNoShow == true || viewModel.dictRequest?.cancelled == true
+        
+        if(!jobDone && viewModel.dictRequest?.accepted == true){
+            self.getETA()
             
-            if(!jobDone && viewModel.dictRequest?.accepted == true){
-                self.getETA()
-                self.confirmButton.isHidden = false
-                self.dotButton.isHidden = false
-                
-            }else{
-                self.viewModel.infoArray[2].eta = "ETA: NA"
-                self.confirmButton.isHidden = true
-                self.dotButton.isHidden = true
-            }
+        }else{
+            self.viewModel.infoArray[2].eta = "ETA: NA"
+        }
     }
     
     
     func getETA(){
         
         self.viewModel.infoArray[2].eta = "ETA: ..."
-
+        
         let lat = viewModel.dictRequest?.latitude ?? 0
         let lng = viewModel.dictRequest?.longitude ?? 0
         
@@ -159,8 +164,12 @@ class TrackingViewController: BaseViewController,Storyboarded {
     
     
     func convertTimeIntervalToHoursMinutes(seconds: TimeInterval) -> (hours: Int, minutes: Int) {
-        let minutes = Int(seconds / 60) % 60
+        var minutes = Int(seconds / 60) % 60
         let hours = Int(seconds / 3600)
+        
+        if(minutes <= 1 && hours == 0){
+            minutes = 1
+        }
         
         return (hours, minutes)
     }
@@ -184,7 +193,7 @@ class TrackingViewController: BaseViewController,Storyboarded {
             print("Cancel Booking")
             
             let param = [String : String]()
-
+            
             self.viewModel.cancelRequest(APIsEndPoints.kCancelRequest.rawValue + (self.viewModel.dictRequest?.requestId ?? ""), param) { response, code in
                 
                 self.getRequestDetails()
@@ -228,7 +237,7 @@ extension TrackingViewController: UITableViewDataSource {
         cell.selectionStyle = .none
         
         cell.commiInit(viewModel.infoArray[indexPath.row])
- 
+        
         return cell
     }
 }

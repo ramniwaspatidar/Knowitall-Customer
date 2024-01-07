@@ -54,6 +54,6 @@ extension RequestListViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
-        coordinator?.goToTrackingView(self.viewModel.listArray[indexPath.row],true)
+        coordinator?.goToTrackingView(self.viewModel.listArray[indexPath.row].requestId ?? "",true)
     }
 }

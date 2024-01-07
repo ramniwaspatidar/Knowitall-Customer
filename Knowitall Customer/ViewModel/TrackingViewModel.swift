@@ -24,6 +24,8 @@ class TrackingViewModel {
     
     var infoArray = [TrackingModel]()
     var dictRequest : RequestListModal?
+    var requestId : String = ""
+
     var isMenu : Bool = false
 
     let defaultCellHeight = 95
@@ -47,7 +49,6 @@ class TrackingViewModel {
        
         else{
             infoArray.append(TrackingModel(eta: requestTime, value: "Request Submitted" , color: "#F4CC9E" , status: "done"))
-
             infoArray.append(TrackingModel(eta: confirmArrival ? "Driver Arrieved" : accepted ? "Driver Coming" : "Waiting for Acceptance", value: "Driver Response ", color:  "#F4CC9E", status: accepted ? "done" : "pending"))
             infoArray.append(TrackingModel(eta: "NA", value: "Help is on the way",  color: "#F4CC9E", status: accepted ? "done":"pending"))
             infoArray.append(TrackingModel(eta: confirmArrival ? "Completed": "Pending", value: "Help Reached", color: confirmArrival ? "#09C655" : "#F4CC9E", status: confirmArrival ? "done" : "pending"))

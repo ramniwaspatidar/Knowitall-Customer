@@ -55,10 +55,10 @@ class MainCoordinator : Coordinator{
         navigationController.pushViewController(vc, animated: false)
     }
     
-    func goToTrackingView(_ dict : RequestListModal,_ isMenu : Bool = false) {
+    func goToTrackingView(_ requestId : String,_ isMenu : Bool = false) {
         let vc = TrackingViewController.instantiate()
         vc.coordinator = self
-        vc.viewModel.dictRequest = dict
+        vc.viewModel.requestId = requestId
         vc.viewModel.isMenu = isMenu
         navigationController.pushViewController(vc, animated: false)
     }

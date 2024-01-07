@@ -150,6 +150,15 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         didReceive response: UNNotificationResponse,
         withCompletionHandler completionHandler: @escaping () -> Void
     ) {
+        if ((CurrentUserInfo.userId) != nil) {
+            let userInfo = response.notification.request.content.userInfo
+            let notiType = userInfo["notificationType"] as? String
+            if(notiType == "request_accept" || notiType == "driver_arrived"){
+                let requestId = userInfo["requestId"] as? String
+                coordinator?.goToTrackingView(requestId ?? "",false)
+                
+            }
+        }
         completionHandler()
     }
     
