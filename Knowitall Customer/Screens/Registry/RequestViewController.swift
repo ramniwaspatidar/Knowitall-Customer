@@ -55,6 +55,7 @@ class RequestViewController: BaseViewController,Storyboarded, RTCustomAlertDeleg
         viewRequestType.layer.cornerRadius = 8
         
         situationLabel.text = "Type..."
+        situationLabel.textColor = .lightGray
         
         situationLabel.contentInset = UIEdgeInsets(top: 0, left: 12, bottom: 0, right: 12)
         
@@ -199,7 +200,7 @@ extension RequestViewController: UITableViewDataSource {
         let cell  = tableView.dequeueReusableCell(withIdentifier: SigninCell.reuseIdentifier, for: indexPath) as! SigninCell
         cell.selectionStyle = .none
         
-        cell.textFiled.attributedPlaceholder = NSAttributedString(string: "", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
+        cell.textFiled.attributedPlaceholder = NSAttributedString(string: "", attributes: [NSAttributedString.Key.foregroundColor : UIColor.lightGray])
         
         switch indexPath.row {
             

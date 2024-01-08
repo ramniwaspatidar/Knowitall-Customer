@@ -88,8 +88,8 @@
             filePath = "Knowitall Customer/Screens/Registry/RequestViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "187"
-            endingLineNumber = "187"
+            startingLineNumber = "188"
+            endingLineNumber = "188"
             landmarkName = "RequestViewController"
             landmarkType = "3">
             <Locations>
@@ -792,8 +792,8 @@
             filePath = "Knowitall Customer/Screens/Registry/RequestViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
             landmarkName = "setupUI()"
             landmarkType = "7">
             <Locations>
@@ -840,8 +840,8 @@
             filePath = "Knowitall Customer/Screens/Registry/RequestViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "75"
-            endingLineNumber = "75"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
             landmarkName = "setupUI()"
             landmarkType = "7">
             <Locations>
@@ -888,8 +888,8 @@
             filePath = "Knowitall Customer/Screens/Registry/RequestViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "78"
-            endingLineNumber = "78"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
             landmarkName = "setupUI()"
             landmarkType = "7">
             <Locations>
@@ -1361,8 +1361,8 @@
             filePath = "Knowitall Customer/Screens/Registry/AddressViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
             landmarkName = "saveButtonAction(_:)"
             landmarkType = "7">
             <Locations>
@@ -1424,8 +1424,8 @@
             filePath = "Knowitall Customer/Screens/Registry/RequestViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "172"
-            endingLineNumber = "172"
+            startingLineNumber = "173"
+            endingLineNumber = "173"
             landmarkName = "saveButtonAction(_:)"
             landmarkType = "7">
             <Locations>
@@ -1593,8 +1593,8 @@
             filePath = "Knowitall Customer/Screens/Registry/AddressViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "86"
-            endingLineNumber = "86"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
             landmarkName = "saveButtonAction(_:)"
             landmarkType = "7">
             <Locations>
@@ -1689,8 +1689,8 @@
             filePath = "Knowitall Customer/Screens/Registry/AddressViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "299"
-            endingLineNumber = "299"
+            startingLineNumber = "300"
+            endingLineNumber = "300"
             landmarkName = "locationManager(_:didUpdateLocations:)"
             landmarkType = "7">
             <Locations>
@@ -1737,8 +1737,8 @@
             filePath = "Knowitall Customer/Screens/Registry/AddressViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "311"
-            endingLineNumber = "311"
+            startingLineNumber = "312"
+            endingLineNumber = "312"
             landmarkName = "locationManager(_:didUpdateLocations:)"
             landmarkType = "7">
             <Locations>
@@ -1785,8 +1785,8 @@
             filePath = "Knowitall Customer/Screens/Registry/AddressViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "303"
-            endingLineNumber = "303"
+            startingLineNumber = "304"
+            endingLineNumber = "304"
             landmarkName = "locationManager(_:didUpdateLocations:)"
             landmarkType = "7">
             <Locations>

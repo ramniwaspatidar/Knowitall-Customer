@@ -68,6 +68,7 @@ class AddressViewController: BaseViewController,Storyboarded {
     fileprivate func setupUI(){
         SigninCell.registerWithTable(tblView)
         landmarkTextView.text = self.viewModel.infoArray[7].value != "" ? self.viewModel.infoArray[7].value : "Type..."
+        landmarkTextView.textColor = .lightGray
 
     }
     

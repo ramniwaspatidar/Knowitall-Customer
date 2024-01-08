@@ -21,7 +21,7 @@ class SigninCell: ReusableTableViewCell {
             textFiled.placeholder = dict.placeholder
             lblimage.text = dict.header
             textFiled.textColor = .white
-            textFiled.attributedPlaceholder = NSAttributedString(string: dict.placeholder, attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
+            textFiled.attributedPlaceholder = NSAttributedString(string: dict.placeholder, attributes: [NSAttributedString.Key.foregroundColor : UIColor.lightGray])
         }
     }
     
@@ -32,7 +32,7 @@ class SigninCell: ReusableTableViewCell {
             textFiled.textColor = .white
             textFiled.placeholder = dict.placeholder
             lblimage.text = dict.header
-            textFiled.attributedPlaceholder = NSAttributedString(string: dict.placeholder, attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
+            textFiled.attributedPlaceholder = NSAttributedString(string: dict.placeholder, attributes: [NSAttributedString.Key.foregroundColor : UIColor.lightGray])
         }
     }
     
