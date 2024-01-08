@@ -42,6 +42,25 @@ class OTPViewController: BaseViewController,Storyboarded {
         self.otpTextFieldView.initializeUI()
     }
     
+    @IBAction func resendCodeAction(_ sender: Any) {
+        
+        PhoneAuthProvider.provider().verifyPhoneNumber("+91\(mobileNumber ?? "")" , uiDelegate: nil) { (verificationID, error) in
+            SVProgressHUD.dismiss()
+
+            if let error = error {
+                print(error.localizedDescription)
+                Alert(title: "Alert", message: "Invalid phone number +91\(self.mobileNumber ?? "") \(error.localizedDescription)" , vc: self)
+                return
+            }else{
+                guard let temId = verificationID else {return }
+                self.verificationID = temId
+                Alert(title: "Resend OTP", message: "OTP successfully send", vc: self)
+                
+            }
+        }
+
+    }
+    
     @IBAction func otpVerifyButton(_ sender: Any) {
         
         if(self.varificationCode.count > 5){
@@ -60,7 +79,6 @@ class OTPViewController: BaseViewController,Storyboarded {
         Auth.auth().signIn(with: credential) { (authResult, error) in
             if let error = error {
                 SVProgressHUD.dismiss()
-                let authError = error as NSError
                 Alert(title: "", message: "Invalid verification code", vc: RootViewController.controller!)
                 return
             }

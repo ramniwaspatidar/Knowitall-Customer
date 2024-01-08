@@ -260,6 +260,26 @@
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A1D-hp-WUd">
+                                        <rect key="frame" x="30" y="553" width="333" height="56"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="56" id="GOs-4o-pD6"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="RE-SEND OTP">
+                                            <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
+                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="resendCodeAction:" destination="vFr-Yw-fU0" eventType="touchUpInside" id="iHV-kP-eeL"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -268,6 +288,7 @@
                                     <constraint firstItem="xcC-uu-u1f" firstAttribute="top" secondItem="Ydg-UO-Hik" secondAttribute="bottom" constant="30" id="4O0-MH-pNw"/>
                                     <constraint firstItem="s5L-49-0Vm" firstAttribute="top" secondItem="5Se-iq-sHQ" secondAttribute="bottom" constant="16" id="5Yd-1W-FN5"/>
                                     <constraint firstItem="5Se-iq-sHQ" firstAttribute="leading" secondItem="imL-mj-jvD" secondAttribute="leading" constant="30" id="7wK-4r-j2p"/>
+                                    <constraint firstAttribute="trailing" secondItem="A1D-hp-WUd" secondAttribute="trailing" constant="30" id="8Oh-6h-R6E"/>
                                     <constraint firstItem="Ydg-UO-Hik" firstAttribute="leading" secondItem="imL-mj-jvD" secondAttribute="leading" constant="30" id="ABx-YE-5lV"/>
                                     <constraint firstItem="eBV-ve-2YE" firstAttribute="top" secondItem="asI-Sl-Jv6" secondAttribute="bottom" id="BuP-E5-267"/>
                                     <constraint firstItem="5Se-iq-sHQ" firstAttribute="top" secondItem="eBI-wY-fp2" secondAttribute="bottom" id="R6S-55-eAz"/>
@@ -280,10 +301,12 @@
                                     <constraint firstAttribute="trailing" secondItem="5Se-iq-sHQ" secondAttribute="trailing" constant="30" id="h49-ki-fsz"/>
                                     <constraint firstItem="xcC-uu-u1f" firstAttribute="leading" secondItem="imL-mj-jvD" secondAttribute="leading" constant="30" id="hk4-AL-bgY"/>
                                     <constraint firstItem="asI-Sl-Jv6" firstAttribute="top" secondItem="imL-mj-jvD" secondAttribute="top" constant="64" id="i0A-0d-Yyh"/>
+                                    <constraint firstItem="A1D-hp-WUd" firstAttribute="leading" secondItem="imL-mj-jvD" secondAttribute="leading" constant="30" id="iLt-9A-mbA"/>
                                     <constraint firstAttribute="trailing" secondItem="eBV-ve-2YE" secondAttribute="trailing" constant="30" id="iuM-5W-tgZ"/>
                                     <constraint firstItem="s5L-49-0Vm" firstAttribute="leading" secondItem="imL-mj-jvD" secondAttribute="leading" constant="30" id="nWk-hp-ZqE"/>
                                     <constraint firstAttribute="trailing" secondItem="xcC-uu-u1f" secondAttribute="trailing" constant="30" id="sU3-yu-VVR"/>
                                     <constraint firstItem="eBI-wY-fp2" firstAttribute="top" secondItem="eBV-ve-2YE" secondAttribute="bottom" constant="10" id="zFz-s8-5mC"/>
+                                    <constraint firstItem="A1D-hp-WUd" firstAttribute="top" secondItem="xcC-uu-u1f" secondAttribute="bottom" constant="16" id="zw7-n4-7Eh"/>
                                 </constraints>
                             </view>
                         </subviews>
