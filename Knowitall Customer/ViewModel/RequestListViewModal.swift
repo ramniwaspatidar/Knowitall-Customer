@@ -108,10 +108,10 @@ class RequestListViewModal {
     var listArray = [RequestListModal]()
     let defaultCellHeight = 120
     
-    func sendRequest(_ apiEndPoint: String, handler: @escaping ([RequestListModal],Int) -> Void) {
+    func sendRequest(_ apiEndPoint: String,_ loading : Bool = true, handler: @escaping ([RequestListModal],Int) -> Void) {
         
         guard let url = URL(string: Configuration().environment.baseURL + apiEndPoint) else {return}
-        NetworkManager.shared.getRequest(url, true, "", networkHandler: {(responce,statusCode) in
+        NetworkManager.shared.getRequest(url, loading, "", networkHandler: {(responce,statusCode) in
             if(statusCode == 200){
                 let dictResponce =  Mapper<RequestListModal>().mapArray(JSONArray: responce["payload"] as! [[String : Any]])
                 handler(dictResponce,statusCode)

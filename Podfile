@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-# platform :ios, '12.0'
+ platform :ios, '13.0'
 
 target 'Knowitall Customer' do
   # Comment the next line if you don't want to use dynamic frameworks
@@ -7,16 +7,17 @@ target 'Knowitall Customer' do
 
   # Pods for Knowitall Customer
 
-pod 'TPKeyboardAvoidingSwift'
 pod 'SVProgressHUD', '~> 2.2'
 pod 'JWTDecode'
 pod 'FirebaseAuth'
-
 pod 'Firebase/Core'
 pod 'ObjectMapper', '~> 3.5'
 pod 'Firebase/Messaging'
 pod 'OTPFieldView'
 pod 'SideMenu'
+pod 'IQKeyboardManagerSwift'
+
+
 
   post_install do |installer|
     installer.pods_project.targets.each do |target|

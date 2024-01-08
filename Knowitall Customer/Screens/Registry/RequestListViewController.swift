@@ -6,8 +6,10 @@ import Firebase
 class RequestListViewController: BaseViewController,Storyboarded{
     
     var coordinator: MainCoordinator?
+    var refreshControl: UIRefreshControl!
+    
     @IBOutlet weak var tblView: UITableView!
-   
+    
     
     var viewModel : RequestListViewModal = {
         let model = RequestListViewModal()
@@ -16,18 +18,32 @@ class RequestListViewController: BaseViewController,Storyboarded{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        coordinator = MainCoordinator(navigationController: self.navigationController!)
-
-        self.setNavWithOutView(.menu, self.view)
         
-        viewModel.sendRequest(APIsEndPoints.kRequestList.rawValue) { response, code in
+        refreshControl = UIRefreshControl()
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        tblView.addSubview(refreshControl)
+        coordinator = MainCoordinator(navigationController: self.navigationController!)
+        
+        self.setNavWithOutView(.menu, self.view)
+        self.getAllRequestList()
+        
+        RequestCell.registerWithTable(tblView)
+    }
+    
+    @objc func refresh(_ sender: Any) {
+        refreshControl.endRefreshing()
+        self.getAllRequestList()
+    }
+    
+    func getAllRequestList(_ loading : Bool = true){
+        viewModel.sendRequest(APIsEndPoints.kRequestList.rawValue,loading) { response, code in
             
             self.viewModel.listArray  = response
             self.tblView.reloadData()
         }
-        RequestCell.registerWithTable(tblView)
     }
-  
+    
 }
 // UITableViewDataSource
 extension RequestListViewController: UITableViewDataSource {
