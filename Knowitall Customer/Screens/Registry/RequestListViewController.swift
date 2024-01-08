@@ -33,7 +33,7 @@ class RequestListViewController: BaseViewController,Storyboarded{
     
     @objc func refresh(_ sender: Any) {
         refreshControl.endRefreshing()
-        self.getAllRequestList()
+        self.getAllRequestList(false)
     }
     
     func getAllRequestList(_ loading : Bool = true){

@@ -10,6 +10,8 @@ import MapKit
 class TrackingViewController: BaseViewController,Storyboarded {
     
     var coordinator: MainCoordinator?
+    var refreshControl: UIRefreshControl!
+
     @IBOutlet weak var tblView: UITableView!
     @IBOutlet weak var confirmButton: UIButton!
     @IBOutlet weak var requestId: UILabel!
@@ -30,12 +32,20 @@ class TrackingViewController: BaseViewController,Storyboarded {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+       
+        
         if(viewModel.isMenu == false){
             self.setNavWithOutView(.menu , self.view)
         }else{
             self.setNavWithOutView(.back, self.view)
         }
         setupUI()
+        
+        refreshControl = UIRefreshControl()
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.tintColor = .white
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        tblView.addSubview(refreshControl)
          
     }
     
@@ -44,8 +54,13 @@ class TrackingViewController: BaseViewController,Storyboarded {
         self.timer = nil
         
         self.viewModel.infoArray.removeAll()
-//        self.viewModel.infoArray = self.viewModel.prepareInfo()
-        self.getRequestDetails()
+        self.getRequestDetails(true)
+    }
+    
+    @objc func refresh(_ sender: Any) {
+        refreshControl.endRefreshing()
+        self.viewModel.infoArray.removeAll()
+        self.getRequestDetails(false)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -53,7 +68,7 @@ class TrackingViewController: BaseViewController,Storyboarded {
         self.timer = nil
     }
     
-    func getRequestDetails(){
+    func getRequestDetails(_ isLoading : Bool = true){
         viewModel.getRequestData(APIsEndPoints.kGetCustor.rawValue + (viewModel.requestId )) { response, code in
             
             if (CurrentUserInfo.userId == response.customerId && response.requestId != nil){
@@ -78,7 +93,7 @@ class TrackingViewController: BaseViewController,Storyboarded {
     
     func startTimer(){
         self.timer = Timer.scheduledTimer(withTimeInterval: 30, repeats: true, block: { _ in
-            self.getRequestDetails()
+            self.getRequestDetails(false)
         })
     }
     
@@ -196,7 +211,7 @@ class TrackingViewController: BaseViewController,Storyboarded {
             
             self.viewModel.cancelRequest(APIsEndPoints.kCancelRequest.rawValue + (self.viewModel.dictRequest?.requestId ?? ""), param) { response, code in
                 
-                self.getRequestDetails()
+                self.getRequestDetails(false)
                 Alert(title: "Cancel Request", message: "Your request cancel successfully", vc: self)
                 
             }

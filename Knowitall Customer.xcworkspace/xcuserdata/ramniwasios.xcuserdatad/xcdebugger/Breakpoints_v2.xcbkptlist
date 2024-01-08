@@ -1881,42 +1881,10 @@
             filePath = "Knowitall Customer/Screens/Traking/TrackingViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "61"
-            endingLineNumber = "61"
-            landmarkName = "getRequestDetails()"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
+            landmarkName = "getRequestDetails(_:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "CF07CA6B-C5FB-4AE5-BC0C-44955A06FF40 - b8cadd1276624c19"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Knowitall_Customer.RequestListModal, Swift.Int) -&gt; () in Knowitall_Customer.TrackingViewController.getRequestDetails() -&gt; ()"
-                  moduleName = "Knowitall Customer"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ramniwasios/Documents/xcode-projects/Knowitall%20Customer/Knowitall%20Customer/Screens/Traking/TrackingViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "64"
-                  endingLineNumber = "64"
-                  offsetFromSymbolStart = "1612">
-               </Location>
-               <Location
-                  uuid = "CF07CA6B-C5FB-4AE5-BC0C-44955A06FF40 - b8cadd1276624c19"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Knowitall_Customer.RequestListModal, Swift.Int) -&gt; () in Knowitall_Customer.TrackingViewController.getRequestDetails() -&gt; ()"
-                  moduleName = "Knowitall Customer"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ramniwasios/Documents/xcode-projects/Knowitall%20Customer/Knowitall%20Customer/Screens/Traking/TrackingViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "64"
-                  endingLineNumber = "64"
-                  offsetFromSymbolStart = "1792">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1929,41 +1897,9 @@
             filePath = "Knowitall Customer/Screens/Traking/TrackingViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
-            landmarkName = "getRequestDetails()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "6D95F503-7FDE-4496-A032-E7B681D76F63"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Knowitall Customer/Screens/Traking/TrackingViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
-            landmarkName = "viewDidAppear(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "4A502E7F-CEC2-46FC-BD59-3451501E1178"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Knowitall Customer/Screens/Traking/TrackingViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
+            landmarkName = "getRequestDetails(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1977,9 +1913,9 @@
             filePath = "Knowitall Customer/Screens/Traking/TrackingViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
-            landmarkName = "getRequestDetails()"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
+            landmarkName = "getRequestDetails(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1993,8 +1929,8 @@
             filePath = "Knowitall Customer/Screens/Traking/TrackingViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "105"
-            endingLineNumber = "105"
+            startingLineNumber = "120"
+            endingLineNumber = "120"
             landmarkName = "updateUI()"
             landmarkType = "7">
          </BreakpointContent>
@@ -2009,8 +1945,8 @@
             filePath = "Knowitall Customer/Screens/Traking/TrackingViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "102"
-            endingLineNumber = "102"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
             landmarkName = "updateUI()"
             landmarkType = "7">
          </BreakpointContent>
@@ -2025,9 +1961,25 @@
             filePath = "Knowitall Customer/Screens/Traking/TrackingViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
+            startingLineNumber = "123"
+            endingLineNumber = "123"
             landmarkName = "updateUI()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "88200F04-019A-4978-9D03-39C56E0DC11D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Knowitall Customer/Screens/Traking/TrackingViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
+            landmarkName = "refresh(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

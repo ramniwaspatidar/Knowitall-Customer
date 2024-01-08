@@ -56,10 +56,10 @@ class TrackingViewModel {
         return infoArray
     }
     
-    func getRequestData(_ apiEndPoint: String, handler: @escaping (RequestListModal,Int) -> Void) {
+    func getRequestData(_ apiEndPoint: String,_ isLoading : Bool = true, handler: @escaping (RequestListModal,Int) -> Void) {
         
         guard let url = URL(string: Configuration().environment.baseURL + apiEndPoint) else {return}
-        NetworkManager.shared.getRequest(url, false, "", networkHandler: {(responce,statusCode) in
+        NetworkManager.shared.getRequest(url, isLoading, "", networkHandler: {(responce,statusCode) in
             APIHelper.parseObject(responce, true) { payload, status, message, code in
                 if status {
                     let dictResponce =  Mapper<RequestListModal>().map(JSON: payload)
