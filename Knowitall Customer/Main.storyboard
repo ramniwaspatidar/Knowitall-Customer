@@ -778,7 +778,7 @@ Need a Tow?</string>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <view key="tableHeaderView" contentMode="scaleToFill" id="XDp-h5-Vjh">
-                                                    <rect key="frame" x="0.0" y="0.0" width="363" height="226"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="363" height="116"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type of service requested" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hwf-zN-qEW">
@@ -821,10 +821,10 @@ Need a Tow?</string>
                                                                 <constraint firstAttribute="height" constant="46" id="wsC-kD-R2m"/>
                                                             </constraints>
                                                         </view>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please briefly explain the situation" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qzU-v0-7fM">
-                                                            <rect key="frame" x="16" y="116" width="331" height="20"/>
+                                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please briefly explain the situation" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qzU-v0-7fM">
+                                                            <rect key="frame" x="16" y="116" width="331" height="0.0"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="20" id="G3s-86-nrj"/>
+                                                                <constraint firstAttribute="height" id="G3s-86-nrj"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" name="Nunito-SemiBold" family="Nunito" pointSize="16"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -839,19 +839,19 @@ Need a Tow?</string>
                                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5qt-j9-yPn">
-                                                            <rect key="frame" x="16" y="146" width="331" height="70"/>
+                                                        <view hidden="YES" alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5qt-j9-yPn">
+                                                            <rect key="frame" x="16" y="126" width="331" height="0.0"/>
                                                             <color key="backgroundColor" red="0.96862745100000003" green="0.83921568629999999" blue="0.26554965740000003" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="70" id="3Tk-rI-nBG"/>
+                                                                <constraint firstAttribute="height" id="3Tk-rI-nBG"/>
                                                             </constraints>
                                                         </view>
-                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="00d-kT-p5v">
-                                                            <rect key="frame" x="16" y="146" width="331" height="70"/>
+                                                        <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="00d-kT-p5v">
+                                                            <rect key="frame" x="16" y="126" width="331" height="0.0"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="70" id="YY5-Qq-N5v"/>
+                                                                <constraint firstAttribute="height" id="YY5-Qq-N5v"/>
                                                             </constraints>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
@@ -884,7 +884,7 @@ Need a Tow?</string>
                                                     </constraints>
                                                 </view>
                                                 <view key="tableFooterView" contentMode="scaleToFill" id="1of-cd-cyp">
-                                                    <rect key="frame" x="0.0" y="226" width="363" height="220"/>
+                                                    <rect key="frame" x="0.0" y="116" width="363" height="220"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NTE-ak-z3j">
@@ -2167,7 +2167,7 @@ Need a Tow?</string>
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="QVi-yQ-giD">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg2" translatesAutoresizingMaskIntoConstraints="NO" id="QVi-yQ-giD">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="ZxY-zB-cl3">
@@ -2179,7 +2179,7 @@ Need a Tow?</string>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aQD-Gb-E4P">
-                                            <rect key="frame" x="35" y="16" width="295" height="48"/>
+                                            <rect key="frame" x="16" y="16" width="314" height="48"/>
                                             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="48" id="Yvb-wm-zCd"/>
@@ -2203,7 +2203,7 @@ Need a Tow?</string>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="aQD-Gb-E4P" secondAttribute="trailing" constant="35" id="FJi-0w-JWI"/>
                                         <constraint firstItem="aQD-Gb-E4P" firstAttribute="top" secondItem="ufx-0x-8Ds" secondAttribute="top" constant="16" id="JYF-39-IQB"/>
-                                        <constraint firstItem="aQD-Gb-E4P" firstAttribute="leading" secondItem="ufx-0x-8Ds" secondAttribute="leading" constant="35" id="KMF-Ay-LpY"/>
+                                        <constraint firstItem="aQD-Gb-E4P" firstAttribute="leading" secondItem="ufx-0x-8Ds" secondAttribute="leading" constant="16" id="KMF-Ay-LpY"/>
                                     </constraints>
                                 </view>
                                 <connections>
@@ -2218,13 +2218,13 @@ Need a Tow?</string>
                                     <constraint firstAttribute="height" constant="175" id="QZH-sb-3aO"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DRIVER APP" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QZu-LV-Oap">
-                                <rect key="frame" x="20" y="234" width="353" height="40"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Complete your profile" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QZu-LV-Oap">
+                                <rect key="frame" x="20" y="248" width="353" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="LXH-Eg-gJh"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="ReggaeOne-Regular" family="Reggae One" pointSize="18"/>
-                                <color key="textColor" red="0.96862745100000003" green="0.83921568629999999" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="24"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -2234,12 +2234,12 @@ Need a Tow?</string>
                             <constraint firstItem="XFl-F2-l81" firstAttribute="trailing" secondItem="QVi-yQ-giD" secondAttribute="trailing" id="5aY-c3-0VY"/>
                             <constraint firstItem="QZu-LV-Oap" firstAttribute="leading" secondItem="XFl-F2-l81" secondAttribute="leading" constant="20" id="99A-GX-COW"/>
                             <constraint firstItem="ZxY-zB-cl3" firstAttribute="leading" secondItem="XFl-F2-l81" secondAttribute="leading" constant="14" id="AGw-DE-3Gw"/>
-                            <constraint firstItem="ZxY-zB-cl3" firstAttribute="top" secondItem="QZu-LV-Oap" secondAttribute="bottom" constant="40" id="F8Q-fD-Ptj"/>
+                            <constraint firstItem="ZxY-zB-cl3" firstAttribute="top" secondItem="QZu-LV-Oap" secondAttribute="bottom" constant="26" id="F8Q-fD-Ptj"/>
                             <constraint firstItem="txT-pV-yXZ" firstAttribute="centerX" secondItem="JMx-hl-C3Y" secondAttribute="centerX" id="K7v-oi-uZu"/>
                             <constraint firstItem="XFl-F2-l81" firstAttribute="trailing" secondItem="QZu-LV-Oap" secondAttribute="trailing" constant="20" id="RKD-z0-viN"/>
                             <constraint firstItem="XFl-F2-l81" firstAttribute="bottom" secondItem="ZxY-zB-cl3" secondAttribute="bottom" id="dWv-Tb-rL1"/>
                             <constraint firstItem="QVi-yQ-giD" firstAttribute="leading" secondItem="XFl-F2-l81" secondAttribute="leading" id="iOg-d6-nJe"/>
-                            <constraint firstItem="QZu-LV-Oap" firstAttribute="top" secondItem="txT-pV-yXZ" secondAttribute="bottom" id="kW6-ru-8yF"/>
+                            <constraint firstItem="QZu-LV-Oap" firstAttribute="top" secondItem="txT-pV-yXZ" secondAttribute="bottom" constant="14" id="kW6-ru-8yF"/>
                             <constraint firstItem="XFl-F2-l81" firstAttribute="trailing" secondItem="ZxY-zB-cl3" secondAttribute="trailing" constant="14" id="pQq-0C-Z6z"/>
                             <constraint firstItem="QVi-yQ-giD" firstAttribute="top" secondItem="JMx-hl-C3Y" secondAttribute="top" id="ssm-gM-JlX"/>
                             <constraint firstItem="txT-pV-yXZ" firstAttribute="top" secondItem="XFl-F2-l81" secondAttribute="top" id="vKm-0b-vaz"/>

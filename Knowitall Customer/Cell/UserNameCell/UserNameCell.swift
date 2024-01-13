@@ -19,6 +19,9 @@ class UserNameCell: ReusableTableViewCell {
         bgView.layer.borderColor = UIColor.black.cgColor
         bgView.layer.cornerRadius = 8
         
+        textFiled.attributedPlaceholder = NSAttributedString(string: "", attributes: [NSAttributedString.Key.foregroundColor : UIColor.darkGray])
+
+        
         if let dict = dictionary as? ProfileInfoModel{
             textFiled.text = dict.value
             textFiled.placeholder = dict.placeholder

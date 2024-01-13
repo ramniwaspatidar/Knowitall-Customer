@@ -43,6 +43,8 @@ class RequestViewModel {
         
         let phoneNumber = requestData?.phoneNumber?.components(separatedBy: "+")
         var number = CurrentUserInfo.phone ?? ""
+        let name = CurrentUserInfo.userName ?? ""
+
         
         
         if(phoneNumber?.count ?? 0 > 1){
@@ -56,7 +58,7 @@ class RequestViewModel {
         
         infoArray.append(RequestTypeModel(type: .description, placeholder: NSLocalizedString("Type ...", comment: ""), value: requestModel?.requestType ?? "", header: "Please briefly explain the situation"))
         
-        infoArray.append(RequestTypeModel(type: .name, placeholder: NSLocalizedString("Enter name", comment: ""), value: requestModel?.name ?? "", header: "Your Name"))
+        infoArray.append(RequestTypeModel(type: .name, placeholder: NSLocalizedString("Enter name", comment: ""), value: requestModel?.name ?? name, header: "Your Name"))
         
         infoArray.append(RequestTypeModel(type: .mobile, placeholder: NSLocalizedString("Enter mobile number", comment: ""), value:number, header: "Your Phone"))
         
@@ -78,12 +80,12 @@ class RequestViewModel {
                 dictParam["service"] = dataStore[index].value.trimmingCharacters(in: .whitespaces) as AnyObject
                 
             case .description:
-                if dataStore[index].value.trimmingCharacters(in: .whitespaces) == "" {
-                    validHandler([:],"Please briefly explain the situation", false)
-                    return
-                }
+//                if dataStore[index].value.trimmingCharacters(in: .whitespaces) == "" {
+//                    validHandler([:],"Please briefly explain the situation", false)
+//                    return
+//                }
                 
-                dictParam["description"] = dataStore[index].value.trimmingCharacters(in: .whitespaces) as AnyObject
+                dictParam["description"] = "" as AnyObject
                 
             case .name:
                 if dataStore[index].value.trimmingCharacters(in: .whitespaces) == "" {

@@ -96,6 +96,9 @@ class ProfileViewController: BaseViewController,Storyboarded {
                     let number = payload["fullNumber"] as? String
                     CurrentUserInfo.userId = customerId
                     CurrentUserInfo.phone = number
+                    CurrentUserInfo.email = self.emailTextField.text
+                    CurrentUserInfo.userName = self.nameTextField.text
+
                     
                     handler(message,0)
                     
@@ -127,7 +130,6 @@ extension ProfileViewController: UITableViewDataSource {
         let cell  = tableView.dequeueReusableCell(withIdentifier: UserNameCell.reuseIdentifier, for: indexPath) as! UserNameCell
         cell.selectionStyle = .none
         
-        cell.textFiled.attributedPlaceholder = NSAttributedString(string: "", attributes: [NSAttributedString.Key.foregroundColor : UIColor.gray])
         
         switch indexPath.row {
             

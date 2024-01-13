@@ -8,7 +8,7 @@ struct ProfileResponseModel : Mappable {
     var accessToken : String?
     var refreshToken : String?
     var fullName : String?
-    var driverId : String?
+    var customerId : String?
     var email : String?
     var code :String?
     var phoneNumber : String?
@@ -30,8 +30,8 @@ struct ProfileResponseModel : Mappable {
     mutating func mapping(map: Map) {
         accessToken <- map["accessToken"]
         refreshToken <- map["refreshToken"]
-        fullName <- map["fullName"]
-        driverId <- map["driverId"]
+        fullName <- map["name"]
+        customerId <- map["customerId"]
         email <- map["email"]
         code <- map["code"]
         isactive <- map["isactive"]

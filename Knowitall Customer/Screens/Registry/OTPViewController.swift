@@ -94,30 +94,7 @@ class OTPViewController: BaseViewController,Storyboarded {
         }
     }
     
-    func verifyOTP(_ apiEndPoint: String,_ param : [String : Any], handler: @escaping (String,Int) -> Void) {
-        guard let url = URL(string: Configuration().environment.baseURL + apiEndPoint) else {return}
-        NetworkManager.shared.postRequest(url, true, "", params: param, networkHandler: {(responce,statusCode) in
-            APIHelper.parseObject(responce, true) { payload, status, message, code in
-                if status {
-                    
-                    let customerId = payload["customerId"] as? String
-                    let number = payload["fullNumber"] as? String
-                    CurrentUserInfo.userId = customerId
-                    CurrentUserInfo.phone = number
-                    
-                    handler(message,0)
-                    
-                }
-                else{
-                    DispatchQueue.main.async {
-                        Alert(title: "", message: message, vc: RootViewController.controller!)
-                    }
-                }
-            }
-        })
-    }
-    
-    
+        
     func getUserData() {
         guard let url = URL(string: Configuration().environment.baseURL + APIsEndPoints.kGetMe.rawValue) else {return}
         NetworkManager.shared.getRequest(url, true, "", networkHandler: {(responce,statusCode) in
@@ -125,30 +102,22 @@ class OTPViewController: BaseViewController,Storyboarded {
             APIHelper.parseObject(responce, true) { payload, status, message, code in
                 if status {
                     let dictResponce =  Mapper<ProfileResponseModel>().map(JSON: payload)
+                    
+                    CurrentUserInfo.userId = dictResponce?.customerId
+                    CurrentUserInfo.phone = self.mobileNumber
+                    CurrentUserInfo.userName  = dictResponce?.fullName
+                    CurrentUserInfo.email  = dictResponce?.email
+
+                    let appDelegate = UIApplication.shared.delegate as? AppDelegate
+                    appDelegate?.autoLogin()
                 }
                 else{
                     
                     if(payload["code"] as? Int == 101){ // move to profile
                         self.coordinator?.goToProfile(self.mobileNumber ?? "")
 
-                    }else{
-                    
-                        var dictParam = [String : String]()
-                        dictParam["countryCode"] = "+1"
-                        dictParam["phoneNumber"] = self.mobileNumber
-                        
-                        self.verifyOTP(APIsEndPoints.ksignupUser.rawValue,dictParam, handler: {(mmessage,statusCode)in
-                            DispatchQueue.main.async {
-                                SVProgressHUD.dismiss()
-                                CurrentUserInfo.phone = self.mobileNumber
-
-                                let appDelegate = UIApplication.shared.delegate as? AppDelegate
-                                appDelegate?.autoLogin()
-                        
-                            }
-                        })
-                   
                     }
+                    
                 }
             }
         })
