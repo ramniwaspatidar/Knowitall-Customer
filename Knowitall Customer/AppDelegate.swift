@@ -58,7 +58,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     // Mark : get app version
     
     public func autoLogin(){
-        if let currentUser = Auth.auth().currentUser {
+        if CurrentUserInfo.userId != nil ,let currentUser = Auth.auth().currentUser {
             CurrentUserInfo.userId = currentUser.uid
             Messaging.messaging().subscribe(toTopic: CurrentUserInfo.userId) { error in
                 if let error = error {

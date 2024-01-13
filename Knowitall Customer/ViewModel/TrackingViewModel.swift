@@ -38,6 +38,8 @@ class TrackingViewModel {
         let driverArrived = dictRequest?.driverArrived ?? false
         let confirmArrival = dictRequest?.confirmArrival ?? false
         let cancel = dictRequest?.cancelled ?? false
+        let markNOShow = dictRequest?.markNoShow ?? false
+
         
         
         if(cancel == true){
@@ -45,6 +47,13 @@ class TrackingViewModel {
             infoArray.append(TrackingModel(eta:"Driver Coming", value: "Driver Response ", color:  "#F4CC9E", status: "pending"))
             infoArray.append(TrackingModel(eta: "NA", value: "Help is on the way",  color:"#F4CC9E", status: "pending"))
             infoArray.append(TrackingModel(eta: "Request has been cancelled", value: "Help Reached", color:  "#FF004F", status: "pending"))
+        }
+        else if(markNOShow == true){
+            infoArray.append(TrackingModel(eta: requestTime, value: "Request Submitted" , color: "#F4CC9E" , status: "done"))
+            infoArray.append(TrackingModel(eta: confirmArrival ? "Driver Arrieved" : accepted ? "Driver Coming" : "Waiting for Acceptance", value: "Driver Response ", color:  "#F4CC9E", status: accepted ? "done" : "pending"))
+            infoArray.append(TrackingModel(eta: "NA", value: "Help is on the way",  color: "#F4CC9E", status: accepted ? "done":"pending"))
+            infoArray.append(TrackingModel(eta: "Customer not found", value: "Help Reached", color:  "#F4CC9E", status:"pending"))
+            
         }
        
         else{

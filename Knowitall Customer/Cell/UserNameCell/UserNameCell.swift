@@ -6,15 +6,24 @@ class UserNameCell: ReusableTableViewCell {
     
     @IBOutlet weak var textFiled : CustomTextField!
     @IBOutlet weak var bgView: UIView!
+    @IBOutlet weak var headerLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
     }
     
     func commiInit<T>(_ dictionary :T){
-        if let dict = dictionary as? SigninInfoModel{
+        
+        bgView.layer.borderWidth = 1
+        bgView.layer.borderColor = UIColor.black.cgColor
+        bgView.layer.cornerRadius = 8
+        
+        if let dict = dictionary as? ProfileInfoModel{
             textFiled.text = dict.value
             textFiled.placeholder = dict.placeholder
+            headerLabel.text = dict.header
+            
         }
     }
     

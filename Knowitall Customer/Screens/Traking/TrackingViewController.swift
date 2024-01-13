@@ -109,10 +109,15 @@ class TrackingViewController: BaseViewController,Storyboarded {
             self.confirmButton.isHidden = true
             self.dotButton.isHidden = true
         }
+        else if(self.viewModel.dictRequest?.markNoShow == true || self.viewModel.dictRequest?.cancelled == true){
+            self.confirmButton.isUserInteractionEnabled = false
+            self.confirmButton.alpha = 0.4
+        }
         else if(self.viewModel.dictRequest?.driverArrived == true){
             self.confirmButton.isUserInteractionEnabled = true
             self.confirmButton.alpha = 1
         }
+        
         
         let jobDone = viewModel.dictRequest?.confirmArrival == true || viewModel.dictRequest?.markNoShow == true || viewModel.dictRequest?.cancelled == true
         

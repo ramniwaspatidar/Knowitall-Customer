@@ -60,12 +60,12 @@ class SigninViewController: UIViewController,Storyboarded  {
         
         viewModel.validateFields(dataStore: viewModel.infoArray) { (dict, msg, isSucess) in
             if isSucess {
-                PhoneAuthProvider.provider().verifyPhoneNumber("+91\(str)" , uiDelegate: nil) { (verificationID, error) in
+                PhoneAuthProvider.provider().verifyPhoneNumber("+1\(str)" , uiDelegate: nil) { (verificationID, error) in
                     SVProgressHUD.dismiss()
 
                     if let error = error {
                         print(error.localizedDescription)
-                        Alert(title: "Alert", message: "Invalid phone number +91\(str) \(error.localizedDescription)" , vc: self)
+                        Alert(title: "Alert", message: "Invalid phone number +1\(str) \(error.localizedDescription)" , vc: self)
 
                         return
                     }

@@ -5,6 +5,7 @@ import FirebaseAuth
 import OTPFieldView
 import FirebaseMessaging
 import SVProgressHUD
+import ObjectMapper
 
 class OTPViewController: BaseViewController,Storyboarded {
     
@@ -24,7 +25,7 @@ class OTPViewController: BaseViewController,Storyboarded {
         super.viewDidLoad()
         self.setNavWithOutView(.back, self.view)
         
-        headerText.text = "We have sent a verification code to +91 \(mobileNumber ?? ""), please enter below to verify and continue "
+        headerText.text = "We have sent a verification code to +1 \(mobileNumber ?? ""), please enter below to verify and continue "
         setupOtpView()
     }
     
@@ -44,12 +45,12 @@ class OTPViewController: BaseViewController,Storyboarded {
     
     @IBAction func resendCodeAction(_ sender: Any) {
         
-        PhoneAuthProvider.provider().verifyPhoneNumber("+91\(mobileNumber ?? "")" , uiDelegate: nil) { (verificationID, error) in
+        PhoneAuthProvider.provider().verifyPhoneNumber("+1\(mobileNumber ?? "")" , uiDelegate: nil) { (verificationID, error) in
             SVProgressHUD.dismiss()
 
             if let error = error {
                 print(error.localizedDescription)
-                Alert(title: "Alert", message: "Invalid phone number +91\(self.mobileNumber ?? "") \(error.localizedDescription)" , vc: self)
+                Alert(title: "Alert", message: "Invalid phone number +1\(self.mobileNumber ?? "") \(error.localizedDescription)" , vc: self)
                 return
             }else{
                 guard let temId = verificationID else {return }
@@ -85,18 +86,10 @@ class OTPViewController: BaseViewController,Storyboarded {
             
             
             if let user = authResult?.user {
-                var dictParam = [String : String]()
-                dictParam["countryCode"] = "+91"
-                dictParam["phoneNumber"] = self.mobileNumber
                 
-                self.verifyOTP(APIsEndPoints.ksignupUser.rawValue,dictParam, handler: {(mmessage,statusCode)in
-                    DispatchQueue.main.async {
-                        SVProgressHUD.dismiss()
-                        CurrentUserInfo.phone = self.mobileNumber
-                        let appDelegate = UIApplication.shared.delegate as? AppDelegate
-                        appDelegate?.autoLogin()
-                    }
-                })
+                self.getUserData()
+
+                
             }
         }
     }
@@ -123,6 +116,44 @@ class OTPViewController: BaseViewController,Storyboarded {
             }
         })
     }
+    
+    
+    func getUserData() {
+        guard let url = URL(string: Configuration().environment.baseURL + APIsEndPoints.kGetMe.rawValue) else {return}
+        NetworkManager.shared.getRequest(url, true, "", networkHandler: {(responce,statusCode) in
+            print(responce)
+            APIHelper.parseObject(responce, true) { payload, status, message, code in
+                if status {
+                    let dictResponce =  Mapper<ProfileResponseModel>().map(JSON: payload)
+                }
+                else{
+                    
+                    if(payload["code"] as? Int == 101){ // move to profile
+                        self.coordinator?.goToProfile(self.mobileNumber ?? "")
+
+                    }else{
+                    
+                        var dictParam = [String : String]()
+                        dictParam["countryCode"] = "+1"
+                        dictParam["phoneNumber"] = self.mobileNumber
+                        
+                        self.verifyOTP(APIsEndPoints.ksignupUser.rawValue,dictParam, handler: {(mmessage,statusCode)in
+                            DispatchQueue.main.async {
+                                SVProgressHUD.dismiss()
+                                CurrentUserInfo.phone = self.mobileNumber
+
+                                let appDelegate = UIApplication.shared.delegate as? AppDelegate
+                                appDelegate?.autoLogin()
+                        
+                            }
+                        })
+                   
+                    }
+                }
+            }
+        })
+    }
+
     
 }
 

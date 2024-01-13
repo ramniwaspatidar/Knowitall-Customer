@@ -147,7 +147,7 @@ class RequestViewController: BaseViewController,Storyboarded, RTCustomAlertDeleg
                 dictParam["typeOfService"] = self.viewModel.infoArray[0].value
                 dictParam["desc"] = self.viewModel.infoArray[1].value
                 dictParam["name"] =  self.viewModel.infoArray[2].value
-                dictParam["phoneNumber"] = "+91\(self.viewModel.infoArray[3].value)"
+                dictParam["phoneNumber"] = "+1\(self.viewModel.infoArray[3].value)"
                 
                 dictParam["latitude"] = lat.doubleValue
                 dictParam["longitude"] = lng.doubleValue

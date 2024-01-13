@@ -39,6 +39,11 @@ class RequestCell: ReusableTableViewCell {
             statusLabel.textColor = .red
 
         }
+        else if(dict.markNoShow == true){
+            statusLabel.text = "Customer Not Found"
+            statusLabel.textColor = .red
+
+        }
        else if(dict.driverArrived == true){
             statusLabel.text = "Arrived"
             statusLabel.textColor = .yellow

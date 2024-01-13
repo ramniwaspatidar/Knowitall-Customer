@@ -69,9 +69,18 @@ class ArrivalViewControoler: BaseViewController,Storyboarded {
         param["arrivalCode"] = arrivalCode
         
         viewModel.confirmArrival(APIsEndPoints.kConfirmArrival.rawValue + (dictRequest?.requestId ?? ""), param) { response, code in
-            self.animationView.isHidden = true
-            self.confirmView.isHidden = false
-            self.bgView.isHidden = true
+            
+            if(code == 0){
+                self.animationView.isHidden = true
+                self.confirmView.isHidden = false
+                self.bgView.isHidden = true
+            }else{
+                self.animationView.isHidden = true
+                self.confirmView.isHidden = true
+                self.bgView.isHidden = true
+                self.otpView.isHidden = false
+            }
+
         }
     }
     

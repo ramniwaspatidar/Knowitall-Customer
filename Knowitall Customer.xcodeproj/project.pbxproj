@@ -66,6 +66,8 @@
 		1A9C8AA82B2CC122000B1E7F /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9C8AA62B2CC121000B1E7F /* SettingCell.swift */; };
 		1A9C8AA92B2CC122000B1E7F /* SettingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A9C8AA72B2CC122000B1E7F /* SettingCell.xib */; };
 		1A9C8AAB2B2CC15F000B1E7F /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9C8AAA2B2CC15F000B1E7F /* SettingViewModel.swift */; };
+		1AA087132B53012B007127DA /* ProfileResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA087122B53012B007127DA /* ProfileResponseModel.swift */; };
+		1AA087152B530693007127DA /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA087142B530693007127DA /* ProfileViewController.swift */; };
 		1AA8137E2B426AEA00F83DDA /* ArrivalViewModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA8137D2B426AEA00F83DDA /* ArrivalViewModal.swift */; };
 		1AA813922B45DC0800F83DDA /* PDFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA813912B45DC0800F83DDA /* PDFViewController.swift */; };
 		1AA813942B45DD7600F83DDA /* PTP.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 1AA813932B45DD7600F83DDA /* PTP.pdf */; };
@@ -150,6 +152,8 @@
 		1A9C8AA62B2CC121000B1E7F /* SettingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
 		1A9C8AA72B2CC122000B1E7F /* SettingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingCell.xib; sourceTree = "<group>"; };
 		1A9C8AAA2B2CC15F000B1E7F /* SettingViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
+		1AA087122B53012B007127DA /* ProfileResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileResponseModel.swift; sourceTree = "<group>"; };
+		1AA087142B530693007127DA /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		1AA8137D2B426AEA00F83DDA /* ArrivalViewModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrivalViewModal.swift; sourceTree = "<group>"; };
 		1AA813912B45DC0800F83DDA /* PDFViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFViewController.swift; sourceTree = "<group>"; };
 		1AA813932B45DD7600F83DDA /* PTP.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = PTP.pdf; sourceTree = "<group>"; };
@@ -250,6 +254,7 @@
 				1AD637552B28B71D0076EAD3 /* TrackingViewModel.swift */,
 				1AC834D72B3D39C500AD0CA6 /* RequestListViewModal.swift */,
 				1AA8137D2B426AEA00F83DDA /* ArrivalViewModal.swift */,
+				1AA087122B53012B007127DA /* ProfileResponseModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -313,6 +318,7 @@
 				1A4262D02B2446B9008D0E0D /* AddressViewController.swift */,
 				1AC834D92B3D3BBE00AD0CA6 /* RequestListViewController.swift */,
 				1AA813912B45DC0800F83DDA /* PDFViewController.swift */,
+				1AA087142B530693007127DA /* ProfileViewController.swift */,
 			);
 			path = Registry;
 			sourceTree = "<group>";
@@ -588,6 +594,7 @@
 				1A558C742B18F4EC0013BD30 /* BaseViewController.swift in Sources */,
 				1A558C522B18EE030013BD30 /* MainCoordinator.swift in Sources */,
 				1AD637502B28B1160076EAD3 /* TrackingCell.swift in Sources */,
+				1AA087132B53012B007127DA /* ProfileResponseModel.swift in Sources */,
 				1A55ABBA2B1848FF001AEEBF /* NetworkManager.swift in Sources */,
 				1A558C602B18F0220013BD30 /* View+Shadow.swift in Sources */,
 				1AD637582B28CCB80076EAD3 /* ArrivalViewControoler.swift in Sources */,
@@ -622,6 +629,7 @@
 				1A558C702B18F1220013BD30 /* SigninViewModel.swift in Sources */,
 				1A4262D12B2446B9008D0E0D /* AddressViewController.swift in Sources */,
 				1A4262D32B2449B7008D0E0D /* AddressViewModel.swift in Sources */,
+				1AA087152B530693007127DA /* ProfileViewController.swift in Sources */,
 				1A558C612B18F0220013BD30 /* Device+Type.swift in Sources */,
 				1A1E46BC2B1C24EC0046A758 /* SigninViewController.swift in Sources */,
 				1A55ABBD2B1848FF001AEEBF /* Reachability.swift in Sources */,

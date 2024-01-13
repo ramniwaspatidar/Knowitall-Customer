@@ -22,7 +22,7 @@ struct ArrivalModal{
 
 class ArrivalViewModal {
             
-    func confirmArrival(_ apiEndPoint: String,_ param : [String : Any], handler: @escaping (RequestListModal,Int) -> Void) {
+    func confirmArrival(_ apiEndPoint: String,_ param : [String : Any], handler: @escaping (RequestListModal?,Int) -> Void) {
         
         guard let url = URL(string: Configuration().environment.baseURL + apiEndPoint) else {return}
         NetworkManager.shared.postRequest(url, false, "", params: param, networkHandler: {(responce,statusCode) in
@@ -33,6 +33,8 @@ class ArrivalViewModal {
                 }
                 else{
                     DispatchQueue.main.async {
+                        handler(nil,-1)
+
                         Alert(title: "", message: message, vc: RootViewController.controller!)
                     }
                 }

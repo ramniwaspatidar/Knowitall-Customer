@@ -8,5 +8,6 @@ public enum APIsEndPoints: String {
     case kGetCustor = "customers/requests/"
     case kConfirmArrival = "requests/confirmarrival/"
     case kCancelRequest = "requests/cancel/"
+    case kGetMe = "customers/me"
 
 }

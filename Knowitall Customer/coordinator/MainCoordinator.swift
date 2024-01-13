@@ -93,18 +93,12 @@ class MainCoordinator : Coordinator{
         vc.webViewType = type
         navigationController.pushViewController(vc, animated: false)
     }
-//    func goToSideMenu(window : UIWindow) {
-//        
-//        let vc = SideMenuTableViewController.instantiate()
-//        vc.coordinator = self
-//
-//            SideMenuManager.default.leftMenuNavigationController = UISideMenuNavigationController(rootViewController: vc)
-//            SideMenuManager.default.addPanGestureToPresent(toView: window)
-//            SideMenuManager.default.menuWidth = 350
-//        
-//        
-//
-//    }
     
-    
+    func goToProfile(_ number : String){
+        let vc = ProfileViewController.instantiate()
+        vc.coordinator = self
+        vc.viewModel.mobileNumber = number
+        navigationController.pushViewController(vc, animated: false)
+    }
+      
 }
