@@ -31,7 +31,7 @@ class ProfileViewController: BaseViewController,Storyboarded {
         super.viewDidLoad()
         
         SideMenuManager.default.leftMenuNavigationController = nil
-        self.setNavWithOutView(.back, self.view)
+        self.setNavWithOutView(.back)
         // MARK : Initial setup
         UISetup()
     }
@@ -67,7 +67,7 @@ class ProfileViewController: BaseViewController,Storyboarded {
   
             if let user = Auth.auth().currentUser {
                 var dictParam = [String : String]()
-                dictParam["countryCode"] = "+1"
+                dictParam["countryCode"] = countryCode
                 dictParam["phoneNumber"] = self.viewModel.mobileNumber
                 dictParam["email"] = self.emailTextField.text
                 dictParam["name"] = self.nameTextField.text

@@ -23,9 +23,9 @@ class OTPViewController: BaseViewController,Storyboarded {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setNavWithOutView(.back, self.view)
+        self.setNavWithOutView(.back)
         
-        headerText.text = "We have sent a verification code to +1 \(mobileNumber ?? ""), please enter below to verify and continue "
+        headerText.text = "We have sent a verification code to \(countryCode) \(mobileNumber ?? ""), please enter below to verify and continue "
         setupOtpView()
     }
     
@@ -45,12 +45,12 @@ class OTPViewController: BaseViewController,Storyboarded {
     
     @IBAction func resendCodeAction(_ sender: Any) {
         
-        PhoneAuthProvider.provider().verifyPhoneNumber("+1\(mobileNumber ?? "")" , uiDelegate: nil) { (verificationID, error) in
+        PhoneAuthProvider.provider().verifyPhoneNumber("\(countryCode)\(mobileNumber ?? "")" , uiDelegate: nil) { (verificationID, error) in
             SVProgressHUD.dismiss()
 
             if let error = error {
                 print(error.localizedDescription)
-                Alert(title: "Alert", message: "Invalid phone number +1\(self.mobileNumber ?? "") \(error.localizedDescription)" , vc: self)
+                Alert(title: "Alert", message: "Invalid phone number \(countryCode)\(self.mobileNumber ?? "") \(error.localizedDescription)" , vc: self)
                 return
             }else{
                 guard let temId = verificationID else {return }

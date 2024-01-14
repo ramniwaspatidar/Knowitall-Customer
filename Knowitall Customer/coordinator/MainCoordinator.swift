@@ -81,6 +81,11 @@ class MainCoordinator : Coordinator{
         navigationController.pushViewController(vc, animated: false)
     }
     
+    func goToUpdateProfile(_ userNotExist : Bool = false) {
+        let vc = UpdateProfileViewController.instantiate()
+        vc.coordinator = self
+        navigationController.pushViewController(vc, animated: false)
+    }
     func goToRequest() {
         let vc = RequestListViewController.instantiate()
         vc.coordinator = self

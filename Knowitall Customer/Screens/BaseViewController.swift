@@ -17,6 +17,8 @@ class BaseViewController: UIViewController {
     var imgView : UIImageView?
     
     var buttonType : ButtonType?
+    var headerLabel : UILabel?
+    var logoImage : UIImageView?
     
 
     override func viewDidLoad() {
@@ -26,8 +28,8 @@ class BaseViewController: UIViewController {
     }
     
   
-    func setNavWithOutView(_ type : ButtonType,_ view: UIView){
-        
+    func setNavWithOutView(_ type : ButtonType,_ showTitle : Bool = true){
+
         self.buttonType = type
         
         var topBarHeight = 34
@@ -52,6 +54,28 @@ class BaseViewController: UIViewController {
             backButton!.addTarget(self, action:#selector(buttonAction), for: .touchUpInside)
             backButton.setImage(UIImage(named: "menu"), for: .normal)
         }
+        
+        headerLabel = CustomLabel(frame: CGRect(x: 87, y: CGFloat((topBarHeight)/2) , width: self.view.frame.size.width - 157, height: 50))
+        headerLabel?.font = getSemidFont(16)
+        headerLabel?.textAlignment = .center
+        headerLabel?.backgroundColor = .clear
+        headerLabel?.textColor = .black
+        headerLabel?.font =  UIFont.init(name: ("Poppins"), size: 16.0)
+        
+        
+        logoImage = UIImageView(frame: CGRect(x: self.view.frame.size.width - 70, y: CGFloat((topBarHeight)/2), width: 50,height: 50))
+        logoImage?.image = UIImage(named: "logo")
+
+
+        self.view.addSubview(backButton!)
+        
+        
+        if(headerLabel?.text != ""){
+            self.view .addSubview(headerLabel!)
+
+        }
+            self.view.addSubview(logoImage!)
+        
             view.addSubview(backButton!)
         
     }

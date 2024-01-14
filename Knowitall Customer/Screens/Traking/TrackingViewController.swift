@@ -20,6 +20,7 @@ class TrackingViewController: BaseViewController,Storyboarded {
     @IBOutlet weak var footerView: UIView!
     @IBOutlet weak var dotButton: UIButton!
     @IBOutlet weak var dotHeight: NSLayoutConstraint!
+    @IBOutlet weak var serviceLabel: UILabel!
     
     var timer : Timer?
     
@@ -35,9 +36,9 @@ class TrackingViewController: BaseViewController,Storyboarded {
        
         
         if(viewModel.isMenu == false){
-            self.setNavWithOutView(.menu , self.view)
+            self.setNavWithOutView(.menu )
         }else{
-            self.setNavWithOutView(.back, self.view)
+            self.setNavWithOutView(.back)
         }
         setupUI()
         
@@ -100,19 +101,30 @@ class TrackingViewController: BaseViewController,Storyboarded {
     fileprivate func setupUI(){
         TrackingCell.registerWithTable(tblView)
         requestId.text = "\(viewModel.dictRequest?.reqDispId ?? "")"
+        serviceLabel.text = "Service : \(viewModel.dictRequest?.typeOfService ?? "")"
     }
     
     
     fileprivate func updateUI(){
         setupUI()
-        if(self.viewModel.dictRequest?.confirmArrival == true){
+        
+        if(self.viewModel.dictRequest?.completed == true || self.viewModel.dictRequest?.markNoShow == true || self.viewModel.dictRequest?.cancelled == true){
             self.confirmButton.isHidden = true
             self.dotButton.isHidden = true
         }
-        else if(self.viewModel.dictRequest?.markNoShow == true || self.viewModel.dictRequest?.cancelled == true){
-            self.confirmButton.isUserInteractionEnabled = false
-            self.confirmButton.alpha = 0.4
+        else if(self.viewModel.dictRequest?.confirmArrival == true){
+            self.confirmButton.isHidden = false
+            self.dotButton.isHidden = true
+            self.confirmButton.setTitle("CALL DRIVER", for: .normal)
+            self.confirmButton.alpha = 1
+            self.confirmButton.isUserInteractionEnabled = true
+
+
         }
+//        else if(self.viewModel.dictRequest?.markNoShow == true || self.viewModel.dictRequest?.cancelled == true){
+//            self.confirmButton.isUserInteractionEnabled = false
+//            self.confirmButton.alpha = 0.4
+//        }
         else if(self.viewModel.dictRequest?.driverArrived == true){
             self.confirmButton.isUserInteractionEnabled = true
             self.confirmButton.alpha = 1
@@ -125,9 +137,9 @@ class TrackingViewController: BaseViewController,Storyboarded {
             self.getETA()
             
         }else{
-            self.viewModel.infoArray[2].eta = "ETA: NA"
+//            self.viewModel.infoArray[2].eta = "ETA: NA"
+//            self.viewModel.infoArray[2].color = "9CD4FC"
             self.tblView.reloadData()
-
         }
     }
     
@@ -145,6 +157,8 @@ class TrackingViewController: BaseViewController,Storyboarded {
         
         if(driverlat == 0 && driverlng == 0){
             self.viewModel.infoArray[2].eta = "ETA: NA"
+            self.viewModel.infoArray[2].color = "9CD4FC"
+
         }
         else{
             
@@ -177,6 +191,8 @@ class TrackingViewController: BaseViewController,Storyboarded {
                 let expectedTravelTime = route.expectedTravelTime
                 let convertedTime = self.convertTimeIntervalToHoursMinutes(seconds: expectedTravelTime)
                 self.viewModel.infoArray[2].eta = "ETA : \(String(format: "%02d", convertedTime.hours)):\(String(format: "%02d", convertedTime.minutes)) minutes"
+                
+                self.viewModel.infoArray[2].color = "36D91B"
                 self.tblView.reloadData()
             }
         }
@@ -195,7 +211,17 @@ class TrackingViewController: BaseViewController,Storyboarded {
     }
     
     @IBAction func confirmButtonAction(_ sender: Any) {
-        coordinator?.goToArrivalView(viewModel.dictRequest!)
+        
+        if(self.viewModel.dictRequest?.confirmArrival == true){
+            guard let url = URL(string: "telprompt://\(self.viewModel.dictRequest?.driverPhoneNumber ?? "")"),
+                  UIApplication.shared.canOpenURL(url) else {
+                return
+            }
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            
+        }else{
+            coordinator?.goToArrivalView(viewModel.dictRequest!)
+        }
     }
     
     @IBAction func pdfButtonAction(_ sender: Any) {

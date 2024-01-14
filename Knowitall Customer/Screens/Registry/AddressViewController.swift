@@ -52,7 +52,7 @@ class AddressViewController: BaseViewController,Storyboarded {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setNavWithOutView(.back,mainBG)
+        self.setNavWithOutView(.back)
         
         viewBG.layer.borderWidth = 1
         viewBG.layer.borderColor = UIColor.black.cgColor

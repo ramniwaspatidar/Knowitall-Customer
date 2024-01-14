@@ -29,31 +29,36 @@ class RequestCell: ReusableTableViewCell {
         requestLabel.text = "Request ID : \(dict.reqDispId ?? "")"
         dateLabel.text = AppUtility.getDateFromTimeEstime(dict.requestDate ?? 0.0)
         
-        if(dict.confirmArrival == true){
-            statusLabel.text = "Completed"
-            statusLabel.textColor = .green
+        if(dict.completed == true){
+            statusLabel.text = "Booking Completed"
+            statusLabel.textColor = hexStringToUIColor("36D91B")
         }
-        
         else if(dict.cancelled == true){
             statusLabel.text = "Cancelled"
-            statusLabel.textColor = .red
-
+            statusLabel.textColor = hexStringToUIColor("FF004F")
         }
-        else if(dict.markNoShow == true){
+        else  if(dict.markNoShow == true){
             statusLabel.text = "Customer Not Found"
-            statusLabel.textColor = .red
-
+            statusLabel.textColor = hexStringToUIColor("FF004F")
         }
-       else if(dict.driverArrived == true){
-            statusLabel.text = "Arrived"
-            statusLabel.textColor = .yellow
+       else if(dict.confirmArrival == true){
+            statusLabel.text = "Arrival Confirmed"
+           statusLabel.textColor = hexStringToUIColor("36D91B")
         }
-        else {
-             statusLabel.text = "Ongoing"
-             statusLabel.textColor = .yellow
-         }
        
+       else if(dict.driverArrived == true){
+            statusLabel.text = "Driver Arrived"
+            statusLabel.textColor = hexStringToUIColor("F7D63D")
+        }
         
+        else if(dict.accepted == true){
+             statusLabel.text = "Ongoing"
+             statusLabel.textColor = hexStringToUIColor("F7D63D")
+         }
+        else {
+             statusLabel.text = "Available"
+             statusLabel.textColor = hexStringToUIColor("F7D63D")
+         }        
     }
     
     

@@ -28,7 +28,7 @@ class ArrivalViewControoler: BaseViewController,Storyboarded {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setNavWithOutView(ButtonType.back,otpView)
+        self.setNavWithOutView(ButtonType.back)
         setupOtpView()
         
         bgView.isHidden = true
@@ -85,7 +85,7 @@ class ArrivalViewControoler: BaseViewController,Storyboarded {
     }
     
     @IBAction func thanksButtonAction(_ sender: Any) {
-        self.navigationController?.popToRootViewController(animated: false)
+        self.navigationController?.popViewController(animated: false)
     }
 }
 extension ArrivalViewControoler: OTPFieldViewDelegate {

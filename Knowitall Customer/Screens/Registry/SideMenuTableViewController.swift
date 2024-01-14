@@ -9,7 +9,7 @@ class SideMenuTableViewController: UIViewController, Storyboarded  {
     var coordinator: MainCoordinator?
     
     var tableView: UITableView!
-
+    
     lazy var viewModel : SettingViewModel = {
         let viewModel = SettingViewModel()
         return viewModel }()
@@ -43,17 +43,17 @@ class SideMenuTableViewController: UIViewController, Storyboarded  {
         SettingCell.registerWithTable(tableView)
         
         let imageView = UIImageView(image: UIImage(named: "logo"))
-               imageView.contentMode = .scaleAspectFit // Adjust content mode as needed
-               imageView.frame = CGRect(x: (view.frame.width - 175)/2, y: 0, width: 175, height: 175)
-               tableView.tableHeaderView = imageView
+        imageView.contentMode = .scaleAspectFit // Adjust content mode as needed
+        imageView.frame = CGRect(x: (view.frame.width - 175)/2, y: 0, width: 175, height: 175)
+        tableView.tableHeaderView = imageView
         
         
         let button = UIButton(frame: CGRect(x: 20, y: 100, width: 200, height: 60))
         button.setTitle("Sign Out", for: .normal)
         button.setTitleColor(.black, for: .normal)
         button.contentHorizontalAlignment = UIControl.ContentHorizontalAlignment.left
-//        button.addTarget(self, action: #selector(self.buttonTapped), for: .touchUpInside)
-//        tableView.tableFooterView = button
+        //        button.addTarget(self, action: #selector(self.buttonTapped), for: .touchUpInside)
+        //        tableView.tableFooterView = button
     }
     
     func buttonTapped() {
@@ -77,7 +77,7 @@ class SideMenuTableViewController: UIViewController, Storyboarded  {
             
             let menu = SideMenuManager.default.leftMenuNavigationController
             menu?.enableSwipeToDismissGesture = false
-
+            
             menu?.dismiss(animated: false, completion: {
                 let  appDelegate = UIApplication.shared.delegate as? AppDelegate
                 appDelegate?.autoLogin()
@@ -115,32 +115,52 @@ extension SideMenuTableViewController: UITableViewDataSource,UITableViewDelegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         
         coordinator = MainCoordinator(navigationController: self.navigationController!)
-
+        var isDismiss = true
+        
         if(indexPath.row == 0){
-         coordinator?.goToHelpView()
+            coordinator?.goToHelpView()
             
         }else if(indexPath.row == 1){
             coordinator?.goToRequest()
             
         }
-        else if(indexPath.row == 2){
-            guard let url = URL(string: "telprompt://+14438269314"),
+        else if(indexPath.row == 2){ /// my account
+            coordinator?.goToUpdateProfile()
+        }
+        else if(indexPath.row == 3){
+            guard let url = URL(string: "telprompt://\(countryCode)4104297030"),
                   UIApplication.shared.canOpenURL(url) else {
                 return
             }
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }
-        else if(indexPath.row == 4){
-            coordinator?.goToWebview(type: .TC)
+        else if(indexPath.row == 4){// promo code
         }
         else if(indexPath.row == 5){
-            coordinator?.goToWebview(type: .FAQ)
+            coordinator?.goToWebview(type: .TC)
+
         }
         else if(indexPath.row == 6){
-            self.buttonTapped()
+            coordinator?.goToWebview(type: .FAQ)
         }
         
-        dismiss(animated: true, completion: nil)
-      
+        else if(indexPath.row  == 7){
+            
+            isDismiss = false
+            
+            let  appDelegate = UIApplication.shared.delegate as? AppDelegate
+            
+            AlertWithAction(title:"Logout", message: "Are you sure that you want to Sign out from app?", ["Yes, Sign out","No"], vc: self, "FF543E") { [self] action in
+                if(action == 1){
+                    self.buttonTapped()
+                }
+            }
+        }
+        
+        
+        if(isDismiss){
+            dismiss(animated: true, completion: nil)
+            
+        }
     }
 }

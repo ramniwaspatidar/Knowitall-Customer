@@ -29,6 +29,8 @@ class SettingViewModel {
         
         settingArray.append(SettingModel( image: UIImage(named: "truck_black")! , placeholder: NSLocalizedString(LanguageText.number.rawValue, comment: ""), name: "Request"))
         
+        settingArray.append(SettingModel( image: UIImage(named: "account")! , placeholder: NSLocalizedString(LanguageText.number.rawValue, comment: ""), name: "My Account"))
+        
         settingArray.append(SettingModel( image: UIImage(named: "call")! , placeholder: NSLocalizedString(LanguageText.number.rawValue, comment: ""), name: "Call Directly"))
         
         settingArray.append(SettingModel( image: UIImage(named: "gift")! , placeholder: NSLocalizedString(LanguageText.number.rawValue, comment: ""), name: "My Promo Code"))

@@ -68,6 +68,9 @@
 		1A9C8AAB2B2CC15F000B1E7F /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9C8AAA2B2CC15F000B1E7F /* SettingViewModel.swift */; };
 		1AA087132B53012B007127DA /* ProfileResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA087122B53012B007127DA /* ProfileResponseModel.swift */; };
 		1AA087152B530693007127DA /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA087142B530693007127DA /* ProfileViewController.swift */; };
+		1AA0871B2B545B2B007127DA /* UpdateProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA0871A2B545B2B007127DA /* UpdateProfileViewController.swift */; };
+		1AA0871D2B545B5B007127DA /* UpdateProfileViewModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA0871C2B545B5A007127DA /* UpdateProfileViewModal.swift */; };
+		1AA0871F2B545BC0007127DA /* ImagePickerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA0871E2B545BC0007127DA /* ImagePickerManager.swift */; };
 		1AA8137E2B426AEA00F83DDA /* ArrivalViewModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA8137D2B426AEA00F83DDA /* ArrivalViewModal.swift */; };
 		1AA813922B45DC0800F83DDA /* PDFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA813912B45DC0800F83DDA /* PDFViewController.swift */; };
 		1AA813942B45DD7600F83DDA /* PTP.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 1AA813932B45DD7600F83DDA /* PTP.pdf */; };
@@ -154,6 +157,9 @@
 		1A9C8AAA2B2CC15F000B1E7F /* SettingViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
 		1AA087122B53012B007127DA /* ProfileResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileResponseModel.swift; sourceTree = "<group>"; };
 		1AA087142B530693007127DA /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		1AA0871A2B545B2B007127DA /* UpdateProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateProfileViewController.swift; sourceTree = "<group>"; };
+		1AA0871C2B545B5A007127DA /* UpdateProfileViewModal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateProfileViewModal.swift; sourceTree = "<group>"; };
+		1AA0871E2B545BC0007127DA /* ImagePickerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickerManager.swift; sourceTree = "<group>"; };
 		1AA8137D2B426AEA00F83DDA /* ArrivalViewModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrivalViewModal.swift; sourceTree = "<group>"; };
 		1AA813912B45DC0800F83DDA /* PDFViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFViewController.swift; sourceTree = "<group>"; };
 		1AA813932B45DD7600F83DDA /* PTP.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = PTP.pdf; sourceTree = "<group>"; };
@@ -229,6 +235,7 @@
 				1A558C542B18F0130013BD30 /* Extension.swift */,
 				1A558C5C2B18F0200013BD30 /* String+Extensions.swift */,
 				1A558C582B18F01A0013BD30 /* UIImageView+Extensions.swift */,
+				1AA0871E2B545BC0007127DA /* ImagePickerManager.swift */,
 				1A558C572B18F0180013BD30 /* UITableView+Additions.swift */,
 				1A558C5D2B18F0210013BD30 /* UIView+Extensions.swift */,
 				1A558C552B18F0150013BD30 /* View+Shadow.swift */,
@@ -254,6 +261,7 @@
 				1AD637552B28B71D0076EAD3 /* TrackingViewModel.swift */,
 				1AC834D72B3D39C500AD0CA6 /* RequestListViewModal.swift */,
 				1AA8137D2B426AEA00F83DDA /* ArrivalViewModal.swift */,
+				1AA0871C2B545B5A007127DA /* UpdateProfileViewModal.swift */,
 				1AA087122B53012B007127DA /* ProfileResponseModel.swift */,
 			);
 			path = ViewModel;
@@ -317,6 +325,7 @@
 				1A99CE6C2B1E3301004E0574 /* RequestViewController.swift */,
 				1A4262D02B2446B9008D0E0D /* AddressViewController.swift */,
 				1AC834D92B3D3BBE00AD0CA6 /* RequestListViewController.swift */,
+				1AA0871A2B545B2B007127DA /* UpdateProfileViewController.swift */,
 				1AA813912B45DC0800F83DDA /* PDFViewController.swift */,
 				1AA087142B530693007127DA /* ProfileViewController.swift */,
 			);
@@ -597,6 +606,7 @@
 				1AA087132B53012B007127DA /* ProfileResponseModel.swift in Sources */,
 				1A55ABBA2B1848FF001AEEBF /* NetworkManager.swift in Sources */,
 				1A558C602B18F0220013BD30 /* View+Shadow.swift in Sources */,
+				1AA0871F2B545BC0007127DA /* ImagePickerManager.swift in Sources */,
 				1AD637582B28CCB80076EAD3 /* ArrivalViewControoler.swift in Sources */,
 				1A99CE692B1E24C3004E0574 /* LocationViewController.swift in Sources */,
 				1A55ABC82B184957001AEEBF /* Constants.swift in Sources */,
@@ -606,6 +616,7 @@
 				1A99CE6F2B1E38C4004E0574 /* RequestViewModel.swift in Sources */,
 				1A558C6D2B18F1050013BD30 /* SigninInfoModel.swift in Sources */,
 				1A55ABB42B1848B7001AEEBF /* OTPViewController.swift in Sources */,
+				1AA0871D2B545B5B007127DA /* UpdateProfileViewModal.swift in Sources */,
 				1A55AB972B1847DE001AEEBF /* AppDelegate.swift in Sources */,
 				1AC834D52B3D372E00AD0CA6 /* RequestCell.swift in Sources */,
 				1A558C672B18F0220013BD30 /* String+Extensions.swift in Sources */,
@@ -637,6 +648,7 @@
 				1AA813922B45DC0800F83DDA /* PDFViewController.swift in Sources */,
 				1AD6375A2B2AA1B20076EAD3 /* MainViewController.swift in Sources */,
 				1AD6375E2B2AA1D20076EAD3 /* PresentedViewController.swift in Sources */,
+				1AA0871B2B545B2B007127DA /* UpdateProfileViewController.swift in Sources */,
 				1AC834D82B3D39C500AD0CA6 /* RequestListViewModal.swift in Sources */,
 				1AD637542B28B3F20076EAD3 /* TrackingViewController.swift in Sources */,
 				1A9C8AA82B2CC122000B1E7F /* SettingCell.swift in Sources */,

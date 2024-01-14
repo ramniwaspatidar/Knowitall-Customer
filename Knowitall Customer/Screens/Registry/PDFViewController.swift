@@ -12,7 +12,7 @@ class PDFViewController: BaseViewController, Storyboarded {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.setNavWithOutView(.back, self.view)
+        self.setNavWithOutView(.back)
         
         view.layoutIfNeeded()
         pdfView.frame = CGRect(x:8, y: 0, width: bgView.frame.size.width-16, height: bgView.frame.size.height)

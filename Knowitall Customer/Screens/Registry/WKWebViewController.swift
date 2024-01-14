@@ -11,36 +11,31 @@ enum WebViewType :Int{
 class WKWebViewController: BaseViewController,Storyboarded {
     var coordinator: MainCoordinator?
     
-    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var webView: WKWebView!
     
     var webViewType : WebViewType?
     
     override func viewDidLoad() {
         self.navigationController?.isNavigationBarHidden = false
-        
         super.viewDidLoad()
-        
-        setNavWithOutView(.back, self.view)
+        setNavWithOutView(.back)
         loadHTMPPage()
         
     }
     
-  
-
     fileprivate func loadHTMPPage(){
         if webViewType == WebViewType.TC{
-            titleLabel?.text = "Terms & Condition"
+            headerLabel?.text = "Terms & Condition"
             webView.load(URLRequest(url: URL(string: "https://discussions.apple.com/terms")!))
         }
         else if webViewType == WebViewType.policy{
-            titleLabel?.text = "Privacy Policy"
+            headerLabel?.text = "Privacy Policy"
             webView.load(URLRequest(url: URL(string: "https://discussions.apple.com/terms")!))
         }
         
         else if webViewType == WebViewType.FAQ
         {
-            titleLabel?.text = "FAQ’s"
+            headerLabel?.text = "FAQ’s"
             webView.load(URLRequest(url: URL(string: "https://discussions.apple.com/terms")!))
         }
     }

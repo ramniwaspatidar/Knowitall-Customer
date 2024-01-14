@@ -128,6 +128,8 @@ let kFontTextMedium  = "HelveticaNeue-Medium"
 let kcategory_id = "category_id"
 let kstudio_type_id = "studio_type_id"
 let kpass_type_id = "pass_type_id"
+let countryCode = "+91"
+
 
 
 
