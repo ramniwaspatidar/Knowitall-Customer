@@ -1689,8 +1689,8 @@
             filePath = "Knowitall Customer/Screens/Registry/ProfileViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "95"
-            endingLineNumber = "95"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
             landmarkName = "verifyOTP(_:_:handler:)"
             landmarkType = "7">
             <Locations>
@@ -1800,8 +1800,8 @@
             filePath = "Knowitall Customer/Screens/Registry/ProfileViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
             landmarkName = "createUser()"
             landmarkType = "7">
          </BreakpointContent>

@@ -76,6 +76,11 @@ class ProfileViewController: BaseViewController,Storyboarded {
                 self.verifyOTP(APIsEndPoints.ksignupUser.rawValue,dictParam, handler: {(mmessage,statusCode)in
                     DispatchQueue.main.async {
                         SVProgressHUD.dismiss()
+                        
+                        CurrentUserInfo.phone = self.viewModel.mobileNumber
+                        CurrentUserInfo.userName  = self.nameTextField.text
+                        CurrentUserInfo.email  = self.emailTextField.text
+
 
                         let appDelegate = UIApplication.shared.delegate as? AppDelegate
                         appDelegate?.autoLogin()

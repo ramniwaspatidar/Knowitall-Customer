@@ -243,7 +243,7 @@ class TrackingViewController: BaseViewController,Storyboarded {
             self.viewModel.cancelRequest(APIsEndPoints.kCancelRequest.rawValue + (self.viewModel.dictRequest?.requestId ?? ""), param) { response, code in
                 
                 self.getRequestDetails(false)
-                Alert(title: "Cancel Request", message: "Your request cancel successfully", vc: self)
+                Alert(title: "Cancel Request", message: "Your request was cancelled successfully.", vc: self)
                 
             }
         }
