@@ -15,7 +15,7 @@ class NetworkManager {
             return
         }
         if(hude){
-            SVProgressHUD.show(withStatus: "Loading...")
+            SVProgressHUD.show()
             SVProgressHUD.setDefaultMaskType(.clear)
         }
  
@@ -30,7 +30,7 @@ class NetworkManager {
         }
         
         if(hude){
-            SVProgressHUD.show(withStatus: "Loading...")
+            SVProgressHUD.show()
             SVProgressHUD.setDefaultMaskType(.clear)
         }
  
@@ -49,7 +49,7 @@ class NetworkManager {
 
         if(hude){
             
-            SVProgressHUD.show(withStatus: "Loading...")
+            SVProgressHUD.show()
             SVProgressHUD.setDefaultMaskType(.clear)
             
         }
@@ -134,6 +134,64 @@ class NetworkManager {
         }
     }
     
+    public func imageDataUploadRequest(_ url: URL, HUD:Bool,showSystemError:Bool,loadingText:Bool, param: Data,contentType:String, completionHandler:@escaping (_ response: Bool?, _ Error :Error? ) -> Void) {
+            
+        
+        if(HUD){
+            DispatchQueue.main.async {
+                SVProgressHUD.show()
+            }
+        }
+          
+            let urlRequest: NSMutableURLRequest = NSMutableURLRequest(url: url)
+            let session = URLSession.shared
+            urlRequest.timeoutInterval = 180
+            urlRequest.httpMethod = "PUT"
+            urlRequest.setValue(contentType, forHTTPHeaderField: "Content-Type")
+    //        urlRequest.setValue("video/mp4", forHTTPHeaderField: "Content-Type")
+            urlRequest.setValue("\(([UInt8](param)).count)", forHTTPHeaderField: "Content-Length")
+            
+            let task =  session.uploadTask(with: urlRequest as URLRequest, from: param) { (data, response, error) in
+                // hide HUD
+                DispatchQueue.main.async {
+                    //  Hide Activity Indicator here
+                    if(HUD){
+                        SVProgressHUD.dismiss()
+                    }
+                }
+                
+                if error != nil {
+                    print("Error occurred:"+(error?.localizedDescription)!)
+                    DispatchQueue.main.async {
+                        completionHandler(nil, error! as Error)
+//                        if showSystemError == true{
+//                            Alert(title: "Error", message: error!.localizedDescription, vc: appDelegate)
+//                        }
+                    }
+                    return;
+                }
+                else{
+                    if let httpResponse = response as? HTTPURLResponse {
+                        if(httpResponse.statusCode == 200){
+                            completionHandler(true,nil)
+                            return
+                        }
+                        else{
+                            let str = String(decoding: data ?? Data(), as: UTF8.self)
+                            print(str)
+                        }
+                    }
+                    else{
+                        let str = String(decoding: data ?? Data(), as: UTF8.self)
+                        print(str)
+                    }
+                    completionHandler(nil,nil)
+                    return
+                }
+            }
+            
+            task.resume()
+        }
 //    func uploadImage(_ url : URL,_ params : [String : Any],_ fileName: String,_ image: UIImage,_ hude : Bool, networkHandler:@escaping ((_ responce : [String : Any], _ statusCode : Int) -> Void)) {
 //
 //        if !ReachabilityTest.isConnectedToNetwork() {

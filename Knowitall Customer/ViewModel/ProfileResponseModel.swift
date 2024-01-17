@@ -7,7 +7,6 @@ import ObjectMapper
 struct ProfileResponseModel : Mappable {
     var accessToken : String?
     var refreshToken : String?
-    var fullName : String?
     var customerId : String?
     var email : String?
     var code :String?
@@ -18,6 +17,9 @@ struct ProfileResponseModel : Mappable {
     var dutyStarted : Bool?
     var requestInWeek : Int?
     var requestInDay : Int?
+    var profileImage : String?
+    var name : String?
+
 
     init?(map: Map) {
 
@@ -30,7 +32,6 @@ struct ProfileResponseModel : Mappable {
     mutating func mapping(map: Map) {
         accessToken <- map["accessToken"]
         refreshToken <- map["refreshToken"]
-        fullName <- map["name"]
         customerId <- map["customerId"]
         email <- map["email"]
         code <- map["code"]
@@ -41,6 +42,10 @@ struct ProfileResponseModel : Mappable {
         dutyStarted <- map["dutyStarted"]
         requestInWeek <- map["requestInWeek"]
         requestInDay <- map["requestInDay"]
+        profileImage <- map["profileImage"]
+        name <- map["name"]
+
+        
     }
 }
 

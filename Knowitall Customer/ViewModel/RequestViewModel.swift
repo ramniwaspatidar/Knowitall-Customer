@@ -43,7 +43,7 @@ class RequestViewModel {
         
         let phoneNumber = requestData?.phoneNumber?.components(separatedBy: "+")
         var number = CurrentUserInfo.phone ?? ""
-        let name = CurrentUserInfo.userName ?? ""
+        let name = CurrentUserInfo.userName ??  ""
 
         
         
@@ -54,7 +54,7 @@ class RequestViewModel {
         }
         
         
-        infoArray.append(RequestTypeModel(type: .service, placeholder: NSLocalizedString("Type of service request", comment: ""), value: requestModel?.requestType ?? "", header: "Type of service requested"))
+        infoArray.append(RequestTypeModel(type: .service, placeholder: NSLocalizedString("Type of service request", comment: ""), value: requestModel?.requestType ?? "Accident", header: "Type of service requested"))
         
         infoArray.append(RequestTypeModel(type: .description, placeholder: NSLocalizedString("Type ...", comment: ""), value: requestModel?.requestType ?? "", header: "Please briefly explain the situation"))
         

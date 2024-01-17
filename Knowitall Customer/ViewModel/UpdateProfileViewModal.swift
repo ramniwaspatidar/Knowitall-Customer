@@ -37,9 +37,9 @@ class UpdateProfileViewModal {
     var phoneNumberTextFiled: CustomTextField!
     
     func prepareInfo(dictInfo : ProfileResponseModel)-> [UpdateProfileInfoModel]{
-        infoArray.append(UpdateProfileInfoModel(type: .name, placeholder: "Enter", value: dictInfo.fullName ?? "", header: "Enter Name"))
+        infoArray.append(UpdateProfileInfoModel(type: .name, placeholder: "Enter", value: dictInfo.name ?? "", header: "Enter Name"))
         
-        infoArray.append(UpdateProfileInfoModel(type: .email, placeholder: "Enter", value: dictInfo.phoneNumber ?? "", header: "Email Number"))
+        infoArray.append(UpdateProfileInfoModel(type: .email, placeholder: "Enter", value: dictInfo.email ?? "", header: "Email Number"))
         
         return infoArray
     }
@@ -63,6 +63,10 @@ class UpdateProfileViewModal {
                     return
                 }
                 dictParam["email"] = dataStore[index].value.trimmingCharacters(in: .whitespaces) as AnyObject
+                dictParam["countryCode"] = countryCode as AnyObject
+                dictParam["phoneNumber"] = CurrentUserInfo.phone as AnyObject
+                
+
             }
         }
         
@@ -70,7 +74,42 @@ class UpdateProfileViewModal {
     }
     
     
+    func updateProfile(_ apiEndPoint: String,_ param : [String : Any], handler: @escaping (ProfileResponseModel,Int) -> Void) {
+        guard let url = URL(string: Configuration().environment.baseURL + apiEndPoint) else {return}
+        NetworkManager.shared.postRequest(url, true, "", params: param, networkHandler: {(responce,statusCode) in
+            print(responce)
+            
+            APIHelper.parseObject(responce, true) { payload, status, message, code in
+                if status {
+                    let dictResponce =  Mapper<ProfileResponseModel>().map(JSON: payload)
+                    handler(dictResponce!,0)
+                }
+                else{
+                    handler(ProfileResponseModel(),-1)
+                }
+            }
+        })
+    }
     
+    func getProfileUploadUrl(_ apiEndPoint: String, handler: @escaping (String,Int) -> Void) {
+        guard let url = URL(string: Configuration().environment.baseURL + apiEndPoint) else {return}
+        NetworkManager.shared.getRequest(url, true, "", networkHandler: {(responce,statusCode) in
+            print(responce)
+            
+            APIHelper.parseObject(responce, true) { payload, status, message, code in
+                if status {
+                    
+                    if let urls : [String] = payload["preSignedUrls"] as? [String]{
+                        handler(urls[0],0)
+                    }
+                    
+                }
+                else{
+                    handler("",-1)
+                }
+            }
+        })
+    }
     
     
 }

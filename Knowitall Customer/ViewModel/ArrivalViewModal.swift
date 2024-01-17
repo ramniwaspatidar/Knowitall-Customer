@@ -22,10 +22,10 @@ struct ArrivalModal{
 
 class ArrivalViewModal {
             
-    func confirmArrival(_ apiEndPoint: String,_ param : [String : Any], handler: @escaping (RequestListModal?,Int) -> Void) {
+    func confirmArrival(_ apiEndPoint: String,_ param : [String : Any], hud : Bool = false, handler: @escaping (RequestListModal?,Int) -> Void) {
         
         guard let url = URL(string: Configuration().environment.baseURL + apiEndPoint) else {return}
-        NetworkManager.shared.postRequest(url, false, "", params: param, networkHandler: {(responce,statusCode) in
+        NetworkManager.shared.postRequest(url, hud, "", params: param, networkHandler: {(responce,statusCode) in
             APIHelper.parseObject(responce, true) { payload, status, message, code in
                 if status {
                     let dictResponce =  Mapper<RequestListModal>().map(JSON: payload)

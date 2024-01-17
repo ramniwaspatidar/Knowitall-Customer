@@ -45,6 +45,7 @@ class RequestViewController: BaseViewController,Storyboarded, RTCustomAlertDeleg
         
         serviceTypleLabel.alpha = 1;
         serviceTypleLabel.textColor = UIColor.white
+        serviceTypleLabel.text = typeOfService[0]
         
         viewBG.layer.borderWidth = 1
         viewBG.layer.borderColor = UIColor.black.cgColor
@@ -82,6 +83,8 @@ class RequestViewController: BaseViewController,Storyboarded, RTCustomAlertDeleg
         }else{
             editAddressButton.isHidden = false
         }
+        
+        
         
     }
     

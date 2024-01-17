@@ -9,5 +9,7 @@ public enum APIsEndPoints: String {
     case kConfirmArrival = "requests/confirmarrival/"
     case kCancelRequest = "requests/cancel/"
     case kGetMe = "customers/me"
+    case kUploadImage = "customers/pre-signed-url?count=1"
+
 
 }

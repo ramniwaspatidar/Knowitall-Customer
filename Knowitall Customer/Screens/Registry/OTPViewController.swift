@@ -105,7 +105,7 @@ class OTPViewController: BaseViewController,Storyboarded {
                     
                     CurrentUserInfo.userId = dictResponce?.customerId
                     CurrentUserInfo.phone = self.mobileNumber
-                    CurrentUserInfo.userName  = dictResponce?.fullName
+                    CurrentUserInfo.userName  = dictResponce?.name
                     CurrentUserInfo.email  = dictResponce?.email
 
                     let appDelegate = UIApplication.shared.delegate as? AppDelegate

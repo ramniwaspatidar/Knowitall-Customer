@@ -16,6 +16,9 @@ class UpdateProfileViewController: BaseViewController,Storyboarded {
     @IBOutlet weak var emailTextField: CustomTextField!
     @IBOutlet weak var nameTextField: CustomTextField!
     
+    var profileImageUrl = ""
+
+    
       var viewModel : UpdateProfileViewModal = {
         let viewModel = UpdateProfileViewModal()
         return viewModel }()
@@ -61,7 +64,7 @@ class UpdateProfileViewController: BaseViewController,Storyboarded {
         nameTextField.layer.borderWidth = 1
         nameTextField.layer.borderColor = hexStringToUIColor("E1E3AD").cgColor
         nameTextField.clipsToBounds = true
-        nameTextField.text = viewModel.dictData?.fullName ?? CurrentUserInfo.userName
+        nameTextField.text = viewModel.dictData?.name ?? CurrentUserInfo.userName
         nameTextField.layer.cornerRadius = 5
         nameTextField.attributedPlaceholder = NSAttributedString(string: "Enter name", attributes: [NSAttributedString.Key.foregroundColor : UIColor.lightGray])
         
@@ -72,7 +75,11 @@ class UpdateProfileViewController: BaseViewController,Storyboarded {
         emailTextField.text = viewModel.dictData?.email ?? CurrentUserInfo.email
         emailTextField.layer.cornerRadius = 5
         emailTextField.attributedPlaceholder = NSAttributedString(string: "Enter email", attributes: [NSAttributedString.Key.foregroundColor : UIColor.lightGray])
- 
+        
+        if((self.viewModel.dictData?.profileImage) != nil){
+            self.profileImageUrl =  self.viewModel.dictData?.profileImage  ?? ""
+            self.profileImage.load(url:URL(string: self.viewModel.dictData?.profileImage ?? "")!)
+        }
         
     }
     
@@ -85,12 +92,43 @@ class UpdateProfileViewController: BaseViewController,Storyboarded {
         }
     }
     
+    func getProfileImageUploadUrl(_ img : UIImage){
+        self.viewModel.getProfileUploadUrl(APIsEndPoints.kUploadImage.rawValue, handler: {[weak self](result,statusCode)in
+            if statusCode ==  0{
+                self?.uploadImage(result, img.jpegData(compressionQuality: 0.7)!, _contentType: "image/jpeg")
+            }
+        })
+    }
+  
+    
+    func uploadImage(_ thumbURL:String, _ thumbnail:Data,_contentType:String){
+            let requestURL:URL = URL(string: thumbURL)!
+            NetworkManager.shared.imageDataUploadRequest(requestURL, HUD: true, showSystemError: false, loadingText: false, param: thumbnail, contentType: _contentType) { (sucess, error) in
+                print("thumbnail image")
+                if (sucess ?? false) == true{
+                    
+                    let temp = thumbURL.split(separator: "?")
+                    
+                    if let some = temp.first {
+                        let value = String(some)
+                        self.profileImageUrl = value
+                        self.updateUserInfo()
+
+                    }
+                }
+            }
+                      
+        }
+    
     @IBAction func updateProfileAction(_ sender: Any) {
         
         viewModel.validateFields(dataStore: viewModel.infoArray) { (dict, msg, isSucess) in
             if isSucess {
-                self.updateUserInfo()
-            }
+                if(self.profileImage != nil && self.profileImage.image != nil){
+                    self.getProfileImageUploadUrl(self.profileImage.image!)
+                }else{
+                    self.updateUserInfo()
+                }            }
             else {
                 DispatchQueue.main.async {
                     Alert(title: "", message: msg, vc: self)
@@ -105,20 +143,26 @@ class UpdateProfileViewController: BaseViewController,Storyboarded {
 
         viewModel.validateFields(dataStore: viewModel.infoArray) { (dict, msg, isSucess) in
             
+            var dictParams = dict
+            
+            if(self.profileImageUrl != ""){
+                dictParams["profileImage"] = self.profileImageUrl as AnyObject
+            }
+            
             if isSucess {
-//                self.updateProfileModal.updateProfile(APIsEndPoints.ksignupUser.rawValue,dict, handler: {[weak self](result,statusCode)in
-//                    if statusCode ==  0{
-//                        DispatchQueue.main.async {
-//                            CurrentUserInfo.userId = result.driverId
-//                                CurrentUserInfo.userName = result.fullName
-//                                CurrentUserInfo.email = result.email
-//                                CurrentUserInfo.phone = "\(countryCode) \(self?.emailTextField.text ?? "0")"
-//                            Alert(title: "Update", message: "Profile susscessfully updated", vc: self!)
-//
-//                                                        
-//                        }
-//                    }
-//                })
+                self.viewModel.updateProfile(APIsEndPoints.ksignupUser.rawValue,dictParams, handler: {[weak self](result,statusCode)in
+                    if statusCode ==  0{
+                        DispatchQueue.main.async {
+                            CurrentUserInfo.userId = result.customerId
+                                CurrentUserInfo.userName = result.name
+                                CurrentUserInfo.email = result.email
+                            CurrentUserInfo.phone = "\(result.phoneNumber ?? "0")"
+                            Alert(title: "Update", message: "Profile susscessfully updated", vc: self!)
+
+                                                        
+                        }
+                    }
+                })
              }
              else {
              Alert(title: "", message: msg, vc: self)
@@ -160,3 +204,16 @@ extension UpdateProfileViewController: UITextFieldDelegate {
 
 
 
+extension UIImageView {
+    func load(url: URL) {
+        DispatchQueue.global().async { [weak self] in
+            if let data = try? Data(contentsOf: url) {
+                if let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        self?.image = image
+                    }
+                }
+            }
+        }
+    }
+}
