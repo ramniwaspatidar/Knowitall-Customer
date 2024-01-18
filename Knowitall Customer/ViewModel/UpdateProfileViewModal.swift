@@ -58,10 +58,11 @@ class UpdateProfileViewModal {
                 dictParam["name"] = dataStore[index].value.trimmingCharacters(in: .whitespaces) as AnyObject
                 
             case .email:
-                if dataStore[index].value.trimmingCharacters(in: .whitespaces) == ""{
-                    validHandler([:], NSLocalizedString(LanguageText.email.rawValue, comment: ""), false)
+                if dataStore[index].value.trimmingCharacters(in: .whitespaces) != "" && !dataStore[index].value.trimmingCharacters(in: .whitespaces).isValidEmail() {
+                    validHandler([:], NSLocalizedString(LanguageText.validEmail.rawValue, comment: ""), false)
                     return
                 }
+                
                 dictParam["email"] = dataStore[index].value.trimmingCharacters(in: .whitespaces) as AnyObject
                 dictParam["countryCode"] = countryCode as AnyObject
                 dictParam["phoneNumber"] = CurrentUserInfo.phone as AnyObject

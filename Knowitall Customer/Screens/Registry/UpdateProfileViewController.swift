@@ -16,6 +16,8 @@ class UpdateProfileViewController: BaseViewController,Storyboarded {
     @IBOutlet weak var emailTextField: CustomTextField!
     @IBOutlet weak var nameTextField: CustomTextField!
     
+    var isImageChanged = false
+    
     var profileImageUrl = ""
 
     
@@ -92,6 +94,7 @@ class UpdateProfileViewController: BaseViewController,Storyboarded {
     
     @IBAction func chooseProfileAction(_ sender: Any) {
             ImagePickerManager().pickImage(self){ image in
+                self.isImageChanged = true
                 self.profileImage.image = image
         }
     }
@@ -110,9 +113,7 @@ class UpdateProfileViewController: BaseViewController,Storyboarded {
             NetworkManager.shared.imageDataUploadRequest(requestURL, HUD: true, showSystemError: false, loadingText: false, param: thumbnail, contentType: _contentType) { (sucess, error) in
                 print("thumbnail image")
                 if (sucess ?? false) == true{
-                    
                     let temp = thumbURL.split(separator: "?")
-                    
                     if let some = temp.first {
                         let value = String(some)
                         self.profileImageUrl = value
@@ -125,14 +126,14 @@ class UpdateProfileViewController: BaseViewController,Storyboarded {
         }
     
     @IBAction func updateProfileAction(_ sender: Any) {
-        
         viewModel.validateFields(dataStore: viewModel.infoArray) { (dict, msg, isSucess) in
             if isSucess {
-                if(self.profileImage != nil && self.profileImage.image != nil){
+                if(self.isImageChanged){
                     self.getProfileImageUploadUrl(self.profileImage.image!)
                 }else{
                     self.updateUserInfo()
-                }            }
+                }
+            }
             else {
                 DispatchQueue.main.async {
                     Alert(title: "", message: msg, vc: self)
@@ -141,29 +142,22 @@ class UpdateProfileViewController: BaseViewController,Storyboarded {
         }
     }
     
-
-    
     func updateUserInfo() {
-
         viewModel.validateFields(dataStore: viewModel.infoArray) { (dict, msg, isSucess) in
-            
             var dictParams = dict
-            
-            if(self.profileImageUrl != ""){
+            if(self.isImageChanged){
                 dictParams["profileImage"] = self.profileImageUrl as AnyObject
             }
-            
             if isSucess {
                 self.viewModel.updateProfile(APIsEndPoints.ksignupUser.rawValue,dictParams, handler: {[weak self](result,statusCode)in
                     if statusCode ==  0{
                         DispatchQueue.main.async {
                             CurrentUserInfo.userId = result.customerId
-                                CurrentUserInfo.userName = result.name
-                                CurrentUserInfo.email = result.email
+                            CurrentUserInfo.userName = result.name
+                            CurrentUserInfo.email = result.email
                             CurrentUserInfo.phone = "\(result.phoneNumber ?? "0")"
+                            self?.isImageChanged = false
                             Alert(title: "Update", message: "Profile susscessfully updated", vc: self!)
-
-                                                        
                         }
                     }
                 })

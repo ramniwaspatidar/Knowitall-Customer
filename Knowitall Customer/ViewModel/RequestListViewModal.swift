@@ -71,7 +71,7 @@ struct RequestListModal : Mappable {
         driverPhoneNumber <- map["driverPhoneNumber"]
         completed <- map["completed"]
         isRunning <- map["isRunning"]
-        isRunning <- map["done"]
+        done <- map["done"]
     }
 }
 

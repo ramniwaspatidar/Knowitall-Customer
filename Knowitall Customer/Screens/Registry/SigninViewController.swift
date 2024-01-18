@@ -37,7 +37,7 @@ class SigninViewController: UIViewController,Storyboarded  {
         mobileField.layer.borderWidth = 1
         mobileField.layer.borderColor = UIColor.black.cgColor
         mobileField.layer.cornerRadius = 8
-        
+        mobileField.keyboardType = .phonePad
         mobileField.becomeFirstResponder()
         
         mobileField.delegate = self;
