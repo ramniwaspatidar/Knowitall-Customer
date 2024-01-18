@@ -78,32 +78,37 @@ class MainCoordinator : Coordinator{
     func goToHelpView() {
         let vc = HelpViewController.instantiate()
         vc.coordinator = self
-        navigationController.pushViewController(vc, animated: false)
+        navigationController.viewControllers = [vc]
+//        navigationController.pushViewController(vc, animated: false)
     }
     
     func goToUpdateProfile(_ userNotExist : Bool = false) {
         let vc = UpdateProfileViewController.instantiate()
         vc.coordinator = self
-        navigationController.pushViewController(vc, animated: false)
+        navigationController.viewControllers = [vc]
+//        navigationController.pushViewController(vc, animated: false)
     }
     func goToRequest() {
         let vc = RequestListViewController.instantiate()
         vc.coordinator = self
-        navigationController.pushViewController(vc, animated: false)
+        navigationController.viewControllers = [vc]
+//        navigationController.pushViewController(vc, animated: false)
     }
     
     func goToWebview(type : WebViewType){
         let vc = WKWebViewController.instantiate()
         vc.coordinator = self
         vc.webViewType = type
-        navigationController.pushViewController(vc, animated: false)
+        navigationController.viewControllers = [vc]
+//        navigationController.pushViewController(vc, animated: false)
     }
     
     func goToProfile(_ number : String){
         let vc = ProfileViewController.instantiate()
         vc.coordinator = self
         vc.viewModel.mobileNumber = number
-        navigationController.pushViewController(vc, animated: false)
+        navigationController.viewControllers = [vc]
+//        navigationController.pushViewController(vc, animated: false)
     }
       
 }

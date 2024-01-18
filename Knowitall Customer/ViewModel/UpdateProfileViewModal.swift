@@ -66,8 +66,6 @@ class UpdateProfileViewModal {
                 dictParam["email"] = dataStore[index].value.trimmingCharacters(in: .whitespaces) as AnyObject
                 dictParam["countryCode"] = countryCode as AnyObject
                 dictParam["phoneNumber"] = CurrentUserInfo.phone as AnyObject
-                
-
             }
         }
         

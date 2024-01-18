@@ -21,7 +21,7 @@ class HelpViewController: BaseViewController,Storyboarded {
         SideMenuManager.default.addScreenEdgePanGesturesToPresent(toView: view)
         
         super.viewDidLoad()
-        self.setNavWithOutView(.menu)
+        self.setMenuWithBigLogo()
         viewModel.infoArray = (self.viewModel.prepareInfo(dictInfo: viewModel.dictInfo))
         
         coordinator = MainCoordinator(navigationController: self.navigationController!)

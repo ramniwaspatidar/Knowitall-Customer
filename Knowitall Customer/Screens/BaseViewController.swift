@@ -63,7 +63,7 @@ class BaseViewController: UIViewController {
         headerLabel?.font =  UIFont.init(name: ("Poppins"), size: 16.0)
         
         
-        logoImage = UIImageView(frame: CGRect(x: self.view.frame.size.width - 70, y: CGFloat((topBarHeight)/2), width: 50,height: 50))
+        logoImage = UIImageView(frame: CGRect(x: self.view.frame.size.width - 80, y: CGFloat((topBarHeight)/2)-11.0, width: 72,height: 72))
         logoImage?.image = UIImage(named: "logo")
         
         
@@ -82,7 +82,30 @@ class BaseViewController: UIViewController {
         }
         
         view.addSubview(backButton!)
+    }
+    
+    func setMenuWithBigLogo(){
         
+        self.buttonType = .menu
+        
+        var topBarHeight = 34
+        if UIDevice().userInterfaceIdiom == .phone && UIScreen.main.nativeBounds.height <= 1335 {
+            topBarHeight = topBarHeight + 44
+            logoImage = UIImageView(frame: CGRect(x: self.view.frame.size.width - 90, y: CGFloat((topBarHeight)/2), width: 72,height: 72))
+        }else{
+            topBarHeight = topBarHeight + 64
+            logoImage = UIImageView(frame: CGRect(x: (Int(self.view.frame.size.width) - 150)/2, y: topBarHeight, width: 150,height: 150))
+        }
+        
+        // menu Button
+        backButton = CustomButton(frame: CGRect(x: 16, y: CGFloat((topBarHeight)/2) , width: 70, height: 50))
+        backButton!.addTarget(self, action:#selector(buttonAction), for: .touchUpInside)
+        backButton.setImage(UIImage(named: "menu"), for: .normal)
+        
+        logoImage?.image = UIImage(named: "logo")
+        
+        self.view.addSubview(backButton!)
+        self.view.addSubview(logoImage!)
     }
     
     @objc func buttonAction() {

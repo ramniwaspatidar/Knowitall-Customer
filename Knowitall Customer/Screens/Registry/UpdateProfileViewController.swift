@@ -170,7 +170,11 @@ class UpdateProfileViewController: BaseViewController,Storyboarded {
                             CurrentUserInfo.email = result.email
                             CurrentUserInfo.phone = "\(result.phoneNumber ?? "0")"
                             self?.isImageChanged = false
-                            Alert(title: "Update", message: "Profile susscessfully updated", vc: self!)
+                            AlertWithOkAction(title: "Update", message: "Profile susscessfully updated", vc: self!){ [self] action in
+                                if(action == 1){
+                                    self?.coordinator?.goToHelpView()
+                                }
+                            }
                         }
                     }
                 })
