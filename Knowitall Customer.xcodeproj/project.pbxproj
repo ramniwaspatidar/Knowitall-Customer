@@ -89,6 +89,7 @@
 		1AD6375E2B2AA1D20076EAD3 /* PresentedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD6375D2B2AA1D20076EAD3 /* PresentedViewController.swift */; };
 		44162B2A2B4A8296000FE68B /* Location1.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 44162B292B4A8296000FE68B /* Location1.gpx */; };
 		B4A646A61F394F0B58FF0E95 /* Pods_Knowitall_Customer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36B51A790C1B2408FD7E8777 /* Pods_Knowitall_Customer.framework */; };
+		BF76B0AF2B5964B6008E8FA6 /* PickerViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF76B0AB2B5964B6008E8FA6 /* PickerViewViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -179,6 +180,7 @@
 		36B51A790C1B2408FD7E8777 /* Pods_Knowitall_Customer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Knowitall_Customer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		44162B292B4A8296000FE68B /* Location1.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Location1.gpx; sourceTree = "<group>"; };
 		55482FF891D49C4CE5941A65 /* Pods-Knowitall Customer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Knowitall Customer.debug.xcconfig"; path = "Target Support Files/Pods-Knowitall Customer/Pods-Knowitall Customer.debug.xcconfig"; sourceTree = "<group>"; };
+		BF76B0AB2B5964B6008E8FA6 /* PickerViewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerViewViewController.swift; sourceTree = "<group>"; };
 		BFA17E952B4584DF00FED6BD /* Knowitall Customer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Knowitall Customer.entitlements"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -346,6 +348,7 @@
 		1A55ABBE2B184905001AEEBF /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				BF76B0A72B5964B6008E8FA6 /* Picker */,
 				1A55ABBF2B184957001AEEBF /* AppGuide.swift */,
 				1A4262D42B24BAAB008D0E0D /* alert */,
 				1A55ABC12B184957001AEEBF /* Configuration.swift */,
@@ -445,6 +448,14 @@
 				1AD637572B28CCB80076EAD3 /* ArrivalViewControoler.swift */,
 			);
 			path = Traking;
+			sourceTree = "<group>";
+		};
+		BF76B0A72B5964B6008E8FA6 /* Picker */ = {
+			isa = PBXGroup;
+			children = (
+				BF76B0AB2B5964B6008E8FA6 /* PickerViewViewController.swift */,
+			);
+			path = Picker;
 			sourceTree = "<group>";
 		};
 		D0C39C768280004B8449CEAE /* Pods */ = {
@@ -654,6 +665,7 @@
 				1A9C8AA82B2CC122000B1E7F /* SettingCell.swift in Sources */,
 				1A558C692B18F0220013BD30 /* CustomLabel+Extention.swift in Sources */,
 				1A55ABBB2B1848FF001AEEBF /* APIsEndPoint.swift in Sources */,
+				BF76B0AF2B5964B6008E8FA6 /* PickerViewViewController.swift in Sources */,
 				1A558C682B18F0220013BD30 /* UIView+Extensions.swift in Sources */,
 				1AD637562B28B71D0076EAD3 /* TrackingViewModel.swift in Sources */,
 				1A55ABCD2B184957001AEEBF /* CurrentUserInfo.swift in Sources */,

@@ -12,12 +12,6 @@
 				<string>com.googleusercontent.apps.911959154257-8ivd73jdrqrocdiqqv1a2vrp0p2hjmgd</string>
 			</array>
 		</dict>
-		<dict>
-			<key>CFBundleTypeRole</key>
-			<string>None</string>
-			<key>CFBundleURLSchemes</key>
-			<array/>
-		</dict>
 	</array>
 	<key>FirebaseAppDelegateProxyEnabled</key>
 	<false/>
@@ -49,5 +43,17 @@
 		<string>processing</string>
 		<string>remote-notification</string>
 	</array>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>We would like to use location current address</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>We would like to use location current address</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We would like to use location current address</string>
+	<key>NSCameraUsageDescription</key>
+	<string>We would like to use camera to save image in profile photo</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>We would like to use gallery to save image in profile photo</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>We would like to use gallery to save image in profile photo</string>
 </dict>
 </plist>

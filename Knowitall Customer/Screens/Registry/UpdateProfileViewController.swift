@@ -59,7 +59,7 @@ class UpdateProfileViewController: BaseViewController,Storyboarded {
     
     private func UISetup(){
         
-        emailLabel.text = CurrentUserInfo.email ?? ""
+        emailLabel.text = CurrentUserInfo.phone ?? ""
         
         nameTextField.layer.borderWidth = 1
         nameTextField.layer.borderColor = hexStringToUIColor("E1E3AD").cgColor
@@ -67,6 +67,9 @@ class UpdateProfileViewController: BaseViewController,Storyboarded {
         nameTextField.text = viewModel.dictData?.name ?? CurrentUserInfo.userName
         nameTextField.layer.cornerRadius = 5
         nameTextField.attributedPlaceholder = NSAttributedString(string: "Enter name", attributes: [NSAttributedString.Key.foregroundColor : UIColor.lightGray])
+        nameTextField.keyboardType = .default
+        nameTextField.autocapitalizationType = .words
+        nameTextField.autocorrectionType = .no
         
         
         emailTextField.layer.borderWidth = 1
@@ -74,7 +77,10 @@ class UpdateProfileViewController: BaseViewController,Storyboarded {
         emailTextField.clipsToBounds = true
         emailTextField.text = viewModel.dictData?.email ?? CurrentUserInfo.email
         emailTextField.layer.cornerRadius = 5
+        emailTextField.keyboardType = .emailAddress
         emailTextField.attributedPlaceholder = NSAttributedString(string: "Enter email", attributes: [NSAttributedString.Key.foregroundColor : UIColor.lightGray])
+        emailTextField.autocapitalizationType = .none
+        emailTextField.autocorrectionType = .no
         
         if((self.viewModel.dictData?.profileImage) != nil){
             self.profileImageUrl =  self.viewModel.dictData?.profileImage  ?? ""
@@ -85,10 +91,8 @@ class UpdateProfileViewController: BaseViewController,Storyboarded {
     
     
     @IBAction func chooseProfileAction(_ sender: Any) {
-        
             ImagePickerManager().pickImage(self){ image in
                 self.profileImage.image = image
-            
         }
     }
     

@@ -97,11 +97,21 @@ class RequestViewController: BaseViewController,Storyboarded, RTCustomAlertDeleg
         
     }
     @IBAction func requestButton(_ sender: Any) {
-        RPicker.selectOption(dataArray: typeOfService) { [weak self](str, selectedIndex) in
-            self?.viewModel.infoArray[0].value = str
-            self!.serviceTypleLabel.text = str
-            //            self?.tblView.reloadData()
+        var temValue = self.viewModel.infoArray[0].value
+        let alert = UIAlertController(style: .alert, title: "Service requested", message: "")
+        let pickerViewValues: [[String]] = [typeOfService]
+        let pickerViewSelectedValue: PickerViewViewController.Index = (column: 0, row: typeOfService.firstIndex(of: self.viewModel.infoArray[0].value) ?? 0)
+        
+        alert.addPickerView(values: pickerViewValues, initialSelection: pickerViewSelectedValue) { vc, picker, index, values in
+            temValue = self.typeOfService[index.row]
         }
+        alert.addAction(title: "Done", style: .cancel,handler: { (action:UIAlertAction!) -> Void in
+            DispatchQueue.main.async {
+                self.viewModel.infoArray[0].value = temValue
+                self.serviceTypleLabel.text = temValue
+            }
+        })
+        alert.show()
     }
  
     func addressChangeAction(infoArray: [AddressTypeModel]) {
@@ -213,6 +223,8 @@ extension RequestViewController: UITableViewDataSource {
             name.returnKeyType = .next
             name.text = viewModel.infoArray[2].value
             name.isUserInteractionEnabled = true
+            name.autocapitalizationType = .words
+            name.autocorrectionType = .no
             
             
         case 1:
@@ -220,7 +232,7 @@ extension RequestViewController: UITableViewDataSource {
             mobile.delegate = self
             mobile.returnKeyType = .next
             mobile.text = viewModel.infoArray[3].value
-            mobile.keyboardType = .numberPad
+            mobile.keyboardType = .phonePad
             
         default:
             break
