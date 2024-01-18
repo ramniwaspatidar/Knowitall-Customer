@@ -20,16 +20,16 @@ class BaseViewController: UIViewController {
     var headerLabel : UILabel?
     var logoImage : UIImageView?
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-//        imgView = UIImageView(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height))
-//        imgView?.image = UIImage(named: "bg")
+        //        imgView = UIImageView(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height))
+        //        imgView?.image = UIImage(named: "bg")
     }
     
-  
+    
     func setNavWithOutView(_ type : ButtonType,_ showTitle : Bool = true){
-
+        
         self.buttonType = type
         
         var topBarHeight = 34
@@ -65,18 +65,23 @@ class BaseViewController: UIViewController {
         
         logoImage = UIImageView(frame: CGRect(x: self.view.frame.size.width - 70, y: CGFloat((topBarHeight)/2), width: 50,height: 50))
         logoImage?.image = UIImage(named: "logo")
-
-
+        
+        
         self.view.addSubview(backButton!)
         
         
-        if(headerLabel?.text != ""){
-            self.view .addSubview(headerLabel!)
-
-        }
-            self.view.addSubview(logoImage!)
         
-            view.addSubview(backButton!)
+        
+        if(showTitle == true){
+            self.view .addSubview(headerLabel!)
+            self.view.addSubview(logoImage!)
+        }
+        
+        if(headerLabel?.text != ""){
+            self.view.addSubview(headerLabel!)
+        }
+        
+        view.addSubview(backButton!)
         
     }
     

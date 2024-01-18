@@ -141,7 +141,7 @@ extension SideMenuTableViewController: UITableViewDataSource,UITableViewDelegate
 
         }
         else if(indexPath.row == 6){
-            coordinator?.goToWebview(type: .FAQ)
+//            coordinator?.goToWebview(type: .FAQ)
         }
         
         else if(indexPath.row  == 7){

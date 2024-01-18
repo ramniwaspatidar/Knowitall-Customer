@@ -229,16 +229,23 @@ class TrackingViewController: BaseViewController,Storyboarded {
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         let canclebooking = UIAlertAction(title: "Cancel Booking", style: .default) { action in
-            print("Cancel Booking")
             
-            let param = [String : String]()
-            
-            self.viewModel.cancelRequest(APIsEndPoints.kCancelRequest.rawValue + (self.viewModel.dictRequest?.requestId ?? ""), param) { response, code in
-                
-                self.getRequestDetails(false)
-                Alert(title: "Cancel Request", message: "Your request was cancelled successfully.", vc: self)
+            AlertWithAction(title:"Cancel Booking", message: "Are you sure that you want to Cancel Booking?", ["Cancel Booking","No"], vc: self, "FF543E") { [self] action in
+                if(action == 1){
+                    
+                    let param = [String : String]()
+                    
+                    self.viewModel.cancelRequest(APIsEndPoints.kCancelRequest.rawValue + (self.viewModel.dictRequest?.requestId ?? ""), param) { response, code in
+                        
+                        self.getRequestDetails(false)
+                        Alert(title: "Cancel Request", message: "Your request was cancelled successfully.", vc: self)
+                        
+                    }
+                }
                 
             }
+            
+         
         }
         let callDriver = UIAlertAction(title: "Call Driver", style: .default) { action in
             print("Call Driver")

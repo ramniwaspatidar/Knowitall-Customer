@@ -23,7 +23,7 @@ class OTPViewController: BaseViewController,Storyboarded {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setNavWithOutView(.back)
+        self.setNavWithOutView(.back,false)
         
         headerText.text = "We have sent a verification code to \(countryCode) \(mobileNumber ?? ""), please enter below to verify and continue "
         setupOtpView()

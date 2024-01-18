@@ -31,7 +31,7 @@ class ProfileViewController: BaseViewController,Storyboarded {
         super.viewDidLoad()
         
         SideMenuManager.default.leftMenuNavigationController = nil
-        self.setNavWithOutView(.back)
+//        self.setNavWithOutView(.back)
         // MARK : Initial setup
         UISetup()
     }

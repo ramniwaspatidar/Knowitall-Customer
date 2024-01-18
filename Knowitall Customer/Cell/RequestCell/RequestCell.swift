@@ -47,16 +47,16 @@ class RequestCell: ReusableTableViewCell {
         }
        
        else if(dict.driverArrived == true){
-            statusLabel.text = "Driver Arrived"
+            statusLabel.text = "Help Reached"
             statusLabel.textColor = hexStringToUIColor("F7D63D")
         }
         
         else if(dict.accepted == true){
-             statusLabel.text = "Ongoing"
+             statusLabel.text = "Help Comming"
              statusLabel.textColor = hexStringToUIColor("F7D63D")
          }
         else {
-             statusLabel.text = "Available"
+             statusLabel.text = "Request Submitted"
              statusLabel.textColor = hexStringToUIColor("F7D63D")
          }        
     }

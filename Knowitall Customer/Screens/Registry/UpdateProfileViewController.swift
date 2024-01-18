@@ -61,7 +61,20 @@ class UpdateProfileViewController: BaseViewController,Storyboarded {
     
     private func UISetup(){
         
-        emailLabel.text = CurrentUserInfo.phone ?? ""
+        if CurrentUserInfo.phone.count == 10 {
+            
+            let digits = CurrentUserInfo.phone ?? ""
+            let formattedNumber = String(format: "%@-%@-%@",
+                                String(digits.prefix(4)),
+                                          String(digits.dropFirst(4).prefix(3)),
+                                          String(digits.dropFirst(7)))
+            emailLabel.text = "+1 \(formattedNumber)"
+
+            }
+        else{
+            emailLabel.text = "+1 \( CurrentUserInfo.phone ?? "")"
+
+        }
         
         nameTextField.layer.borderWidth = 1
         nameTextField.layer.borderColor = hexStringToUIColor("E1E3AD").cgColor

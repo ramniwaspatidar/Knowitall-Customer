@@ -41,6 +41,8 @@ class TrackingViewModel {
         let markNOShow = dictRequest?.markNoShow ?? false
         let completed = dictRequest?.completed ?? false
         let requestDate = AppUtility.getTimeFromTimeEstime(dictRequest?.confrimArrivalDate ?? 0.0)
+        let cancelDate = AppUtility.getTimeFromTimeEstime(dictRequest?.cancelledDate ?? 0.0)
+
 
 
         
@@ -49,7 +51,7 @@ class TrackingViewModel {
             infoArray.append(TrackingModel(eta: "Cancelled", value: "Driver Response ", color:  "A2A2A2", status:"pending"))
             infoArray.append(TrackingModel(eta: "Cancelled", value: "Help is on the way",  color: "A2A2A2", status:"pending"))
             infoArray.append(TrackingModel(eta: "Cancelled", value: "Help Reached", color: "A2A2A2", status:"pending"))
-           infoArray.append(TrackingModel(eta: requestDate, value: "Booking Cancelled", color: "FF543E", status:"pending"))
+           infoArray.append(TrackingModel(eta: cancelDate, value: "Booking Cancelled", color: "FF543E", status:"pending"))
         }
         else if(markNOShow == true){
             infoArray.append(TrackingModel(eta: requestTime, value: "Request Submitted" , color: "36D91B" , status: "done"))
@@ -93,7 +95,7 @@ class TrackingViewModel {
         }
        
         else{
-            infoArray.append(TrackingModel(eta: requestTime, value: "Request Submitted" , color: "#Request Submitted" , status: "done"))
+            infoArray.append(TrackingModel(eta: requestTime, value: "Request Submitted" , color: "36D91B" , status: "done"))
             infoArray.append(TrackingModel(eta: "Waiting", value: "Driver Response ", color:  "#9CD4FC", status:"pending"))
             infoArray.append(TrackingModel(eta: "Pending", value: "Help is on the way",  color: "#9CD4FC", status:"pending"))
             infoArray.append(TrackingModel(eta: "Pending", value: "Help Reached", color: "9CD4FC", status:"pending"))

@@ -71,6 +71,7 @@
 		1AA0871B2B545B2B007127DA /* UpdateProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA0871A2B545B2B007127DA /* UpdateProfileViewController.swift */; };
 		1AA0871D2B545B5B007127DA /* UpdateProfileViewModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA0871C2B545B5A007127DA /* UpdateProfileViewModal.swift */; };
 		1AA0871F2B545BC0007127DA /* ImagePickerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA0871E2B545BC0007127DA /* ImagePickerManager.swift */; };
+		1AA087252B598FAF007127DA /* terms.html in Resources */ = {isa = PBXBuildFile; fileRef = 1AA087242B598FAF007127DA /* terms.html */; };
 		1AA8137E2B426AEA00F83DDA /* ArrivalViewModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA8137D2B426AEA00F83DDA /* ArrivalViewModal.swift */; };
 		1AA813922B45DC0800F83DDA /* PDFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA813912B45DC0800F83DDA /* PDFViewController.swift */; };
 		1AA813942B45DD7600F83DDA /* PTP.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 1AA813932B45DD7600F83DDA /* PTP.pdf */; };
@@ -161,6 +162,7 @@
 		1AA0871A2B545B2B007127DA /* UpdateProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateProfileViewController.swift; sourceTree = "<group>"; };
 		1AA0871C2B545B5A007127DA /* UpdateProfileViewModal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateProfileViewModal.swift; sourceTree = "<group>"; };
 		1AA0871E2B545BC0007127DA /* ImagePickerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickerManager.swift; sourceTree = "<group>"; };
+		1AA087242B598FAF007127DA /* terms.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = terms.html; sourceTree = "<group>"; };
 		1AA8137D2B426AEA00F83DDA /* ArrivalViewModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrivalViewModal.swift; sourceTree = "<group>"; };
 		1AA813912B45DC0800F83DDA /* PDFViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFViewController.swift; sourceTree = "<group>"; };
 		1AA813932B45DD7600F83DDA /* PTP.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = PTP.pdf; sourceTree = "<group>"; };
@@ -241,6 +243,7 @@
 				1A558C572B18F0180013BD30 /* UITableView+Additions.swift */,
 				1A558C5D2B18F0210013BD30 /* UIView+Extensions.swift */,
 				1A558C552B18F0150013BD30 /* View+Shadow.swift */,
+				1AA087242B598FAF007127DA /* terms.html */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -552,6 +555,7 @@
 				1A55ABA32B1847E0001AEEBF /* LaunchScreen.storyboard in Resources */,
 				1AD6374C2B2810D30076EAD3 /* ReggaeOne-Regular.ttf in Resources */,
 				1A69107B2B1A4039009ACD06 /* UserNameCell.xib in Resources */,
+				1AA087252B598FAF007127DA /* terms.html in Resources */,
 				1A55ABDC2B184A77001AEEBF /* Poppins-Medium.ttf in Resources */,
 				1A55ABA02B1847E0001AEEBF /* Assets.xcassets in Resources */,
 				1A55ABDB2B184A77001AEEBF /* Poppins-Regular.ttf in Resources */,

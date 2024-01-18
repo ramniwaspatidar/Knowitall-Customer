@@ -90,8 +90,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "191"
             endingLineNumber = "191"
-            landmarkName = "RequestViewController"
-            landmarkType = "3">
+            landmarkName = "saveButtonAction(_:)"
+            landmarkType = "7">
             <Locations>
                <Location
                   uuid = "F5753918-8E80-44AB-931E-1C4B2191CF1D - e2948faa31d3b2da"
@@ -460,6 +460,36 @@
                   endingLineNumber = "36"
                   offsetFromSymbolStart = "108">
                </Location>
+               <Location
+                  uuid = "3E4DF18A-ACE1-43AE-8A6B-62D924765BC4 - c9c23a560e91d857"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Dictionary&lt;Swift.String, Any&gt;, Swift.Bool, Swift.String, Swift.Int) -&gt; () in closure #1 (Swift.Dictionary&lt;Swift.String, Any&gt;, Swift.Int) -&gt; () in Knowitall_Customer.ArrivalViewModal.confirmArrival(_: Swift.String, _: Swift.Dictionary&lt;Swift.String, Any&gt;, hud: Swift.Bool, handler: (Swift.Optional&lt;Knowitall_Customer.RequestListModal&gt;, Swift.Int) -&gt; ()) -&gt; ()"
+                  moduleName = "Knowitall Customer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ramniwasios/Documents/xcode-projects/Knowitall%20Customer/Knowitall%20Customer/ViewModel/ArrivalViewModal.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "3552">
+               </Location>
+               <Location
+                  uuid = "3E4DF18A-ACE1-43AE-8A6B-62D924765BC4 - c9c23a560e91d857"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Dictionary&lt;Swift.String, Any&gt;, Swift.Bool, Swift.String, Swift.Int) -&gt; () in closure #1 (Swift.Dictionary&lt;Swift.String, Any&gt;, Swift.Int) -&gt; () in Knowitall_Customer.ArrivalViewModal.confirmArrival(_: Swift.String, _: Swift.Dictionary&lt;Swift.String, Any&gt;, hud: Swift.Bool, handler: (Swift.Optional&lt;Knowitall_Customer.RequestListModal&gt;, Swift.Int) -&gt; ()) -&gt; ()"
+                  moduleName = "Knowitall Customer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ramniwasios/Documents/xcode-projects/Knowitall%20Customer/Knowitall%20Customer/ViewModel/ArrivalViewModal.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "3632">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -600,6 +630,36 @@
                   startingLineNumber = "38"
                   endingLineNumber = "38"
                   offsetFromSymbolStart = "352">
+               </Location>
+               <Location
+                  uuid = "9B69025E-EAC1-4604-AA95-04C825286C0F - 33b47130879d46c7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 (Swift.Dictionary&lt;Swift.String, Any&gt;, Swift.Bool, Swift.String, Swift.Int) -&gt; () in closure #1 (Swift.Dictionary&lt;Swift.String, Any&gt;, Swift.Int) -&gt; () in Knowitall_Customer.ArrivalViewModal.confirmArrival(_: Swift.String, _: Swift.Dictionary&lt;Swift.String, Any&gt;, hud: Swift.Bool, handler: (Swift.Optional&lt;Knowitall_Customer.RequestListModal&gt;, Swift.Int) -&gt; ()) -&gt; ()"
+                  moduleName = "Knowitall Customer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ramniwasios/Documents/xcode-projects/Knowitall%20Customer/Knowitall%20Customer/ViewModel/ArrivalViewModal.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "38"
+                  endingLineNumber = "38"
+                  offsetFromSymbolStart = "368">
+               </Location>
+               <Location
+                  uuid = "9B69025E-EAC1-4604-AA95-04C825286C0F - 33b47130879d46c7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 (Swift.Dictionary&lt;Swift.String, Any&gt;, Swift.Bool, Swift.String, Swift.Int) -&gt; () in closure #1 (Swift.Dictionary&lt;Swift.String, Any&gt;, Swift.Int) -&gt; () in Knowitall_Customer.ArrivalViewModal.confirmArrival(_: Swift.String, _: Swift.Dictionary&lt;Swift.String, Any&gt;, hud: Swift.Bool, handler: (Swift.Optional&lt;Knowitall_Customer.RequestListModal&gt;, Swift.Int) -&gt; ()) -&gt; ()"
+                  moduleName = "Knowitall Customer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ramniwasios/Documents/xcode-projects/Knowitall%20Customer/Knowitall%20Customer/ViewModel/ArrivalViewModal.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "38"
+                  endingLineNumber = "38"
+                  offsetFromSymbolStart = "360">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -1228,6 +1288,21 @@
                   endingLineNumber = "176"
                   offsetFromSymbolStart = "1916">
                </Location>
+               <Location
+                  uuid = "85A6A516-8205-408A-BBE8-2B28B37395EB - e2948faa31d3b5c2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Dictionary&lt;Swift.String, Swift.AnyObject&gt;, Swift.String, Swift.Bool) -&gt; () in Knowitall_Customer.RequestViewController.saveButtonAction(Any) -&gt; ()"
+                  moduleName = "Knowitall Customer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ramniwasios/Documents/xcode-projects/Knowitall%20Customer/Knowitall%20Customer/Screens/Registry/RequestViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "178"
+                  endingLineNumber = "178"
+                  offsetFromSymbolStart = "4748">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -1550,54 +1625,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "CF07CA6B-C5FB-4AE5-BC0C-44955A06FF40"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Knowitall Customer/Screens/Traking/TrackingViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
-            landmarkName = "getRequestDetails(_:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "CF07CA6B-C5FB-4AE5-BC0C-44955A06FF40 - 22037a6541520bab"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Knowitall_Customer.RequestListModal, Swift.Int) -&gt; () in Knowitall_Customer.TrackingViewController.getRequestDetails(Swift.Bool) -&gt; ()"
-                  moduleName = "Knowitall Customer"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ramniwasios/Documents/xcode-projects/Knowitall%20Customer/Knowitall%20Customer/Screens/Traking/TrackingViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "76"
-                  endingLineNumber = "76"
-                  offsetFromSymbolStart = "1968">
-               </Location>
-               <Location
-                  uuid = "CF07CA6B-C5FB-4AE5-BC0C-44955A06FF40 - 22037a6541520b8a"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Knowitall_Customer.RequestListModal, Swift.Int) -&gt; () in Knowitall_Customer.TrackingViewController.getRequestDetails(Swift.Bool) -&gt; ()"
-                  moduleName = "Knowitall Customer"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ramniwasios/Documents/xcode-projects/Knowitall%20Customer/Knowitall%20Customer/Screens/Traking/TrackingViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "77"
-                  endingLineNumber = "77"
-                  offsetFromSymbolStart = "1992">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "263AD7B2-4603-40A3-A462-FB17B55B08A2"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -1639,6 +1666,36 @@
                   startingLineNumber = "88"
                   endingLineNumber = "88"
                   offsetFromSymbolStart = "2724">
+               </Location>
+               <Location
+                  uuid = "263AD7B2-4603-40A3-A462-FB17B55B08A2 - 22037a6541520a1f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Knowitall_Customer.RequestListModal, Swift.Int) -&gt; () in Knowitall_Customer.TrackingViewController.getRequestDetails(Swift.Bool) -&gt; ()"
+                  moduleName = "Knowitall Customer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ramniwasios/Documents/xcode-projects/Knowitall%20Customer/Knowitall%20Customer/Screens/Traking/TrackingViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "88"
+                  endingLineNumber = "88"
+                  offsetFromSymbolStart = "2688">
+               </Location>
+               <Location
+                  uuid = "263AD7B2-4603-40A3-A462-FB17B55B08A2 - 22037a6541520a1f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Knowitall_Customer.RequestListModal, Swift.Int) -&gt; () in Knowitall_Customer.TrackingViewController.getRequestDetails(Swift.Bool) -&gt; ()"
+                  moduleName = "Knowitall Customer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ramniwasios/Documents/xcode-projects/Knowitall%20Customer/Knowitall%20Customer/Screens/Traking/TrackingViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "88"
+                  endingLineNumber = "88"
+                  offsetFromSymbolStart = "2740">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -1688,53 +1745,35 @@
                   endingLineNumber = "84"
                   offsetFromSymbolStart = "2688">
                </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "88200F04-019A-4978-9D03-39C56E0DC11D"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Knowitall Customer/Screens/Traking/TrackingViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
-            landmarkName = "refresh(_:)"
-            landmarkType = "7">
-            <Locations>
                <Location
-                  uuid = "88200F04-019A-4978-9D03-39C56E0DC11D - aadbb367fc02351c"
+                  uuid = "196E5050-19B5-4FB3-943B-344A3A02EB7E - 22037a6541520a93"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Knowitall_Customer.TrackingViewController.refresh(Any) -&gt; ()"
+                  symbolName = "closure #1 (Knowitall_Customer.RequestListModal, Swift.Int) -&gt; () in Knowitall_Customer.TrackingViewController.getRequestDetails(Swift.Bool) -&gt; ()"
                   moduleName = "Knowitall Customer"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/ramniwasios/Documents/xcode-projects/Knowitall%20Customer/Knowitall%20Customer/Screens/Traking/TrackingViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "63"
-                  endingLineNumber = "63"
-                  offsetFromSymbolStart = "396">
+                  startingLineNumber = "84"
+                  endingLineNumber = "84"
+                  offsetFromSymbolStart = "2540">
                </Location>
                <Location
-                  uuid = "88200F04-019A-4978-9D03-39C56E0DC11D - aadbb367fc0235ff"
+                  uuid = "196E5050-19B5-4FB3-943B-344A3A02EB7E - 22037a6541520a93"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Knowitall_Customer.TrackingViewController.refresh(Any) -&gt; ()"
+                  symbolName = "closure #1 (Knowitall_Customer.RequestListModal, Swift.Int) -&gt; () in Knowitall_Customer.TrackingViewController.getRequestDetails(Swift.Bool) -&gt; ()"
                   moduleName = "Knowitall Customer"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/ramniwasios/Documents/xcode-projects/Knowitall%20Customer/Knowitall%20Customer/Screens/Traking/TrackingViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "64"
-                  endingLineNumber = "64"
-                  offsetFromSymbolStart = "396">
+                  startingLineNumber = "84"
+                  endingLineNumber = "84"
+                  offsetFromSymbolStart = "2592">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -1751,7 +1790,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "100"
             endingLineNumber = "100"
-            landmarkName = "verifyOTP(_:_:handler:)"
+            landmarkName = "updateProfile(_:_:handler:)"
             landmarkType = "7">
             <Locations>
                <Location
@@ -1798,6 +1837,21 @@
                   startingLineNumber = "100"
                   endingLineNumber = "100"
                   offsetFromSymbolStart = "384">
+               </Location>
+               <Location
+                  uuid = "D9AAE845-9681-43EF-8448-3D52B54D9F74 - 760a8d0d4e577f92"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Dictionary&lt;Swift.String, Any&gt;, Swift.Bool, Swift.String, Swift.Int) -&gt; () in closure #1 (Swift.Dictionary&lt;Swift.String, Any&gt;, Swift.Int) -&gt; () in Knowitall_Customer.ProfileViewController.updateProfile(_: Swift.String, _: Swift.Dictionary&lt;Swift.String, Any&gt;, handler: (Swift.String, Swift.Int) -&gt; ()) -&gt; ()"
+                  moduleName = "Knowitall Customer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ramniwasios/Documents/xcode-projects/Knowitall%20Customer/Knowitall%20Customer/Screens/Registry/ProfileViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "100"
+                  endingLineNumber = "100"
+                  offsetFromSymbolStart = "936">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -1877,6 +1931,21 @@
                   endingLineNumber = "77"
                   offsetFromSymbolStart = "200">
                </Location>
+               <Location
+                  uuid = "913BCA6A-EA18-4E27-9DA4-70AA0A5C65D6 - cec2afe32b1df779"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 (Swift.String, Swift.Int) -&gt; () in Knowitall_Customer.ProfileViewController.createUser() -&gt; ()"
+                  moduleName = "Knowitall Customer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ramniwasios/Documents/xcode-projects/Knowitall%20Customer/Knowitall%20Customer/Screens/Registry/ProfileViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "76"
+                  endingLineNumber = "76"
+                  offsetFromSymbolStart = "92">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -1924,6 +1993,21 @@
                   startingLineNumber = "85"
                   endingLineNumber = "85"
                   offsetFromSymbolStart = "792">
+               </Location>
+               <Location
+                  uuid = "5FFEBAF6-5E1D-4CA2-9BF1-B90449B9D450 - cec2afe32b1df650"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 (Swift.String, Swift.Int) -&gt; () in Knowitall_Customer.ProfileViewController.createUser() -&gt; ()"
+                  moduleName = "Knowitall Customer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ramniwasios/Documents/xcode-projects/Knowitall%20Customer/Knowitall%20Customer/Screens/Registry/ProfileViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "85"
+                  endingLineNumber = "85"
+                  offsetFromSymbolStart = "1104">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -2135,54 +2219,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "DFEC69C4-394E-474E-B172-0899C1E81BCD"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Knowitall Customer/Screens/Traking/TrackingViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "216"
-            endingLineNumber = "216"
-            landmarkName = "confirmButtonAction(_:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "DFEC69C4-394E-474E-B172-0899C1E81BCD - ee6b33d43ff862a"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Knowitall_Customer.TrackingViewController.confirmButtonAction(Any) -&gt; ()"
-                  moduleName = "Knowitall Customer"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ramniwasios/Documents/xcode-projects/Knowitall%20Customer/Knowitall%20Customer/Screens/Traking/TrackingViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "216"
-                  endingLineNumber = "216"
-                  offsetFromSymbolStart = "1196">
-               </Location>
-               <Location
-                  uuid = "DFEC69C4-394E-474E-B172-0899C1E81BCD - ee6b33d43ff862a"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Knowitall_Customer.TrackingViewController.confirmButtonAction(Any) -&gt; ()"
-                  moduleName = "Knowitall Customer"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ramniwasios/Documents/xcode-projects/Knowitall%20Customer/Knowitall%20Customer/Screens/Traking/TrackingViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "216"
-                  endingLineNumber = "216"
-                  offsetFromSymbolStart = "584">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "4D8B9455-1A97-432E-82E4-6E25A3228FF8"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -2225,6 +2261,21 @@
                   endingLineNumber = "137"
                   offsetFromSymbolStart = "4916">
                </Location>
+               <Location
+                  uuid = "4D8B9455-1A97-432E-82E4-6E25A3228FF8 - 78a37211ec2c289e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Knowitall_Customer.TrackingViewController.updateUI() -&gt; ()"
+                  moduleName = "Knowitall Customer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ramniwasios/Documents/xcode-projects/Knowitall%20Customer/Knowitall%20Customer/Screens/Traking/TrackingViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "137"
+                  endingLineNumber = "137"
+                  offsetFromSymbolStart = "3212">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -2254,42 +2305,10 @@
             filePath = "Knowitall Customer/Screens/Registry/UpdateProfileViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "127"
-            endingLineNumber = "127"
+            startingLineNumber = "140"
+            endingLineNumber = "140"
             landmarkName = "updateProfileAction(_:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "D084254F-F9D4-4F60-A4A3-5266D8BE5E38 - 5b018ea1cd2b4681"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Dictionary&lt;Swift.String, Swift.AnyObject&gt;, Swift.String, Swift.Bool) -&gt; () in Knowitall_Customer.UpdateProfileViewController.updateUserInfo() -&gt; ()"
-                  moduleName = "Knowitall Customer"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ramniwasios/Documents/xcode-projects/Knowitall%20Customer/Knowitall%20Customer/Screens/Registry/UpdateProfileViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "127"
-                  endingLineNumber = "127"
-                  offsetFromSymbolStart = "132">
-               </Location>
-               <Location
-                  uuid = "D084254F-F9D4-4F60-A4A3-5266D8BE5E38 - 39a04eeae539d102"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Dictionary&lt;Swift.String, Swift.AnyObject&gt;, Swift.String, Swift.Bool) -&gt; () in Knowitall_Customer.UpdateProfileViewController.updateProfileAction(Any) -&gt; ()"
-                  moduleName = "Knowitall Customer"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ramniwasios/Documents/xcode-projects/Knowitall%20Customer/Knowitall%20Customer/Screens/Registry/UpdateProfileViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "127"
-                  endingLineNumber = "127"
-                  offsetFromSymbolStart = "296">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2302,42 +2321,10 @@
             filePath = "Knowitall Customer/Screens/Registry/UpdateProfileViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "130"
-            endingLineNumber = "130"
+            startingLineNumber = "143"
+            endingLineNumber = "143"
             landmarkName = "updateProfileAction(_:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "07D838F1-FABD-4989-A819-1BE07B28D19F - 39a04eeae539deff"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Dictionary&lt;Swift.String, Swift.AnyObject&gt;, Swift.String, Swift.Bool) -&gt; () in Knowitall_Customer.UpdateProfileViewController.updateProfileAction(Any) -&gt; ()"
-                  moduleName = "Knowitall Customer"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ramniwasios/Documents/xcode-projects/Knowitall%20Customer/Knowitall%20Customer/Screens/Registry/UpdateProfileViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "130"
-                  endingLineNumber = "130"
-                  offsetFromSymbolStart = "1568">
-               </Location>
-               <Location
-                  uuid = "07D838F1-FABD-4989-A819-1BE07B28D19F - 39a04eeae539deff"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Dictionary&lt;Swift.String, Swift.AnyObject&gt;, Swift.String, Swift.Bool) -&gt; () in Knowitall_Customer.UpdateProfileViewController.updateProfileAction(Any) -&gt; ()"
-                  moduleName = "Knowitall Customer"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ramniwasios/Documents/xcode-projects/Knowitall%20Customer/Knowitall%20Customer/Screens/Registry/UpdateProfileViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "130"
-                  endingLineNumber = "130"
-                  offsetFromSymbolStart = "1268">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2398,6 +2385,21 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "78"
                   endingLineNumber = "78"
+                  offsetFromSymbolStart = "216">
+               </Location>
+               <Location
+                  uuid = "7565EE8C-F6F9-4491-B527-485AD8B8AF51 - 6966d5cba67006c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Knowitall_Customer.UpdateProfileViewModal.updateProfile(_: Swift.String, _: Swift.Dictionary&lt;Swift.String, Any&gt;, handler: (Knowitall_Customer.ProfileResponseModel, Swift.Int) -&gt; ()) -&gt; ()"
+                  moduleName = "Knowitall Customer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ramniwasios/Documents/xcode-projects/Knowitall%20Customer/Knowitall%20Customer/ViewModel/UpdateProfileViewModal.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "79"
+                  endingLineNumber = "79"
                   offsetFromSymbolStart = "216">
                </Location>
             </Locations>
@@ -2463,6 +2465,21 @@
                   endingLineNumber = "88"
                   offsetFromSymbolStart = "1704">
                </Location>
+               <Location
+                  uuid = "52274937-D2FB-4FBF-B189-11E7B9BF0C72 - 4f7726db10ef146b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Dictionary&lt;Swift.String, Any&gt;, Swift.Bool, Swift.String, Swift.Int) -&gt; () in closure #1 (Swift.Dictionary&lt;Swift.String, Any&gt;, Swift.Int) -&gt; () in Knowitall_Customer.UpdateProfileViewModal.updateProfile(_: Swift.String, _: Swift.Dictionary&lt;Swift.String, Any&gt;, handler: (Knowitall_Customer.ProfileResponseModel, Swift.Int) -&gt; ()) -&gt; ()"
+                  moduleName = "Knowitall Customer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ramniwasios/Documents/xcode-projects/Knowitall%20Customer/Knowitall%20Customer/ViewModel/UpdateProfileViewModal.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "89"
+                  endingLineNumber = "89"
+                  offsetFromSymbolStart = "1704">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -2511,6 +2528,21 @@
                   endingLineNumber = "84"
                   offsetFromSymbolStart = "224">
                </Location>
+               <Location
+                  uuid = "5C6F0992-D212-4FE5-B6DB-FC0420CC1396 - 4f7726db10ef14b0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Dictionary&lt;Swift.String, Any&gt;, Swift.Bool, Swift.String, Swift.Int) -&gt; () in closure #1 (Swift.Dictionary&lt;Swift.String, Any&gt;, Swift.Int) -&gt; () in Knowitall_Customer.UpdateProfileViewModal.updateProfile(_: Swift.String, _: Swift.Dictionary&lt;Swift.String, Any&gt;, handler: (Knowitall_Customer.ProfileResponseModel, Swift.Int) -&gt; ()) -&gt; ()"
+                  moduleName = "Knowitall Customer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ramniwasios/Documents/xcode-projects/Knowitall%20Customer/Knowitall%20Customer/ViewModel/UpdateProfileViewModal.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "84"
+                  endingLineNumber = "84"
+                  offsetFromSymbolStart = "208">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -2524,42 +2556,10 @@
             filePath = "Knowitall Customer/Screens/Registry/UpdateProfileViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "158"
-            endingLineNumber = "158"
+            startingLineNumber = "171"
+            endingLineNumber = "171"
             landmarkName = "updateUserInfo()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "EA835229-5072-44DB-959C-8525433FCE8C - e2cad76516980922"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Knowitall_Customer.ProfileResponseModel, Swift.Int) -&gt; () in closure #1 (Swift.Dictionary&lt;Swift.String, Swift.AnyObject&gt;, Swift.String, Swift.Bool) -&gt; () in Knowitall_Customer.UpdateProfileViewController.updateUserInfo() -&gt; ()"
-                  moduleName = "Knowitall Customer"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ramniwasios/Documents/xcode-projects/Knowitall%20Customer/Knowitall%20Customer/Screens/Registry/UpdateProfileViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "158"
-                  endingLineNumber = "158"
-                  offsetFromSymbolStart = "444">
-               </Location>
-               <Location
-                  uuid = "EA835229-5072-44DB-959C-8525433FCE8C - b92016947cd12bee"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 (Knowitall_Customer.ProfileResponseModel, Swift.Int) -&gt; () in closure #1 (Swift.Dictionary&lt;Swift.String, Swift.AnyObject&gt;, Swift.String, Swift.Bool) -&gt; () in Knowitall_Customer.UpdateProfileViewController.updateUserInfo() -&gt; ()"
-                  moduleName = "Knowitall Customer"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ramniwasios/Documents/xcode-projects/Knowitall%20Customer/Knowitall%20Customer/Screens/Registry/UpdateProfileViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "158"
-                  endingLineNumber = "158"
-                  offsetFromSymbolStart = "184">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2572,72 +2572,10 @@
             filePath = "Knowitall Customer/Screens/Registry/UpdateProfileViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "153"
-            endingLineNumber = "153"
+            startingLineNumber = "166"
+            endingLineNumber = "166"
             landmarkName = "updateUserInfo()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "DE2F1D6F-F5CD-4301-8801-C4FE3860485A - b92016947cd12b05"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 (Knowitall_Customer.ProfileResponseModel, Swift.Int) -&gt; () in closure #1 (Swift.Dictionary&lt;Swift.String, Swift.AnyObject&gt;, Swift.String, Swift.Bool) -&gt; () in Knowitall_Customer.UpdateProfileViewController.updateUserInfo() -&gt; ()"
-                  moduleName = "Knowitall Customer"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ramniwasios/Documents/xcode-projects/Knowitall%20Customer/Knowitall%20Customer/Screens/Registry/UpdateProfileViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "153"
-                  endingLineNumber = "153"
-                  offsetFromSymbolStart = "228">
-               </Location>
-               <Location
-                  uuid = "DE2F1D6F-F5CD-4301-8801-C4FE3860485A - 5b018ea1cd2b4a6b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Dictionary&lt;Swift.String, Swift.AnyObject&gt;, Swift.String, Swift.Bool) -&gt; () in Knowitall_Customer.UpdateProfileViewController.updateUserInfo() -&gt; ()"
-                  moduleName = "Knowitall Customer"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ramniwasios/Documents/xcode-projects/Knowitall%20Customer/Knowitall%20Customer/Screens/Registry/UpdateProfileViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "153"
-                  endingLineNumber = "153"
-                  offsetFromSymbolStart = "464">
-               </Location>
-               <Location
-                  uuid = "DE2F1D6F-F5CD-4301-8801-C4FE3860485A - e2cad765169809c9"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Knowitall_Customer.ProfileResponseModel, Swift.Int) -&gt; () in closure #1 (Swift.Dictionary&lt;Swift.String, Swift.AnyObject&gt;, Swift.String, Swift.Bool) -&gt; () in Knowitall_Customer.UpdateProfileViewController.updateUserInfo() -&gt; ()"
-                  moduleName = "Knowitall Customer"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ramniwasios/Documents/xcode-projects/Knowitall%20Customer/Knowitall%20Customer/Screens/Registry/UpdateProfileViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "153"
-                  endingLineNumber = "153"
-                  offsetFromSymbolStart = "176">
-               </Location>
-               <Location
-                  uuid = "DE2F1D6F-F5CD-4301-8801-C4FE3860485A - b92016947cd12b05"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 (Knowitall_Customer.ProfileResponseModel, Swift.Int) -&gt; () in closure #1 (Swift.Dictionary&lt;Swift.String, Swift.AnyObject&gt;, Swift.String, Swift.Bool) -&gt; () in Knowitall_Customer.UpdateProfileViewController.updateUserInfo() -&gt; ()"
-                  moduleName = "Knowitall Customer"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ramniwasios/Documents/xcode-projects/Knowitall%20Customer/Knowitall%20Customer/Screens/Registry/UpdateProfileViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "153"
-                  endingLineNumber = "153"
-                  offsetFromSymbolStart = "68">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2666,8 +2604,8 @@
             filePath = "Knowitall Customer/Screens/Registry/UpdateProfileViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "115"
-            endingLineNumber = "115"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
             landmarkName = "uploadImage(_:_:_contentType:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2686,6 +2624,38 @@
             endingLineNumber = "48"
             landmarkName = "getUserData()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "AFC2E3A1-183E-4BA3-9405-3CD0AE63B781 - 2236c38068b9fa78"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Dictionary&lt;Swift.String, Any&gt;, Swift.Int) -&gt; () in Knowitall_Customer.UpdateProfileViewController.getUserData() -&gt; ()"
+                  moduleName = "Knowitall Customer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ramniwasios/Documents/xcode-projects/Knowitall%20Customer/Knowitall%20Customer/Screens/Registry/UpdateProfileViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "48"
+                  endingLineNumber = "48"
+                  offsetFromSymbolStart = "220">
+               </Location>
+               <Location
+                  uuid = "AFC2E3A1-183E-4BA3-9405-3CD0AE63B781 - c575361590047350"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Dictionary&lt;Swift.String, Any&gt;, Swift.Bool, Swift.String, Swift.Int) -&gt; () in closure #1 (Swift.Dictionary&lt;Swift.String, Any&gt;, Swift.Int) -&gt; () in Knowitall_Customer.UpdateProfileViewController.getUserData() -&gt; ()"
+                  moduleName = "Knowitall Customer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ramniwasios/Documents/xcode-projects/Knowitall%20Customer/Knowitall%20Customer/Screens/Registry/UpdateProfileViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "49"
+                  endingLineNumber = "49"
+                  offsetFromSymbolStart = "128">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2700,8 +2670,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "43"
             endingLineNumber = "43"
-            landmarkName = "getUserData()"
-            landmarkType = "7">
+            landmarkName = "UpdateProfileViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2714,8 +2684,8 @@
             filePath = "Knowitall Customer/Screens/Registry/UpdateProfileViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "114"
-            endingLineNumber = "114"
+            startingLineNumber = "127"
+            endingLineNumber = "127"
             landmarkName = "uploadImage(_:_:_contentType:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2723,33 +2693,81 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "0FFDF986-3975-4806-BAC0-D3BB39DFCC7D"
+            uuid = "DDF4FAEA-6750-422D-98B5-873FF4C3A521"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Knowitall Customer/Screens/Traking/TrackingViewController.swift"
+            filePath = "Knowitall Customer/ViewModel/TrackingViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "215"
-            endingLineNumber = "215"
-            landmarkName = "confirmButtonAction(_:)"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "prepareInfo()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "D908BBD4-E0DE-4218-9A6A-730CBB0E62FD"
+            uuid = "056E96AF-53CD-4496-AF13-10FC527AA2CD"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Knowitall Customer/Cell/RequestCell/RequestCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "commonInit(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FFCB1C23-91D0-4DA0-85B3-72307173F112"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Knowitall Customer/Screens/Traking/TrackingViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "220"
-            endingLineNumber = "220"
-            landmarkName = "confirmButtonAction(_:)"
+            startingLineNumber = "285"
+            endingLineNumber = "285"
+            landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "FFCB1C23-91D0-4DA0-85B3-72307173F112 - 8cf908adb90dd881"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Knowitall_Customer.TrackingViewController.tableView(_: __C.UITableView, cellForRowAt: Foundation.IndexPath) -&gt; __C.UITableViewCell"
+                  moduleName = "Knowitall Customer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ramniwasios/Documents/xcode-projects/Knowitall%20Customer/Knowitall%20Customer/Screens/Traking/TrackingViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "286"
+                  endingLineNumber = "286"
+                  offsetFromSymbolStart = "504">
+               </Location>
+               <Location
+                  uuid = "FFCB1C23-91D0-4DA0-85B3-72307173F112 - 8cf908adb90dd8be"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Knowitall_Customer.TrackingViewController.tableView(_: __C.UITableView, cellForRowAt: Foundation.IndexPath) -&gt; __C.UITableViewCell"
+                  moduleName = "Knowitall Customer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ramniwasios/Documents/xcode-projects/Knowitall%20Customer/Knowitall%20Customer/Screens/Traking/TrackingViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "285"
+                  endingLineNumber = "285"
+                  offsetFromSymbolStart = "504">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
