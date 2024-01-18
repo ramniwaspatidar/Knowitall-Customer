@@ -63,10 +63,15 @@ class SigninViewController: UIViewController,Storyboarded  {
                 PhoneAuthProvider.provider().verifyPhoneNumber("\(countryCode)\(str)" , uiDelegate: nil) { (verificationID, error) in
                     SVProgressHUD.dismiss()
 
-                    if let error = error {
-                        print(error.localizedDescription)
-                        Alert(title: "Alert", message: "Invalid phone number \(countryCode)\(str) \(error.localizedDescription)" , vc: self)
-
+                    if let error = error as NSError? {
+                        let userInfo = error.userInfo
+                        let errorType = userInfo["FIRAuthErrorUserInfoNameKey"] as? String
+                        if(errorType == "ERROR_NETWORK_REQUEST_FAILED") {
+                            Alert(title: "", message: "Please check your internet connection and try again.", vc: self)
+                        }
+                        else{
+                            Alert(title: "Alert", message: "Invalid phone number, please contact to vender \(countryCode)\(str) \(error.localizedDescription)" , vc: self)
+                        }
                         return
                     }
                     guard let temId = verificationID else {return }

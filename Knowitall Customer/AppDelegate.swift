@@ -156,10 +156,9 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         if ((CurrentUserInfo.userId) != nil) {
             let userInfo = response.notification.request.content.userInfo
             let notiType = userInfo["notificationType"] as? String
-            if(notiType == "request_accept" || notiType == "driver_arrived"){
+            if(notiType == "request_accept" || notiType == "driver_arrived" || notiType == "request_completed"){
                 let requestId = userInfo["requestId"] as? String
                 coordinator?.goToTrackingView(requestId ?? "",false)
-                
             }
         }
         completionHandler()
@@ -170,7 +169,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data
     ) {
         Messaging.messaging().apnsToken = deviceToken
-        Auth.auth().setAPNSToken(deviceToken, type: .sandbox)
+        Auth.auth().setAPNSToken(deviceToken, type: .prod)
     }
         
     func application(_ application: UIApplication, didReceiveRemoteNotification notification: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {

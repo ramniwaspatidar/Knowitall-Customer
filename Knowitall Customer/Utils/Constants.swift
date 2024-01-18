@@ -180,8 +180,8 @@ enum LanguageText : String {
     case enterPassword = "Enter password"
     case enterConfirmPassword = "Enter confirm password"
     case samePassword = "Password & Confirm password should be same"
-    case emailEnter =  "Enter E-Mail"
-    case validEmail = "Enter valid E-Mail"
+    case emailEnter =  "Enter Email"
+    case validEmail = "Enter valid Email"
     case passwordLength = "Password should be greater than 6 digits"
     case Login = "Login"
     case userName = "Enter username"
@@ -203,6 +203,8 @@ enum LanguageText : String {
     case bio = "Enter description"
     case countryCode = "Please choose country code"
     case inValideNumber = "Please enter valid mobile number"
+    case enterName = "Enter your name."
+    case pleaseEnterName = "Please enter your name."
 
 
 }

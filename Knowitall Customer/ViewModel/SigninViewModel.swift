@@ -30,7 +30,7 @@ class SigninViewModel {
 //                    validHandler([:],NSLocalizedString(LanguageText.countryCode.rawValue, comment: ""), false)
 //                    return
 //                }
-                else  if dataStore[index].value.trimmingCharacters(in: .whitespaces).count  < 6 || dataStore[index].value.trimmingCharacters(in: .whitespaces).count  > 12 {
+                else  if dataStore[index].value.trimmingCharacters(in: .whitespaces).count !=  10 {
                     validHandler([:],NSLocalizedString(LanguageText.inValideNumber.rawValue, comment: ""), false)
                     return
                 }

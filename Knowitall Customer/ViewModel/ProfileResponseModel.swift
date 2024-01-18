@@ -119,15 +119,15 @@ class ProfileViewModel {
                 
             case .name:
                 if dataStore[index].value.trimmingCharacters(in: .whitespaces) == ""{
-                    validHandler([:],NSLocalizedString(LanguageText.emailEnter.rawValue, comment: ""), false)
+                    validHandler([:],NSLocalizedString(LanguageText.pleaseEnterName.rawValue, comment: ""), false)
                     return
                 }
                 
                 dictParam["name"] = dataStore[index].value.trimmingCharacters(in: .whitespaces) as AnyObject
                 
             case .email:
-                if dataStore[index].value.trimmingCharacters(in: .whitespaces) == "" || !dataStore[index].value.trimmingCharacters(in: .whitespaces).isValidEmail() {
-                    validHandler([:], NSLocalizedString(LanguageText.enterPassword.rawValue, comment: ""), false)
+                if dataStore[index].value.trimmingCharacters(in: .whitespaces) != "" && !dataStore[index].value.trimmingCharacters(in: .whitespaces).isValidEmail() {
+                    validHandler([:], NSLocalizedString(LanguageText.validEmail.rawValue, comment: ""), false)
                     return
                 }
                 

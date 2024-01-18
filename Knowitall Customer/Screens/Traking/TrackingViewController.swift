@@ -32,9 +32,6 @@ class TrackingViewController: BaseViewController,Storyboarded {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-       
-        
         if(viewModel.isMenu == false){
             self.setNavWithOutView(.menu )
         }else{
@@ -78,11 +75,16 @@ class TrackingViewController: BaseViewController,Storyboarded {
                 self.viewModel.infoArray = self.viewModel.prepareInfo()
                 self.updateUI()
                 
-                let runTimer = response.confirmArrival == true || response.markNoShow == true || response.cancelled == true
-                
-                if (!runTimer && self.timer == nil){
+                if(response.isRunning){
+                    self.timer?.invalidate()
+                    self.timer = nil
                     self.startTimer()
                 }
+                else{
+                    self.timer?.invalidate()
+                    self.timer = nil
+                }
+
             }
             else{
                 self.navigationController?.popViewController(animated: false)
@@ -108,7 +110,7 @@ class TrackingViewController: BaseViewController,Storyboarded {
     fileprivate func updateUI(){
         setupUI()
         
-        if(self.viewModel.dictRequest?.completed == true || self.viewModel.dictRequest?.markNoShow == true || self.viewModel.dictRequest?.cancelled == true){
+        if(self.viewModel.dictRequest?.done == true){
             self.confirmButton.isHidden = true
             self.dotButton.isHidden = true
         }
@@ -118,22 +120,13 @@ class TrackingViewController: BaseViewController,Storyboarded {
             self.confirmButton.setTitle("CALL DRIVER", for: .normal)
             self.confirmButton.alpha = 1
             self.confirmButton.isUserInteractionEnabled = true
-
-
         }
-//        else if(self.viewModel.dictRequest?.markNoShow == true || self.viewModel.dictRequest?.cancelled == true){
-//            self.confirmButton.isUserInteractionEnabled = false
-//            self.confirmButton.alpha = 0.4
-//        }
         else if(self.viewModel.dictRequest?.driverArrived == true){
             self.confirmButton.isUserInteractionEnabled = true
             self.confirmButton.alpha = 1
         }
-        
-        
-        let jobDone = viewModel.dictRequest?.confirmArrival == true || viewModel.dictRequest?.markNoShow == true || viewModel.dictRequest?.cancelled == true
-        
-        if(!jobDone && viewModel.dictRequest?.accepted == true){
+
+        if(viewModel.dictRequest?.isRunning == true){
             self.getETA()
             
         }else{

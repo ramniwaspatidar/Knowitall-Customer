@@ -65,22 +65,19 @@ class ProfileViewController: BaseViewController,Storyboarded {
         
         SVProgressHUD.show()
   
-            if let user = Auth.auth().currentUser {
+        if Auth.auth().currentUser != nil {
                 var dictParam = [String : String]()
                 dictParam["countryCode"] = countryCode
                 dictParam["phoneNumber"] = self.viewModel.mobileNumber
                 dictParam["email"] = self.emailTextField.text
                 dictParam["name"] = self.nameTextField.text
-
-                
-                self.verifyOTP(APIsEndPoints.ksignupUser.rawValue,dictParam, handler: {(mmessage,statusCode)in
+                self.updateProfile(APIsEndPoints.ksignupUser.rawValue,dictParam, handler: {(mmessage,statusCode)in
                     DispatchQueue.main.async {
                         SVProgressHUD.dismiss()
                         
                         CurrentUserInfo.phone = self.viewModel.mobileNumber
                         CurrentUserInfo.userName  = self.nameTextField.text
                         CurrentUserInfo.email  = self.emailTextField.text
-
 
                         let appDelegate = UIApplication.shared.delegate as? AppDelegate
                         appDelegate?.autoLogin()
@@ -91,7 +88,7 @@ class ProfileViewController: BaseViewController,Storyboarded {
         }
     }
     
-    func verifyOTP(_ apiEndPoint: String,_ param : [String : Any], handler: @escaping (String,Int) -> Void) {
+    func updateProfile(_ apiEndPoint: String,_ param : [String : Any], handler: @escaping (String,Int) -> Void) {
         guard let url = URL(string: Configuration().environment.baseURL + apiEndPoint) else {return}
         NetworkManager.shared.postRequest(url, true, "", params: param, networkHandler: {(responce,statusCode) in
             APIHelper.parseObject(responce, true) { payload, status, message, code in
@@ -103,10 +100,7 @@ class ProfileViewController: BaseViewController,Storyboarded {
                     CurrentUserInfo.phone = number
                     CurrentUserInfo.email = self.emailTextField.text
                     CurrentUserInfo.userName = self.nameTextField.text
-
-                    
                     handler(message,0)
-                    
                 }
                 else{
                     DispatchQueue.main.async {

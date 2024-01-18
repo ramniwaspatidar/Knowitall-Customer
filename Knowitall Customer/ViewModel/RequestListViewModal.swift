@@ -25,7 +25,7 @@ struct RequestListModal : Mappable {
     var declineDrivers :[DeclineDrivers]?
     var driverId : String?
     var driverArrived : Bool = false
-    var  confirmArrival : Bool = false
+    var confirmArrival : Bool = false
     var confrimArrivalDate : Double?
     var requestAcceptDate : Double?
     var reqDispId : String?
@@ -34,6 +34,8 @@ struct RequestListModal : Mappable {
     var markNoShow : Bool = false
     var driverPhoneNumber : String?
     var completed : Bool?
+    var isRunning : Bool = false
+    var done : Bool = false
 
 
     init?(map: Map) {
@@ -68,8 +70,8 @@ struct RequestListModal : Mappable {
         markNoShow <- map["markNoShow"]
         driverPhoneNumber <- map["driverPhoneNumber"]
         completed <- map["completed"]
-
-    
+        isRunning <- map["isRunning"]
+        isRunning <- map["done"]
     }
 }
 
