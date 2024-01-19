@@ -40,14 +40,14 @@ func AlertWithAction(title: String, message:String,_ buttons : [String], vc: UIV
     if buttons.count > 1
     {
         let cancelAction = UIAlertAction(title: buttons[1], style: .cancel, handler: nil)
-        cancelAction.setValue(hexStringToUIColor("007AFF"), forKey: "titleTextColor")
+        cancelAction.setValue(hexStringToUIColor(kAlertBlue), forKey: "titleTextColor")
         
         alert.addAction(cancelAction)
     }
     
     alert.addAction(okAction)
     
-    alert.view.tintColor = hexStringToUIColor(kBlue)
+    alert.view.tintColor = hexStringToUIColor(kAlertBlue)
     vc.present(alert, animated: true, completion: nil)
 }
 

@@ -59,6 +59,9 @@ let kMediumLightGray = "#F7F8F9"
 let kDarkBlue = "#0D82FF"
 let kBlue = "#00AFF"
 let kLightBGGray = "#F4F4F4"
+let kAlertBlue = "#007AFF"
+let kAlertGreen = "#1F7D0E"
+let kAlertRed = "#B22D20"
 
 // Mark Alert
 let kOk = "Ok"
@@ -128,7 +131,7 @@ let kFontTextMedium  = "HelveticaNeue-Medium"
 let kcategory_id = "category_id"
 let kstudio_type_id = "studio_type_id"
 let kpass_type_id = "pass_type_id"
-let countryCode = "+91"
+let countryCode = "+1"
 
 
 

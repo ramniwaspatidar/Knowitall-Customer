@@ -68,14 +68,13 @@ class TrackingViewController: BaseViewController,Storyboarded {
     
     func getRequestDetails(_ isLoading : Bool = true){
         viewModel.getRequestData(APIsEndPoints.kGetCustor.rawValue + (viewModel.requestId )) { response, code in
-            
             if (CurrentUserInfo.userId == response.customerId && response.requestId != nil){
                 self.viewModel.dictRequest = response
                 self.viewModel.infoArray.removeAll()
                 self.viewModel.infoArray = self.viewModel.prepareInfo()
                 self.updateUI()
                 
-                if(response.isRunning){
+                if(response.isRunning || response.accepted == false){
                     self.timer?.invalidate()
                     self.timer = nil
                     self.startTimer()
@@ -95,7 +94,7 @@ class TrackingViewController: BaseViewController,Storyboarded {
     }
     
     func startTimer(){
-        self.timer = Timer.scheduledTimer(withTimeInterval: 30, repeats: true, block: { _ in
+        self.timer = Timer.scheduledTimer(withTimeInterval: 15, repeats: true, block: { _ in
             self.getRequestDetails(false)
         })
     }
@@ -140,18 +139,15 @@ class TrackingViewController: BaseViewController,Storyboarded {
     func getETA(){
         
         self.viewModel.infoArray[2].eta = "ETA: ..."
-        
         let lat = viewModel.dictRequest?.latitude ?? 0
         let lng = viewModel.dictRequest?.longitude ?? 0
         
         let driverlat = viewModel.dictRequest?.driverLocation?.latitude ?? 0
         let driverlng =  viewModel.dictRequest?.driverLocation?.longitude ?? 0
         
-        
         if(driverlat == 0 && driverlng == 0){
             self.viewModel.infoArray[2].eta = "ETA: NA"
             self.viewModel.infoArray[2].color = "9CD4FC"
-
         }
         else{
             
@@ -184,13 +180,12 @@ class TrackingViewController: BaseViewController,Storyboarded {
                 let expectedTravelTime = route.expectedTravelTime
                 let convertedTime = self.convertTimeIntervalToHoursMinutes(seconds: expectedTravelTime)
                 self.viewModel.infoArray[2].eta = "ETA : \(String(format: "%02d", convertedTime.hours)):\(String(format: "%02d", convertedTime.minutes)) minutes"
-                
+                self.viewModel.infoArray[2].status = "done"
                 self.viewModel.infoArray[2].color = "36D91B"
                 self.tblView.reloadData()
             }
         }
     }
-    
     
     func convertTimeIntervalToHoursMinutes(seconds: TimeInterval) -> (hours: Int, minutes: Int) {
         var minutes = Int(seconds / 60) % 60
@@ -204,7 +199,6 @@ class TrackingViewController: BaseViewController,Storyboarded {
     }
     
     @IBAction func confirmButtonAction(_ sender: Any) {
-        
         if(self.viewModel.dictRequest?.confirmArrival == true){
             guard let url = URL(string: "telprompt://\(self.viewModel.dictRequest?.driverPhoneNumber ?? "")"),
                   UIApplication.shared.canOpenURL(url) else {
@@ -221,7 +215,6 @@ class TrackingViewController: BaseViewController,Storyboarded {
         coordinator?.goToPDFView()
     }
     
-    
     @IBAction func moreButtonActrion(_ sender: Any) {
         let alertController = UIAlertController(title: "Booking Action", message: "", preferredStyle: .actionSheet)
         alertController.view.subviews.first?.subviews.first?.subviews.first?.backgroundColor = hexStringToUIColor("#F4CC9E")
@@ -230,7 +223,7 @@ class TrackingViewController: BaseViewController,Storyboarded {
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         let canclebooking = UIAlertAction(title: "Cancel Booking", style: .default) { action in
             
-            AlertWithAction(title:"Cancel Booking", message: "Are you sure that you want to Cancel Booking?", ["Cancel Booking","No"], vc: self, "FF543E") { [self] action in
+            AlertWithAction(title:"Cancel Booking", message: "Are you sure that you want to Cancel Booking?", ["Cancel Booking","No"], vc: self,kAlertRed) { [self] action in
                 if(action == 1){
                     
                     let param = [String : String]()

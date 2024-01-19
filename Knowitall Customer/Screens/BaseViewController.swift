@@ -40,7 +40,7 @@ class BaseViewController: UIViewController {
         }
         
         // menu Button
-        backButton = CustomButton(frame: CGRect(x: 16, y: CGFloat((topBarHeight)/2) , width: 70, height: 50))
+        backButton = CustomButton(frame: CGRect(x: 16, y: CGFloat((topBarHeight)/2)+11.0 , width: 70, height: 50))
         
         if(type == ButtonType.back ){
             backButton!.addTarget(self, action:#selector(buttonAction), for: .touchUpInside)
@@ -55,15 +55,15 @@ class BaseViewController: UIViewController {
             backButton.setImage(UIImage(named: "menu"), for: .normal)
         }
         
-        headerLabel = CustomLabel(frame: CGRect(x: 87, y: CGFloat((topBarHeight)/2) , width: self.view.frame.size.width - 157, height: 50))
-        headerLabel?.font = getSemidFont(16)
+        headerLabel = CustomLabel(frame: CGRect(x: 87, y: CGFloat((topBarHeight)/2)+11.0 , width: self.view.frame.size.width - 157, height: 50))
+        headerLabel?.font = getBoldFont(18)
         headerLabel?.textAlignment = .center
         headerLabel?.backgroundColor = .clear
         headerLabel?.textColor = .black
-        headerLabel?.font =  UIFont.init(name: ("Poppins"), size: 16.0)
+        headerLabel?.font =  UIFont.init(name: ("Poppins-Bold"), size: 18.0)
         
         
-        logoImage = UIImageView(frame: CGRect(x: self.view.frame.size.width - 80, y: CGFloat((topBarHeight)/2)-11.0, width: 72,height: 72))
+        logoImage = UIImageView(frame: CGRect(x: self.view.frame.size.width - 80, y: CGFloat((topBarHeight)/2), width: 72,height: 72))
         logoImage?.image = UIImage(named: "logo")
         
         
@@ -98,7 +98,7 @@ class BaseViewController: UIViewController {
         }
         
         // menu Button
-        backButton = CustomButton(frame: CGRect(x: 16, y: CGFloat((topBarHeight)/2) , width: 70, height: 50))
+        backButton = CustomButton(frame: CGRect(x: 16, y: CGFloat((topBarHeight)/2) + 11.0 , width: 70, height: 50))
         backButton!.addTarget(self, action:#selector(buttonAction), for: .touchUpInside)
         backButton.setImage(UIImage(named: "menu"), for: .normal)
         

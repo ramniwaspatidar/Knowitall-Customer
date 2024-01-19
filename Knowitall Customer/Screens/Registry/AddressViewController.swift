@@ -193,24 +193,28 @@ extension AddressViewController: UITableViewDataSource {
             addressField1.delegate = self
             addressField1.returnKeyType = .next
             addressField1.text = viewModel.infoArray[0].value
+            addressField1.keyboardType = .default
             addressField1.isUserInteractionEnabled = true
             
         case 1:
             addressField2 = cell.textFiled
             addressField2.delegate = self
             addressField2.returnKeyType = .next
+            addressField2.keyboardType = .default
             addressField2.text = viewModel.infoArray[1].value
             
         case 2:
             cityField = cell.textFiled
             cityField.delegate = self
             cityField.returnKeyType = .next
+            cityField.keyboardType = .default
             cityField.text = viewModel.infoArray[2].value
             
         case 3:
             stateField = cell.textFiled
             stateField.delegate = self
             stateField.returnKeyType = .next
+            stateField.keyboardType = .default
             stateField.text = viewModel.infoArray[3].value
             
         case 4:
@@ -218,7 +222,7 @@ extension AddressViewController: UITableViewDataSource {
             postalCodeField.delegate = self
             postalCodeField.returnKeyType = .next
             postalCodeField.text = viewModel.infoArray[4].value
-            stateField.keyboardType = .numberPad
+            postalCodeField.keyboardType = .numberPad
             
         default:
             break

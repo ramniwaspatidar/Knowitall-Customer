@@ -18,20 +18,20 @@ class RequestListViewController: BaseViewController,Storyboarded{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
         refreshControl = UIRefreshControl()
         refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
         tblView.addSubview(refreshControl)
         coordinator = MainCoordinator(navigationController: self.navigationController!)
-        
         self.setNavWithOutView(.menu)
         headerLabel?.text = "Requests"
-        self.getAllRequestList()
-        
         RequestCell.registerWithTable(tblView)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.getAllRequestList()
+    }
+    
     
     @objc func refresh(_ sender: Any) {
         refreshControl.endRefreshing()

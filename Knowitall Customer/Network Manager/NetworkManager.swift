@@ -48,10 +48,8 @@ class NetworkManager {
         }
 
         if(hude){
-            
             SVProgressHUD.show()
             SVProgressHUD.setDefaultMaskType(.clear)
-            
         }
         
         self.callRequest(url, hude, loadingText, method: "GET", params: [String : Any]()) { responce, statusCode in

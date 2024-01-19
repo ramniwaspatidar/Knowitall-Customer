@@ -28,7 +28,7 @@ class TrackingViewModel {
 
     var isMenu : Bool = false
 
-    let defaultCellHeight = 95
+    let defaultCellHeight = 72
     
     
     func prepareInfo()-> [TrackingModel]  {
@@ -48,9 +48,22 @@ class TrackingViewModel {
         
         if(cancel == true){
             infoArray.append(TrackingModel(eta: requestTime, value: "Request Submitted" , color: "36D91B" , status: "done"))
-            infoArray.append(TrackingModel(eta: "Cancelled", value: "Driver Response ", color:  "A2A2A2", status:"pending"))
-            infoArray.append(TrackingModel(eta: "Cancelled", value: "Help is on the way",  color: "A2A2A2", status:"pending"))
-            infoArray.append(TrackingModel(eta: "Cancelled", value: "Help Reached", color: "A2A2A2", status:"pending"))
+            if( driverArrived){
+                infoArray.append(TrackingModel(eta: "Job Accepted", value: "Driver Response ", color:  "36D91B", status:"done"))
+                infoArray.append(TrackingModel(eta: "Driver Reaced at Location", value: "Help is on the way",  color: "36D91B", status:"done"))
+                infoArray.append(TrackingModel(eta: "Driver Reaced at Location", value: "Help Reached", color: "36D91B", status:"done"))
+            }
+            else if(accepted == true){
+                infoArray.append(TrackingModel(eta: "Driver Accepted", value: "Driver Response ", color:  "36D91B", status:"done"))
+                infoArray.append(TrackingModel(eta: "Driver was on the way", value: "Help is on the way",  color: "#9CD4FC", status:"done"))
+//                infoArray.append(TrackingModel(eta: "Cancelled", value: "Help Reached", color: "9CD4FC", status:"pending"))
+            } 
+//            else {
+//                infoArray.append(TrackingModel(eta: "Cancelled", value: "Driver Response ", color:  "A2A2A2", status:"pending"))
+//                infoArray.append(TrackingModel(eta: "Cancelled", value: "Help is on the way",  color: "A2A2A2", status:"pending"))
+//                infoArray.append(TrackingModel(eta: "Cancelled", value: "Help Reached", color: "A2A2A2", status:"pending"))
+//            }
+            
            infoArray.append(TrackingModel(eta: cancelDate, value: "Booking Cancelled", color: "FF543E", status:"pending"))
         }
         else if(markNOShow == true){
@@ -60,9 +73,7 @@ class TrackingViewModel {
             infoArray.append(TrackingModel(eta: requestDate, value: "Help Reached", color: "36D91B", status:"done"))
             infoArray.append(TrackingModel(eta: requestDate, value: "Arrival Confirmed", color: "36D91B", status:"done"))
            infoArray.append(TrackingModel(eta: requestDate, value: "Customer Not Found", color: "FF543E", status:"pending"))
-            
         }
-        
         else if( completed){
                 infoArray.append(TrackingModel(eta: requestTime, value: "Request Submitted" , color: "36D91B" , status: "done"))
                 infoArray.append(TrackingModel(eta: "Driver Coming", value: "Driver Response ", color:  "36D91B", status:"done"))
@@ -72,7 +83,6 @@ class TrackingViewModel {
                infoArray.append(TrackingModel(eta: requestDate, value: "Booking Completed", color: "36D91B", status:"done"))
 
         }
-        
         else if( confirmArrival){
                 infoArray.append(TrackingModel(eta: requestTime, value: "Request Submitted" , color: "36D91B" , status: "done"))
                 infoArray.append(TrackingModel(eta: "Driver Coming", value: "Driver Response ", color:  "36D91B", status:"done"))
@@ -80,7 +90,6 @@ class TrackingViewModel {
                 infoArray.append(TrackingModel(eta: "\(requestDate)", value: "Help Reached", color: "36D91B", status:"done"))
                 infoArray.append(TrackingModel(eta: requestDate, value: "Arrival Confirmed", color: "36D91B", status:"done"))
         }
-        
         else if( driverArrived){
                 infoArray.append(TrackingModel(eta: requestTime, value: "Request Submitted" , color: "36D91B" , status: "done"))
                 infoArray.append(TrackingModel(eta: "Driver Coming", value: "Driver Response ", color:  "36D91B", status:"done"))
@@ -93,7 +102,6 @@ class TrackingViewModel {
                 infoArray.append(TrackingModel(eta: "ETA Calculating", value: "Help is on the way",  color: "#9CD4FC", status:"pending"))
                 infoArray.append(TrackingModel(eta: "Pending", value: "Help Reached", color: "9CD4FC", status:"pending"))
         }
-       
         else{
             infoArray.append(TrackingModel(eta: requestTime, value: "Request Submitted" , color: "36D91B" , status: "done"))
             infoArray.append(TrackingModel(eta: "Waiting", value: "Driver Response ", color:  "#9CD4FC", status:"pending"))

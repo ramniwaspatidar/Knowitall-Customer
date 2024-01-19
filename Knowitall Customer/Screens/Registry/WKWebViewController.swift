@@ -18,7 +18,7 @@ class WKWebViewController: BaseViewController,Storyboarded {
     override func viewDidLoad() {
         self.navigationController?.isNavigationBarHidden = false
         super.viewDidLoad()
-        setNavWithOutView(.back)
+        setNavWithOutView(.menu)
         loadHTMPPage()
         
     }
@@ -37,7 +37,6 @@ class WKWebViewController: BaseViewController,Storyboarded {
             headerLabel?.text = "Privacy Policy"
             webView.load(URLRequest(url: URL(string: "https://discussions.apple.com/terms")!))
         }
-        
         else if webViewType == WebViewType.FAQ
         {
             headerLabel?.text = "FAQ’s"

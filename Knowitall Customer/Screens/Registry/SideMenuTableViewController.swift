@@ -109,7 +109,7 @@ extension SideMenuTableViewController: UITableViewDataSource,UITableViewDelegate
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return CGFloat(70)
+        return CGFloat(60)
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
@@ -135,23 +135,23 @@ extension SideMenuTableViewController: UITableViewDataSource,UITableViewDelegate
             }
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }
-        else if(indexPath.row == 4){// promo code
-        }
-        else if(indexPath.row == 5){
+//        else if(indexPath.row == 4){// promo code
+//        }
+        else if(indexPath.row == 4){
             coordinator?.goToWebview(type: .TC)
 
         }
-        else if(indexPath.row == 6){
-//            coordinator?.goToWebview(type: .FAQ)
-        }
+//        else if(indexPath.row == 6){
+////            coordinator?.goToWebview(type: .FAQ)
+//        }
         
-        else if(indexPath.row  == 7){
+        else if(indexPath.row  == 5){
             
             isDismiss = false
             
             let  appDelegate = UIApplication.shared.delegate as? AppDelegate
             
-            AlertWithAction(title:"Logout", message: "Are you sure that you want to Sign out from app?", ["Yes, Sign out","No"], vc: self, "FF543E") { [self] action in
+            AlertWithAction(title:"Logout", message: "Are you sure that you want to Sign out from app?", ["Yes, Sign out","No"], vc: self, kAlertRed) { [self] action in
                 if(action == 1){
                     self.buttonTapped()
                 }
