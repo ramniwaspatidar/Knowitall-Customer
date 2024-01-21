@@ -223,7 +223,6 @@ extension AddressViewController: UITableViewDataSource {
             postalCodeField.returnKeyType = .next
             postalCodeField.text = viewModel.infoArray[4].value
             postalCodeField.keyboardType = .numberPad
-            
         default:
             break
         }
@@ -291,6 +290,9 @@ extension AddressViewController: UITextViewDelegate {
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.isEmpty {
             textView.text = "Type..."
+            textView.textColor = UIColor.lightGray
+        }
+        else{
             textView.textColor = UIColor.white
         }
         self.viewModel.infoArray[7].value = textView.text

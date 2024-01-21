@@ -78,10 +78,10 @@ class AddressViewModel {
                 dictParam["address1"] = dataStore[index].value.trimmingCharacters(in: .whitespaces) as AnyObject
                 
             case .address2:
-                if dataStore[index].value.trimmingCharacters(in: .whitespaces) == "" {
-                    validHandler([:],"Enter address line 2", false)
-                    return
-                }
+//                if dataStore[index].value.trimmingCharacters(in: .whitespaces) == "" {
+//                    validHandler([:],"Enter address line 2", false)
+//                    return
+//                }
                 dictParam["address2"] = dataStore[index].value.trimmingCharacters(in: .whitespaces) as AnyObject
                 
             case .city:
@@ -100,10 +100,10 @@ class AddressViewModel {
                 
                 dictParam["state"] = dataStore[index].value.trimmingCharacters(in: .whitespaces) as AnyObject
             case .landMark:
-                if dataStore[index].value.trimmingCharacters(in: .whitespaces) == "" {
-                    validHandler([:],"Enter landmark", false)
-                    return
-                }
+//                if dataStore[index].value.trimmingCharacters(in: .whitespaces) == "" {
+//                    validHandler([:],"Enter landmark", false)
+//                    return
+//                }
                 dictParam["landmark"] = dataStore[index].value.trimmingCharacters(in: .whitespaces) as AnyObject
 
             case .country:

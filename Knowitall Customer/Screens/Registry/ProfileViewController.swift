@@ -135,6 +135,9 @@ extension ProfileViewController: UITableViewDataSource {
         case SigninCellType.name.rawValue:
             nameTextField = cell.textFiled
             nameTextField.delegate = self
+            nameTextField.autocapitalizationType = .words
+            nameTextField.autocorrectionType = .no
+            nameTextField.keyboardType = .default
             nameTextField.returnKeyType = .next
             
         case SigninCellType.email.rawValue:
