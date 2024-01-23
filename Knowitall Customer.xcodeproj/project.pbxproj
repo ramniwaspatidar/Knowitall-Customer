@@ -12,6 +12,7 @@
 		1A4262D32B2449B7008D0E0D /* AddressViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4262D22B2449B7008D0E0D /* AddressViewModel.swift */; };
 		1A4262D82B24BAAD008D0E0D /* RTCustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4262D52B24BAAB008D0E0D /* RTCustomAlert.swift */; };
 		1A4262D92B24BAAD008D0E0D /* RTCustomAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A4262D62B24BAAB008D0E0D /* RTCustomAlert.xib */; };
+		1A428CCD2B60283D004B98F4 /* faq.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A428CCC2B60283D004B98F4 /* faq.html */; };
 		1A558C502B18EE030013BD30 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A558C4D2B18EE010013BD30 /* Coordinator.swift */; };
 		1A558C512B18EE030013BD30 /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A558C4E2B18EE010013BD30 /* Storyboarded.swift */; };
 		1A558C522B18EE030013BD30 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A558C4F2B18EE030013BD30 /* MainCoordinator.swift */; };
@@ -102,6 +103,7 @@
 		1A4262D22B2449B7008D0E0D /* AddressViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressViewModel.swift; sourceTree = "<group>"; };
 		1A4262D52B24BAAB008D0E0D /* RTCustomAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RTCustomAlert.swift; sourceTree = "<group>"; };
 		1A4262D62B24BAAB008D0E0D /* RTCustomAlert.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RTCustomAlert.xib; sourceTree = "<group>"; };
+		1A428CCC2B60283D004B98F4 /* faq.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = faq.html; sourceTree = "<group>"; };
 		1A558C4D2B18EE010013BD30 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		1A558C4E2B18EE010013BD30 /* Storyboarded.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
 		1A558C4F2B18EE030013BD30 /* MainCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
@@ -243,6 +245,7 @@
 				1A558C572B18F0180013BD30 /* UITableView+Additions.swift */,
 				1A558C5D2B18F0210013BD30 /* UIView+Extensions.swift */,
 				1A558C552B18F0150013BD30 /* View+Shadow.swift */,
+				1A428CCC2B60283D004B98F4 /* faq.html */,
 				1AA087242B598FAF007127DA /* terms.html */,
 			);
 			path = Extension;
@@ -547,6 +550,7 @@
 				1A558C722B18F3640013BD30 /* Main.storyboard in Resources */,
 				1A55ABD22B1849C7001AEEBF /* GoogleService-Info.plist in Resources */,
 				1A55ABDF2B184A77001AEEBF /* Poppins-ExtraLight.ttf in Resources */,
+				1A428CCD2B60283D004B98F4 /* faq.html in Resources */,
 				1A55ABDE2B184A77001AEEBF /* Poppins-Bold.ttf in Resources */,
 				1AA813942B45DD7600F83DDA /* PTP.pdf in Resources */,
 				1A9C8AA92B2CC122000B1E7F /* SettingCell.xib in Resources */,
@@ -818,7 +822,7 @@
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = ZV498993S5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Knowitall Customer/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "Mr Know It All";
+				INFOPLIST_KEY_CFBundleDisplayName = "MR KNOW IT";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We will use current location to create request for service";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "To get current location";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We will use current location to create request for service";
@@ -857,7 +861,7 @@
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = ZV498993S5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Knowitall Customer/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "Mr Know It All";
+				INFOPLIST_KEY_CFBundleDisplayName = "MR KNOW IT";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We will use current location to create request for service";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "To get current location";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We will use current location to create request for service";

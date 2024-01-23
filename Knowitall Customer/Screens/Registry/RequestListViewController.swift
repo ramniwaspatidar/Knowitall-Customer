@@ -9,6 +9,7 @@ class RequestListViewController: BaseViewController,Storyboarded{
     var refreshControl: UIRefreshControl!
     
     @IBOutlet weak var tblView: UITableView!
+    @IBOutlet weak var norequestLabel: UILabel!
     
     
     var viewModel : RequestListViewModal = {
@@ -24,7 +25,7 @@ class RequestListViewController: BaseViewController,Storyboarded{
         tblView.addSubview(refreshControl)
         coordinator = MainCoordinator(navigationController: self.navigationController!)
         self.setNavWithOutView(.menu)
-        headerLabel?.text = "Requests"
+//        headerLabel?.text = "Requests"
         RequestCell.registerWithTable(tblView)
     }
     
@@ -42,7 +43,13 @@ class RequestListViewController: BaseViewController,Storyboarded{
         viewModel.sendRequest(APIsEndPoints.kRequestList.rawValue,loading) { response, code in
             
             self.viewModel.listArray  = response
-            self.tblView.reloadData()
+            
+            if(response.count > 0){
+                self.tblView.reloadData()
+
+            }else{
+                self.norequestLabel.isHidden = false
+            }
         }
     }
     

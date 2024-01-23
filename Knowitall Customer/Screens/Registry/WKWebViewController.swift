@@ -10,6 +10,7 @@ enum WebViewType :Int{
 }
 class WKWebViewController: BaseViewController,Storyboarded {
     var coordinator: MainCoordinator?
+    @IBOutlet weak var lblHeading: UILabel!
     
     @IBOutlet weak var webView: WKWebView!
     
@@ -25,23 +26,34 @@ class WKWebViewController: BaseViewController,Storyboarded {
     
     fileprivate func loadHTMPPage(){
         if webViewType == WebViewType.TC{
-            headerLabel?.text = "Terms & Condition"
+            lblHeading?.text = "Terms & Condition"
+            
             if let htmlPath = Bundle.main.path(forResource: "terms", ofType: "html") {
                 let url = URL(fileURLWithPath: htmlPath)
                 let request = URLRequest(url: url)
                 webView.load(request)
             }
-//            webView.load(URLRequest(url: URL(string: "https://discussions.apple.com/terms")!))
         }
         else if webViewType == WebViewType.policy{
-            headerLabel?.text = "Privacy Policy"
-            webView.load(URLRequest(url: URL(string: "https://discussions.apple.com/terms")!))
+            lblHeading?.text = "Privacy Policy"
+            if let htmlPath = Bundle.main.path(forResource: "terms", ofType: "html") {
+                let url = URL(fileURLWithPath: htmlPath)
+                let request = URLRequest(url: url)
+                webView.load(request)
+            }
         }
+        
         else if webViewType == WebViewType.FAQ
         {
-            headerLabel?.text = "FAQ’s"
-            webView.load(URLRequest(url: URL(string: "https://discussions.apple.com/terms")!))
+            lblHeading?.text = "FAQ’s"
+            
+            if let htmlPath = Bundle.main.path(forResource: "faq", ofType: "html") {
+                let url = URL(fileURLWithPath: htmlPath)
+                let request = URLRequest(url: url)
+                webView.load(request)
+            }
         }
     }
+
     
 }

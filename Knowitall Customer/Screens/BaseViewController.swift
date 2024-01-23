@@ -55,12 +55,13 @@ class BaseViewController: UIViewController {
             backButton.setImage(UIImage(named: "menu"), for: .normal)
         }
         
-        headerLabel = CustomLabel(frame: CGRect(x: 87, y: CGFloat((topBarHeight)/2)+11.0 , width: self.view.frame.size.width - 157, height: 50))
-        headerLabel?.font = getBoldFont(18)
+        headerLabel = CustomLabel(frame: CGRect(x: 87, y: CGFloat((topBarHeight)/2) + 10, width: self.view.frame.size.width - 167, height: 60))
         headerLabel?.textAlignment = .center
         headerLabel?.backgroundColor = .clear
-        headerLabel?.textColor = .black
-        headerLabel?.font =  UIFont.init(name: ("Poppins-Bold"), size: 18.0)
+        headerLabel?.text = "MR KNOW IT ALL TOWING"
+//        headerLabel?.textColor = hexStringToUIColor("F7D63D")
+        headerLabel?.numberOfLines = 0
+        headerLabel?.font =  UIFont.init(name: ("Poppins-Bold"), size: 20.0)
         
         
         logoImage = UIImageView(frame: CGRect(x: self.view.frame.size.width - 80, y: CGFloat((topBarHeight)/2), width: 72,height: 72))
@@ -76,11 +77,7 @@ class BaseViewController: UIViewController {
             self.view .addSubview(headerLabel!)
             self.view.addSubview(logoImage!)
         }
-        
-        if(headerLabel?.text != ""){
-            self.view.addSubview(headerLabel!)
-        }
-        
+                
         view.addSubview(backButton!)
     }
     
@@ -92,6 +89,16 @@ class BaseViewController: UIViewController {
         if UIDevice().userInterfaceIdiom == .phone && UIScreen.main.nativeBounds.height <= 1335 {
             topBarHeight = topBarHeight + 44
             logoImage = UIImageView(frame: CGRect(x: self.view.frame.size.width - 90, y: CGFloat((topBarHeight)/2), width: 72,height: 72))
+            
+            headerLabel = CustomLabel(frame: CGRect(x: 87, y: CGFloat((topBarHeight)/2) + 10, width: self.view.frame.size.width - 167, height: 60))
+            headerLabel?.textAlignment = .center
+            headerLabel?.backgroundColor = .clear
+            headerLabel?.text = "MR KNOW IT ALL TOWING"
+    //        headerLabel?.textColor = hexStringToUIColor("F7D63D")
+            headerLabel?.numberOfLines = 0
+            headerLabel?.font =  UIFont.init(name: ("Poppins-Bold"), size: 20.0)
+            self.view .addSubview(headerLabel!)
+
         }else{
             topBarHeight = topBarHeight + 64
             logoImage = UIImageView(frame: CGRect(x: (Int(self.view.frame.size.width) - 150)/2, y: topBarHeight, width: 150,height: 150))

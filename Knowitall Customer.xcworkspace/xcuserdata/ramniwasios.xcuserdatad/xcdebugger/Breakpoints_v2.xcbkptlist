@@ -1445,8 +1445,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "300"
             endingLineNumber = "300"
-            landmarkName = "locationManager(_:didUpdateLocations:)"
-            landmarkType = "7">
+            landmarkName = "AddressViewController"
+            landmarkType = "21">
             <Locations>
                <Location
                   uuid = "86C3E792-A8BA-4228-B477-A63264BC2F70 - df9fdd0504a0b109"
@@ -2228,8 +2228,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "137"
             endingLineNumber = "137"
-            landmarkName = "updateUI()"
-            landmarkType = "7">
+            landmarkName = "TrackingViewController"
+            landmarkType = "3">
             <Locations>
                <Location
                   uuid = "4D8B9455-1A97-432E-82E4-6E25A3228FF8 - 78a37211ec2c289e"
@@ -2307,8 +2307,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "140"
             endingLineNumber = "140"
-            landmarkName = "updateProfileAction(_:)"
-            landmarkType = "7">
+            landmarkName = "UpdateProfileViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2734,8 +2734,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "285"
             endingLineNumber = "285"
-            landmarkName = "tableView(_:cellForRowAt:)"
-            landmarkType = "7">
+            landmarkName = "TrackingViewController"
+            landmarkType = "21">
             <Locations>
                <Location
                   uuid = "FFCB1C23-91D0-4DA0-85B3-72307173F112 - 8cf908adb90dd881"

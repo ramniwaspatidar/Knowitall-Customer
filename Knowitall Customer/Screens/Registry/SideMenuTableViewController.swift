@@ -141,11 +141,11 @@ extension SideMenuTableViewController: UITableViewDataSource,UITableViewDelegate
             coordinator?.goToWebview(type: .TC)
 
         }
-//        else if(indexPath.row == 6){
-////            coordinator?.goToWebview(type: .FAQ)
-//        }
+        else if(indexPath.row == 5){
+            coordinator?.goToWebview(type: .FAQ)
+        }
         
-        else if(indexPath.row  == 5){
+        else if(indexPath.row  == 6){
             
             isDismiss = false
             
