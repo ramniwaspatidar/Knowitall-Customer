@@ -55,7 +55,7 @@ class OTPViewController: BaseViewController,Storyboarded {
             }else{
                 guard let temId = verificationID else {return }
                 self.verificationID = temId
-                Alert(title: "Resend OTP", message: "OTP successfully send", vc: self)
+                Alert(title: "Resend OTP", message: "OTP sent", vc: self)
                 
             }
         }
