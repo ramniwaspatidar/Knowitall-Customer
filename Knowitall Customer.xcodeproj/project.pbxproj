@@ -92,6 +92,7 @@
 		44162B2A2B4A8296000FE68B /* Location1.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 44162B292B4A8296000FE68B /* Location1.gpx */; };
 		B4A646A61F394F0B58FF0E95 /* Pods_Knowitall_Customer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36B51A790C1B2408FD7E8777 /* Pods_Knowitall_Customer.framework */; };
 		BF76B0AF2B5964B6008E8FA6 /* PickerViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF76B0AB2B5964B6008E8FA6 /* PickerViewViewController.swift */; };
+		BFC560162B63F7D500A3B47B /* Location2.gpx in Resources */ = {isa = PBXBuildFile; fileRef = BFC560152B63F7D500A3B47B /* Location2.gpx */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -186,6 +187,7 @@
 		55482FF891D49C4CE5941A65 /* Pods-Knowitall Customer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Knowitall Customer.debug.xcconfig"; path = "Target Support Files/Pods-Knowitall Customer/Pods-Knowitall Customer.debug.xcconfig"; sourceTree = "<group>"; };
 		BF76B0AB2B5964B6008E8FA6 /* PickerViewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerViewViewController.swift; sourceTree = "<group>"; };
 		BFA17E952B4584DF00FED6BD /* Knowitall Customer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Knowitall Customer.entitlements"; sourceTree = "<group>"; };
+		BFC560152B63F7D500A3B47B /* Location2.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Location2.gpx; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -296,6 +298,7 @@
 		1A55AB952B1847DE001AEEBF /* Knowitall Customer */ = {
 			isa = PBXGroup;
 			children = (
+				BFC560152B63F7D500A3B47B /* Location2.gpx */,
 				44162B292B4A8296000FE68B /* Location1.gpx */,
 				BFA17E952B4584DF00FED6BD /* Knowitall Customer.entitlements */,
 				1A558C6E2B18F1130013BD30 /* ViewModel */,
@@ -549,6 +552,7 @@
 				1AC834D62B3D372E00AD0CA6 /* RequestCell.xib in Resources */,
 				1A558C722B18F3640013BD30 /* Main.storyboard in Resources */,
 				1A55ABD22B1849C7001AEEBF /* GoogleService-Info.plist in Resources */,
+				BFC560162B63F7D500A3B47B /* Location2.gpx in Resources */,
 				1A55ABDF2B184A77001AEEBF /* Poppins-ExtraLight.ttf in Resources */,
 				1A428CCD2B60283D004B98F4 /* faq.html in Resources */,
 				1A55ABDE2B184A77001AEEBF /* Poppins-Bold.ttf in Resources */,
@@ -823,13 +827,17 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Knowitall Customer/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "MR KNOW IT";
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We will use current location to create request for service";
-				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "To get current location";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We will use current location to create request for service";
+				INFOPLIST_KEY_NSCameraUsageDescription = "We would like to use camera to save image in profile photo";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We would like to use location current address";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "We would like to use location current address";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We would like to use location current address";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "We would like to use gallery to save image in profile photo";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "We would like to use gallery to save image in profile photo";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -862,13 +870,17 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Knowitall Customer/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "MR KNOW IT";
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We will use current location to create request for service";
-				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "To get current location";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We will use current location to create request for service";
+				INFOPLIST_KEY_NSCameraUsageDescription = "We would like to use camera to save image in profile photo";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We would like to use location current address";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "We would like to use location current address";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We would like to use location current address";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "We would like to use gallery to save image in profile photo";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "We would like to use gallery to save image in profile photo";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

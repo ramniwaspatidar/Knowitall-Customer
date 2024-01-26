@@ -12,6 +12,7 @@ class WKWebViewController: BaseViewController,Storyboarded {
     var coordinator: MainCoordinator?
     @IBOutlet weak var lblHeading: UILabel!
     
+    @IBOutlet weak var labelTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var webView: WKWebView!
     
     var webViewType : WebViewType?
@@ -20,9 +21,20 @@ class WKWebViewController: BaseViewController,Storyboarded {
         self.navigationController?.isNavigationBarHidden = false
         super.viewDidLoad()
         setNavWithOutView(.menu)
+        if (isiPhoneSE()) {
+            self.labelTopConstraint.constant = 90
+        // Safe area is available, adjust your layout accordingly
+            
+        }
         loadHTMPPage()
         
     }
+    
+    func isiPhoneSE() -> Bool {
+            let deviceModel = UIDevice.current.model
+            return deviceModel == "iPhone" && UIScreen.main.bounds.height <= 667
+        }
+
     
     fileprivate func loadHTMPPage(){
         if webViewType == WebViewType.TC{

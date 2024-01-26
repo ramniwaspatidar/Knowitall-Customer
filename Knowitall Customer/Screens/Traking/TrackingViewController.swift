@@ -172,6 +172,10 @@ class TrackingViewController: BaseViewController,Storyboarded {
                     if let error = error {
                         print("Error getting directions: \(error.localizedDescription)")
                     }
+                    self.viewModel.infoArray[2].eta = "ETA : checking"
+                    self.viewModel.infoArray[2].status = "done"
+                    self.viewModel.infoArray[2].color = "36D91B"
+                    self.tblView.reloadData()
                     return
                 }
                 
