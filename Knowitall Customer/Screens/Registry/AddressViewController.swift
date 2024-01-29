@@ -89,21 +89,28 @@ class AddressViewController: BaseViewController,Storyboarded {
         viewModel.validateFields(dataStore: viewModel.infoArray) { [self] (dict, msg, isSucess) in
             if isSucess {
                 
-                viewModel.infoArray[6].value = ""
-//                let values = viewModel.infoArray.map {$0.value}
-                var values = [String]()
-                for i in 0..<6 {
-                    var stringValue = viewModel.infoArray[i].value
-                    if(stringValue != nil){
-                        stringValue = stringValue.trimmingCharacters(in: .whitespacesAndNewlines.union(CharacterSet(charactersIn: ",")))
+                if(self.addressField1.text == "" && self.addressField2.text == ""){
+                    DispatchQueue.main.async {
+                        Alert(title: "", message: "Please enter either address1 or address2", vc: self)
                     }
-                    if !stringValue.isEmpty {
-                        values.append(stringValue)
+                }else{
+                   
+                    viewModel.infoArray[6].value = ""
+    //                let values = viewModel.infoArray.map {$0.value}
+                    var values = [String]()
+                    for i in 0..<6 {
+                        var stringValue = viewModel.infoArray[i].value
+                        if(stringValue != nil){
+                            stringValue = stringValue.trimmingCharacters(in: .whitespacesAndNewlines.union(CharacterSet(charactersIn: ",")))
+                        }
+                        if !stringValue.isEmpty {
+                            values.append(stringValue)
+                        }
                     }
+                    let tempAddress  = values.joined(separator: (", "))
+                    viewModel.infoArray[6].value = tempAddress
+                    self.getLatLongfromAddress(tempAddress)
                 }
-                let tempAddress  = values.joined(separator: (", "))
-                viewModel.infoArray[6].value = tempAddress
-                self.getLatLongfromAddress(tempAddress)
                 
             }
             else {

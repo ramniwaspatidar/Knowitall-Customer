@@ -129,7 +129,7 @@ extension SideMenuTableViewController: UITableViewDataSource,UITableViewDelegate
             coordinator?.goToUpdateProfile()
         }
         else if(indexPath.row == 3){
-            guard let url = URL(string: "telprompt://\(countryCode)4104297030"),
+            guard let url = URL(string: "telprompt://\(countryCode)2406791043"),
                   UIApplication.shared.canOpenURL(url) else {
                 return
             }

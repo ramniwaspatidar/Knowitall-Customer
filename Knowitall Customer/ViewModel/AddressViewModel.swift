@@ -71,10 +71,10 @@ class AddressViewModel {
             switch dataStore[index].type {
                 
             case .address1:
-                if dataStore[index].value.trimmingCharacters(in: .whitespaces) == "" {
-                    validHandler([:], "Enter  address line1", false)
-                    return
-                }
+//                if dataStore[index].value.trimmingCharacters(in: .whitespaces) == "" {
+//                    validHandler([:], "Enter  address line1", false)
+//                    return
+//                }
                 dictParam["address1"] = dataStore[index].value.trimmingCharacters(in: .whitespaces) as AnyObject
                 
             case .address2:
@@ -143,17 +143,22 @@ class AddressViewModel {
             }
             let pm = placemarks! as [CLPlacemark]
             
+            self.infoArray[0].value = ""
+            self.infoArray[1].value = ""
+
+
+            
             if pm.count > 0 {
                 let pm = placemarks![0]
                 
                 var addressString : String = ""
-                if pm.subLocality != nil {
-                    addressString = addressString + pm.subLocality! + ", "
-                    self.infoArray[0].value = addressString
-                }
                 if pm.thoroughfare != nil {
                     addressString = addressString + pm.thoroughfare! + ", "
-                    self.infoArray[1].value = pm.thoroughfare!
+                    self.infoArray[0].value = addressString
+                }
+                if pm.subThoroughfare != nil {
+                    addressString = addressString + (pm.subThoroughfare ?? "") + ", "
+                    self.infoArray[1].value = pm.subThoroughfare!
                     
                 }
                 if pm.locality != nil {
