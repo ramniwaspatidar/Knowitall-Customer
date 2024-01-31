@@ -88,6 +88,19 @@ class SideMenuTableViewController: UIViewController, Storyboarded  {
         }
         
     }
+    func deleteUserAccount(){
+        self.viewModel.deleteAccount(APIsEndPoints.ksignupUser.rawValue , handler: {[weak self](message,statusCode)in
+            
+            if(statusCode == 0){
+                self?.buttonTapped()
+            }else{
+                Alert(title: "Error", message: message, vc: self!)
+            }
+            
+        })
+
+    }
+
     
 }
 
@@ -144,8 +157,28 @@ extension SideMenuTableViewController: UITableViewDataSource,UITableViewDelegate
         else if(indexPath.row == 5){
             coordinator?.goToWebview(type: .FAQ)
         }
-        
-        else if(indexPath.row  == 6){
+        else if(indexPath.row == 6){
+            isDismiss = false
+
+            showInputDialog(title: "Delete Account",
+                            subtitle: "Before proceeding with account deletion, We need to verify your phone number. Please enter you phone number",
+                            actionTitle: "Delete Account",
+                            cancelTitle: "Cancel",
+                            inputPlaceholder: "Enter phone number",
+                            inputKeyboardType: .phonePad, actionHandler:
+                                    { (input:String?) in
+                
+                
+                if(input != "" &&  input == CurrentUserInfo.phone){
+                    self.deleteUserAccount()
+                    
+                }else{
+                    Alert(title: "Error", message: "Enter valid phone number", vc: self)
+                }
+            })
+        }
+
+        else if(indexPath.row  == 7){
             
             isDismiss = false
             
@@ -163,5 +196,32 @@ extension SideMenuTableViewController: UITableViewDataSource,UITableViewDelegate
             dismiss(animated: true, completion: nil)
             
         }
+    }
+}
+extension UIViewController {
+    func showInputDialog(title:String? = nil,
+                         subtitle:String? = nil,
+                         actionTitle:String? = "Add",
+                         cancelTitle:String? = "Cancel",
+                         inputPlaceholder:String? = nil,
+                         inputKeyboardType:UIKeyboardType = UIKeyboardType.default,
+                         cancelHandler: ((UIAlertAction) -> Swift.Void)? = nil,
+                         actionHandler: ((_ text: String?) -> Void)? = nil) {
+        
+        let alert = UIAlertController(title: title, message: subtitle, preferredStyle: .alert)
+        alert.addTextField { (textField:UITextField) in
+            textField.placeholder = inputPlaceholder
+            textField.keyboardType = inputKeyboardType
+        }
+        alert.addAction(UIAlertAction(title: actionTitle, style: .default, handler: { (action:UIAlertAction) in
+            guard let textField =  alert.textFields?.first else {
+                actionHandler?(nil)
+                return
+            }
+            actionHandler?(textField.text)
+        }))
+        alert.addAction(UIAlertAction(title: cancelTitle, style: .cancel, handler: cancelHandler))
+        
+        self.present(alert, animated: true, completion: nil)
     }
 }
