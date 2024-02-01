@@ -54,7 +54,7 @@ class TrackingViewModel {
             infoArray.append(TrackingModel(eta: requestTime, value: "Request Submitted" , color: "36D91B" , status: "done"))
             if( driverArrived){
                 infoArray.append(TrackingModel(eta: "Job Accepted", value: "Driver Response ", color:  "36D91B", status:"done"))
-                infoArray.append(TrackingModel(eta: "Driver Reaced at Location", value: "Help is on the way",  color: "36D91B", status:"done"))
+//                infoArray.append(TrackingModel(eta: "Driver Reaced at Location", value: "Help is on the way",  color: "36D91B", status:"done"))
                 infoArray.append(TrackingModel(eta: driverArrivedDate, value: "Help Reached", color: "36D91B", status:"done"))
             }
             else if(accepted == true){
@@ -87,8 +87,8 @@ class TrackingViewModel {
         }
         else if( completed){
                 infoArray.append(TrackingModel(eta: requestTime, value: "Request Submitted" , color: "36D91B" , status: "done"))
-                infoArray.append(TrackingModel(eta: "Driver Coming", value: "Driver Response ", color:  "36D91B", status:"done"))
-                infoArray.append(TrackingModel(eta: "ETA calculating", value: "Help is on the way",  color: "36D91B", status:"done"))
+                infoArray.append(TrackingModel(eta: "Job Accepted", value: "Driver Response ", color:  "36D91B", status:"done"))
+//                infoArray.append(TrackingModel(eta: "Driver Reaced at Location", value: "Help is on the way",  color: "36D91B", status:"done"))
                 infoArray.append(TrackingModel(eta: requestDate, value: "Help Reached", color: "36D91B", status:"done"))
                 infoArray.append(TrackingModel(eta: requestDate, value: "Arrival Confirmed", color: "36D91B", status:"done"))
                infoArray.append(TrackingModel(eta: requestDate, value: "Booking Completed", color: "36D91B", status:"done"))
@@ -96,15 +96,15 @@ class TrackingViewModel {
         }
         else if( confirmArrival){
                 infoArray.append(TrackingModel(eta: requestTime, value: "Request Submitted" , color: "36D91B" , status: "done"))
-                infoArray.append(TrackingModel(eta: "Driver Coming", value: "Driver Response ", color:  "36D91B", status:"done"))
-                infoArray.append(TrackingModel(eta: "ETA calculating", value: "Help is on the way",  color: "36D91B", status:"done"))
+                infoArray.append(TrackingModel(eta: "Job Accepted", value: "Driver Response ", color:  "36D91B", status:"done"))
+//                infoArray.append(TrackingModel(eta: "ETA calculating", value: "Help is on the way",  color: "36D91B", status:"done"))
                 infoArray.append(TrackingModel(eta: "\(requestDate)", value: "Help Reached", color: "36D91B", status:"done"))
                 infoArray.append(TrackingModel(eta: requestDate, value: "Arrival Confirmed", color: "36D91B", status:"done"))
         }
         else if( driverArrived){
                 infoArray.append(TrackingModel(eta: requestTime, value: "Request Submitted" , color: "36D91B" , status: "done"))
-                infoArray.append(TrackingModel(eta: "Driver Coming", value: "Driver Response ", color:  "36D91B", status:"done"))
-                infoArray.append(TrackingModel(eta: "ETA calculating", value: "Help is on the way",  color: "36D91B", status:"done"))
+                infoArray.append(TrackingModel(eta: "Job Accepted", value: "Driver Response ", color:  "36D91B", status:"done"))
+                infoArray.append(TrackingModel(eta: "Driver Reaced at Location", value: "Help is on the way",  color: "36D91B", status:"done"))
                 infoArray.append(TrackingModel(eta: "Press confirm arrival to continue", value: "Help Reached", color: "36D91B", status:"done"))
         }
         else if(accepted == true){
