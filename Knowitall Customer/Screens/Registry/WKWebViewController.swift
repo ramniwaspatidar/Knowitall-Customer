@@ -62,12 +62,12 @@ class WKWebViewController: BaseViewController,Storyboarded {
         else if webViewType == WebViewType.FAQ
         {
             lblHeading?.text = "FAQ’s"
-            
-            if let htmlPath = Bundle.main.path(forResource: "faq", ofType: "html") {
-                let url = URL(fileURLWithPath: htmlPath)
-                let request = URLRequest(url: url)
-                webView.load(request)
-            }
+            webView.load(URLRequest(url: URL(string: "https://mrknowitalltowingpage.com/faq")!))
+//            if let htmlPath = Bundle.main.path(forResource: "faq", ofType: "html") {
+//                let url = URL(fileURLWithPath: htmlPath)
+//                let request = URLRequest(url: url)
+//                webView.load(request)
+//            }
         }
     }
 

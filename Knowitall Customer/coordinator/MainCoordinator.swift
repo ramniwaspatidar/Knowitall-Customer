@@ -62,7 +62,13 @@ class MainCoordinator : Coordinator{
         vc.coordinator = self
         vc.viewModel.requestId = requestId
         vc.viewModel.isMenu = isMenu
-        navigationController.pushViewController(vc, animated: false)
+        if(isMenu){
+            navigationController.pushViewController(vc, animated: true)
+        }
+        else{
+            navigationController.viewControllers = [vc]
+        }
+        
     }
     
     func goToArrivalView(_ dictRequest : RequestListModal) {
