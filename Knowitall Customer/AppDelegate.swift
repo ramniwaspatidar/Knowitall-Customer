@@ -58,6 +58,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     // Mark : get app version
     
     public func autoLogin(){
+        let navController = UINavigationController()
+        navController.navigationBar.isHidden = true
         if CurrentUserInfo.userId != nil ,let currentUser = Auth.auth().currentUser {
             CurrentUserInfo.userId = currentUser.uid
             Messaging.messaging().subscribe(toTopic: CurrentUserInfo.userId) { error in
@@ -67,27 +69,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
                     print("Successfully subscribed from topic!")
                 }
             }
-            let navController = UINavigationController()
-            navController.navigationBar.isHidden = true
             coordinator = MainCoordinator(navigationController: navController)
             coordinator?.goToHelpView()
 
         }else{
-            let navController = UINavigationController()
-            navController.navigationBar.isHidden = true
             coordinator = MainCoordinator(navigationController: navController)
             coordinator?.goToMobileNUmber()
         }
-        
-//        let navController = UINavigationController()
-//        navController.navigationBar.isHidden = true
-//        coordinator = MainCoordinator(navigationController: navController)
-//        coordinator?.goToHelpView()
-        
-        
-        window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = coordinator?.navigationController
-        window?.makeKeyAndVisible()
+        if(window != nil){
+            window?.rootViewController = coordinator?.navigationController
+        }
+        else{
+            window = UIWindow(frame: UIScreen.main.bounds)
+            window?.rootViewController = coordinator?.navigationController
+            window?.makeKeyAndVisible()
+        }
         
         if #available(iOS 13.0, *) {
             window?.overrideUserInterfaceStyle = .light
@@ -95,7 +91,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         
         let sideMenuViewController = SideMenuTableViewController()
         sideMenuViewController.coordinator = coordinator
-            SideMenuManager.default.leftMenuNavigationController = UISideMenuNavigationController(rootViewController: sideMenuViewController)
+        SideMenuManager.default.leftMenuNavigationController = SideMenuNavigationController(rootViewController: sideMenuViewController)
             SideMenuManager.default.addPanGestureToPresent(toView: self.window!)
         SideMenuManager.default.menuWidth = (self.window?.frame.size.width ?? 350) - 100
 

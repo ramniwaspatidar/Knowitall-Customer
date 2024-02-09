@@ -2,6 +2,7 @@
 import Foundation
 import SVProgressHUD
 import FirebaseAuth
+import FirebaseMessaging
 
 class NetworkManager {
     static var shared  = NetworkManager()
@@ -128,9 +129,42 @@ class NetworkManager {
                     }
                     return;
                 }
+                
                 do {
                     let json = try JSONSerialization.jsonObject(with: data!, options : .mutableLeaves) as! [String : Any]
                     DispatchQueue.main.sync {
+                        if let _status = json["status"] as? Bool, _status == false{
+                            if let strReason = json["message"] as? String, strReason == "custom-403-access-denied(GatewayResponseAuthorizerFailure)"{
+                                AlertWithOkAction(title: kError, message: "You session is expired, please login again", vc: RootViewController.controller!){action in
+                                    if(action == 1){
+                                        do{
+                                            try Auth.auth().signOut()
+                                            
+                                            Messaging.messaging().unsubscribe(fromTopic: CurrentUserInfo.userId) { error in
+                                                if let error = error {
+                                                    print("Error unsubscribing from topic: \(error.localizedDescription)")
+                                                } else {
+                                                    print("Successfully unsubscribed from topic!")
+                                                }
+                                            }
+                                            
+                                            CurrentUserInfo.email = nil
+                                            CurrentUserInfo.phone = nil
+                                            CurrentUserInfo.language = nil
+                                            CurrentUserInfo.location = nil
+                                            CurrentUserInfo.userId = nil
+                                            
+                                            let  appDelegate = UIApplication.shared.delegate as? AppDelegate
+                                            appDelegate?.autoLogin()
+                                        }catch{
+                                        }
+                                    }
+                                }
+                                networkHandler(json, 403)
+                                return
+                            }
+                        }
+
                         #if DEBUG
                             print(json);
                         #endif
