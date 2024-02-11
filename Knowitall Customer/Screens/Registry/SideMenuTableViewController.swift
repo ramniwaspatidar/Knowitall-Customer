@@ -184,7 +184,7 @@ extension SideMenuTableViewController: UITableViewDataSource,UITableViewDelegate
             
             let  appDelegate = UIApplication.shared.delegate as? AppDelegate
             
-            AlertWithAction(title:"Logout", message: "Are you sure that you want to Sign out from app?", ["Yes, Sign out","No"], vc: self, kAlertRed) { [self] action in
+            AlertWithAction(title:"Sign out", message: "Are you sure that you want to Sign out from app?", ["Yes, Sign out","No"], vc: self, kAlertRed) { [self] action in
                 if(action == 1){
                     self.buttonTapped()
                 }
