@@ -83,7 +83,7 @@ class TrackingViewModel {
                 infoArray.append(TrackingModel(eta: "Driver was on the way", value: "Help is on the way",  color: "#9CD4FC", status:"done"))
             }
             
-           infoArray.append(TrackingModel(eta: markNoShowDate, value: "Customer Not Found", color: "FF543E", status:"pending"))
+           infoArray.append(TrackingModel(eta: markNoShowDate, value: "Tow Not Found", color: "FF543E", status:"pending"))
         }
         else if( completed){
                 infoArray.append(TrackingModel(eta: requestTime, value: "Request Submitted" , color: "36D91B" , status: "done"))

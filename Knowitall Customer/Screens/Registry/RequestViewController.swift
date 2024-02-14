@@ -165,7 +165,6 @@ class RequestViewController: BaseViewController,Storyboarded, RTCustomAlertDeleg
                 dictParam["longitude"] = lng.doubleValue
                 dictParam["address"] = self.viewModel.addressInfo?[0].value ?? ""
                 dictParam["address1"] = self.viewModel.addressInfo?[1].value ?? ""
-                
                 dictParam["city"] = self.viewModel.addressInfo?[2].value
                 dictParam["state"] = self.viewModel.addressInfo?[3].value
                 dictParam["postalCode"] = self.viewModel.addressInfo?[4].value
