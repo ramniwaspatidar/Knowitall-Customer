@@ -5,7 +5,6 @@ import FirebaseAuth
 import FirebaseMessaging
 import SideMenu
 import IQKeyboardManagerSwift
-import Branch
 import AppsFlyerLib
 
 protocol locationDelegateProtocol {

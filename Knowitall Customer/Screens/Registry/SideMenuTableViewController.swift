@@ -2,7 +2,6 @@ import UIKit
 import FirebaseAuth
 import SideMenu
 import FirebaseMessaging
-import Branch
 import AppsFlyerLib
 
 
@@ -149,22 +148,7 @@ extension SideMenuTableViewController: UITableViewDataSource,UITableViewDelegate
             }
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }
-        else if(indexPath.row == 4){// promo code            
-
-//            let customParams = [
-//                "referral_code": CurrentUserInfo.phone,
-//                // Other custom parameters if needed
-//            ]
-//
-//            Branch.getInstance().getShortURL(withParams: customParams as [AnyHashable : Any]) { (url, error) in
-//                if let error = error {
-//                    print("Error creating invite link: \(error.localizedDescription)")
-//                } else if let url = url {
-//                    print("Invite link created: \(url)")
-//                    // Use the invite link as needed
-//                }
-//            }
-            
+        else if(indexPath.row == 4){            
             generateInviteLink()
         }
         else if(indexPath.row == 5){
@@ -217,12 +201,6 @@ extension SideMenuTableViewController: UITableViewDataSource,UITableViewDelegate
                 generator.addParameterValue("", forKey: "deep_link_value")
                 generator.addParameterValue("", forKey: "deep_link_sub1")
                 generator.addParameterValue(CurrentUserInfo.phone, forKey: "deep_link_sub2")
-                //                    // Optional; makes the referrer ID available in the installs raw-data report
-                //                    generator.addParameterValue(<REFERRER_ID>, forKey: "af_sub1")
-                //                    generator.setCampaign("summer_sale")
-                //                    generator.setChannel("mobile_share")
-                //                      // Optional; Set a branded domain name:
-                //                      generator.brandDomain = "brand.domain.com"
                 return generator
             },
             completionHandler: { [self]
