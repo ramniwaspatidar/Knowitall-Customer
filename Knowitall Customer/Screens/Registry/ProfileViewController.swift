@@ -9,17 +9,19 @@ import SideMenu
 class ProfileViewController: BaseViewController,Storyboarded {
     
     @IBOutlet weak var tblView: UITableView!
- 
+    
+    @IBOutlet weak var lblReferredBy: UILabel!
+    @IBOutlet weak var constraintReferredByHeight: NSLayoutConstraint!
     
     var coordinator: MainCoordinator?
     var emailTextField: CustomTextField!
     var nameTextField: CustomTextField!
     
-     var viewModel : ProfileViewModel = {
+    var viewModel : ProfileViewModel = {
         let viewModel = ProfileViewModel()
         return viewModel }()
     
-
+    
     
     enum SigninCellType : Int{
         case name = 0
@@ -31,22 +33,32 @@ class ProfileViewController: BaseViewController,Storyboarded {
         super.viewDidLoad()
         
         SideMenuManager.default.leftMenuNavigationController = nil
-//        self.setNavWithOutView(.back)
+        //        self.setNavWithOutView(.back)
         // MARK : Initial setup
         UISetup()
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        
+        if(UserDefaults.standard.bool(forKey: "developer_mode") )
+        {
+            lblReferredBy.isHidden = false
+            constraintReferredByHeight.constant = 24
+            if let stringValue = UserDefaults.standard.string(forKey: "referralCode") {
+                lblReferredBy.text = "Referred By :- \(stringValue)"
+            }
+        }
+        else{
+            lblReferredBy.isHidden = true
+            constraintReferredByHeight.constant = 0
+        }
     }
     
     private func UISetup(){
         viewModel.infoArray = (self.viewModel.prepareInfo(dictInfo: viewModel.dictInfo))
         UserNameCell.registerWithTable(tblView)
-    
     }
-   
-
+    
+    
     @IBAction func submit(_ sender: Any) {
         viewModel.validateFields(dataStore: viewModel.infoArray) { (dict, msg, isSucess) in
             if isSucess {
@@ -59,31 +71,36 @@ class ProfileViewController: BaseViewController,Storyboarded {
             }
         }
     }
- 
+    
     
     func createUser(){
         
         SVProgressHUD.show()
-  
+        
         if Auth.auth().currentUser != nil {
-                var dictParam = [String : String]()
-                dictParam["countryCode"] = countryCode
-                dictParam["phoneNumber"] = self.viewModel.mobileNumber
-                dictParam["email"] = self.emailTextField.text
-                dictParam["name"] = self.nameTextField.text
-                self.updateProfile(APIsEndPoints.ksignupUser.rawValue,dictParam, handler: {(mmessage,statusCode)in
-                    DispatchQueue.main.async {
-                        SVProgressHUD.dismiss()
-                        
-                        CurrentUserInfo.phone = self.viewModel.mobileNumber
-                        CurrentUserInfo.userName  = self.nameTextField.text
-                        CurrentUserInfo.email  = self.emailTextField.text
-
-                        let appDelegate = UIApplication.shared.delegate as? AppDelegate
-                        appDelegate?.autoLogin()
-                
-                    }
-                })
+            var dictParam = [String : String]()
+            dictParam["countryCode"] = countryCode
+            dictParam["phoneNumber"] = self.viewModel.mobileNumber
+            dictParam["email"] = self.emailTextField.text
+            dictParam["name"] = self.nameTextField.text
+            
+            if let stringValue = UserDefaults.standard.string(forKey: "referralCode") {
+                dictParam["referredBy"] = stringValue
+            }
+            
+            self.updateProfile(APIsEndPoints.ksignupUser.rawValue,dictParam, handler: {(mmessage,statusCode)in
+                DispatchQueue.main.async {
+                    SVProgressHUD.dismiss()
+                    
+                    CurrentUserInfo.phone = self.viewModel.mobileNumber
+                    CurrentUserInfo.userName  = self.nameTextField.text
+                    CurrentUserInfo.email  = self.emailTextField.text
+                    
+                    let appDelegate = UIApplication.shared.delegate as? AppDelegate
+                    appDelegate?.autoLogin()
+                    
+                }
+            })
             
         }
     }
@@ -93,7 +110,6 @@ class ProfileViewController: BaseViewController,Storyboarded {
         NetworkManager.shared.postRequest(url, true, "", params: param, networkHandler: {(responce,statusCode) in
             APIHelper.parseObject(responce, true) { payload, status, message, code in
                 if status {
-                    
                     let customerId = payload["customerId"] as? String
                     let number = payload["fullNumber"] as? String
                     CurrentUserInfo.userId = customerId
@@ -141,7 +157,7 @@ extension ProfileViewController: UITableViewDataSource {
             nameTextField.returnKeyType = .next
             
         case SigninCellType.email.rawValue:
-      
+            
             emailTextField = cell.textFiled
             emailTextField.keyboardType = .emailAddress
             emailTextField.delegate = self

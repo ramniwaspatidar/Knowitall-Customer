@@ -33,7 +33,7 @@ class SettingViewModel {
         
         settingArray.append(SettingModel( image: UIImage(named: "call")! , placeholder: NSLocalizedString(LanguageText.number.rawValue, comment: ""), name: "Call Directly"))
         
-//        settingArray.append(SettingModel( image: UIImage(named: "gift")! , placeholder: NSLocalizedString(LanguageText.number.rawValue, comment: ""), name: "My Promo Code"))
+        settingArray.append(SettingModel( image: UIImage(named: "gift")! , placeholder: NSLocalizedString(LanguageText.number.rawValue, comment: ""), name: "Refer a friend"))
         
         settingArray.append(SettingModel( image: UIImage(named: "privacy")! , placeholder: NSLocalizedString(LanguageText.number.rawValue, comment: ""), name: "T&C"))
         

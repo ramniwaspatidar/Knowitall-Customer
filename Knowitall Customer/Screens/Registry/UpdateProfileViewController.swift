@@ -99,7 +99,9 @@ class UpdateProfileViewController: BaseViewController,Storyboarded {
         
         if((self.viewModel.dictData?.profileImage) != nil){
             self.profileImageUrl =  self.viewModel.dictData?.profileImage  ?? ""
-            self.profileImage.load(url:URL(string: self.viewModel.dictData?.profileImage ?? "")!)
+            if let url = URL(string: self.viewModel.dictData?.profileImage ?? "") {
+                self.profileImage.load(url:url)
+            }
         }
         
     }

@@ -2,6 +2,8 @@ import UIKit
 import FirebaseAuth
 import SideMenu
 import FirebaseMessaging
+import Branch
+import AppsFlyerLib
 
 
 class SideMenuTableViewController: UIViewController, Storyboarded  {
@@ -18,7 +20,6 @@ class SideMenuTableViewController: UIViewController, Storyboarded  {
         super.viewDidLoad()
         self.view.backgroundColor = hexStringToUIColor("F7D63D")
         viewModel.settingArray =  viewModel.prepareInfo()
-        
         // Initialize and configure the UITableView
         tableView = UITableView()
         tableView.backgroundColor = .clear
@@ -148,18 +149,33 @@ extension SideMenuTableViewController: UITableViewDataSource,UITableViewDelegate
             }
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }
-//        else if(indexPath.row == 4){// promo code
-//        }
-        else if(indexPath.row == 4){
+        else if(indexPath.row == 4){// promo code            
+
+//            let customParams = [
+//                "referral_code": CurrentUserInfo.phone,
+//                // Other custom parameters if needed
+//            ]
+//
+//            Branch.getInstance().getShortURL(withParams: customParams as [AnyHashable : Any]) { (url, error) in
+//                if let error = error {
+//                    print("Error creating invite link: \(error.localizedDescription)")
+//                } else if let url = url {
+//                    print("Invite link created: \(url)")
+//                    // Use the invite link as needed
+//                }
+//            }
+            
+            generateInviteLink()
+        }
+        else if(indexPath.row == 5){
             coordinator?.goToWebview(type: .TC)
 
         }
-        else if(indexPath.row == 5){
+        else if(indexPath.row == 6){
             coordinator?.goToWebview(type: .FAQ)
         }
-        else if(indexPath.row == 6){
+        else if(indexPath.row == 7){
             isDismiss = false
-
             showInputDialog(title: "Delete Account",
                             subtitle: "Before proceeding with account deletion, We need to verify your phone number. Please enter you phone number",
                             actionTitle: "Delete Account",
@@ -178,12 +194,9 @@ extension SideMenuTableViewController: UITableViewDataSource,UITableViewDelegate
             })
         }
 
-        else if(indexPath.row  == 7){
-            
+        else if(indexPath.row  == 8){
             isDismiss = false
-            
             let  appDelegate = UIApplication.shared.delegate as? AppDelegate
-            
             AlertWithAction(title:"Sign out", message: "Are you sure that you want to Sign out from app?", ["Yes, Sign out","No"], vc: self, kAlertRed) { [self] action in
                 if(action == 1){
                     self.buttonTapped()
@@ -197,6 +210,43 @@ extension SideMenuTableViewController: UITableViewDataSource,UITableViewDelegate
             
         }
     }
+    func generateInviteLink() {
+        AppsFlyerShareInviteHelper.generateInviteUrl(
+            linkGenerator: {
+                (_ generator: AppsFlyerLinkGenerator) -> AppsFlyerLinkGenerator in
+                generator.addParameterValue("", forKey: "deep_link_value")
+                generator.addParameterValue("", forKey: "deep_link_sub1")
+                generator.addParameterValue(CurrentUserInfo.phone, forKey: "deep_link_sub2")
+                //                    // Optional; makes the referrer ID available in the installs raw-data report
+                //                    generator.addParameterValue(<REFERRER_ID>, forKey: "af_sub1")
+                //                    generator.setCampaign("summer_sale")
+                //                    generator.setChannel("mobile_share")
+                //                      // Optional; Set a branded domain name:
+                //                      generator.brandDomain = "brand.domain.com"
+                return generator
+            },
+            completionHandler: { [self]
+                (_ url: URL?) -> Void in
+                if url != nil {
+                    NSLog("[AFSDK] AppsFlyer share-invite link: \(url!.absoluteString)")
+                    shareInviteLink(url!.absoluteString)
+                }
+                else {
+                    print("url is nil")
+                }
+            }
+        )
+        
+    }
+        
+        // Function to share invite link
+        func shareInviteLink(_ inviteLink: String) {
+            // Create activity view controller for sharing
+            let activityViewController = UIActivityViewController(activityItems: [inviteLink], applicationActivities: nil)
+            
+            // Present the activity view controller
+            self.present(activityViewController, animated: true, completion: nil)
+        }
 }
 extension UIViewController {
     func showInputDialog(title:String? = nil,
@@ -224,4 +274,6 @@ extension UIViewController {
         
         self.present(alert, animated: true, completion: nil)
     }
+    
+    
 }

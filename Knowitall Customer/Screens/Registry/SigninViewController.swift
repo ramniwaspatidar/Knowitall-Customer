@@ -39,6 +39,13 @@ class SigninViewController: UIViewController,Storyboarded  {
         mobileField.layer.cornerRadius = 8
         mobileField.keyboardType = .phonePad
         mobileField.becomeFirstResponder()
+//        if(UserDefaults.standard.bool(forKey: "developer_mode") )
+//        {
+//            if let stringValue = UserDefaults.standard.string(forKey: "referralCode") {
+//                mobileField.text = stringValue
+//            }
+//        }
+        
         
         mobileField.delegate = self;
         viewModel.infoArray = (self.viewModel.prepareInfo(dictInfo: viewModel.dictInfo))

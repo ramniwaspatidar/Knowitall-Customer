@@ -92,6 +92,7 @@
 		1AD6375E2B2AA1D20076EAD3 /* PresentedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD6375D2B2AA1D20076EAD3 /* PresentedViewController.swift */; };
 		44162B2A2B4A8296000FE68B /* Location1.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 44162B292B4A8296000FE68B /* Location1.gpx */; };
 		B4A646A61F394F0B58FF0E95 /* Pods_Knowitall_Customer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36B51A790C1B2408FD7E8777 /* Pods_Knowitall_Customer.framework */; };
+		BF5CEF172B7F800E00EB1F09 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BF5CEF162B7F800E00EB1F09 /* Settings.bundle */; };
 		BF76B0AF2B5964B6008E8FA6 /* PickerViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF76B0AB2B5964B6008E8FA6 /* PickerViewViewController.swift */; };
 		BFC560162B63F7D500A3B47B /* Location2.gpx in Resources */ = {isa = PBXBuildFile; fileRef = BFC560152B63F7D500A3B47B /* Location2.gpx */; };
 /* End PBXBuildFile section */
@@ -187,6 +188,8 @@
 		36B51A790C1B2408FD7E8777 /* Pods_Knowitall_Customer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Knowitall_Customer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		44162B292B4A8296000FE68B /* Location1.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Location1.gpx; sourceTree = "<group>"; };
 		55482FF891D49C4CE5941A65 /* Pods-Knowitall Customer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Knowitall Customer.debug.xcconfig"; path = "Target Support Files/Pods-Knowitall Customer/Pods-Knowitall Customer.debug.xcconfig"; sourceTree = "<group>"; };
+		BF5CEF132B7E890300EB1F09 /* Knowitall CustomerRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Knowitall CustomerRelease.entitlements"; sourceTree = "<group>"; };
+		BF5CEF162B7F800E00EB1F09 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		BF76B0AB2B5964B6008E8FA6 /* PickerViewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerViewViewController.swift; sourceTree = "<group>"; };
 		BFA17E952B4584DF00FED6BD /* Knowitall Customer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Knowitall Customer.entitlements"; sourceTree = "<group>"; };
 		BFC560152B63F7D500A3B47B /* Location2.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Location2.gpx; sourceTree = "<group>"; };
@@ -216,7 +219,6 @@
 		1A558C4B2B18ED720013BD30 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				1A9C8AA42B2CC054000B1E7F /* sidemenu */,
 				1AD637522B28B3D90076EAD3 /* Traking */,
 				1A558C732B18F4EB0013BD30 /* BaseViewController.swift */,
 				1A55ABAC2B184892001AEEBF /* Registry */,
@@ -301,6 +303,7 @@
 		1A55AB952B1847DE001AEEBF /* Knowitall Customer */ = {
 			isa = PBXGroup;
 			children = (
+				BF5CEF132B7E890300EB1F09 /* Knowitall CustomerRelease.entitlements */,
 				BFC560152B63F7D500A3B47B /* Location2.gpx */,
 				44162B292B4A8296000FE68B /* Location1.gpx */,
 				BFA17E952B4584DF00FED6BD /* Knowitall Customer.entitlements */,
@@ -321,6 +324,7 @@
 				1AA813932B45DD7600F83DDA /* PTP.pdf */,
 				1A558C712B18F3640013BD30 /* Main.storyboard */,
 				1A55ABA12B1847E0001AEEBF /* LaunchScreen.storyboard */,
+				BF5CEF162B7F800E00EB1F09 /* Settings.bundle */,
 			);
 			path = "Knowitall Customer";
 			sourceTree = "<group>";
@@ -417,13 +421,6 @@
 				1A6910792B1A4039009ACD06 /* UserNameCell.xib */,
 			);
 			path = UserNameCell;
-			sourceTree = "<group>";
-		};
-		1A9C8AA42B2CC054000B1E7F /* sidemenu */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = sidemenu;
 			sourceTree = "<group>";
 		};
 		1A9C8AA52B2CC0FD000B1E7F /* MenuCell */ = {
@@ -569,6 +566,7 @@
 				1AA087252B598FAF007127DA /* terms.html in Resources */,
 				1A9C7FA62B68094000586D5F /* terms.pdf in Resources */,
 				1A55ABDC2B184A77001AEEBF /* Poppins-Medium.ttf in Resources */,
+				BF5CEF172B7F800E00EB1F09 /* Settings.bundle in Resources */,
 				1A55ABA02B1847E0001AEEBF /* Assets.xcassets in Resources */,
 				1A55ABDB2B184A77001AEEBF /* Poppins-Regular.ttf in Resources */,
 			);
@@ -864,7 +862,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "Knowitall Customer/Knowitall Customer.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "Knowitall Customer/Knowitall CustomerRelease.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;

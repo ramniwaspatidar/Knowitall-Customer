@@ -1,4 +1,7 @@
 PODS:
+  - AppsFlyerFramework (6.13.0):
+    - AppsFlyerFramework/Main (= 6.13.0)
+  - AppsFlyerFramework/Main (6.13.0)
   - Firebase/Core (10.16.0):
     - Firebase/CoreOnly
     - FirebaseAnalytics (~> 10.16.0)
@@ -112,6 +115,7 @@ PODS:
   - SVProgressHUD (2.2.5)
 
 DEPENDENCIES:
+  - AppsFlyerFramework
   - Firebase/Core
   - Firebase/Messaging
   - FirebaseAuth
@@ -124,6 +128,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - AppsFlyerFramework
     - Firebase
     - FirebaseAnalytics
     - FirebaseAppCheckInterop
@@ -147,6 +152,7 @@ SPEC REPOS:
     - SVProgressHUD
 
 SPEC CHECKSUMS:
+  AppsFlyerFramework: cb54b4f27d2da2b3e2b286800476ce3b2007c75f
   Firebase: 25899099b77d255a636e3579c3d9dce10ec150d5
   FirebaseAnalytics: 7b41efc4eba5ff841cc94d5994b5f339361258f4
   FirebaseAppCheckInterop: 37884781f3e16a1ba47e7ec80a1e805f987788e3
@@ -169,6 +175,6 @@ SPEC CHECKSUMS:
   SideMenu: f583187d21c5b1dd04c72002be544b555a2627a2
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: 0f32032052766c2780d20a6c11069aefd71236f8
+PODFILE CHECKSUM: 5bf575cbefbda4da07ff23dba356c5943190ad97
 
 COCOAPODS: 1.14.3

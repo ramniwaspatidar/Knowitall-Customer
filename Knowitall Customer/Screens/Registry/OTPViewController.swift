@@ -72,11 +72,8 @@ class OTPViewController: BaseViewController,Storyboarded {
     }
     
     func verifyOTP(_ code : String){
-        
-        
         SVProgressHUD.show()
         let credential = PhoneAuthProvider.provider().credential(withVerificationID: self.verificationID!, verificationCode: code)
-        
         Auth.auth().signIn(with: credential) { (authResult, error) in
             if let error = error {
                 SVProgressHUD.dismiss()
@@ -86,10 +83,7 @@ class OTPViewController: BaseViewController,Storyboarded {
             
             
             if let user = authResult?.user {
-                
                 self.getUserData()
-
-                
             }
         }
     }
@@ -115,7 +109,6 @@ class OTPViewController: BaseViewController,Storyboarded {
                     
                     if(payload["code"] as? Int == 101){ // move to profile
                         self.coordinator?.goToProfile(self.mobileNumber ?? "")
-
                     }
                     
                 }

@@ -12,6 +12,16 @@
 				<string>com.googleusercontent.apps.911959154257-8ivd73jdrqrocdiqqv1a2vrp0p2hjmgd</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>com.knowitall.customer</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>towing</string>
+			</array>
+		</dict>
 	</array>
 	<key>FirebaseAppDelegateProxyEnabled</key>
 	<false/>

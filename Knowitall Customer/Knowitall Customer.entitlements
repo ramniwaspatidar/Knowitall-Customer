@@ -3,6 +3,11 @@
 <plist version="1.0">
 <dict>
 	<key>aps-environment</key>
-	<string>production</string>
+	<string>development</string>
+	<key>com.apple.developer.associated-domains</key>
+	<array>
+		<string>applinks:mr-know.onelink.me/fuwH/iji8fdml</string>
+		<string>applinks:mr-know-alternate.onelink.me/fuwH/iji8fdml</string>
+	</array>
 </dict>
 </plist>
