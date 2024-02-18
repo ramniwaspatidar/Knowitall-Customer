@@ -27,7 +27,10 @@ class ReferViewController: BaseViewController,Storyboarded {
         self.shadow(codeView)
         self.shadow(viewEarn)
         self.shadow(viewReward)
-        
+        shareButton.isEnabled = false
+        shareButton.alpha = 0.3
+        copyButton.isEnabled = false
+        copyButton.alpha = 0.3
         self.getUserData()
 
     }
@@ -72,7 +75,6 @@ class ReferViewController: BaseViewController,Storyboarded {
                             self.codeLabel.text = url!.absoluteString
                             self.updateInviteCode(url!.absoluteString)
                         }
-    
                     }
                 }
                 else {
@@ -82,16 +84,15 @@ class ReferViewController: BaseViewController,Storyboarded {
         )
         
     }
-        
-        // Function to share invite link
-        func shareInviteLink(_ inviteLink: String) {
-            // Create activity view controller for sharing
-            let activityViewController = UIActivityViewController(activityItems: [inviteLink], applicationActivities: nil)
-            
-            // Present the activity view controller
-            self.present(activityViewController, animated: true, completion: nil)
-        }
     
+    func shareInviteLink(_ inviteLink: String) {
+        let message = "Refer this link and earn"
+        // Create activity view controller for sharing
+        let activityViewController = UIActivityViewController(activityItems: [message, inviteLink], applicationActivities: nil)
+        
+        // Present the activity view controller
+        self.present(activityViewController, animated: true, completion: nil)
+    }
     
     
     func updateInviteCode(_ code : String) {
@@ -104,7 +105,6 @@ class ReferViewController: BaseViewController,Storyboarded {
             print(responce)
             APIHelper.parseObject(responce, true) { payload, status, message, code in
                 if status {
-                    
                     self.getUserData()
 //                   Alert(title: "Invite Code", message: "Invite code update successfully", vc: self)
                 }
@@ -122,7 +122,13 @@ class ReferViewController: BaseViewController,Storyboarded {
             APIHelper.parseObject(responce, true) { payload, status, message, code in
                 if status {
                     self.dictData =  Mapper<ProfileResponseModel>().map(JSON: payload)
-                    self.updateUI()
+                    if(self.dictData?.inviteLink == nil){
+                        self.generateInviteLink()
+                    }
+                    else{
+                        self.updateUI()
+                    }
+                    
                 }else{
                     self.generateInviteLink()
                 }
@@ -136,7 +142,12 @@ class ReferViewController: BaseViewController,Storyboarded {
         referralCount.text = "Total Referrals\n \(self.dictData?.totalReferral ?? 0)"
         jobsCount.text = "Referral Jobs\n \(self.dictData?.totalJobDoneByReferral ?? 0)"
         codeLabel.text = self.dictData?.inviteLink
-
+        if(codeLabel.text?.count ?? 0 > 0){
+            shareButton.isEnabled = true
+            shareButton.alpha = 1.0
+            copyButton.isEnabled = true
+            copyButton.alpha = 1.0
+        }
     }
 
 

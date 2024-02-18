@@ -168,7 +168,7 @@ internal extension IQKeyboardManager {
                 textFieldView.isAlertViewTextField() == false {
 
                 //  keyboard is already showing. adjust position.
-                self.adjustPosition()
+                optimizedAdjustPosition()
             }
         }
 
