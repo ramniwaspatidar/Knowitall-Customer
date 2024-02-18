@@ -27,6 +27,8 @@ final class CurrentUserInfo {
     }
     
     
+ 
+    
     static var userName: String! {
         get {
             return UserDefaults.standard.string(forKey: UserInfo.userName.rawValue)

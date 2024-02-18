@@ -19,6 +19,9 @@ struct ProfileResponseModel : Mappable {
     var requestInDay : Int?
     var profileImage : String?
     var name : String?
+    var inviteLink : String?
+    var totalReferral : Int?
+    var totalJobDoneByReferral : Int?
 
 
     init?(map: Map) {
@@ -44,6 +47,10 @@ struct ProfileResponseModel : Mappable {
         requestInDay <- map["requestInDay"]
         profileImage <- map["profileImage"]
         name <- map["name"]
+        inviteLink <- map["inviteLink"]
+        totalReferral <- map["totalReferral"]
+        totalJobDoneByReferral <- map["totalJobDoneByReferral"]
+        
 
         
     }

@@ -49,6 +49,12 @@ class MainCoordinator : Coordinator{
         navigationController.pushViewController(vc, animated: false)
     }
     
+    func goToReferView() {
+        let vc = ReferViewController.instantiate()
+        vc.coordinator = self
+        navigationController.pushViewController(vc, animated: false)
+    }
+    
     func goToAddressView(addressArray : [AddressTypeModel],delegate : AddressChangeDelegate) {
         let vc = AddressViewController.instantiate()
         vc.coordinator = self

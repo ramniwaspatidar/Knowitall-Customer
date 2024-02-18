@@ -77,6 +77,8 @@
 		1AA8137E2B426AEA00F83DDA /* ArrivalViewModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA8137D2B426AEA00F83DDA /* ArrivalViewModal.swift */; };
 		1AA813922B45DC0800F83DDA /* PDFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA813912B45DC0800F83DDA /* PDFViewController.swift */; };
 		1AA813942B45DD7600F83DDA /* PTP.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 1AA813932B45DD7600F83DDA /* PTP.pdf */; };
+		1AB1AB142B8085E7001C124B /* ReferViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB1AB132B8085E7001C124B /* ReferViewController.swift */; };
+		1AB1AB172B80970B001C124B /* AppsFlyerLib-Static in Frameworks */ = {isa = PBXBuildFile; productRef = 1AB1AB162B80970B001C124B /* AppsFlyerLib-Static */; };
 		1AC834D52B3D372E00AD0CA6 /* RequestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC834D32B3D372E00AD0CA6 /* RequestCell.swift */; };
 		1AC834D62B3D372E00AD0CA6 /* RequestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AC834D42B3D372E00AD0CA6 /* RequestCell.xib */; };
 		1AC834D82B3D39C500AD0CA6 /* RequestListViewModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC834D72B3D39C500AD0CA6 /* RequestListViewModal.swift */; };
@@ -90,15 +92,14 @@
 		1AD6375A2B2AA1B20076EAD3 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD637592B2AA1B20076EAD3 /* MainViewController.swift */; };
 		1AD6375C2B2AA1C40076EAD3 /* SideMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD6375B2B2AA1C40076EAD3 /* SideMenuTableViewController.swift */; };
 		1AD6375E2B2AA1D20076EAD3 /* PresentedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD6375D2B2AA1D20076EAD3 /* PresentedViewController.swift */; };
+		427B4E8345098EBAB95A4D10 /* Pods_Knowitall_Customer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73DB8BE388D7CC2A95B95A99 /* Pods_Knowitall_Customer.framework */; };
 		44162B2A2B4A8296000FE68B /* Location1.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 44162B292B4A8296000FE68B /* Location1.gpx */; };
-		B4A646A61F394F0B58FF0E95 /* Pods_Knowitall_Customer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36B51A790C1B2408FD7E8777 /* Pods_Knowitall_Customer.framework */; };
 		BF5CEF172B7F800E00EB1F09 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BF5CEF162B7F800E00EB1F09 /* Settings.bundle */; };
 		BF76B0AF2B5964B6008E8FA6 /* PickerViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF76B0AB2B5964B6008E8FA6 /* PickerViewViewController.swift */; };
 		BFC560162B63F7D500A3B47B /* Location2.gpx in Resources */ = {isa = PBXBuildFile; fileRef = BFC560152B63F7D500A3B47B /* Location2.gpx */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0A2EA702C0FC0EB91019EA92 /* Pods-Knowitall Customer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Knowitall Customer.release.xcconfig"; path = "Target Support Files/Pods-Knowitall Customer/Pods-Knowitall Customer.release.xcconfig"; sourceTree = "<group>"; };
 		1A1E46BB2B1C24EC0046A758 /* SigninViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SigninViewController.swift; sourceTree = "<group>"; };
 		1A1E46C52B1C5F070046A758 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1A38EF052B49EA8400C37DCE /* Location.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Location.gpx; sourceTree = "<group>"; };
@@ -172,6 +173,7 @@
 		1AA8137D2B426AEA00F83DDA /* ArrivalViewModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrivalViewModal.swift; sourceTree = "<group>"; };
 		1AA813912B45DC0800F83DDA /* PDFViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFViewController.swift; sourceTree = "<group>"; };
 		1AA813932B45DD7600F83DDA /* PTP.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = PTP.pdf; sourceTree = "<group>"; };
+		1AB1AB132B8085E7001C124B /* ReferViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferViewController.swift; sourceTree = "<group>"; };
 		1AC834D32B3D372E00AD0CA6 /* RequestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestCell.swift; sourceTree = "<group>"; };
 		1AC834D42B3D372E00AD0CA6 /* RequestCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RequestCell.xib; sourceTree = "<group>"; };
 		1AC834D72B3D39C500AD0CA6 /* RequestListViewModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestListViewModal.swift; sourceTree = "<group>"; };
@@ -185,14 +187,15 @@
 		1AD637592B2AA1B20076EAD3 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		1AD6375B2B2AA1C40076EAD3 /* SideMenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewController.swift; sourceTree = "<group>"; };
 		1AD6375D2B2AA1D20076EAD3 /* PresentedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentedViewController.swift; sourceTree = "<group>"; };
-		36B51A790C1B2408FD7E8777 /* Pods_Knowitall_Customer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Knowitall_Customer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		44162B292B4A8296000FE68B /* Location1.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Location1.gpx; sourceTree = "<group>"; };
-		55482FF891D49C4CE5941A65 /* Pods-Knowitall Customer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Knowitall Customer.debug.xcconfig"; path = "Target Support Files/Pods-Knowitall Customer/Pods-Knowitall Customer.debug.xcconfig"; sourceTree = "<group>"; };
+		73DB8BE388D7CC2A95B95A99 /* Pods_Knowitall_Customer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Knowitall_Customer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		78F18152886E6071E8E6179E /* Pods-Knowitall Customer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Knowitall Customer.release.xcconfig"; path = "Target Support Files/Pods-Knowitall Customer/Pods-Knowitall Customer.release.xcconfig"; sourceTree = "<group>"; };
 		BF5CEF132B7E890300EB1F09 /* Knowitall CustomerRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Knowitall CustomerRelease.entitlements"; sourceTree = "<group>"; };
 		BF5CEF162B7F800E00EB1F09 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		BF76B0AB2B5964B6008E8FA6 /* PickerViewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerViewViewController.swift; sourceTree = "<group>"; };
 		BFA17E952B4584DF00FED6BD /* Knowitall Customer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Knowitall Customer.entitlements"; sourceTree = "<group>"; };
 		BFC560152B63F7D500A3B47B /* Location2.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Location2.gpx; sourceTree = "<group>"; };
+		E2D0FA12C012609BE847E7D7 /* Pods-Knowitall Customer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Knowitall Customer.debug.xcconfig"; path = "Target Support Files/Pods-Knowitall Customer/Pods-Knowitall Customer.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,7 +203,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B4A646A61F394F0B58FF0E95 /* Pods_Knowitall_Customer.framework in Frameworks */,
+				427B4E8345098EBAB95A4D10 /* Pods_Knowitall_Customer.framework in Frameworks */,
+				1AB1AB172B80970B001C124B /* AppsFlyerLib-Static in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,7 +292,7 @@
 				1A55AB952B1847DE001AEEBF /* Knowitall Customer */,
 				1A55AB942B1847DE001AEEBF /* Products */,
 				D0C39C768280004B8449CEAE /* Pods */,
-				D153B396AEF040A6EA642F7E /* Frameworks */,
+				F46C93E906D4CBBEDCCEBE99 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -333,8 +337,9 @@
 			isa = PBXGroup;
 			children = (
 				1AD6375D2B2AA1D20076EAD3 /* PresentedViewController.swift */,
-				1AD6375B2B2AA1C40076EAD3 /* SideMenuTableViewController.swift */,
 				1AD637592B2AA1B20076EAD3 /* MainViewController.swift */,
+				1AD6375B2B2AA1C40076EAD3 /* SideMenuTableViewController.swift */,
+				1AB1AB132B8085E7001C124B /* ReferViewController.swift */,
 				1A1E46BB2B1C24EC0046A758 /* SigninViewController.swift */,
 				1A55ABB02B1848B7001AEEBF /* OTPViewController.swift */,
 				1A55ABAD2B1848B7001AEEBF /* WKWebViewController.swift */,
@@ -470,16 +475,16 @@
 		D0C39C768280004B8449CEAE /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				55482FF891D49C4CE5941A65 /* Pods-Knowitall Customer.debug.xcconfig */,
-				0A2EA702C0FC0EB91019EA92 /* Pods-Knowitall Customer.release.xcconfig */,
+				E2D0FA12C012609BE847E7D7 /* Pods-Knowitall Customer.debug.xcconfig */,
+				78F18152886E6071E8E6179E /* Pods-Knowitall Customer.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		D153B396AEF040A6EA642F7E /* Frameworks */ = {
+		F46C93E906D4CBBEDCCEBE99 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				36B51A790C1B2408FD7E8777 /* Pods_Knowitall_Customer.framework */,
+				73DB8BE388D7CC2A95B95A99 /* Pods_Knowitall_Customer.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -491,17 +496,20 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1A55ABA72B1847E0001AEEBF /* Build configuration list for PBXNativeTarget "Knowitall Customer" */;
 			buildPhases = (
-				54A4C6087EBF967B9C2FDC20 /* [CP] Check Pods Manifest.lock */,
+				F2051B5AABB36316BB88EBD9 /* [CP] Check Pods Manifest.lock */,
 				1A55AB8F2B1847DE001AEEBF /* Sources */,
 				1A55AB902B1847DE001AEEBF /* Frameworks */,
 				1A55AB912B1847DE001AEEBF /* Resources */,
-				90E476DEE603B806F521A4D2 /* [CP] Embed Pods Frameworks */,
+				09EBD8EEE647E41B075BFC8F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = "Knowitall Customer";
+			packageProductDependencies = (
+				1AB1AB162B80970B001C124B /* AppsFlyerLib-Static */,
+			);
 			productName = "Knowitall Customer";
 			productReference = 1A55AB932B1847DE001AEEBF /* Knowitall Customer.app */;
 			productType = "com.apple.product-type.application";
@@ -530,6 +538,9 @@
 				Base,
 			);
 			mainGroup = 1A55AB8A2B1847DE001AEEBF;
+			packageReferences = (
+				1AB1AB152B80970B001C124B /* XCRemoteSwiftPackageReference "AppsFlyerFramework-Static" */,
+			);
 			productRefGroup = 1A55AB942B1847DE001AEEBF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -575,7 +586,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		54A4C6087EBF967B9C2FDC20 /* [CP] Check Pods Manifest.lock */ = {
+		09EBD8EEE647E41B075BFC8F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Knowitall Customer/Pods-Knowitall Customer-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Knowitall Customer/Pods-Knowitall Customer-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Knowitall Customer/Pods-Knowitall Customer-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F2051B5AABB36316BB88EBD9 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -595,23 +623,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		90E476DEE603B806F521A4D2 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Knowitall Customer/Pods-Knowitall Customer-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Knowitall Customer/Pods-Knowitall Customer-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Knowitall Customer/Pods-Knowitall Customer-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -670,6 +681,7 @@
 				1A1E46BC2B1C24EC0046A758 /* SigninViewController.swift in Sources */,
 				1A55ABBD2B1848FF001AEEBF /* Reachability.swift in Sources */,
 				1A55ABCA2B184957001AEEBF /* Text+Attributed.swift in Sources */,
+				1AB1AB142B8085E7001C124B /* ReferViewController.swift in Sources */,
 				1AA813922B45DC0800F83DDA /* PDFViewController.swift in Sources */,
 				1AD6375A2B2AA1B20076EAD3 /* MainViewController.swift in Sources */,
 				1AD6375E2B2AA1D20076EAD3 /* PresentedViewController.swift in Sources */,
@@ -816,7 +828,7 @@
 		};
 		1A55ABA82B1847E0001AEEBF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 55482FF891D49C4CE5941A65 /* Pods-Knowitall Customer.debug.xcconfig */;
+			baseConfigurationReference = E2D0FA12C012609BE847E7D7 /* Pods-Knowitall Customer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -858,7 +870,7 @@
 		};
 		1A55ABA92B1847E0001AEEBF /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0A2EA702C0FC0EB91019EA92 /* Pods-Knowitall Customer.release.xcconfig */;
+			baseConfigurationReference = 78F18152886E6071E8E6179E /* Pods-Knowitall Customer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -921,6 +933,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1AB1AB152B80970B001C124B /* XCRemoteSwiftPackageReference "AppsFlyerFramework-Static" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AppsFlyerSDK/AppsFlyerFramework-Static";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.13.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1AB1AB162B80970B001C124B /* AppsFlyerLib-Static */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1AB1AB152B80970B001C124B /* XCRemoteSwiftPackageReference "AppsFlyerFramework-Static" */;
+			productName = "AppsFlyerLib-Static";
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1A55AB8B2B1847DE001AEEBF /* Project object */;
 }

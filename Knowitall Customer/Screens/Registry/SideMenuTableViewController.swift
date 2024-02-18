@@ -2,7 +2,6 @@ import UIKit
 import FirebaseAuth
 import SideMenu
 import FirebaseMessaging
-import AppsFlyerLib
 
 
 class SideMenuTableViewController: UIViewController, Storyboarded  {
@@ -148,8 +147,8 @@ extension SideMenuTableViewController: UITableViewDataSource,UITableViewDelegate
             }
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }
-        else if(indexPath.row == 4){            
-            generateInviteLink()
+        else if(indexPath.row == 4){  
+            coordinator?.goToReferView()
         }
         else if(indexPath.row == 5){
             coordinator?.goToWebview(type: .TC)
@@ -194,37 +193,7 @@ extension SideMenuTableViewController: UITableViewDataSource,UITableViewDelegate
             
         }
     }
-    func generateInviteLink() {
-        AppsFlyerShareInviteHelper.generateInviteUrl(
-            linkGenerator: {
-                (_ generator: AppsFlyerLinkGenerator) -> AppsFlyerLinkGenerator in
-                generator.addParameterValue("", forKey: "deep_link_value")
-                generator.addParameterValue("", forKey: "deep_link_sub1")
-                generator.addParameterValue(CurrentUserInfo.phone, forKey: "deep_link_sub2")
-                return generator
-            },
-            completionHandler: { [self]
-                (_ url: URL?) -> Void in
-                if url != nil {
-                    NSLog("[AFSDK] AppsFlyer share-invite link: \(url!.absoluteString)")
-                    shareInviteLink(url!.absoluteString)
-                }
-                else {
-                    print("url is nil")
-                }
-            }
-        )
-        
-    }
-        
-        // Function to share invite link
-        func shareInviteLink(_ inviteLink: String) {
-            // Create activity view controller for sharing
-            let activityViewController = UIActivityViewController(activityItems: [inviteLink], applicationActivities: nil)
-            
-            // Present the activity view controller
-            self.present(activityViewController, animated: true, completion: nil)
-        }
+
 }
 extension UIViewController {
     func showInputDialog(title:String? = nil,

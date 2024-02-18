@@ -16,7 +16,7 @@ pod 'Firebase/Messaging'
 pod 'OTPFieldView'
 pod 'SideMenu'
 pod 'IQKeyboardManagerSwift'
-pod 'AppsFlyerFramework'
+
 
   post_install do |installer|
     installer.pods_project.targets.each do |target|
