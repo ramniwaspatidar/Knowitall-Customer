@@ -2465,7 +2465,7 @@ Need a Tow?</string>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="0ed-Qs-LlS">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Refer &amp; Earn" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H5p-QN-c8v">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Refer Code" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H5p-QN-c8v">
                                 <rect key="frame" x="10" y="100" width="300" height="25.5"/>
                                 <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="18"/>
                                 <nil key="textColor"/>
@@ -2473,7 +2473,26 @@ Need a Tow?</string>
                             </label>
                             <view alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IuE-7L-0wd">
                                 <rect key="frame" x="10" y="145.5" width="300" height="402.5"/>
+                                <subviews>
+                                    <view alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BBi-GJ-yJC">
+                                        <rect key="frame" x="10" y="90" width="280" height="60"/>
+                                        <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="ccD-WG-Yll"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="BBi-GJ-yJC" firstAttribute="leading" secondItem="IuE-7L-0wd" secondAttribute="leading" constant="10" id="2M4-5e-Edt"/>
+                                    <constraint firstAttribute="trailing" secondItem="BBi-GJ-yJC" secondAttribute="trailing" constant="10" id="62Z-v3-wxL"/>
+                                    <constraint firstItem="BBi-GJ-yJC" firstAttribute="top" secondItem="IuE-7L-0wd" secondAttribute="top" constant="90" id="ftt-3j-Lgs"/>
+                                </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <integer key="value" value="10"/>
@@ -2502,15 +2521,15 @@ Need a Tow?</string>
                                             <action selector="copyButtonAction:" destination="LEe-Nf-dr9" eventType="touchUpInside" id="kzw-hb-4Kb"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use the referral link below to refer your friend and earn." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tda-4k-SQO">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tda-4k-SQO">
                                         <rect key="frame" x="10" y="5" width="220" height="50"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
-                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="Tda-4k-SQO" secondAttribute="bottom" constant="5" id="1HT-Mp-uWz"/>
                                     <constraint firstItem="cW5-kz-Sv0" firstAttribute="leading" secondItem="Tda-4k-SQO" secondAttribute="trailing" constant="10" id="2Bz-sP-pxc"/>
@@ -2550,60 +2569,58 @@ Need a Tow?</string>
                                                 <rect key="frame" x="0.0" y="0.0" width="130" height="120"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Referral" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TwQ-8a-6Tr">
-                                                        <rect key="frame" x="5" y="91" width="120" height="20"/>
+                                                        <rect key="frame" x="5" y="70" width="120" height="45"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="20" id="IVc-LJ-CTE"/>
-                                                        </constraints>
                                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="trophy" translatesAutoresizingMaskIntoConstraints="NO" id="h93-G5-NvR">
-                                                        <rect key="frame" x="40" y="25" width="50" height="50"/>
+                                                        <rect key="frame" x="40" y="10" width="50" height="50"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="50" id="ehn-RI-Gfz"/>
-                                                            <constraint firstAttribute="width" constant="50" id="vS0-Z5-Wn3"/>
+                                                            <constraint firstAttribute="height" constant="50" id="3O5-mg-m2U"/>
+                                                            <constraint firstAttribute="width" constant="50" id="Dsg-hf-noc"/>
                                                         </constraints>
                                                     </imageView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstItem="TwQ-8a-6Tr" firstAttribute="top" secondItem="h93-G5-NvR" secondAttribute="bottom" constant="16" id="9qL-uI-Zb9"/>
-                                                    <constraint firstItem="h93-G5-NvR" firstAttribute="centerY" secondItem="rcJ-wS-8ve" secondAttribute="centerY" constant="-10" id="ICN-YY-hJq"/>
+                                                    <constraint firstAttribute="bottom" secondItem="TwQ-8a-6Tr" secondAttribute="bottom" constant="5" id="EZu-Z0-0ES"/>
+                                                    <constraint firstItem="TwQ-8a-6Tr" firstAttribute="leading" secondItem="rcJ-wS-8ve" secondAttribute="leading" constant="5" id="KqK-ZJ-j7f"/>
+                                                    <constraint firstItem="h93-G5-NvR" firstAttribute="top" secondItem="rcJ-wS-8ve" secondAttribute="top" constant="10" id="Smh-rV-JF0"/>
+                                                    <constraint firstItem="h93-G5-NvR" firstAttribute="centerX" secondItem="rcJ-wS-8ve" secondAttribute="centerX" id="V1I-LZ-IWI"/>
                                                     <constraint firstItem="TwQ-8a-6Tr" firstAttribute="leading" secondItem="rcJ-wS-8ve" secondAttribute="leading" constant="5" id="X4w-BE-v0p"/>
+                                                    <constraint firstItem="TwQ-8a-6Tr" firstAttribute="top" secondItem="h93-G5-NvR" secondAttribute="bottom" constant="10" id="bpT-CK-IdC"/>
+                                                    <constraint firstAttribute="trailing" secondItem="TwQ-8a-6Tr" secondAttribute="trailing" constant="5" id="jpD-S1-rKX"/>
                                                     <constraint firstAttribute="trailing" secondItem="TwQ-8a-6Tr" secondAttribute="trailing" constant="5" id="lVT-gf-Dus"/>
-                                                    <constraint firstItem="h93-G5-NvR" firstAttribute="centerX" secondItem="rcJ-wS-8ve" secondAttribute="centerX" id="yvA-w4-Igc"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DQG-zu-WvH">
                                                 <rect key="frame" x="150" y="0.0" width="130" height="120"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Referrals Jobs" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ck-Ol-Vnv">
-                                                        <rect key="frame" x="5" y="88" width="120" height="20"/>
+                                                        <rect key="frame" x="5" y="70" width="120" height="45"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="20" id="RH5-Si-LUM"/>
-                                                        </constraints>
                                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="salary" translatesAutoresizingMaskIntoConstraints="NO" id="v9m-wd-Hau">
-                                                        <rect key="frame" x="40" y="22" width="50" height="50"/>
+                                                        <rect key="frame" x="40" y="10" width="50" height="50"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="50" id="FjC-HX-GjZ"/>
-                                                            <constraint firstAttribute="height" constant="50" id="afh-3h-GWE"/>
+                                                            <constraint firstAttribute="width" constant="50" id="G48-P1-fTC"/>
+                                                            <constraint firstAttribute="height" constant="50" id="LLP-nD-9u6"/>
                                                         </constraints>
                                                     </imageView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstItem="5ck-Ol-Vnv" firstAttribute="leading" secondItem="DQG-zu-WvH" secondAttribute="leading" constant="5" id="QTV-6p-K8e"/>
-                                                    <constraint firstItem="5ck-Ol-Vnv" firstAttribute="top" secondItem="v9m-wd-Hau" secondAttribute="bottom" constant="16" id="Sid-uj-0Nb"/>
-                                                    <constraint firstAttribute="trailing" secondItem="5ck-Ol-Vnv" secondAttribute="trailing" constant="5" id="cNw-nl-1dC"/>
-                                                    <constraint firstItem="v9m-wd-Hau" firstAttribute="centerX" secondItem="DQG-zu-WvH" secondAttribute="centerX" id="iNh-Yv-Qwx"/>
-                                                    <constraint firstItem="v9m-wd-Hau" firstAttribute="centerY" secondItem="DQG-zu-WvH" secondAttribute="centerY" constant="-13" id="iu4-Vm-OTW"/>
+                                                    <constraint firstItem="5ck-Ol-Vnv" firstAttribute="leading" secondItem="DQG-zu-WvH" secondAttribute="leading" constant="5" id="4Ua-Ay-rEu"/>
+                                                    <constraint firstItem="5ck-Ol-Vnv" firstAttribute="top" secondItem="v9m-wd-Hau" secondAttribute="bottom" constant="10" id="8AQ-sf-CPd"/>
+                                                    <constraint firstAttribute="trailing" secondItem="5ck-Ol-Vnv" secondAttribute="trailing" constant="5" id="bIV-Av-ykm"/>
+                                                    <constraint firstItem="v9m-wd-Hau" firstAttribute="top" secondItem="DQG-zu-WvH" secondAttribute="top" constant="10" id="ckk-Dr-1lK"/>
+                                                    <constraint firstAttribute="bottom" secondItem="5ck-Ol-Vnv" secondAttribute="bottom" constant="5" id="oi7-dV-9AK"/>
+                                                    <constraint firstItem="v9m-wd-Hau" firstAttribute="centerX" secondItem="DQG-zu-WvH" secondAttribute="centerX" id="zPc-u8-bSG"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
@@ -2651,7 +2668,7 @@ Need a Tow?</string>
                         <outlet property="codeLabel" destination="Tda-4k-SQO" id="COv-uk-uvw"/>
                         <outlet property="codeView" destination="sJr-5B-Tk3" id="wbV-df-ozB"/>
                         <outlet property="copyButton" destination="cW5-kz-Sv0" id="mmG-l8-8tX"/>
-                        <outlet property="jobsCount" destination="5ck-Ol-Vnv" id="gJ9-ns-3tL"/>
+                        <outlet property="jobsCount" destination="5ck-Ol-Vnv" id="oQf-yd-D3l"/>
                         <outlet property="referralCount" destination="TwQ-8a-6Tr" id="B97-Ex-Ydz"/>
                         <outlet property="shareButton" destination="i5h-Iq-frg" id="b9l-Sf-52j"/>
                         <outlet property="viewEarn" destination="DQG-zu-WvH" id="nCu-qr-1dX"/>

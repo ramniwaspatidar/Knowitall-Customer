@@ -133,8 +133,8 @@ class ReferViewController: BaseViewController,Storyboarded {
     
     
     func updateUI(){
-        referralCount.text = "Total Referral \(self.dictData?.totalReferral ?? 0)"
-        jobsCount.text = "Referrals Jobs \(self.dictData?.totalJobDoneByReferral ?? 0)"
+        referralCount.text = "Total Referrals\n \(self.dictData?.totalReferral ?? 0)"
+        jobsCount.text = "Referral Jobs\n \(self.dictData?.totalJobDoneByReferral ?? 0)"
         codeLabel.text = self.dictData?.inviteLink
 
     }
