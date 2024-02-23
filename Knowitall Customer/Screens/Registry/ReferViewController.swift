@@ -32,7 +32,7 @@ class ReferViewController: BaseViewController,Storyboarded {
         copyButton.isEnabled = false
         copyButton.alpha = 0.3
         self.getUserData()
-
+        generateInviteLink()
     }
     @IBAction func shareButtonAction(_ sender: Any) {
         shareInviteLink(self.codeLabel.text ?? "")
@@ -63,6 +63,8 @@ class ReferViewController: BaseViewController,Storyboarded {
                 generator.addParameterValue("", forKey: "deep_link_value")
                 generator.addParameterValue("", forKey: "deep_link_sub1")
                 generator.addParameterValue(CurrentUserInfo.phone, forKey: "deep_link_sub2")
+                generator.addParameterValue(CurrentUserInfo.phone, forKey: "referrer")
+                generator.addParameterValue("true", forKey: "af_force_deeplink")
                 return generator
             },
             completionHandler: { [self]
@@ -73,7 +75,8 @@ class ReferViewController: BaseViewController,Storyboarded {
 
                         if((url?.absoluteString) != nil){
                             self.codeLabel.text = url!.absoluteString
-                            self.updateInviteCode(url!.absoluteString)
+                            self.updateUI()
+//                            self.updateInviteCode(url!.absoluteString)
                         }
                     }
                 }
@@ -95,23 +98,23 @@ class ReferViewController: BaseViewController,Storyboarded {
     }
     
     
-    func updateInviteCode(_ code : String) {
-        
-        var dictParam = [String : Any]()
-        dictParam["inviteLink"] = code
-
-        guard let url = URL(string: Configuration().environment.baseURL + APIsEndPoints.kUpdateInviteLink.rawValue) else {return}
-        NetworkManager.shared.postRequest(url, false, "", params: dictParam, networkHandler: {(responce,statusCode) in
-            print(responce)
-            APIHelper.parseObject(responce, true) { payload, status, message, code in
-                if status {
-                    self.getUserData()
-//                   Alert(title: "Invite Code", message: "Invite code update successfully", vc: self)
-                }
-               
-            }
-        })
-    }
+//    func updateInviteCode(_ code : String) {
+//        
+//        var dictParam = [String : Any]()
+//        dictParam["inviteLink"] = code
+//
+//        guard let url = URL(string: Configuration().environment.baseURL + APIsEndPoints.kUpdateInviteLink.rawValue) else {return}
+//        NetworkManager.shared.postRequest(url, false, "", params: dictParam, networkHandler: {(responce,statusCode) in
+//            print(responce)
+//            APIHelper.parseObject(responce, true) { payload, status, message, code in
+//                if status {
+//                    self.getUserData()
+////                   Alert(title: "Invite Code", message: "Invite code update successfully", vc: self)
+//                }
+//               
+//            }
+//        })
+//    }
     
     func getUserData() {
         
@@ -122,16 +125,17 @@ class ReferViewController: BaseViewController,Storyboarded {
             APIHelper.parseObject(responce, true) { payload, status, message, code in
                 if status {
                     self.dictData =  Mapper<ProfileResponseModel>().map(JSON: payload)
-                    if(self.dictData?.inviteLink == nil){
-                        self.generateInviteLink()
-                    }
-                    else{
-                        self.updateUI()
-                    }
-                    
-                }else{
-                    self.generateInviteLink()
+                    self.updateUI()
                 }
+//                    if(self.dictData?.inviteLink == nil){
+//                        self.generateInviteLink()
+//                    }
+//                    else{
+//                        self.updateUI()
+//                    }
+//                }else{
+//                    self.generateInviteLink()
+//                }
                
             }
         })
@@ -141,7 +145,6 @@ class ReferViewController: BaseViewController,Storyboarded {
     func updateUI(){
         referralCount.text = "Total Referrals\n \(self.dictData?.totalReferral ?? 0)"
         jobsCount.text = "Referral Jobs\n \(self.dictData?.totalJobDoneByReferral ?? 0)"
-        codeLabel.text = self.dictData?.inviteLink
         if(codeLabel.text?.count ?? 0 > 0){
             shareButton.isEnabled = true
             shareButton.alpha = 1.0
