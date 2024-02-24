@@ -182,7 +182,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         if ((CurrentUserInfo.userId) != nil) {
             let userInfo = response.notification.request.content.userInfo
             let notiType = userInfo["notificationType"] as? String
-            if(notiType == "request_accept" || notiType == "driver_arrived" || notiType == "request_completed"){
+            if(notiType == "request_accept" || notiType == "driver_arrived" || notiType == "request_completed" || notiType == "request_cancelled"){
                 let requestId = userInfo["requestId"] as? String
                 coordinator?.goToTrackingView(requestId ?? "",false)
             }

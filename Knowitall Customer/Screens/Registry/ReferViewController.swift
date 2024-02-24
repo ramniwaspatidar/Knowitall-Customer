@@ -144,7 +144,7 @@ class ReferViewController: BaseViewController,Storyboarded {
     
     func updateUI(){
         referralCount.text = "Total Referrals\n \(self.dictData?.totalReferral ?? 0)"
-        jobsCount.text = "Referral Jobs\n \(self.dictData?.totalJobDoneByReferral ?? 0)"
+        jobsCount.text = "Qualified Tows\n \(self.dictData?.totalJobDoneByReferral ?? 0)"
         if(codeLabel.text?.count ?? 0 > 0){
             shareButton.isEnabled = true
             shareButton.alpha = 1.0
@@ -152,10 +152,6 @@ class ReferViewController: BaseViewController,Storyboarded {
             copyButton.alpha = 1.0
         }
     }
-
-
-
-  
 
 }
 extension UIView {
