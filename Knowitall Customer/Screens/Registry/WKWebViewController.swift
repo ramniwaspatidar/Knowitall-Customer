@@ -39,7 +39,7 @@ class WKWebViewController: BaseViewController,Storyboarded {
     fileprivate func loadHTMPPage(){
         if webViewType == WebViewType.TC{
             lblHeading?.text = "Terms & Condition"
-            webView.load(URLRequest(url: URL(string: "https://mrknowitalltowingpage.com/terms-of-use")!))
+            webView.load(URLRequest(url: URL(string: "https://mrknowitalltowingpage.com/terms-of-use-customers")!))
 
             
 //            if let htmlPath = Bundle.main.path(forResource: "terms", ofType: "pdf") {
@@ -50,7 +50,7 @@ class WKWebViewController: BaseViewController,Storyboarded {
         }
         else if webViewType == WebViewType.policy{
             lblHeading?.text = "Privacy Policy"
-            webView.load(URLRequest(url: URL(string: "https://mrknowitalltowingpage.com/terms-of-use")!))
+            webView.load(URLRequest(url: URL(string: "https://mrknowitalltowingpage.com/terms-of-use-customers")!))
 
 //            if let htmlPath = Bundle.main.path(forResource: "terms", ofType: "pdf") {
 //                let url = URL(fileURLWithPath: htmlPath)

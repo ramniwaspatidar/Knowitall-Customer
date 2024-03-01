@@ -128,6 +128,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         SideMenuManager.default.menuWidth = (self.window?.frame.size.width ?? 350) - 100
         
     }
+
+    public func signout(){
+        do{
+            try Auth.auth().signOut()
+            
+            Messaging.messaging().unsubscribe(fromTopic: CurrentUserInfo.userId) { error in
+                if let error = error {
+                    print("Error unsubscribing from topic: \(error.localizedDescription)")
+                } else {
+                    print("Successfully unsubscribed from topic!")
+                }
+            }
+            
+            
+            
+            CurrentUserInfo.email = nil
+            CurrentUserInfo.phone = nil
+            CurrentUserInfo.language = nil
+            CurrentUserInfo.location = nil
+            CurrentUserInfo.userId = nil
+            autoLogin()
+        }catch{
+            
+        }
+    }
+    
     
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
         print("FCM Token:", fcmToken ?? "")

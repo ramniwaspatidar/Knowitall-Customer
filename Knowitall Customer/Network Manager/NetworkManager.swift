@@ -86,15 +86,17 @@ class NetworkManager {
             user.getIDTokenForcingRefresh(true) { (idToken, error) in
                 if let error = error {
                     print("Error refreshing ID token: \(error.localizedDescription)")
-                    myGroup.leave()
+                    let  appDelegate = UIApplication.shared.delegate as? AppDelegate
+                    appDelegate?.signout()
                 } else if let idToken = idToken {
                     token = idToken
                     myGroup.leave()
                 }
             }
         } else {
+            let  appDelegate = UIApplication.shared.delegate as? AppDelegate
+            appDelegate?.signout()
             print("User is not signed in.")
-            myGroup.leave()
         }
        
         
