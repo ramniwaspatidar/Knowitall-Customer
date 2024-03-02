@@ -55,6 +55,13 @@ class MainCoordinator : Coordinator{
         navigationController.pushViewController(vc, animated: false)
     }
     
+    func goToProfileIMageView(url : String) {
+        let vc = ProfileImageViewController.instantiate()
+        vc.coordinator = self
+        vc.imgUrl = url
+        navigationController.pushViewController(vc, animated: false)
+    }
+    
     func goToAddressView(addressArray : [AddressTypeModel],delegate : AddressChangeDelegate) {
         let vc = AddressViewController.instantiate()
         vc.coordinator = self

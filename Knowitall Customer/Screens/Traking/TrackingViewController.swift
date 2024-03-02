@@ -21,6 +21,10 @@ class TrackingViewController: BaseViewController,Storyboarded {
     @IBOutlet weak var dotButton: UIButton!
     @IBOutlet weak var dotHeight: NSLayoutConstraint!
     @IBOutlet weak var serviceLabel: UILabel!
+    @IBOutlet weak var userImage: UIImageView!
+    @IBOutlet weak var userImageButton: UIButton!
+    @IBOutlet weak var userName: UILabel!
+    @IBOutlet weak var driverImageButton: UIButton!
     
     var timer : Timer?
     
@@ -44,7 +48,8 @@ class TrackingViewController: BaseViewController,Storyboarded {
         refreshControl.tintColor = .white
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
         tblView.addSubview(refreshControl)
-         
+        
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -103,9 +108,37 @@ class TrackingViewController: BaseViewController,Storyboarded {
         TrackingCell.registerWithTable(tblView)
         requestId.text = "\(viewModel.dictRequest?.reqDispId ?? "")"
         serviceLabel.text = "Service : \(viewModel.dictRequest?.typeOfService ?? "")"
+        
+        if let username = viewModel.dictRequest?.driverName{
+            userName.text = "\(username) (\(viewModel.dictRequest?.driverVehicleNumber ?? ""))"
+
+        }
+        let str  = viewModel.dictRequest?.driverProfileImage ?? ""
+        
+        userImage?.layer.cornerRadius = 25
+        userImage?.clipsToBounds = true
+         
+        
+  
+        if let url = URL(string: str) {
+            
+            DispatchQueue.global().async { [weak self] in
+                       if let data = try? Data(contentsOf: url) {
+                           if let image = UIImage(data: data) {
+                               DispatchQueue.main.async {
+                                   self?.userImage.image = image
+                               }
+                           }
+                       }
+                   }
+               }
+    }
+    @IBAction func onClickUserImageButton(_ sender: Any) {
+        coordinator?.goToProfileIMageView(url: viewModel.dictRequest?.driverProfileImage ?? "")
     }
     
     
+                                          
     fileprivate func updateUI(){
         setupUI()
         
@@ -219,6 +252,8 @@ class TrackingViewController: BaseViewController,Storyboarded {
         coordinator?.goToPDFView()
     }
     
+    @IBAction func onClickDriverProfile(_ sender: Any) {
+    }
     @IBAction func moreButtonActrion(_ sender: Any) {
         let alertController = UIAlertController(title: "Booking Action", message: "", preferredStyle: .actionSheet)
         alertController.view.subviews.first?.subviews.first?.subviews.first?.backgroundColor = hexStringToUIColor("#F4CC9E")

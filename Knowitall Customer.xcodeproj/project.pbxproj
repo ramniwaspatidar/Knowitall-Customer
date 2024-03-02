@@ -60,6 +60,7 @@
 		1A55ABE72B184B0D001AEEBF /* SigninCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A55ABE52B184B0D001AEEBF /* SigninCell.xib */; };
 		1A69107A2B1A4039009ACD06 /* UserNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A6910782B1A4038009ACD06 /* UserNameCell.swift */; };
 		1A69107B2B1A4039009ACD06 /* UserNameCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A6910792B1A4039009ACD06 /* UserNameCell.xib */; };
+		1A70B5F02B930D5400B57703 /* ProfileImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A70B5EF2B930D5400B57703 /* ProfileImageViewController.swift */; };
 		1A99CE692B1E24C3004E0574 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A99CE682B1E24C3004E0574 /* LocationViewController.swift */; };
 		1A99CE6B2B1E27AC004E0574 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A99CE6A2B1E27AC004E0574 /* HelpViewController.swift */; };
 		1A99CE6D2B1E3301004E0574 /* RequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A99CE6C2B1E3301004E0574 /* RequestViewController.swift */; };
@@ -157,6 +158,7 @@
 		1A55ABE52B184B0D001AEEBF /* SigninCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SigninCell.xib; sourceTree = "<group>"; };
 		1A6910782B1A4038009ACD06 /* UserNameCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserNameCell.swift; sourceTree = "<group>"; };
 		1A6910792B1A4039009ACD06 /* UserNameCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserNameCell.xib; sourceTree = "<group>"; };
+		1A70B5EF2B930D5400B57703 /* ProfileImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageViewController.swift; sourceTree = "<group>"; };
 		1A99CE682B1E24C3004E0574 /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		1A99CE6A2B1E27AC004E0574 /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
 		1A99CE6C2B1E3301004E0574 /* RequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestViewController.swift; sourceTree = "<group>"; };
@@ -339,6 +341,7 @@
 				1AD6375D2B2AA1D20076EAD3 /* PresentedViewController.swift */,
 				1AD637592B2AA1B20076EAD3 /* MainViewController.swift */,
 				1AD6375B2B2AA1C40076EAD3 /* SideMenuTableViewController.swift */,
+				1A70B5EF2B930D5400B57703 /* ProfileImageViewController.swift */,
 				1AB1AB132B8085E7001C124B /* ReferViewController.swift */,
 				1A1E46BB2B1C24EC0046A758 /* SigninViewController.swift */,
 				1A55ABB02B1848B7001AEEBF /* OTPViewController.swift */,
@@ -660,6 +663,7 @@
 				1A558C502B18EE030013BD30 /* Coordinator.swift in Sources */,
 				1A99CE6B2B1E27AC004E0574 /* HelpViewController.swift in Sources */,
 				1A558C512B18EE030013BD30 /* Storyboarded.swift in Sources */,
+				1A70B5F02B930D5400B57703 /* ProfileImageViewController.swift in Sources */,
 				1A558C652B18F0220013BD30 /* CustomTextField+Extention.swift in Sources */,
 				1A69107A2B1A4039009ACD06 /* UserNameCell.swift in Sources */,
 				1A55ABB12B1848B7001AEEBF /* WKWebViewController.swift in Sources */,

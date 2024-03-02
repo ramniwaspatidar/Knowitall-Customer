@@ -39,6 +39,9 @@ struct RequestListModal : Mappable {
     var cancelledDate : Double?
     var driverArrivedDate : Double?
     var markNoShowDate : Double?
+    var driverProfileImage : String?
+    var driverName : String?
+    var driverVehicleNumber : String?
     
 
 
@@ -80,6 +83,9 @@ struct RequestListModal : Mappable {
         cancelledDate <- map["cancelledDate"]
         driverArrivedDate <- map["driverArrivedDate"]
         markNoShowDate <- map["markNoShowDate"]
+        driverProfileImage <- map["driverProfileImage"]
+        driverName <- map ["driverName"]
+        driverVehicleNumber <- map ["driverVehicleNumber"]
     }
 }
 
