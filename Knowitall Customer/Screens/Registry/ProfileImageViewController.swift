@@ -6,23 +6,23 @@ class ProfileImageViewController:  BaseViewController ,Storyboarded,UIScrollView
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var imageView: UIImageView!
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     var imgUrl : String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if let url = URL(string: imgUrl) {
-            
-            DispatchQueue.global().async { [weak self] in
-                       if let data = try? Data(contentsOf: url) {
-                           if let image = UIImage(data: data) {
-                               DispatchQueue.main.async {
-                                   self?.imageView.image = image
-                               }
-                           }
-                       }
-                   }
-               }
+                
+        if let imageUrl = URL(string: imgUrl) {
+            self.imageView.sd_setImage(with: imageUrl) { [weak self] (image, error, cacheType, url) in
+                // Stop the activity indicator when the image loading is completed
+                self?.activityIndicator.stopAnimating()
+                
+                if let error = error {
+                    print("Error loading image: \(error.localizedDescription)")
+                }
+            }
+        }
         
         // Set up pinch gesture recognizer
         let pinchGesture = UIPinchGestureRecognizer(target: self, action: #selector(handlePinchGesture(_:)))

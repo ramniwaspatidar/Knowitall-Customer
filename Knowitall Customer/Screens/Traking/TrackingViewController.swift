@@ -6,12 +6,13 @@ import Firebase
 //import FirebaseFirestore
 import CoreLocation
 import MapKit
+import SDWebImage
 
 class TrackingViewController: BaseViewController,Storyboarded {
     
     var coordinator: MainCoordinator?
     var refreshControl: UIRefreshControl!
-
+    
     @IBOutlet weak var tblView: UITableView!
     @IBOutlet weak var confirmButton: UIButton!
     @IBOutlet weak var requestId: UILabel!
@@ -24,8 +25,10 @@ class TrackingViewController: BaseViewController,Storyboarded {
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var userImageButton: UIButton!
     @IBOutlet weak var userName: UILabel!
+    @IBOutlet weak var vehicleNumber: UILabel!
     @IBOutlet weak var driverImageButton: UIButton!
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     var timer : Timer?
     
     
@@ -88,7 +91,7 @@ class TrackingViewController: BaseViewController,Storyboarded {
                     self.timer?.invalidate()
                     self.timer = nil
                 }
-
+                
             }
             else{
                 self.navigationController?.popViewController(animated: false)
@@ -105,40 +108,49 @@ class TrackingViewController: BaseViewController,Storyboarded {
     }
     
     fileprivate func setupUI(){
+        userName.text = ""
+        vehicleNumber.text = ""
         TrackingCell.registerWithTable(tblView)
         requestId.text = "\(viewModel.dictRequest?.reqDispId ?? "")"
         serviceLabel.text = "Service : \(viewModel.dictRequest?.typeOfService ?? "")"
         
         if let username = viewModel.dictRequest?.driverName{
-            userName.text = "\(username) (\(viewModel.dictRequest?.driverVehicleNumber ?? ""))"
-
+            userName.text = username
+            vehicleNumber.text = "(\(viewModel.dictRequest?.driverVehicleNumber ?? ""))"
         }
         let str  = viewModel.dictRequest?.driverProfileImage ?? ""
         
         userImage?.layer.cornerRadius = 25
         userImage?.clipsToBounds = true
-         
-        
-  
-        if let url = URL(string: str) {
+        userImage?.layer.borderWidth = 2
+        userImage?.layer.borderColor = UIColor(hexString: "#C837AB").cgColor
+        if(str.count > 0){
             
-            DispatchQueue.global().async { [weak self] in
-                       if let data = try? Data(contentsOf: url) {
-                           if let image = UIImage(data: data) {
-                               DispatchQueue.main.async {
-                                   self?.userImage.image = image
-                               }
-                           }
-                       }
-                   }
-               }
+            activityIndicator.startAnimating()
+                    
+            // Set up SDWebImage to load the image asynchronously
+            let imageUrl = URL(string: str)
+            if let imageUrl = URL(string: str) {
+                self.userImage.sd_setImage(with: imageUrl) { [weak self] (image, error, cacheType, url) in
+                    // Stop the activity indicator when the image loading is completed
+                    self?.activityIndicator.stopAnimating()
+                    
+                    if let error = error {
+                        print("Error loading image: \(error.localizedDescription)")
+                    }
+                }
+            }
+        }
     }
     @IBAction func onClickUserImageButton(_ sender: Any) {
-        coordinator?.goToProfileIMageView(url: viewModel.dictRequest?.driverProfileImage ?? "")
+        let str  = viewModel.dictRequest?.driverProfileImage ?? ""
+        if(str.count > 0){
+            coordinator?.goToProfileIMageView(url: viewModel.dictRequest?.driverProfileImage ?? "")
+        }
     }
     
     
-                                          
+    
     fileprivate func updateUI(){
         setupUI()
         
@@ -157,13 +169,13 @@ class TrackingViewController: BaseViewController,Storyboarded {
             self.confirmButton.isUserInteractionEnabled = true
             self.confirmButton.alpha = 1
         }
-
+        
         if(viewModel.dictRequest?.isRunning == true){
             self.getETA()
             
         }else{
-//            self.viewModel.infoArray[2].eta = "ETA: NA"
-//            self.viewModel.infoArray[2].color = "9CD4FC"
+            //            self.viewModel.infoArray[2].eta = "ETA: NA"
+            //            self.viewModel.infoArray[2].color = "9CD4FC"
             self.tblView.reloadData()
         }
     }
@@ -252,8 +264,6 @@ class TrackingViewController: BaseViewController,Storyboarded {
         coordinator?.goToPDFView()
     }
     
-    @IBAction func onClickDriverProfile(_ sender: Any) {
-    }
     @IBAction func moreButtonActrion(_ sender: Any) {
         let alertController = UIAlertController(title: "Booking Action", message: "", preferredStyle: .actionSheet)
         alertController.view.subviews.first?.subviews.first?.subviews.first?.backgroundColor = hexStringToUIColor("#F4CC9E")
@@ -277,7 +287,7 @@ class TrackingViewController: BaseViewController,Storyboarded {
                 
             }
             
-         
+            
         }
         let callDriver = UIAlertAction(title: "Call Driver", style: .default) { action in
             print("Call Driver")
