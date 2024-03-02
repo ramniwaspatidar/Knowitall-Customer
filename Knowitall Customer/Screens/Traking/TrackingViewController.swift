@@ -28,6 +28,9 @@ class TrackingViewController: BaseViewController,Storyboarded {
     @IBOutlet weak var vehicleNumber: UILabel!
     @IBOutlet weak var driverImageButton: UIButton!
     
+    @IBOutlet weak var headerView: UIView!
+    @IBOutlet weak var driverViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var driverView: UIView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     var timer : Timer?
     
@@ -113,34 +116,40 @@ class TrackingViewController: BaseViewController,Storyboarded {
         TrackingCell.registerWithTable(tblView)
         requestId.text = "\(viewModel.dictRequest?.reqDispId ?? "")"
         serviceLabel.text = "Service : \(viewModel.dictRequest?.typeOfService ?? "")"
-        
-        if let username = viewModel.dictRequest?.driverName{
-            userName.text = username
-            vehicleNumber.text = "(\(viewModel.dictRequest?.driverVehicleNumber ?? ""))"
-        }
-        let str  = viewModel.dictRequest?.driverProfileImage ?? ""
-        
-        userImage?.layer.cornerRadius = 25
-        userImage?.clipsToBounds = true
-        userImage?.layer.borderWidth = 2
-        userImage?.layer.borderColor = UIColor(hexString: "#C837AB").cgColor
-        if(str.count > 0){
-            
-            activityIndicator.startAnimating()
-                    
-            // Set up SDWebImage to load the image asynchronously
-            let imageUrl = URL(string: str)
-            if let imageUrl = URL(string: str) {
-                self.userImage.sd_setImage(with: imageUrl) { [weak self] (image, error, cacheType, url) in
-                    // Stop the activity indicator when the image loading is completed
-                    self?.activityIndicator.stopAnimating()
-                    
-                    if let error = error {
-                        print("Error loading image: \(error.localizedDescription)")
+        if (viewModel.dictRequest?.driverId) != nil{
+            driverView.isHidden = false
+            var frame = headerView.frame
+            frame.size.height = 160.0
+            headerView.frame = frame
+            if let username = viewModel.dictRequest?.driverName{
+                userName.text = username
+                vehicleNumber.text = "(\(viewModel.dictRequest?.driverVehicleNumber ?? ""))"
+            }
+            let str  = viewModel.dictRequest?.driverProfileImage ?? ""
+            userImage?.layer.cornerRadius = 25
+            userImage?.clipsToBounds = true
+            userImage?.layer.borderWidth = 2
+            userImage?.layer.borderColor = UIColor(hexString: "#C837AB").cgColor
+            if(str.count > 0){
+                activityIndicator.startAnimating()
+                if let imageUrl = URL(string: str) {
+                    self.userImage.sd_setImage(with: imageUrl) { [weak self] (image, error, cacheType, url) in
+                        // Stop the activity indicator when the image loading is completed
+                        self?.activityIndicator.stopAnimating()
+                        if let error = error {
+                            print("Error loading image: \(error.localizedDescription)")
+                        }
                     }
                 }
             }
         }
+        else{
+            driverView.isHidden = true
+            var frame = headerView.frame
+            frame.size.height = 90.0
+            headerView.frame = frame
+        }
+
     }
     @IBAction func onClickUserImageButton(_ sender: Any) {
         let str  = viewModel.dictRequest?.driverProfileImage ?? ""

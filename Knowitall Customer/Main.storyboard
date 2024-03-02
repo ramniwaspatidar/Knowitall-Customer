@@ -1568,7 +1568,10 @@ Need a Tow?</string>
                         <outlet property="confirmButton" destination="iOM-Ig-M8X" id="XY1-us-Da8"/>
                         <outlet property="dotButton" destination="hmZ-Av-j2w" id="BWr-ak-2ZG"/>
                         <outlet property="dotHeight" destination="nQg-oB-4Dj" id="ds2-vm-PEl"/>
+                        <outlet property="driverView" destination="vWo-tT-zDo" id="04l-YS-mRs"/>
+                        <outlet property="driverViewHeightConstraint" destination="Ijm-0z-tDQ" id="pZ9-C1-8Tx"/>
                         <outlet property="footerView" destination="97N-Pc-NP1" id="sMc-fa-vmF"/>
+                        <outlet property="headerView" destination="ymv-s8-zFN" id="Sru-3t-3I4"/>
                         <outlet property="infoButton" destination="MvC-g1-x78" id="P5G-xB-B7N"/>
                         <outlet property="requestId" destination="SDb-cW-3Rj" id="EIa-dI-ybw"/>
                         <outlet property="serviceLabel" destination="vej-cO-KBj" id="7Sm-Ig-Hnx"/>
@@ -2863,10 +2866,10 @@ Need a Tow?</string>
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemMintColor">
-            <color red="0.0" green="0.7803921568627451" blue="0.74509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.78039215689999997" blue="0.74509803919999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemPurpleColor">
-            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
