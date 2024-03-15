@@ -15,7 +15,7 @@ public enum Environment: String {
         case .Staging: return "https://r6g753nsac.execute-api.us-east-1.amazonaws.com/dev/"
         case .Production: return "https://r6g753nsac.execute-api.us-east-1.amazonaws.com/dev/"
         case .StagingV2 : return "https://r6g753nsac.execute-api.us-east-1.amazonaws.com/dev/"
-//            
+            
 //        case .Staging: return "https://ul7g3vvzwi.execute-api.us-east-1.amazonaws.com/prod/"
 //        case .Production: return "https://ul7g3vvzwi.execute-api.us-east-1.amazonaws.com/prod/"
 //        case .StagingV2 : return "https://ul7g3vvzwi.execute-api.us-east-1.amazonaws.com/prod/"

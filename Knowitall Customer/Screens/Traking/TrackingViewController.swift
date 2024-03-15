@@ -202,6 +202,7 @@ class TrackingViewController: BaseViewController,Storyboarded {
         if(driverlat == 0 && driverlng == 0){
             self.viewModel.infoArray[2].eta = "ETA: NA"
             self.viewModel.infoArray[2].color = "9CD4FC"
+            self.tblView.reloadData()
         }
         else{
             

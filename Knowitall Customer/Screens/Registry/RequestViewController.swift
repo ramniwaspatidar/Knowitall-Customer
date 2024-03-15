@@ -25,7 +25,7 @@ class RequestViewController: BaseViewController,Storyboarded, RTCustomAlertDeleg
     var mobile: CustomTextField!
     var alertTag = 0
     
-    fileprivate let typeOfService = ["Accident","Battery","Fuel","Tow","Lockout","Winch","Flat Tire","Other"]
+    fileprivate let typeOfService = ["Accident","Battery","Fuel/Gas","Repair","Tow","Lockout","Winch","Flat Tire","Other"]
     
     enum SignupCellType : Int{
         case username = 0
