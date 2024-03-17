@@ -16,7 +16,9 @@ class ArrivalViewControoler: BaseViewController,Storyboarded {
     @IBOutlet weak var bgView: UIView!
     @IBOutlet weak var animationView: UIView!
     @IBOutlet weak var confirmView: UIView!
+    @IBOutlet weak var headingText: UILabel!
     
+    @IBOutlet weak var headingTextHeight: NSLayoutConstraint!
     var dictRequest : RequestListModal?
     var arrivalCode : String = ""
     
@@ -34,6 +36,18 @@ class ArrivalViewControoler: BaseViewController,Storyboarded {
         bgView.isHidden = true
         animationView.isHidden = true
         confirmView.isHidden = true
+        
+        
+        var  address = ""
+        
+        if((self.dictRequest?.latitude) != nil){
+            address =  "Please confirm your destination address and input the Verification Code from the driver. Onces received, enter the code to proceed. \n\n" +  "Address: \(self.dictRequest?.destinationAdd?.address ?? "") \(self.dictRequest?.destinationAdd?.address1 ?? ""), \(self.dictRequest?.destinationAdd?.city ?? ""), \(self.dictRequest?.destinationAdd?.state ?? ""), \(self.dictRequest?.destinationAdd?.country ?? "") - \(self.dictRequest?.destinationAdd?.postalCode ?? "")"
+            headingTextHeight.constant = 250
+        }else{
+            address = "Ask the Driver for the Arrival Code and enter to confirm please."
+        }
+        
+        headingText.text = address
         
         
     }

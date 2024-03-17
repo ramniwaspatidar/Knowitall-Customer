@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -1659,6 +1659,57 @@ Need a Tow?</string>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ONH-ap-HTh">
                                 <rect key="frame" x="0.0" y="120" width="320" height="448"/>
                                 <subviews>
+                                    <view alpha="0.89999997615814209" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="flD-8U-tKj">
+                                        <rect key="frame" x="20" y="0.0" width="280" height="100"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IMPORTANT WARNING !" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xTL-tL-DZx">
+                                                <rect key="frame" x="20" y="10" width="240" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="ja1-Ek-EzA"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="ReggaeOne-Regular" family="Reggae One" pointSize="22"/>
+                                                <color key="textColor" red="1" green="0.0" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please click to show BPD Officer " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s96-vb-F6U">
+                                                <rect key="frame" x="20" y="48" width="240" height="24"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="24" id="WKf-Wg-w4a"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="20"/>
+                                                <color key="textColor" red="0.96862745100000003" green="0.83921568629999999" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cwS-ag-lsr">
+                                                <rect key="frame" x="20" y="81" width="240" height="3"/>
+                                                <color key="backgroundColor" red="1" green="0.0" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="3" id="0Z5-qk-rDV"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="ReggaeOne-Regular" family="Reggae One" pointSize="22"/>
+                                                <color key="textColor" red="1" green="0.0" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="cwS-ag-lsr" firstAttribute="leading" secondItem="flD-8U-tKj" secondAttribute="leading" constant="20" id="7O9-L9-dCa"/>
+                                            <constraint firstItem="cwS-ag-lsr" firstAttribute="top" secondItem="s96-vb-F6U" secondAttribute="bottom" constant="9" id="Z7N-O3-9eA"/>
+                                            <constraint firstItem="s96-vb-F6U" firstAttribute="leading" secondItem="flD-8U-tKj" secondAttribute="leading" constant="20" id="dCy-ql-lke"/>
+                                            <constraint firstAttribute="trailing" secondItem="xTL-tL-DZx" secondAttribute="trailing" constant="20" id="fYK-FQ-aSe"/>
+                                            <constraint firstItem="xTL-tL-DZx" firstAttribute="top" secondItem="flD-8U-tKj" secondAttribute="top" constant="10" id="gv3-hD-amx"/>
+                                            <constraint firstAttribute="trailing" secondItem="cwS-ag-lsr" secondAttribute="trailing" constant="20" id="hn6-F3-IqA"/>
+                                            <constraint firstItem="s96-vb-F6U" firstAttribute="top" secondItem="xTL-tL-DZx" secondAttribute="bottom" constant="8" id="jKu-oq-LkX"/>
+                                            <constraint firstAttribute="height" constant="100" id="ni7-fU-W3K"/>
+                                            <constraint firstAttribute="trailing" secondItem="s96-vb-F6U" secondAttribute="trailing" constant="20" id="qGA-21-96G"/>
+                                            <constraint firstItem="xTL-tL-DZx" firstAttribute="leading" secondItem="flD-8U-tKj" secondAttribute="leading" constant="20" id="sBx-Ba-iRv"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="12"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HD1-gD-yqI">
                                         <rect key="frame" x="15" y="120" width="290" height="328"/>
                                         <subviews>
@@ -1712,57 +1763,6 @@ Need a Tow?</string>
                                             <constraint firstAttribute="trailing" secondItem="net-PK-ydd" secondAttribute="trailing" constant="20" id="nU0-oh-8fZ"/>
                                             <constraint firstItem="net-PK-ydd" firstAttribute="top" secondItem="CZj-m0-lE0" secondAttribute="bottom" constant="10" id="y8J-y8-MHi"/>
                                             <constraint firstItem="net-PK-ydd" firstAttribute="leading" secondItem="HD1-gD-yqI" secondAttribute="leading" constant="20" id="yHc-nc-5j8"/>
-                                        </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="12"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </view>
-                                    <view alpha="0.89999997615814209" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="flD-8U-tKj">
-                                        <rect key="frame" x="20" y="0.0" width="280" height="100"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IMPORTANT WARNING !" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xTL-tL-DZx">
-                                                <rect key="frame" x="20" y="10" width="240" height="30"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="ja1-Ek-EzA"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="ReggaeOne-Regular" family="Reggae One" pointSize="22"/>
-                                                <color key="textColor" red="1" green="0.0" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please click to show BPD Officer " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s96-vb-F6U">
-                                                <rect key="frame" x="20" y="48" width="240" height="24"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="24" id="WKf-Wg-w4a"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="20"/>
-                                                <color key="textColor" red="0.96862745100000003" green="0.83921568629999999" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cwS-ag-lsr">
-                                                <rect key="frame" x="20" y="81" width="240" height="3"/>
-                                                <color key="backgroundColor" red="1" green="0.0" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="3" id="0Z5-qk-rDV"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="ReggaeOne-Regular" family="Reggae One" pointSize="22"/>
-                                                <color key="textColor" red="1" green="0.0" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstItem="cwS-ag-lsr" firstAttribute="leading" secondItem="flD-8U-tKj" secondAttribute="leading" constant="20" id="7O9-L9-dCa"/>
-                                            <constraint firstItem="cwS-ag-lsr" firstAttribute="top" secondItem="s96-vb-F6U" secondAttribute="bottom" constant="9" id="Z7N-O3-9eA"/>
-                                            <constraint firstItem="s96-vb-F6U" firstAttribute="leading" secondItem="flD-8U-tKj" secondAttribute="leading" constant="20" id="dCy-ql-lke"/>
-                                            <constraint firstAttribute="trailing" secondItem="xTL-tL-DZx" secondAttribute="trailing" constant="20" id="fYK-FQ-aSe"/>
-                                            <constraint firstItem="xTL-tL-DZx" firstAttribute="top" secondItem="flD-8U-tKj" secondAttribute="top" constant="10" id="gv3-hD-amx"/>
-                                            <constraint firstAttribute="trailing" secondItem="cwS-ag-lsr" secondAttribute="trailing" constant="20" id="hn6-F3-IqA"/>
-                                            <constraint firstItem="s96-vb-F6U" firstAttribute="top" secondItem="xTL-tL-DZx" secondAttribute="bottom" constant="8" id="jKu-oq-LkX"/>
-                                            <constraint firstAttribute="height" constant="100" id="ni7-fU-W3K"/>
-                                            <constraint firstAttribute="trailing" secondItem="s96-vb-F6U" secondAttribute="trailing" constant="20" id="qGA-21-96G"/>
-                                            <constraint firstItem="xTL-tL-DZx" firstAttribute="leading" secondItem="flD-8U-tKj" secondAttribute="leading" constant="20" id="sBx-Ba-iRv"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -1897,6 +1897,8 @@ Need a Tow?</string>
                         <outlet property="arrivalButton" destination="HD1-gD-yqI" id="Y5Q-gg-giG"/>
                         <outlet property="bgView" destination="L1Q-yj-fwO" id="HdF-ua-0dj"/>
                         <outlet property="confirmView" destination="C1T-Kp-V6A" id="gab-dN-she"/>
+                        <outlet property="headingText" destination="CZj-m0-lE0" id="Svt-Tk-9s2"/>
+                        <outlet property="headingTextHeight" destination="Xj0-fN-VQo" id="DRh-XI-wd8"/>
                         <outlet property="otpTextFieldView" destination="net-PK-ydd" id="V1w-sI-amZ"/>
                         <outlet property="otpView" destination="ONH-ap-HTh" id="XfO-2y-nAt"/>
                     </connections>

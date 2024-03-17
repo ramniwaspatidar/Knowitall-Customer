@@ -42,7 +42,8 @@ struct RequestListModal : Mappable {
     var driverProfileImage : String?
     var driverName : String?
     var driverVehicleNumber : String?
-    
+    var destinationAdd : DestinationAdd?
+
 
 
 
@@ -86,6 +87,7 @@ struct RequestListModal : Mappable {
         driverProfileImage <- map["driverProfileImage"]
         driverName <- map ["driverName"]
         driverVehicleNumber <- map ["driverVehicleNumber"]
+        destinationAdd <- map ["destinationAdd"]
     }
 }
 
@@ -101,6 +103,39 @@ struct DeclineDrivers : Mappable {
     mutating func mapping(map: Map) {
         driverId <- map["driverId"]
         date <- map["date"]
+    }
+}
+
+struct DestinationAdd : Mappable {
+    
+    var  address : String?
+    var address1 : String?
+    var city : String?
+    var country : String?
+    var landmark : String?
+    var latitude : String?
+    var longitude : String?
+    var postalCode : String?
+    var state : String?
+
+
+
+    
+    init?(map: Map) {
+        
+    }
+    
+    mutating func mapping(map: Map) {
+        address <- map["address"]
+        address1 <- map["address1"]
+        city <- map["city"]
+        country <- map["country"]
+        landmark <- map["landmark"]
+        latitude <- map["latitude"]
+        longitude <- map["longitude"]
+        postalCode <- map["postalCode"]
+        state <- map["state"]
+
     }
 }
 
