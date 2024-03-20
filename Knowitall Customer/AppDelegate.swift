@@ -6,6 +6,7 @@ import FirebaseMessaging
 import SideMenu
 import IQKeyboardManagerSwift
 import AppsFlyerLib
+import ObjectMapper
 
 protocol locationDelegateProtocol {
     func getUserCurrentLocation()
@@ -23,8 +24,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         AppsFlyerLib.shared().start()
     }
     
+    func getUserData() {
+        guard let url = URL(string: Configuration().environment.baseURL + APIsEndPoints.kGetMe.rawValue) else {return}
+        NetworkManager.shared.getRequest(url, false, "", networkHandler: {(responce,statusCode) in
+            print(responce)
+            APIHelper.parseObject(responce, true) { payload, status, message, code in
+                if status {
+                    let dictResponce =  Mapper<ProfileResponseModel>().map(JSON: payload)
+                    CurrentUserInfo.userId = dictResponce?.customerId
+                    CurrentUserInfo.userName  = dictResponce?.name
+                    CurrentUserInfo.email  = dictResponce?.email
+                    CurrentUserInfo.serviceList = dictResponce?.serviceList ?? []
+                }
+            }
+        })
+    }
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
         AppsFlyerLib.shared().appsFlyerDevKey = "TRhhpejLoKpVVJWvUcTUy3"
         AppsFlyerLib.shared().appleAppID = "6476615478"
         
@@ -69,6 +85,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     
     func applicationDidBecomeActive(_ application: UIApplication) {
         AppsFlyerLib.shared().start()
+        if CurrentUserInfo.userId != nil  && Auth.auth().currentUser != nil {
+            getUserData()
+        }
     }
     
     fileprivate func tabbarSetting(){

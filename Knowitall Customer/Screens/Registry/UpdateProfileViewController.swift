@@ -48,6 +48,7 @@ class UpdateProfileViewController: BaseViewController,Storyboarded {
             APIHelper.parseObject(responce, true) { payload, status, message, code in
                 if status {
                     self.viewModel.dictData =  Mapper<ProfileResponseModel>().map(JSON: payload)
+                    CurrentUserInfo.serviceList = self.viewModel.dictData?.serviceList ?? []
                     self.viewModel.infoArray = self.viewModel.prepareInfo(dictInfo: self.viewModel.dictData!)
                     self.UISetup()
                 }

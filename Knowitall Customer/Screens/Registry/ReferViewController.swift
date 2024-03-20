@@ -125,6 +125,7 @@ class ReferViewController: BaseViewController,Storyboarded {
             APIHelper.parseObject(responce, true) { payload, status, message, code in
                 if status {
                     self.dictData =  Mapper<ProfileResponseModel>().map(JSON: payload)
+                    CurrentUserInfo.serviceList = self.dictData?.serviceList ?? []
                     self.updateUI()
                 }
 //                    if(self.dictData?.inviteLink == nil){

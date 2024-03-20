@@ -88,7 +88,6 @@ class OTPViewController: BaseViewController,Storyboarded {
         }
     }
     
-        
     func getUserData() {
         guard let url = URL(string: Configuration().environment.baseURL + APIsEndPoints.kGetMe.rawValue) else {return}
         NetworkManager.shared.getRequest(url, true, "", networkHandler: {(responce,statusCode) in
@@ -96,12 +95,11 @@ class OTPViewController: BaseViewController,Storyboarded {
             APIHelper.parseObject(responce, true) { payload, status, message, code in
                 if status {
                     let dictResponce =  Mapper<ProfileResponseModel>().map(JSON: payload)
-                    
                     CurrentUserInfo.userId = dictResponce?.customerId
                     CurrentUserInfo.phone = self.mobileNumber
                     CurrentUserInfo.userName  = dictResponce?.name
                     CurrentUserInfo.email  = dictResponce?.email
-
+                    CurrentUserInfo.serviceList = dictResponce?.serviceList ?? []
                     let appDelegate = UIApplication.shared.delegate as? AppDelegate
                     appDelegate?.autoLogin()
                 }
@@ -115,8 +113,6 @@ class OTPViewController: BaseViewController,Storyboarded {
             }
         })
     }
-
-    
 }
 
 extension OTPViewController: OTPFieldViewDelegate {

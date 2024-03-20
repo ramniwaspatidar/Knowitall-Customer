@@ -22,7 +22,7 @@ struct ProfileResponseModel : Mappable {
     var inviteLink : String?
     var totalReferral : Int?
     var totalJobDoneByReferral : Int?
-
+    var serviceList : [String] = []
 
     init?(map: Map) {
 
@@ -50,9 +50,7 @@ struct ProfileResponseModel : Mappable {
         inviteLink <- map["inviteLink"]
         totalReferral <- map["totalReferral"]
         totalJobDoneByReferral <- map["totalJobDoneByReferral"]
-        
-
-        
+        serviceList <- map["serviceList"]
     }
 }
 
@@ -99,8 +97,6 @@ struct ProfileInfoModel{
 
     }
 }
-
-
 
 class ProfileViewModel {
     var dictInfo = [String : String]()

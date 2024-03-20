@@ -121,8 +121,9 @@ class NetworkManager {
             #endif
             let session = URLSession.shared
             let task = session.dataTask(with: request, completionHandler: { data, response, error -> Void in
-                SVProgressHUD.dismiss()
-               
+                if(hude == true){
+                    SVProgressHUD.dismiss()
+                }
                 if error != nil {
                     print("Error occurred: "+(error?.localizedDescription)!)
                     DispatchQueue.main.async {
@@ -141,7 +142,6 @@ class NetworkManager {
                                     if(action == 1){
                                         do{
                                             try Auth.auth().signOut()
-                                            
                                             Messaging.messaging().unsubscribe(fromTopic: CurrentUserInfo.userId) { error in
                                                 if let error = error {
                                                     print("Error unsubscribing from topic: \(error.localizedDescription)")

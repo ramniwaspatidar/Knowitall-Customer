@@ -24,10 +24,8 @@ final class CurrentUserInfo {
         case lastName
         case profileUrl
         case masterData
+        case serviceList
     }
-    
-    
- 
     
     static var userName: String! {
         get {
@@ -356,4 +354,13 @@ final class CurrentUserInfo {
               }
           }
       }
+    
+    static var serviceList: [String] {
+            get {
+                return UserDefaults.standard.stringArray(forKey: UserInfo.serviceList.rawValue) ?? []
+            }
+            set {
+                UserDefaults.standard.set(newValue, forKey: UserInfo.serviceList.rawValue)
+            }
+        }
 }
