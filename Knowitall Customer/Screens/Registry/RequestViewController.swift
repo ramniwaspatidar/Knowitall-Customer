@@ -75,9 +75,9 @@ class RequestViewController: BaseViewController,Storyboarded, RTCustomAlertDeleg
         }
         SigninCell.registerWithTable(tblView)
         viewModel.infoArray = (self.viewModel.prepareInfo(dictInfo: viewModel.dictInfo))
-        self.addressLabel.text = viewModel.addressInfo?[6].value
+        self.addressLabel.text = viewModel.addressInfo?[5].value
         
-        if(viewModel.addressInfo?[6].value == "" || viewModel.addressInfo?[6].value == nil){
+        if(viewModel.addressInfo?[5].value == "" || viewModel.addressInfo?[5].value == nil){
             editAddressButton.isHidden = true
         }else{
             editAddressButton.isHidden = false
@@ -116,9 +116,9 @@ class RequestViewController: BaseViewController,Storyboarded, RTCustomAlertDeleg
     func addressChangeAction(infoArray: [AddressTypeModel]) {
         self.viewModel.addressInfo = infoArray
         self.editAddressButton.isHidden = true
-        self.addressLabel.text = infoArray[6].value
+        self.addressLabel.text = infoArray[5].value
         
-        if(viewModel.addressInfo?[6].value == "" || viewModel.addressInfo?[6].value == nil){
+        if(viewModel.addressInfo?[5].value == "" || viewModel.addressInfo?[5].value == nil){
             editAddressButton.isHidden = true
         }else{
             editAddressButton.isHidden = false
@@ -164,12 +164,11 @@ class RequestViewController: BaseViewController,Storyboarded, RTCustomAlertDeleg
                 dictParam["latitude"] = lat.doubleValue
                 dictParam["longitude"] = lng.doubleValue
                 dictParam["address"] = self.viewModel.addressInfo?[0].value ?? ""
-                dictParam["address1"] = self.viewModel.addressInfo?[1].value ?? ""
-                dictParam["city"] = self.viewModel.addressInfo?[2].value
-                dictParam["state"] = self.viewModel.addressInfo?[3].value
-                dictParam["postalCode"] = self.viewModel.addressInfo?[4].value
-                dictParam["country"] =  self.viewModel.addressInfo?[5].value
-                dictParam["landMark"] =  self.viewModel.addressInfo?[7].value
+                dictParam["city"] = self.viewModel.addressInfo?[1].value
+                dictParam["state"] = self.viewModel.addressInfo?[2].value
+                dictParam["postalCode"] = self.viewModel.addressInfo?[3].value
+                dictParam["country"] =  self.viewModel.addressInfo?[4].value
+                dictParam["landMark"] =  self.viewModel.addressInfo?[6].value
 
                 
                 

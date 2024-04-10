@@ -24,7 +24,6 @@ class AddressViewController: BaseViewController,Storyboarded {
     @IBOutlet weak var mainBG: UIView!
     
     var addressField1: CustomTextField!
-    var addressField2: CustomTextField!
     var cityField: CustomTextField!
     var stateField: CustomTextField!
     var landMarkField: CustomTextField!
@@ -67,21 +66,12 @@ class AddressViewController: BaseViewController,Storyboarded {
     // SsetupUI
     fileprivate func setupUI(){
         SigninCell.registerWithTable(tblView)
-        landmarkTextView.text = self.viewModel.infoArray[7].value != "" ? self.viewModel.infoArray[7].value : "Type..."
+        landmarkTextView.text = self.viewModel.infoArray[6].value != "" ? self.viewModel.infoArray[6].value : "Type..."
         landmarkTextView.textColor = .lightGray
-
-    }
-    
-    func stateActionButton() {
-        RPicker.selectOption(dataArray: typeOfService) { [weak self](str, selectedIndex) in
-            self?.viewModel.infoArray[3].value = str
-            self?.tblView.reloadData()
-        }
     }
     
     @IBAction func saveButtonAction(_ sender: Any) {
         addressField1.resignFirstResponder()
-        addressField2.resignFirstResponder()
         cityField.resignFirstResponder()
         stateField.resignFirstResponder()
         landmarkTextView.resignFirstResponder()
@@ -89,16 +79,15 @@ class AddressViewController: BaseViewController,Storyboarded {
         viewModel.validateFields(dataStore: viewModel.infoArray) { [self] (dict, msg, isSucess) in
             if isSucess {
                 
-                if(self.addressField1.text == "" && self.addressField2.text == ""){
+                if(self.addressField1.text == ""){
                     DispatchQueue.main.async {
-                        Alert(title: "", message: "Please enter either address1 or address2", vc: self)
+                        Alert(title: "", message: "Please enter address", vc: self)
                     }
                 }else{
                    
-                    viewModel.infoArray[6].value = ""
-    //                let values = viewModel.infoArray.map {$0.value}
+                    viewModel.infoArray[5].value = ""
                     var values = [String]()
-                    for i in 0..<6 {
+                    for i in 0..<5 {
                         var stringValue = viewModel.infoArray[i].value
                         if(stringValue != nil){
                             stringValue = stringValue.trimmingCharacters(in: .whitespacesAndNewlines.union(CharacterSet(charactersIn: ",")))
@@ -108,7 +97,7 @@ class AddressViewController: BaseViewController,Storyboarded {
                         }
                     }
                     let tempAddress  = values.joined(separator: (", "))
-                    viewModel.infoArray[6].value = tempAddress
+                    viewModel.infoArray[5].value = tempAddress
                     self.getLatLongfromAddress(tempAddress)
                 }
                 
@@ -185,7 +174,7 @@ class AddressViewController: BaseViewController,Storyboarded {
 // UITableViewDataSource
 extension AddressViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return 4
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -204,31 +193,24 @@ extension AddressViewController: UITableViewDataSource {
             addressField1.isUserInteractionEnabled = true
             
         case 1:
-            addressField2 = cell.textFiled
-            addressField2.delegate = self
-            addressField2.returnKeyType = .next
-            addressField2.keyboardType = .default
-            addressField2.text = viewModel.infoArray[1].value
-            
-        case 2:
             cityField = cell.textFiled
             cityField.delegate = self
             cityField.returnKeyType = .next
             cityField.keyboardType = .default
-            cityField.text = viewModel.infoArray[2].value
+            cityField.text = viewModel.infoArray[1].value
             
-        case 3:
+        case 2:
             stateField = cell.textFiled
             stateField.delegate = self
             stateField.returnKeyType = .next
             stateField.keyboardType = .default
-            stateField.text = viewModel.infoArray[3].value
+            stateField.text = viewModel.infoArray[2].value
             
-        case 4:
+        case 3:
             postalCodeField = cell.textFiled
             postalCodeField.delegate = self
             postalCodeField.returnKeyType = .next
-            postalCodeField.text = viewModel.infoArray[4].value
+            postalCodeField.text = viewModel.infoArray[3].value
             postalCodeField.keyboardType = .numberPad
         default:
             break
@@ -247,10 +229,7 @@ extension AddressViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
-        
-        //        if (indexPath.row == 3){
-        //            self.stateActionButton()
-        //        }
+
     }
 }
 
@@ -258,10 +237,6 @@ extension AddressViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool
     {
         if textField == addressField1{
-            addressField2.becomeFirstResponder()
-        }
-        
-        else if textField == addressField2{
             cityField.becomeFirstResponder()
         }
         else if textField == cityField{
@@ -302,7 +277,7 @@ extension AddressViewController: UITextViewDelegate {
         else{
             textView.textColor = UIColor.white
         }
-        self.viewModel.infoArray[7].value = textView.text
+        self.viewModel.infoArray[6].value = textView.text
     }
 }
 
