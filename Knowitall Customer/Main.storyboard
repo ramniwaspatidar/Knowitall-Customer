@@ -1604,15 +1604,15 @@ Need a Tow?</string>
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Xq-yG-lcP">
-                                        <rect key="frame" x="16" y="48" width="124" height="28"/>
+                                        <rect key="frame" x="16" y="48" width="60" height="28"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="124" id="EEq-UN-llv"/>
+                                            <constraint firstAttribute="width" constant="60" id="EEq-UN-llv"/>
                                             <constraint firstAttribute="height" constant="28" id="ItH-hK-8W6"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="Close AD (5 sec)"/>
+                                        <state key="normal" title="EXIT"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                 <integer key="value" value="14"/>
@@ -2307,7 +2307,7 @@ Need a Tow?</string>
                                 <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                             </imageView>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gZV-PF-5GD">
-                                <rect key="frame" x="0.0" y="154.66666666666669" width="430" height="777.33333333333326"/>
+                                <rect key="frame" x="0.0" y="154.33333333333331" width="430" height="777.66666666666674"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
@@ -2315,7 +2315,7 @@ Need a Tow?</string>
                                 </wkWebViewConfiguration>
                             </wkWebView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Terms &amp; Conditions" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U0f-UB-yae">
-                                <rect key="frame" x="10" y="119.00000000000001" width="410" height="25.666666666666671"/>
+                                <rect key="frame" x="10" y="118.99999999999999" width="410" height="25.333333333333329"/>
                                 <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>

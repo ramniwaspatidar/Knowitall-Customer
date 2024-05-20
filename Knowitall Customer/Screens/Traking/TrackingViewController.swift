@@ -209,7 +209,6 @@ class TrackingViewController: BaseViewController,Storyboarded {
                         adVideoView.isHidden = true
                         adImageView.isHidden = false
                         adImageView.image = image
-                        startAdCounterTimer()
                     } else {
                         startAdTimer()
                     }
@@ -238,8 +237,8 @@ class TrackingViewController: BaseViewController,Storyboarded {
                                 self.progressBar.setProgress(0.0, animated:true)
                             }else if(roundedProgress >= 1){
                                 self.progressBar.setProgress(1.0, animated:true)
-//                                adImageContainer.isHidden = true
-//                                startAdTimer()
+                                adImageContainer.isHidden = true
+                                startAdTimer()
                             }
                             else{
                                 self.progressBar.setProgress(roundedProgress, animated:true)
@@ -250,7 +249,6 @@ class TrackingViewController: BaseViewController,Storyboarded {
                     player1.play()
                     player1.isMuted = true
                     muteButton.isSelected = false
-                    startAdCounterTimer()
                     self.player = player1
                     self.playerLayer = playerLayer1
                     
@@ -277,25 +275,6 @@ class TrackingViewController: BaseViewController,Storyboarded {
         self.player = nil
         self.playerLayer = nil
         
-    }
-    
-    func startAdCounterTimer() {
-        adImageSkipButton.isUserInteractionEnabled = false
-        adImageSkipButton.setTitle("Close AD (5 sec)", for: UIControl.State.normal)
-        self.adCounter = 5  // Assuming you want to start the counter at 5 seconds.
-        self.ad5SecTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
-            guard let self = self else { return }
-            self.adCounter -= 1
-            
-            if self.adCounter == 0 {
-                self.ad5SecTimer?.invalidate()
-                self.ad5SecTimer = nil
-                self.adImageSkipButton.setTitle("Close AD", for: .normal)
-                self.adImageSkipButton.isUserInteractionEnabled = true
-            } else {
-                self.adImageSkipButton.setTitle("Close AD (\(self.adCounter) sec)", for: .normal)
-            }
-        }
     }
     
     fileprivate func setupUI(){
