@@ -11,7 +11,5 @@ public enum APIsEndPoints: String {
     case kGetMe = "customers/me"
     case kUploadImage = "customers/pre-signed-url?count=1"
     case kUpdateInviteLink  = "customers/update/invitelink"
-
-
-
+    case kgetAds = "customer/getAds"
 }

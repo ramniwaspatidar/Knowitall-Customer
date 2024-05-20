@@ -81,7 +81,15 @@ class MainCoordinator : Coordinator{
         else{
             navigationController.viewControllers = [vc]
         }
-        
+    }
+    
+    func goToTrackingViewWithConfirmCode(_ request : RequestListModal) {
+        let vc = TrackingViewController.instantiate()
+        vc.coordinator = self
+        vc.viewModel.dictRequest = request
+        vc.viewModel.requestId = request.requestId ?? ""
+        vc.viewModel.isMenu = false
+        navigationController.viewControllers = [vc]
     }
     
     func goToArrivalView(_ dictRequest : RequestListModal) {

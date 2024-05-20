@@ -30,7 +30,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ka8-SQ-TH8">
-                        <rect key="frame" x="80" y="10" width="224" height="40"/>
+                        <rect key="frame" x="64" y="10" width="240" height="40"/>
                         <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="16"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -43,7 +43,7 @@
                     <constraint firstItem="pTS-uc-sPI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="24" id="e1N-jy-cTm"/>
                     <constraint firstItem="Ka8-SQ-TH8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="fmV-Sk-kyb"/>
                     <constraint firstAttribute="bottom" secondItem="Ka8-SQ-TH8" secondAttribute="bottom" constant="10" id="k9q-Eg-Ffx"/>
-                    <constraint firstItem="Ka8-SQ-TH8" firstAttribute="leading" secondItem="pTS-uc-sPI" secondAttribute="trailing" constant="32" id="rqo-Rz-84Y"/>
+                    <constraint firstItem="Ka8-SQ-TH8" firstAttribute="leading" secondItem="pTS-uc-sPI" secondAttribute="trailing" constant="16" id="rqo-Rz-84Y"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

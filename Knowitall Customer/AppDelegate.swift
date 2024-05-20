@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     var locationManager : CLLocationManager?
     var currentLocation : CLLocation?
     var delegate: locationDelegateProtocol? = nil
+    var adsData: [String:Any] = [:]
     
     @objc func sendLaunch() {
         AppsFlyerLib.shared().start()
@@ -39,6 +40,75 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
             }
         })
     }
+    
+    func getRunningConfirmArrivalRequest() {
+        guard let url = URL(string: Configuration().environment.baseURL + APIsEndPoints.kRequestList.rawValue + "?isDriverArived=true") else {return}
+        NetworkManager.shared.getRequest(url, false, "", networkHandler: {(responce,statusCode) in
+            print(responce)
+            if(statusCode == 200){
+                let array =  Mapper<RequestListModal>().mapArray(JSONArray: responce["payload"] as! [[String : Any]])
+                if(array.count > 0){
+                    let request = array[0]
+                    self.coordinator?.goToTrackingViewWithConfirmCode(request)
+                }
+            }
+        })
+    }
+    
+    func getAds() {
+        guard let url = URL(string: Configuration().environment.baseURL + APIsEndPoints.kgetAds.rawValue) else {return}
+        NetworkManager.shared.getRequest(url, false, "", networkHandler: {(responce,statusCode) in
+            print(responce)
+            APIHelper.parseObject(responce, true) { payload, status, message, code in
+                if status {
+                    self.adsData = payload
+                    print(payload)
+                    self.saveAds(ads: self.adsData["ads"] as! [[String : Any]])
+                }
+            }
+        })
+    }
+    
+
+    func downloadAd(from url: URL, to destinationURL: URL, completion: @escaping (Bool) -> Void) {
+        let task = URLSession.shared.downloadTask(with: url) { tempURL, response, error in
+            guard let tempURL = tempURL, error == nil else {
+                print("Error downloading file: \(error?.localizedDescription ?? "Unknown error")")
+                completion(false)
+                return
+            }
+            do {
+                try FileManager.default.moveItem(at: tempURL, to: destinationURL)
+                print("File downloaded and moved to \(destinationURL.path)")
+                completion(true)
+            } catch {
+                print("Error moving file: \(error.localizedDescription)")
+                completion(false)
+            }
+        }
+        task.resume()
+    }
+
+    func saveAds(ads: [[String: Any]]) {
+        let tempDirectory = FileManager.default.temporaryDirectory
+
+        for ad in ads {
+            if let adUrlString = ad["adUrl"] as? String, let adUrl = URL(string: adUrlString), let adId = ad["adId"] as? String {
+                let extensionName = adUrl.pathExtension
+                let destinationURL = tempDirectory.appendingPathComponent("\(adId).\(extensionName)")
+                if FileManager.default.fileExists(atPath: destinationURL.path) {
+                    print("File already exists at \(destinationURL.path), skipping download.")
+                } else {
+                    downloadAd(from: adUrl, to: destinationURL) { success in
+                        if success {
+                            print("Downloaded and saved \(adId) to \(destinationURL.path)")
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         AppsFlyerLib.shared().appsFlyerDevKey = "TRhhpejLoKpVVJWvUcTUy3"
@@ -87,7 +157,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         AppsFlyerLib.shared().start()
         if CurrentUserInfo.userId != nil  && Auth.auth().currentUser != nil {
             getUserData()
+            getRunningConfirmArrivalRequest()
         }
+        getAds()
     }
     
     fileprivate func tabbarSetting(){
@@ -151,16 +223,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     public func signout(){
         do{
             try Auth.auth().signOut()
-            
-            Messaging.messaging().unsubscribe(fromTopic: CurrentUserInfo.userId) { error in
-                if let error = error {
-                    print("Error unsubscribing from topic: \(error.localizedDescription)")
-                } else {
-                    print("Successfully unsubscribed from topic!")
+            if(CurrentUserInfo.userId != nil){
+                Messaging.messaging().unsubscribe(fromTopic: CurrentUserInfo.userId) { error in
+                    if let error = error {
+                        print("Error unsubscribing from topic: \(error.localizedDescription)")
+                    } else {
+                        print("Successfully unsubscribed from topic!")
+                    }
                 }
             }
-            
-            
             
             CurrentUserInfo.email = nil
             CurrentUserInfo.phone = nil

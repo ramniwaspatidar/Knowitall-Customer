@@ -96,6 +96,7 @@
 		44162B2A2B4A8296000FE68B /* Location1.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 44162B292B4A8296000FE68B /* Location1.gpx */; };
 		BF5CEF172B7F800E00EB1F09 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BF5CEF162B7F800E00EB1F09 /* Settings.bundle */; };
 		BF76B0AF2B5964B6008E8FA6 /* PickerViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF76B0AB2B5964B6008E8FA6 /* PickerViewViewController.swift */; };
+		BF8393B42BCC43C1004F61A9 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = BF8393B32BCC43C1004F61A9 /* PrivacyInfo.xcprivacy */; };
 		BFC560162B63F7D500A3B47B /* Location2.gpx in Resources */ = {isa = PBXBuildFile; fileRef = BFC560152B63F7D500A3B47B /* Location2.gpx */; };
 		BFDE7F0F2B935D350031D308 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = BFDE7F0E2B935D350031D308 /* SDWebImage */; };
 		FB55BD5543547CD0FABC6DDA /* Pods_Knowitall_Customer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7044DB58AC35788CA84A8F5F /* Pods_Knowitall_Customer.framework */; };
@@ -196,6 +197,7 @@
 		BF5CEF132B7E890300EB1F09 /* Knowitall CustomerRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Knowitall CustomerRelease.entitlements"; sourceTree = "<group>"; };
 		BF5CEF162B7F800E00EB1F09 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		BF76B0AB2B5964B6008E8FA6 /* PickerViewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerViewViewController.swift; sourceTree = "<group>"; };
+		BF8393B32BCC43C1004F61A9 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		BFA17E952B4584DF00FED6BD /* Knowitall Customer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Knowitall Customer.entitlements"; sourceTree = "<group>"; };
 		BFC560152B63F7D500A3B47B /* Location2.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Location2.gpx; sourceTree = "<group>"; };
 		CE16F39A377B03A3EA92AFC3 /* Pods-Knowitall Customer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Knowitall Customer.release.xcconfig"; path = "Target Support Files/Pods-Knowitall Customer/Pods-Knowitall Customer.release.xcconfig"; sourceTree = "<group>"; };
@@ -293,6 +295,7 @@
 		1A55AB8A2B1847DE001AEEBF = {
 			isa = PBXGroup;
 			children = (
+				BF8393B32BCC43C1004F61A9 /* PrivacyInfo.xcprivacy */,
 				1A55AB952B1847DE001AEEBF /* Knowitall Customer */,
 				1A55AB942B1847DE001AEEBF /* Products */,
 				D0C39C768280004B8449CEAE /* Pods */,
@@ -578,6 +581,7 @@
 				1A9C8AA92B2CC122000B1E7F /* SettingCell.xib in Resources */,
 				44162B2A2B4A8296000FE68B /* Location1.gpx in Resources */,
 				1A55ABE72B184B0D001AEEBF /* SigninCell.xib in Resources */,
+				BF8393B42BCC43C1004F61A9 /* PrivacyInfo.xcprivacy in Resources */,
 				1A55ABA32B1847E0001AEEBF /* LaunchScreen.storyboard in Resources */,
 				1AD6374C2B2810D30076EAD3 /* ReggaeOne-Regular.ttf in Resources */,
 				1A69107B2B1A4039009ACD06 /* UserNameCell.xib in Resources */,
@@ -843,7 +847,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Knowitall Customer/Knowitall Customer.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1.7.01;
+				CURRENT_PROJECT_VERSION = 1.8.01;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = ZV498993S5;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -865,7 +869,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.7;
+				MARKETING_VERSION = 1.8;
 				PRODUCT_BUNDLE_IDENTIFIER = com.knowitall.customer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = KTACustomerDev;
@@ -886,7 +890,7 @@
 				CODE_SIGN_IDENTITY = "Apple Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1.7.01;
+				CURRENT_PROJECT_VERSION = 1.8.01;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = ZV498993S5;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -908,7 +912,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.7;
+				MARKETING_VERSION = 1.8;
 				PRODUCT_BUNDLE_IDENTIFIER = com.knowitall.customer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = KTACustomerDist;

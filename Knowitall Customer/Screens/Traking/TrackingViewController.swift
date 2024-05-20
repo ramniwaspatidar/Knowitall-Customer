@@ -7,6 +7,8 @@ import Firebase
 import CoreLocation
 import MapKit
 import SDWebImage
+import AVFoundation
+
 
 class TrackingViewController: BaseViewController,Storyboarded {
     
@@ -32,8 +34,37 @@ class TrackingViewController: BaseViewController,Storyboarded {
     @IBOutlet weak var driverViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var driverView: UIView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var adImageContainer: UIView!
+    @IBOutlet weak var adImageView: UIImageView!
+    
+    @IBOutlet weak var muteButton: UIButton!
+    @IBOutlet weak var adVideoView: UIView!
+    @IBOutlet weak var mediaView: UIView!
+    @IBOutlet weak var adImageSkipButton: UIButton!
+    @IBOutlet weak var progressBar: UIProgressView!
     var timer : Timer?
     
+    var adTimer: Timer?
+    var ad5SecTimer: Timer?
+    var adCounter = 5;
+    var currentAdIndex = 0
+    
+    // For video ad
+    var player: AVPlayer?
+    var playerLayer: AVPlayerLayer?
+    var timeObserverToken: Any?
+    
+    @IBAction func adImageSkipButton_Clicked(_ sender: Any) {
+        if(adImageContainer.isHidden == false){
+            adImageContainer.isHidden = true
+            stopAndReleasePlayer()
+        }
+        startAdTimer()
+    }
+    @IBAction func muteButton_Clicked(_ sender: Any) {
+        muteButton.isSelected = !muteButton.isSelected
+        self.player?.isMuted = !muteButton.isSelected
+    }
     
     var viewModel : TrackingViewModel = {
         let model = TrackingViewModel()
@@ -42,6 +73,8 @@ class TrackingViewController: BaseViewController,Storyboarded {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.adImageContainer.isHidden = true
+        
         if(viewModel.isMenu == false){
             self.setNavWithOutView(.menu )
         }else{
@@ -55,13 +88,24 @@ class TrackingViewController: BaseViewController,Storyboarded {
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
         tblView.addSubview(refreshControl)
         
-        
+        if(viewModel.dictRequest != nil && viewModel.dictRequest?.driverArrived == true && viewModel.dictRequest?.confirmArrival == false){
+            self.viewModel.infoArray.removeAll()
+            self.viewModel.infoArray = self.viewModel.prepareInfo()
+            self.updateUI()
+            coordinator?.goToArrivalView(viewModel.dictRequest!)
+        }
+        self.view.bringSubviewToFront(adImageContainer)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         self.timer?.invalidate()
         self.timer = nil
-        
+        if(self.player != nil){
+            player?.play()
+        }
+        else{
+            self.startAdTimer()
+        }
         self.viewModel.infoArray.removeAll()
         self.getRequestDetails(true)
     }
@@ -75,10 +119,12 @@ class TrackingViewController: BaseViewController,Storyboarded {
     override func viewDidDisappear(_ animated: Bool) {
         self.timer?.invalidate()
         self.timer = nil
+        self.adTimer?.invalidate()
+        self.adTimer = nil
     }
     
     func getRequestDetails(_ isLoading : Bool = true){
-        viewModel.getRequestData(APIsEndPoints.kGetCustor.rawValue + (viewModel.requestId )) { response, code in
+        viewModel.getRequestData(APIsEndPoints.kGetCustor.rawValue + (viewModel.requestId ), isLoading) { response, code in
             if (CurrentUserInfo.userId == response.customerId && response.requestId != nil){
                 self.viewModel.dictRequest = response
                 self.viewModel.infoArray.removeAll()
@@ -106,8 +152,150 @@ class TrackingViewController: BaseViewController,Storyboarded {
     
     func startTimer(){
         self.timer = Timer.scheduledTimer(withTimeInterval: 15, repeats: true, block: { _ in
-            self.getRequestDetails(false)
+            if(self.adImageContainer.isHidden == true){
+                self.getRequestDetails(true)
+            }
+            else{
+                self.getRequestDetails(false)
+            }
         })
+    }
+    
+    func startAdTimer() {
+        self.adTimer?.invalidate()
+        self.adTimer = nil
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate,
+              let adTimePeriod = appDelegate.adsData["adTimePeriod"] as? TimeInterval else {
+            return
+        }
+        self.adTimer = Timer.scheduledTimer(withTimeInterval: adTimePeriod, repeats: false) { [weak self] _ in
+            guard let self = self else { return }
+            // Retrieve and process the ad order string
+            guard let strOrder = appDelegate.adsData["adOrder"] as? String else {
+                return
+            }
+            // Convert the ad order string to an array of integers
+            let orders = strOrder.split(separator: ",").compactMap {
+                Int($0.trimmingCharacters(in: .whitespacesAndNewlines))
+            }
+            // Check if orders array is empty
+            if orders.isEmpty {
+                return
+            }
+            
+            // Check if the current ad index is within the bounds of the orders array
+            if self.currentAdIndex >= orders.count {
+                self.currentAdIndex = 0
+            }
+            
+            // Retrieve the ads array and find the current ad to display
+            if let ads = appDelegate.adsData["ads"] as? [[String: Any]], let adNumber = orders[safe:self.currentAdIndex], let ad = ads.first(where: { $0["adNumber"] as? Int == adNumber }) {
+                self.displayAd(ad)
+                self.currentAdIndex += 1
+            }
+        }
+    }
+
+    func displayAd(_ ad: [String:Any]) {
+        if let adType = ad["adType"] as? String,let adURL = ad["adUrl"] as? String, let adId = ad["adId"] as? String {
+            let extensionName = URL(string: adURL)?.pathExtension ?? ""
+            let destinationURL = FileManager.default.temporaryDirectory.appendingPathComponent("\(adId).\(extensionName)")
+            print(destinationURL)
+            if FileManager.default.fileExists(atPath: destinationURL.path) {
+                switch adType {
+                case "Image":
+                    if let image = UIImage(contentsOfFile: destinationURL.path) {
+                        adImageContainer.isHidden = false
+                        adVideoView.isHidden = true
+                        adImageView.isHidden = false
+                        adImageView.image = image
+                        startAdCounterTimer()
+                    } else {
+                        startAdTimer()
+                    }
+                case "Video":
+                    self.progressBar.setProgress(0.0, animated:true)
+                    adImageContainer.isHidden = false
+                    adVideoView.isHidden = false
+                    adImageView.isHidden = true
+                    print("destinationURL", destinationURL)
+                    let player1 = AVPlayer(url: URL(fileURLWithPath: destinationURL.path))
+                    let playerLayer1 = AVPlayerLayer(player: player1)
+                    playerLayer1.frame = mediaView.bounds
+                    playerLayer1.videoGravity = .resizeAspect
+                    mediaView.layer.sublayers?.forEach { $0.removeFromSuperlayer() } // Clean existing layers
+                    mediaView.layer.addSublayer(playerLayer1)
+                    let interval = CMTime(value: 1, timescale: 1)
+                    timeObserverToken = player1.addPeriodicTimeObserver(forInterval: interval, queue: DispatchQueue.main, using: { [self] (progressTime) in
+                        let seconds = CMTimeGetSeconds(progressTime)
+                        //lets move the slider thumb
+                        if let duration = self.player?.currentItem?.duration {
+                            let durationSeconds = CMTimeGetSeconds(duration)
+                            let progress = Float(seconds / durationSeconds)
+                            let roundedProgress = Float(String(format: "%.2f", progress)) ?? 0.0
+                            print("duration",roundedProgress)
+                            if(roundedProgress < 0){
+                                self.progressBar.setProgress(0.0, animated:true)
+                            }else if(roundedProgress >= 1){
+                                self.progressBar.setProgress(1.0, animated:true)
+//                                adImageContainer.isHidden = true
+//                                startAdTimer()
+                            }
+                            else{
+                                self.progressBar.setProgress(roundedProgress, animated:true)
+                            }
+                        }
+                    })
+                    
+                    player1.play()
+                    player1.isMuted = true
+                    muteButton.isSelected = false
+                    startAdCounterTimer()
+                    self.player = player1
+                    self.playerLayer = playerLayer1
+                    
+                    break
+                default:
+                    break
+                }
+            }
+        }
+        
+
+    }
+    
+    func stopAndReleasePlayer() {
+        self.player?.pause()
+        
+        if let timeObserverToken = self.timeObserverToken {
+            self.player?.removeTimeObserver(timeObserverToken)
+            self.timeObserverToken = nil
+        }
+        
+        self.playerLayer?.removeFromSuperlayer()
+        
+        self.player = nil
+        self.playerLayer = nil
+        
+    }
+    
+    func startAdCounterTimer() {
+        adImageSkipButton.isUserInteractionEnabled = false
+        adImageSkipButton.setTitle("Close AD (5 sec)", for: UIControl.State.normal)
+        self.adCounter = 5  // Assuming you want to start the counter at 5 seconds.
+        self.ad5SecTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
+            guard let self = self else { return }
+            self.adCounter -= 1
+            
+            if self.adCounter == 0 {
+                self.ad5SecTimer?.invalidate()
+                self.ad5SecTimer = nil
+                self.adImageSkipButton.setTitle("Close AD", for: .normal)
+                self.adImageSkipButton.isUserInteractionEnabled = true
+            } else {
+                self.adImageSkipButton.setTitle("Close AD (\(self.adCounter) sec)", for: .normal)
+            }
+        }
     }
     
     fileprivate func setupUI(){
@@ -151,14 +339,13 @@ class TrackingViewController: BaseViewController,Storyboarded {
         }
 
     }
+    
     @IBAction func onClickUserImageButton(_ sender: Any) {
         let str  = viewModel.dictRequest?.driverProfileImage ?? ""
         if(str.count > 0){
             coordinator?.goToProfileIMageView(url: viewModel.dictRequest?.driverProfileImage ?? "")
         }
     }
-    
-    
     
     fileprivate func updateUI(){
         setupUI()
@@ -188,7 +375,6 @@ class TrackingViewController: BaseViewController,Storyboarded {
             self.tblView.reloadData()
         }
     }
-    
     
     func getETA(){
         
@@ -353,3 +539,8 @@ extension TrackingViewController: UITableViewDelegate {
 
 
 
+extension Array {
+    subscript(safe index: Int) -> Element? {
+        return indices.contains(index) ? self[index] : nil
+    }
+}
