@@ -51,5 +51,19 @@
 		<string>location</string>
 		<string>remote-notification</string>
 	</array>
+    <key>CFBundleURLTypes</key>
+    <array>
+      <dict>
+      <key>CFBundleURLSchemes</key>
+      <array>
+        <string>app-1-911959154257-ios-817c7a2fc4fe5fca502270</string>
+        <string>fb830812655848759</string>
+      </array>
+      </dict>
+    </array>
+    <key>FacebookAppID</key>
+    <string>830812655848759</string>
+    <key>FacebookDisplayName</key>
+    <string>Mr Know It All Towing</string>
 </dict>
 </plist>

@@ -79,7 +79,6 @@
 		1AA813922B45DC0800F83DDA /* PDFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA813912B45DC0800F83DDA /* PDFViewController.swift */; };
 		1AA813942B45DD7600F83DDA /* PTP.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 1AA813932B45DD7600F83DDA /* PTP.pdf */; };
 		1AB1AB142B8085E7001C124B /* ReferViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB1AB132B8085E7001C124B /* ReferViewController.swift */; };
-		1AB1AB172B80970B001C124B /* AppsFlyerLib-Static in Frameworks */ = {isa = PBXBuildFile; productRef = 1AB1AB162B80970B001C124B /* AppsFlyerLib-Static */; };
 		1AC834D52B3D372E00AD0CA6 /* RequestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC834D32B3D372E00AD0CA6 /* RequestCell.swift */; };
 		1AC834D62B3D372E00AD0CA6 /* RequestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AC834D42B3D372E00AD0CA6 /* RequestCell.xib */; };
 		1AC834D82B3D39C500AD0CA6 /* RequestListViewModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC834D72B3D39C500AD0CA6 /* RequestListViewModal.swift */; };
@@ -94,6 +93,7 @@
 		1AD6375C2B2AA1C40076EAD3 /* SideMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD6375B2B2AA1C40076EAD3 /* SideMenuTableViewController.swift */; };
 		1AD6375E2B2AA1D20076EAD3 /* PresentedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD6375D2B2AA1D20076EAD3 /* PresentedViewController.swift */; };
 		44162B2A2B4A8296000FE68B /* Location1.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 44162B292B4A8296000FE68B /* Location1.gpx */; };
+		88B702E02C881ED70025B085 /* AppsFlyerLib-Static in Frameworks */ = {isa = PBXBuildFile; productRef = 88B702DF2C881ED70025B085 /* AppsFlyerLib-Static */; };
 		BF5CEF172B7F800E00EB1F09 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BF5CEF162B7F800E00EB1F09 /* Settings.bundle */; };
 		BF76B0AF2B5964B6008E8FA6 /* PickerViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF76B0AB2B5964B6008E8FA6 /* PickerViewViewController.swift */; };
 		BF8393B42BCC43C1004F61A9 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = BF8393B32BCC43C1004F61A9 /* PrivacyInfo.xcprivacy */; };
@@ -209,8 +209,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				BFDE7F0F2B935D350031D308 /* SDWebImage in Frameworks */,
-				1AB1AB172B80970B001C124B /* AppsFlyerLib-Static in Frameworks */,
 				FB55BD5543547CD0FABC6DDA /* Pods_Knowitall_Customer.framework in Frameworks */,
+				88B702E02C881ED70025B085 /* AppsFlyerLib-Static in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -516,8 +516,8 @@
 			);
 			name = "Knowitall Customer";
 			packageProductDependencies = (
-				1AB1AB162B80970B001C124B /* AppsFlyerLib-Static */,
 				BFDE7F0E2B935D350031D308 /* SDWebImage */,
+				88B702DF2C881ED70025B085 /* AppsFlyerLib-Static */,
 			);
 			productName = "Knowitall Customer";
 			productReference = 1A55AB932B1847DE001AEEBF /* Knowitall Customer.app */;
@@ -548,8 +548,8 @@
 			);
 			mainGroup = 1A55AB8A2B1847DE001AEEBF;
 			packageReferences = (
-				1AB1AB152B80970B001C124B /* XCRemoteSwiftPackageReference "AppsFlyerFramework-Static" */,
 				BFDE7F0D2B935D350031D308 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				88B702DE2C881ED70025B085 /* XCRemoteSwiftPackageReference "AppsFlyerFramework-Static" */,
 			);
 			productRefGroup = 1A55AB942B1847DE001AEEBF /* Products */;
 			projectDirPath = "";
@@ -847,7 +847,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Knowitall Customer/Knowitall Customer.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1.9.01;
+				CURRENT_PROJECT_VERSION = 1.10.02;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = ZV498993S5;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -864,12 +864,12 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.9;
+				MARKETING_VERSION = 1.10;
 				PRODUCT_BUNDLE_IDENTIFIER = com.knowitall.customer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = KTACustomerDev;
@@ -890,7 +890,7 @@
 				CODE_SIGN_IDENTITY = "Apple Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1.9.01;
+				CURRENT_PROJECT_VERSION = 1.10.02;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = ZV498993S5;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -907,12 +907,12 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.9;
+				MARKETING_VERSION = 1.10;
 				PRODUCT_BUNDLE_IDENTIFIER = com.knowitall.customer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = KTACustomerDist;
@@ -947,12 +947,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		1AB1AB152B80970B001C124B /* XCRemoteSwiftPackageReference "AppsFlyerFramework-Static" */ = {
+		88B702DE2C881ED70025B085 /* XCRemoteSwiftPackageReference "AppsFlyerFramework-Static" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/AppsFlyerSDK/AppsFlyerFramework-Static";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 6.13.0;
+				kind = upToNextMinorVersion;
+				minimumVersion = 6.15.2;
 			};
 		};
 		BFDE7F0D2B935D350031D308 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
@@ -966,9 +966,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		1AB1AB162B80970B001C124B /* AppsFlyerLib-Static */ = {
+		88B702DF2C881ED70025B085 /* AppsFlyerLib-Static */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 1AB1AB152B80970B001C124B /* XCRemoteSwiftPackageReference "AppsFlyerFramework-Static" */;
+			package = 88B702DE2C881ED70025B085 /* XCRemoteSwiftPackageReference "AppsFlyerFramework-Static" */;
 			productName = "AppsFlyerLib-Static";
 		};
 		BFDE7F0E2B935D350031D308 /* SDWebImage */ = {

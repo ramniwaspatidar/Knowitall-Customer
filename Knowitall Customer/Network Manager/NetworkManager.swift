@@ -123,7 +123,9 @@ class NetworkManager {
             let session = URLSession.shared
             let task = session.dataTask(with: request, completionHandler: { data, response, error -> Void in
                 if(hude == true){
-                    SVProgressHUD.dismiss()
+                    DispatchQueue.main.async {
+                        SVProgressHUD.dismiss()
+                    }
                 }
                 if error != nil {
                     print("Error occurred: "+(error?.localizedDescription)!)
