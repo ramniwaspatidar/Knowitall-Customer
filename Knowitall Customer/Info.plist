@@ -5,24 +5,18 @@
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
-			<key>CFBundleTypeRole</key>
-			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
-			<array>
-				<string>com.googleusercontent.apps.911959154257-8ivd73jdrqrocdiqqv1a2vrp0p2hjmgd</string>
-			</array>
-		</dict>
-		<dict>
-			<key>CFBundleTypeRole</key>
-			<string>Editor</string>
-			<key>CFBundleURLName</key>
-			<string>com.knowitall.customer</string>
-			<key>CFBundleURLSchemes</key>
-			<array>
-				<string>towing</string>
-			</array>
+				<array>
+					<string>app-1-911959154257-ios-817c7a2fc4fe5fca502270</string>
+					<string>com.googleusercontent.apps.911959154257-8ivd73jdrqrocdiqqv1a2vrp0p2hjmgd</string>
+					<string>fb830812655848759</string>
+				</array>
 		</dict>
 	</array>
+	<key>FacebookAppID</key>
+	<string>830812655848759</string>
+	<key>FacebookDisplayName</key>
+	<string>Mr Know It All Towing</string>
 	<key>FirebaseAppDelegateProxyEnabled</key>
 	<false/>
 	<key>FirebaseAutomaticScreenReportingEnabled</key>
@@ -46,24 +40,27 @@
 		<string>Poppins-SemiBold.ttf</string>
 		<string>ReggaeOne-Regular.ttf</string>
 	</array>
-	<key>UIBackgroundModes</key>
-	<array>
-		<string>location</string>
-		<string>remote-notification</string>
-	</array>
-    <key>CFBundleURLTypes</key>
-    <array>
-      <dict>
-      <key>CFBundleURLSchemes</key>
-      <array>
-        <string>app-1-911959154257-ios-817c7a2fc4fe5fca502270</string>
-        <string>fb830812655848759</string>
-      </array>
-      </dict>
-    </array>
-    <key>FacebookAppID</key>
-    <string>830812655848759</string>
-    <key>FacebookDisplayName</key>
-    <string>Mr Know It All Towing</string>
-</dict>
+		<key>UIBackgroundModes</key>
+		<array>
+			<string>location</string>
+			<string>remote-notification</string>
+		</array>
+		<key>UIApplicationSceneManifest</key>
+		<dict>
+			<key>UIApplicationSupportsMultipleScenes</key>
+			<false/>
+			<key>UISceneConfigurations</key>
+			<dict>
+				<key>UIWindowSceneSessionRoleApplication</key>
+				<array>
+					<dict>
+						<key>UISceneConfigurationName</key>
+						<string>Default Configuration</string>
+						<key>UISceneDelegateClassName</key>
+						<string>$(PRODUCT_MODULE_NAME).SceneDelegate</string>
+						</dict>
+				</array>
+			</dict>
+		</dict>
+	</dict>
 </plist>

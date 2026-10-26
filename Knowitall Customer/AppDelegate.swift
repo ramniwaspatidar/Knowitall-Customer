@@ -120,8 +120,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         
         AppsFlyerLib.shared().appInviteOneLinkID = "fuwH"
         //
-        NotificationCenter.default.addObserver(self, selector: NSSelectorFromString("sendLaunch"), name: UIApplication.didBecomeActiveNotification, object: nil)
-        
         //        let branch: Branch = Branch.getInstance()
         //        branch.initSession(launchOptions: launchOptions, andRegisterDeepLinkHandler: {params, error in
         //            if error == nil {  // params are the deep linked params associated with the link that the user clicked -> was re-directed to this app
@@ -149,11 +147,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
             options: authOptions) { _, _ in }
         application.registerForRemoteNotifications()
         
-        autoLogin()
         return true
     }
     
-    func applicationDidBecomeActive(_ application: UIApplication) {
+    func sceneDidBecomeActive() {
         AppsFlyerLib.shared().start()
         if CurrentUserInfo.userId != nil  && Auth.auth().currentUser != nil {
             getUserData()
@@ -434,4 +431,3 @@ extension AppDelegate: AppsFlyerLibDelegate {
         }
     }
 }
-
